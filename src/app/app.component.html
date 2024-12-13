@@ -208,10 +208,12 @@
                               <select [(ngModel)]="weapon.weaponType" (change)="updateFilter()" [disabled]="!weapon.show">
                                 <option [value]="WeaponType.Bows">Bows</option>
                                 <option [value]="WeaponType.Crossbows">Crossbows</option>
+                                <option [value]="WeaponType.Focus">Focus</option>
                                 <option [value]="WeaponType.OneHandMaces">One Hand Maces</option>
                                 <option [value]="WeaponType.QuarterStaves">QuarterStaves</option>
                                 <option [value]="WeaponType.Quivers">Quivers</option>
                                 <option [value]="WeaponType.Sceptres">Sceptres</option>
+                                <option [value]="WeaponType.Shields">Shields</option>
                                 <option [value]="WeaponType.Staves">Staves</option>
                                 <option [value]="WeaponType.TwoHandMaces">Two Hand Maces</option>
                                 <option [value]="WeaponType.Wands">Wands</option>
@@ -376,8 +378,8 @@
 
     <div class="results block">
       <div class="row row-total row-justify-content-left">
-        <div class="warning">
-          <h2 class="warning-title">Warning! <strong>Unidentified Item Tiers</strong> are currently not supported!</h2>
+        <div class="info">
+          <h2 class="info-title">Warning! Unidentified <strong>Item Tiers</strong> are currently not supported!</h2>
           Hence, using 'Hide Normal And Rare Items' will currently hide Rare Items even of a higher tier.
           Therefore, <strong>after defeating a boss</strong> or rare monster, quickly <strong>check</strong> whether they dropped any Rare Item with a Tier.
         </div>
@@ -395,6 +397,23 @@
       <textarea class="filter-output">
 {{filterText}}
       </textarea>
+    </div>
+
+    <div class="results block last-block">
+      <div class="row row-total row-justify-content-left">
+        <div class="info">
+          <h2 class="info-title">How To Use This Filter</h2>
+          <ol>
+            <li>Download the filter file, and move it into the correct folder. For example on Windows this is <strong>%userprofile%\Documents\My Games\Path of Exile 2</strong>.
+              You can open the correct folder from the Game's Settings Menu (under 'Game').</li>
+            <li>Select the filter from the dropdown menu in the Game's Settings Menu (under 'Game'). The game will save it for future use, and load it on startup.</li>
+            <li>If you change your filter, download the file again and move it over the existing file. Make sure the file name is still correct; your browser might have appended (1) to the file name. Then click the 'Reload' button in the Game Menu.</li>
+            <li>The game will tell you when the filter was loaded correctly (or if it encountered a parsing error).</li>
+          </ol>
+          For more information and a thorough guide on the Path Of Exile and Path Of Exile 2 Item Filters,
+          check out the <a href="https://www.pathofexile.com/item-filter/about" target="_blank">official page</a>.
+        </div>
+      </div>
     </div>
 
     <div class="bottom">

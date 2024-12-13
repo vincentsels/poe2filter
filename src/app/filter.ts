@@ -46,12 +46,14 @@ export class WeaponFilter {
 export enum WeaponType {
   Bows = 'Bows',
   Crossbows = 'Crossbows',
-  OneHandMaces = 'OneHandMaces',
+  Focus = 'Focus',
+  OneHandMaces = 'One Hand Maces',
   Quivers = 'Quivers',
-  QuarterStaves = 'QuarterStaves',
+  QuarterStaves = 'Quarterstaves',
   Sceptres = 'Sceptres',
+  Shields = 'Shields',
   Staves = 'Staves',
-  TwoHandMaces = 'TwoHandMaces',
+  TwoHandMaces = 'Two Hand Maces',
   Wands = 'Wands',
 }
 

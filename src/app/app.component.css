@@ -27,16 +27,16 @@ select[disabled] {
   justify-content: left !important;
 }
 
-.output {
+.last-block {
   margin-bottom: 60px;
 }
 
-.warning {
+.info {
   padding: 8px 16px;
 }
 
-.warning-title {
-  margin-bottom: 4px;
+.info-title {
+  margin-bottom: 6px;
 }
 
 #trade {
