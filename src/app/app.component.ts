@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
       .replace('{filterShowRareJewellery}', this.filter.showRareJewellery ? filterShowRareJewellery.replace('{minRareJewelleryLevel}', (this.filter.hideJewelleryLowerThan || 60).toString()) : '')
       .replace('{filterShowOneSocket}', this.filter.showSocketedItems && this.filter.showSocketedItemsType === SocketedItemType.All ? filterShowOneSocket : '')
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
-      .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '0' : '10') : '')
+      .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '1' : '10') : '')
       .replace('{filterShowUltimateLifeFlasks}', this.filter.showUltimateLifeFlasks ? filterShowUltimateLifeFlasks.replace('{minFlaskQuality}', (this.filter.showUltimateLifeFlasksMinQuality || 10).toString()): '')
       .replace('{filterPreferredWeaponTypes}', weaponFilterText)
       .replace('{filterPreferredBodyArmour}', bodyArmourFilterText)
@@ -90,9 +90,9 @@ export class AppComponent implements OnInit {
 
   formatDefences(arm: number | null, es: number | null, eva: number | null): string {
     let defences = '';
-    if (arm) defences += '  BaseArmour >=' + arm + '\n';
-    if (es) defences += '  BaseEnergyShield >=' + es + '\n';
-    if (eva) defences += '  BaseEvasion >=' + eva + '\n';
+    if (arm) defences += '  BaseArmour >= ' + arm + '\n';
+    if (es) defences += '  BaseEnergyShield >= ' + es + '\n';
+    if (eva) defences += '  BaseEvasion >= ' + eva + '\n';
     return defences.trimEnd();
   }
 
