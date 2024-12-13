@@ -207,13 +207,14 @@
                             <div class="multiselect__tags">
                               <select [(ngModel)]="weapon.weaponType" (change)="updateFilter()" [disabled]="!weapon.show">
                                 <option [value]="WeaponType.Bows">Bows</option>
+                                <option [value]="WeaponType.Crossbows">Crossbows</option>
                                 <option [value]="WeaponType.OneHandMaces">One Hand Maces</option>
+                                <option [value]="WeaponType.QuarterStaves">QuarterStaves</option>
                                 <option [value]="WeaponType.Quivers">Quivers</option>
                                 <option [value]="WeaponType.Sceptres">Sceptres</option>
                                 <option [value]="WeaponType.Staves">Staves</option>
                                 <option [value]="WeaponType.TwoHandMaces">Two Hand Maces</option>
                                 <option [value]="WeaponType.Wands">Wands</option>
-                                <option [value]="WeaponType.QuarterStaves">QuarterStaves</option>
                               </select>
                             </div>
                           </div>
@@ -255,71 +256,83 @@
                     </div>
                     <div class="filter-group-body">
 
-                      <div class="filter full-span">
+                      <div class="filter full-span" [class.disabled]="!filter.showBodyArmour">
                         <span class="input-group-btn">
-                          <button  class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.showBodyArmour" (click)="toggleShowBodyArmour()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
                             <span>Body Armour</span>
                           </div>
                           <span class="sep"></span>
-                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [(ngModel)]="filter.showBodyArmourArm" (keydown)="filter.showBodyArmour = true;" (change)="updateFilter()">
                           <span class="sep"></span>
-                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [(ngModel)]="filter.showBodyArmourEs" (keydown)="filter.showBodyArmour = true;" (change)="updateFilter()">
                           <span class="sep"></span>
-                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [(ngModel)]="filter.showBodyArmourEva" (keydown)="filter.showBodyArmour = true;" (change)="updateFilter()">
                         </span>
                       </div>
 
-                      <div class="filter full-span">
+                      <div class="filter full-span" [class.disabled]="!filter.showHelmet">
                         <span class="input-group-btn">
-                          <button  class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.showHelmet" (click)="toggleShowHelmet()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
                             <span>Helmet</span>
                           </div>
                           <span class="sep"></span>
-                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                          [(ngModel)]="filter.showHelmetArm" (keydown)="filter.showHelmet = true;" (change)="updateFilter()">
                           <span class="sep"></span>
-                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                          [(ngModel)]="filter.showHelmetEs" (keydown)="filter.showHelmet = true;" (change)="updateFilter()">
                           <span class="sep"></span>
-                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                          [(ngModel)]="filter.showHelmetEva" (keydown)="filter.showHelmet = true;" (change)="updateFilter()">
                         </span>
                       </div>
 
-                      <div class="filter full-span">
+                      <div class="filter full-span" [class.disabled]="!filter.showGloves">
                         <span class="input-group-btn">
-                          <button  class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.showGloves" (click)="toggleShowGloves()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
                             <span>Gloves</span>
                           </div>
                           <span class="sep"></span>
-                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                          [(ngModel)]="filter.showGlovesArm" (keydown)="filter.showGloves = true;" (change)="updateFilter()">
                           <span class="sep"></span>
-                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                          [(ngModel)]="filter.showGlovesEs" (keydown)="filter.showGloves = true;" (change)="updateFilter()">
                           <span class="sep"></span>
-                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                          [(ngModel)]="filter.showGlovesEva" (keydown)="filter.showGloves = true;" (change)="updateFilter()">
                         </span>
                       </div>
 
-                      <div class="filter full-span">
+                      <div class="filter full-span" [class.disabled]="!filter.showBoots">
                         <span class="input-group-btn">
-                          <button  class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.showBoots" (click)="toggleShowBoots()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
                             <span>Boots</span>
                           </div>
                           <span class="sep"></span>
-                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [(ngModel)]="filter.showBootsArm" (keydown)="filter.showBoots = true;" (change)="updateFilter();">
                           <span class="sep"></span>
-                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [(ngModel)]="filter.showBootsEs" (keydown)="filter.showBoots = true;" (change)="updateFilter()">
                           <span class="sep"></span>
-                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [(ngModel)]="filter.showBootsEva" (keydown)="filter.showBoots = true;" (change)="updateFilter()">
                         </span>
                       </div>
 
@@ -343,7 +356,9 @@
                 </button>
               </div>
               <div class="controls-right">
-                <button type="button" class="btn clear-btn"><span>Clear</span></button>
+                <button type="button" class="btn clear-btn" (click)="clear()">
+                  <span>Clear</span>
+                </button>
                 <!-- <button type="button" class="btn toggle-search-btn">
                   <span alt="Toggle" class="chevron"></span>
                   <span>Hide Filters</span>

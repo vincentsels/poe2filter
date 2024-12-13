@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, QualityItemType, SocketedItemType, WeaponFilter, WeaponTier, WeaponType } from './filter';
-import { filterHideFlasks, filterHideNormalAndRareItems, filterHideLowJewellery, filterHideScrolls, filterShow2Sockets, filterShowRareJewellery, filterShowOneSocket, filterShowUltimateLifeFlasks, filterShowUnique, filterTemplate, filterShowQuality, filterPreferredWeaponType } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndRareItems, filterHideLowJewellery, filterHideScrolls, filterShow2Sockets, filterShowRareJewellery, filterShowOneSocket, filterShowUltimateLifeFlasks, filterShowUnique, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots } from './filter-template';
 import { FormsModule } from '@angular/forms';
+
+const LOCAL_STORAGE_KEY = 'filter-v1';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,8 @@ export class AppComponent implements OnInit {
   WeaponTier = WeaponTier;
 
   ngOnInit(): void {
+    const filterFromStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (filterFromStorage) this.filter = JSON.parse(filterFromStorage) as Filter;
     this.updateFilter();
   }
 
@@ -37,12 +41,32 @@ export class AppComponent implements OnInit {
   toggleShowWeapon = (index: number) => { this.filter.weaponFilters[index].show = !this.filter.weaponFilters[index].show; this.updateFilter(); }
   addWeaponType = () => { this.filter.weaponFilters.push(new WeaponFilter()); this.updateFilter(); }
 
+  toggleShowBodyArmour = () => { this.filter.showBodyArmour = !this.filter.showBodyArmour; this.updateFilter(); }
+  toggleShowHelmet = () => { this.filter.showHelmet = !this.filter.showHelmet; this.updateFilter(); }
+  toggleShowGloves = () => { this.filter.showGloves = !this.filter.showGloves; this.updateFilter(); }
+  toggleShowBoots = () => { this.filter.showBoots = !this.filter.showBoots; this.updateFilter(); }
+
   updateFilter() {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
       .replaceAll('{weaponType}', w.weaponType)
       .replaceAll('{tierType}', w.weaponTier === WeaponTier.ExpertOnly ? '\n  BaseType "Expert "' : w.weaponTier === WeaponTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
-    ).join(`
-`);
+    ).join('\n');
+
+    const bodyArmourFilterText =
+      this.filter.showBodyArmour && (this.filter.showBodyArmourArm || this.filter.showBodyArmourEs || this.filter.showBodyArmourEva)
+      ? filterPreferredBodyArmour.replace('{defences}', this.formatDefences(this.filter.showBodyArmourArm, this.filter.showBodyArmourEs, this.filter.showBodyArmourEva)) : '';
+
+    const helmetFilterText =
+      this.filter.showHelmet && (this.filter.showHelmetArm || this.filter.showHelmetEs || this.filter.showHelmetEva)
+      ? filterPreferredHelmet.replace('{defences}', this.formatDefences(this.filter.showHelmetArm, this.filter.showHelmetEs, this.filter.showHelmetEva)) : '';
+
+    const glovesFilterText =
+      this.filter.showGloves && (this.filter.showGlovesArm || this.filter.showGlovesEs || this.filter.showGlovesEva)
+      ? filterPreferredGloves.replace('{defences}', this.formatDefences(this.filter.showGlovesArm, this.filter.showGlovesEs, this.filter.showGlovesEva)) : '';
+
+    const bootsFilterText =
+      this.filter.showBoots && (this.filter.showBootsArm || this.filter.showBootsEs || this.filter.showBootsEva)
+      ? filterPreferredBoots.replace('{defences}', this.formatDefences(this.filter.showBootsArm, this.filter.showBootsEs, this.filter.showBootsEva)) : '';
 
     this.filterText = filterTemplate
       .replace('{filterHideFlasks}', this.filter.hideFlasks ? filterHideFlasks : '')
@@ -55,9 +79,22 @@ export class AppComponent implements OnInit {
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
       .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '0' : '10') : '')
       .replace('{filterShowUltimateLifeFlasks}', this.filter.showUltimateLifeFlasks ? filterShowUltimateLifeFlasks.replace('{minFlaskQuality}', (this.filter.showUltimateLifeFlasksMinQuality || 10).toString()): '')
-
       .replace('{filterPreferredWeaponTypes}', weaponFilterText)
-}
+      .replace('{filterPreferredBodyArmour}', bodyArmourFilterText)
+      .replace('{filterPreferredHelmet}', helmetFilterText)
+      .replace('{filterPreferredGloves}', glovesFilterText)
+      .replace('{filterPreferredBoots}', bootsFilterText);
+
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));
+  }
+
+  formatDefences(arm: number | null, es: number | null, eva: number | null): string {
+    let defences = '';
+    if (arm) defences += '  BaseArmour >=' + arm + '\n';
+    if (es) defences += '  BaseEnergyShield >=' + es + '\n';
+    if (eva) defences += '  BaseEvasion >=' + eva + '\n';
+    return defences.trimEnd();
+  }
 
   download() {
     var element = document.createElement('a');
@@ -70,5 +107,10 @@ export class AppComponent implements OnInit {
     element.click();
 
     document.body.removeChild(element);
+  }
+
+  clear() {
+    this.filter = new Filter();
+    this.updateFilter();
   }
 }

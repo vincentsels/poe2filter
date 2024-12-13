@@ -40,22 +40,28 @@ Show
   Rarity <= Magic
 `;
 
-export const filterPreferredArmourType =
+export const filterPreferredBodyArmour =
 `Show
   Class "Body Armour"
-  {bodyArmourDefences}
+{defences}
+`;
 
-Show
+export const filterPreferredHelmet =
+`Show
   Class "Helmet"
-  {helmetDefences}
+{defences}
+`;
 
-Show
+export const filterPreferredGloves =
+`Show
   Class "Gloves"
-  {glovesDefences}
+{defences}
+`;
 
-Show
-  Class "Gloves"
-  {bootsDefences}
+export const filterPreferredBoots =
+`Show
+  Class "Boots"
+{defences}
 `;
 
 export const filterHideScrolls =
@@ -109,7 +115,10 @@ export const filterTemplate =
 ##### Always show preferred armor types
 #######################################################
 
-{filterPreferredArmourTypes}
+{filterPreferredBodyArmour}
+{filterPreferredHelmet}
+{filterPreferredGloves}
+{filterPreferredBoots}
 
 #######################################################
 ##### Only quality flasks

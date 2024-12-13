@@ -14,9 +14,27 @@ export class Filter {
   showUltimateLifeFlasks = true;
   showUltimateLifeFlasksMinQuality = 10;
 
-  weaponFilters = [
-    new WeaponFilter(),
-  ]
+  weaponFilters: WeaponFilter[] = [];
+
+  showBodyArmour = false;
+  showBodyArmourArm: number | null = null;
+  showBodyArmourEs: number | null = null;
+  showBodyArmourEva: number | null = null;
+
+  showHelmet = false;
+  showHelmetArm: number | null = null;
+  showHelmetEs: number | null = null;
+  showHelmetEva: number | null = null;
+
+  showGloves = false;
+  showGlovesArm: number | null = null;
+  showGlovesEs: number | null = null;
+  showGlovesEva: number | null = null;
+
+  showBoots = false;
+  showBootsArm: number | null = null;
+  showBootsEs: number | null = null;
+  showBootsEva: number | null = null;
 }
 
 export class WeaponFilter {
@@ -27,13 +45,14 @@ export class WeaponFilter {
 
 export enum WeaponType {
   Bows = 'Bows',
+  Crossbows = 'Crossbows',
   OneHandMaces = 'OneHandMaces',
   Quivers = 'Quivers',
+  QuarterStaves = 'QuarterStaves',
   Sceptres = 'Sceptres',
   Staves = 'Staves',
   TwoHandMaces = 'TwoHandMaces',
   Wands = 'Wands',
-  QuarterStaves = 'QuarterStaves',
 }
 
 export enum WeaponTier {
