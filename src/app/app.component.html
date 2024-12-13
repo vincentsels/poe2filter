@@ -11,16 +11,6 @@
         </a>
       </div>
       <div id="trade" class="block">
-       <!-- <div>
-          <div class="toast-container toast-top-center"></div>
-          <div class="toast-container toast-bottom-center"></div>
-        </div>
-        <div class="loader" style="display: none;">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <button title="Back to Top" class="top-btn"></button> -->
         <div class="top">
           <div class="search-panel">
             <div class="search-bar search-advanced">
@@ -39,28 +29,28 @@
                     </div>
                     <div class="filter-group-body">
 
-                      <div class="filter filter-property full-span">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideFlasks">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideFlasks" (click)="toggleHideFlasks()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
                             Hide Flasks
                           </div>
-                          <span class="sep"></span>
+                          <!-- <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
                             <div class="multiselect__tags">
-                              <select>
+                              <select [disabled]="!filter.hideFlasks">
                                 <option value="All">All</option>
                               </select>
                             </div>
-                          </div>
+                          </div> -->
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideScrolls">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideScrolls" (click)="toggleHideScrolls()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
@@ -69,22 +59,23 @@
                         </span>
                       </div>
 
-                      <div class="filter full-span">
+                      <div class="filter full-span" [class.disabled]="!filter.hideJewellery">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideJewellery" (click)="toggleHideJewellery()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
                             <span>Hide Jewellery Lower Than</span>
                           </div>
                           <span class="sep"></span>
-                          <input value="60" type="number" placeholder="max" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" placeholder="max" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [disabled]="!filter.hideJewellery" [(ngModel)]="filter.hideJewelleryLowerThan" (change)="updateFilter()">
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideNormalAndRareItems">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideNormalAndRareItems" (click)="toggleHideNormalAndRareItems()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
@@ -92,28 +83,6 @@
                           </div>
                         </span>
                       </div>
-
-                      <!-- <div class="filter filter-property">
-                        <span class="filter-body">
-                          <div class="filter-title"> Item Level</div>
-                          <span class="sep"></span>
-                          <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="max" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
-                        </span>
-                      </div>
-
-                      <div class="filter filter-property spaced">
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Item Quality
-                          </div>
-                          <span class="sep"></span>
-                          <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="max" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
-                        </span>
-                      </div> -->
 
                     </div>
 
@@ -132,9 +101,9 @@
                     </div>
                     <div class="filter-group-body">
 
-                      <div class="filter filter-property full-span">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.showUniques">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.showUniques" (click)="toggleShowUniques()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
@@ -143,9 +112,9 @@
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.showRareJewellery">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.showRareJewellery" (click)="toggleShowRareJewellery()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
@@ -154,9 +123,9 @@
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.showSocketedItems">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.showSocketedItems" (click)="toggleShowSocketedItems()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
@@ -165,18 +134,18 @@
                           <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
                             <div class="multiselect__tags">
-                              <select>
-                                <option value="All">All</option>
-                                <option value="All">2 Sockets</option>
+                              <select [disabled]="!filter.showSocketedItems" [(ngModel)]="filter.showSocketedItemsType" (change)="updateFilter()">
+                                <option [value]="SocketedItemType.All">All</option>
+                                <option [value]="SocketedItemType.TwoOrMoreSockets">2 Sockets</option>
                               </select>
                             </div>
                           </div>
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.showQualityItems">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.showQualityItems" (click)="toggleShowQualityItems()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
@@ -185,25 +154,26 @@
                           <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
                             <div class="multiselect__tags">
-                              <select>
+                              <select [disabled]="!filter.showQualityItems" [(ngModel)]="filter.showQualityItemsType" (change)="updateFilter()">
                                 <option value="All">All</option>
-                                <option value="All">> 10 Quality</option>
+                                <option value="MinimumTenQuality">> 10 Quality</option>
                               </select>
                             </div>
                           </div>
                         </span>
                       </div>
 
-                      <div class="filter full-span">
+                      <div class="filter full-span" [class.disabled]="!filter.showUltimateLifeFlasks">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.showUltimateLifeFlasks" (click)="toggleShowUltimateLifeFlasks()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
                             <span>Show Quality Ultimate Life Flasks</span>
                           </div>
                           <span class="sep"></span>
-                          <input type="number" value="10" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input type="number" value="10" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [disabled]="!filter.showUltimateLifeFlasks"  [(ngModel)]="filter.showUltimateLifeFlasksMinQuality" (change)="updateFilter()">
                         </span>
                       </div>
                     </div>
@@ -383,19 +353,7 @@
       </div>
 
       <textarea class="filter-output">
-#######################################################
-##### Always show
-#######################################################
-
-Show
-  Rarity Unique
-  PlayEffect Brown
-  MinimapIcon 2 Brown Cross
-
-Show
-  Class "Amulet" "Ring" "Belt"
-    Rarity >= Magic
-    ItemLevel >= 60
+{{filterText}}
       </textarea>
     </div>
 
