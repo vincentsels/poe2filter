@@ -3,10 +3,9 @@ export class Filter {
   hideFlasksType = FlaskType.All;
   hideScrolls = true;
   hideJewellery = true;
-  hideJewelleryLowerThan = 60;
+  hideJewelleryOfRarity = JewelleryRarity.Normal;
   hideNormalAndMagicItems = true;
   showUniques = true;
-  showRareJewellery = true;
   showSocketedItems = true;
   showSocketedItemsType = SocketedItemType.All;
   showQualityItems = true;
@@ -76,4 +75,9 @@ export enum SocketedItemType {
 export enum QualityItemType {
   All = "All",
   MinimumTenQuality = "MinimumTenQuality",
+}
+
+export enum JewelleryRarity {
+  Normal = "Normal",
+  NormalAndMagic = "NormalAndMagic",
 }

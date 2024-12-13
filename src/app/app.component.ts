@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, QualityItemType, SocketedItemType, WeaponFilter, WeaponTier, WeaponType } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideLowJewellery, filterHideScrolls, filterShow2Sockets, filterShowRareJewellery, filterShowOneSocket, filterShowUltimateLifeFlasks, filterShowUnique, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots } from './filter-template';
+import { Filter, FlaskType, JewelleryRarity, QualityItemType, SocketedItemType, WeaponFilter, WeaponTier, WeaponType } from './filter';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideLowJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterShowUnique, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
-const LOCAL_STORAGE_KEY = 'filter-v2';
+const LOCAL_STORAGE_KEY = 'filter-v3';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   filterText = filterTemplate;
 
   FlaskType = FlaskType;
+  JewelleryRarity = JewelleryRarity;
   SocketedItemType = SocketedItemType;
   QualityItemType = QualityItemType;
   WeaponType = WeaponType;
@@ -32,7 +33,6 @@ export class AppComponent implements OnInit {
   toggleHideJewellery = () => { this.filter.hideJewellery = !this.filter.hideJewellery; this.updateFilter(); }
   toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilter(); }
   toggleShowUniques = () => { this.filter.showUniques = !this.filter.showUniques; this.updateFilter(); }
-  toggleShowRareJewellery = () => { this.filter.showRareJewellery = !this.filter.showRareJewellery; this.updateFilter(); }
   toggleShowSocketedItems = () => { this.filter.showSocketedItems = !this.filter.showSocketedItems; this.updateFilter(); }
   toggleShowQualityItems = () => { this.filter.showQualityItems = !this.filter.showQualityItems; this.updateFilter(); }
   toggleShowUltimateLifeFlasks = () => { this.filter.showUltimateLifeFlasks = !this.filter.showUltimateLifeFlasks; this.updateFilter(); }
@@ -71,10 +71,9 @@ export class AppComponent implements OnInit {
     this.filterText = filterTemplate
       .replace('{filterHideFlasks}', this.filter.hideFlasks ? filterHideFlasks : '')
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
-      .replace('{filterHideLowJewellery}', this.filter.hideJewellery ? filterHideLowJewellery.replace('{minRareJewelleryLevel}', (this.filter.hideJewelleryLowerThan || 60).toString()): '')
+      .replace('{filterHideLowJewellery}', this.filter.hideJewellery ? filterHideLowJewellery.replace('{jewelleryRarity}', (this.filter.hideJewelleryOfRarity === JewelleryRarity.NormalAndMagic ? 'Magic' : 'Normal')): '')
       .replace('{filterHideNormalAndMagicItems}', this.filter.hideNormalAndMagicItems ? filterHideNormalAndMagicItems : '')
       .replace('{filterShowUnique}', this.filter.showUniques ? filterShowUnique : '')
-      .replace('{filterShowRareJewellery}', this.filter.showRareJewellery ? filterShowRareJewellery.replace('{minRareJewelleryLevel}', (this.filter.hideJewelleryLowerThan || 60).toString()) : '')
       .replace('{filterShowOneSocket}', this.filter.showSocketedItems && this.filter.showSocketedItemsType === SocketedItemType.All ? filterShowOneSocket : '')
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
       .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '1' : '10') : '')

@@ -5,13 +5,6 @@ export const filterShowUnique =
   MinimapIcon 2 Brown Cross
 `;
 
-export const filterShowRareJewellery =
-`Show
-  Class "Amulet" "Ring" "Belt"
-  Rarity >= Magic
-  ItemLevel >= {minRareJewelleryLevel}
-`;
-
 export const filterShowOneSocket =
 `Show
   Sockets 1
@@ -90,8 +83,7 @@ export const filterHideNormalAndMagicItems =
 export const filterHideLowJewellery =
 `Hide
   Class "Amulet" "Ring" "Belt"
-  ItemLevel < {minRareJewelleryLevel}
-  Rarity <= Magic
+  Rarity <= {jewelleryRarity}
 `;
 
 export const filterTemplate =
@@ -100,7 +92,6 @@ export const filterTemplate =
 #######################################################
 
 {filterShowUnique}
-{filterShowRareJewellery}
 {filterShowOneSocket}
 {filterShow2Sockets}
 {filterShowQuality}
@@ -224,6 +215,12 @@ Show
 Show
 	Class == "Socketable"
 	BaseType "Soul Core" "Timeless"
+	PlayEffect Yellow
+	MinimapIcon 2 Yellow Circle
+
+Show
+	Class == "Socketable"
+	BaseType "Iron Rune"
 	PlayEffect Yellow
 	MinimapIcon 2 Yellow Circle
 

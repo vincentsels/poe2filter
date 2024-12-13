@@ -65,12 +65,18 @@
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            Hide Jewellery Lower Than
-                            <div class="filter-tip"><p>Rare and Unique Jewellery (Amulets, Rings, Belts) is always shown. This hides Normal and Magic Jewellery lower than the specified Item Level.</p></div>
+                            Hide Jewellery
+                            <div class="filter-tip"><p>This hides Normal and/or Magic Jewellery (Amulets, Rings, Belts). Rare and Unique Jewellery is always shown.</p></div>
                           </div>
                           <span class="sep"></span>
-                          <input type="number" placeholder="max" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [disabled]="!filter.hideJewellery" [(ngModel)]="filter.hideJewelleryLowerThan" (change)="updateFilter()">
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                            <div class="multiselect__tags">
+                              <select [disabled]="!filter.hideJewellery" [(ngModel)]="filter.hideJewelleryOfRarity" (change)="updateFilter()">
+                                <option [value]="JewelleryRarity.Normal">Normal</option>
+                                <option [value]="JewelleryRarity.NormalAndMagic">Normal and Magic</option>
+                              </select>
+                            </div>
+                          </div>
                         </span>
                       </div>
 
@@ -110,18 +116,6 @@
                         <span class="filter-body">
                           <div class="filter-title">
                             Highlight Uniques
-                          </div>
-                        </span>
-                      </div>
-
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.showRareJewellery">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.showRareJewellery" (click)="toggleShowRareJewellery()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Show Good Magic Jewellery
-                            <div class="filter-tip"><p>Shows Magic Jewellery of the Item Level specified above, or higher. Normal Jewellery is still hidden.</p></div>
                           </div>
                         </span>
                       </div>
