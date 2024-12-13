@@ -1,8 +1,16 @@
-export const filterShowUnique =
+export const filterHighlightUniques =
 `Show
   Rarity Unique
   PlayEffect Brown
-  MinimapIcon 2 Brown Cross
+  MinimapIcon 2 Brown Kite
+`;
+
+export const filterHighlightRareJewellery =
+`Show
+  Class "Amulet" "Ring" "Belt"
+  Rarity Rare
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Kite
 `;
 
 export const filterShowOneSocket =
@@ -80,7 +88,7 @@ export const filterHideNormalAndMagicItems =
   Rarity <= Magic
 `;
 
-export const filterHideLowJewellery =
+export const filterHideJewellery =
 `Hide
   Class "Amulet" "Ring" "Belt"
   Rarity <= {jewelleryRarity}
@@ -93,13 +101,20 @@ export const filterHideGold =
 
 export const filterTemplate =
 `#######################################################
-##### Always show
+##### Highlights
 #######################################################
 
-{filterShowUnique}
+{filterHighlightUniques}
+{filterHighlightRareJewellery}
+
+#######################################################
+##### Filter Exceptions
+#######################################################
+
 {filterShowOneSocket}
 {filterShow2Sockets}
 {filterShowQuality}
+{filterShowUltimateLifeFlasks}
 
 #######################################################
 ##### Always show preferred weapon types
@@ -115,12 +130,6 @@ export const filterTemplate =
 {filterPreferredHelmet}
 {filterPreferredGloves}
 {filterPreferredBoots}
-
-#######################################################
-##### Only quality flasks
-#######################################################
-
-{filterShowUltimateLifeFlasks}
 
 #######################################################
 ##### Regular currency
@@ -282,8 +291,6 @@ Show
 	PlayEffect Orange
 	MinimapIcon 2 Orange Moon
 
-# TODO: other currency types
-
 Show
 	Class "Currency"
 	BaseType "Logbook"
@@ -328,7 +335,7 @@ Show
 #######################################################
 
 {filterHideNormalAndMagicItems}
-{filterHideLowJewellery}
+{filterHideJewellery}
 {filterHideScrolls}
 {filterHideFlasks}
 {filterHideGold}`

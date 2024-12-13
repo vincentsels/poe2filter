@@ -29,6 +29,17 @@
                     </div>
                     <div class="filter-group-body">
 
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideScrolls">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.hideScrolls" (click)="toggleHideScrolls()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Scrolls of Wisdom
+                          </div>
+                        </span>
+                      </div>
+
                       <div class="filter filter-property full-span" [class.disabled]="!filter.hideFlasks">
                         <span class="input-group-btn">
                           <button class="btn toggle-btn" [class.off]="!filter.hideFlasks" (click)="toggleHideFlasks()"></button>
@@ -48,13 +59,14 @@
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideScrolls">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideNormalAndMagicItems">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideScrolls" (click)="toggleHideScrolls()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideNormalAndMagicItems" (click)="toggleHideNormalAndMagicItems()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            Hide Scrolls of Wisdom
+                            Hide Normal And Magic Items
+                            <div class="filter-tip"><p>Hides all Normal and Magic weapons and armour; except for the ones specified in the Weapon and Armour filter below.</p></div>
                           </div>
                         </span>
                       </div>
@@ -76,18 +88,6 @@
                                 <option [value]="JewelleryRarity.NormalAndMagic">Normal and Magic</option>
                               </select>
                             </div>
-                          </div>
-                        </span>
-                      </div>
-
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideNormalAndMagicItems">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideNormalAndMagicItems" (click)="toggleHideNormalAndMagicItems()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Hide Normal And Magic Items
-                            <div class="filter-tip"><p>Hides all Normal and Magic weapons and armour; except for the ones specified in the Weapon and Armour filter below.</p></div>
                           </div>
                         </span>
                       </div>
@@ -117,23 +117,12 @@
                       <div class="filter">
                         <span class="filter-body">
                           <span class="filter-title">
-                            General Highlights
+                            Exceptions
                           </span>
                         </span>
                       </div>
                     </div>
                     <div class="filter-group-body">
-
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.showUniques">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.showUniques" (click)="toggleShowUniques()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Highlight Uniques
-                          </div>
-                        </span>
-                      </div>
 
                       <div class="filter filter-property full-span" [class.disabled]="!filter.showSocketedItems">
                         <span class="input-group-btn">
@@ -188,6 +177,47 @@
                             [disabled]="!filter.showUltimateLifeFlasks"  [(ngModel)]="filter.showUltimateLifeFlasksMinQuality" (change)="updateFilter()">
                         </span>
                       </div>
+                    </div>
+
+                    <div class="clear"></div>
+                  </div>
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <span class="filter-title">
+                            Additional Highlights
+                            <div class="filter-tip"><p>All currency is highlighted and shown on the minimap. This allows you to highlight additional items and show them on the minimap, to make them stand out.</p></div>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.highlightUniques">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.highlightUniques" (click)="toggleHighLightUniques()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Highlight Uniques
+                          </div>
+                        </span>
+                      </div>
+
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.highlightRareJewellery">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.highlightRareJewellery" (click)="toggleHighLightRareJewellery()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Highlight Rare Jewelry
+                            <div class="filter-tip"><p>Rare jewellery (Amulets, Rings, Belts) is always shown, but this will additionally highlight it to make it stand out.</p></div>
+                          </div>
+                        </span>
+                      </div>
+
                     </div>
 
                     <div class="clear"></div>
@@ -401,7 +431,7 @@
       <div class="row row-total row-justify-content-left">
         <div class="info">
           <h2 class="info-title">Warning! Unidentified <strong>Item Tiers</strong> are currently not supported!</h2>
-          Hence, using 'Hide Normal And Magic Items' will currently hide Magic Items even of a higher tier.
+          Hence, using 'Hide Normal And Magic Items' will currently hide Magic Items even if they have a tier.
           Therefore, <strong>after defeating a boss</strong> or rare monster, quickly <strong>check</strong> whether they dropped any Magic Item with a Tier.
         </div>
       </div>

@@ -7,13 +7,16 @@ export class Filter {
   hideNormalAndMagicItems = true;
   hideGold = true;
   hideGoldLowerThan = 50;
-  showUniques = true;
+
   showSocketedItems = true;
   showSocketedItemsType = SocketedItemType.All;
   showQualityItems = true;
   showQualityItemsType = QualityItemType.All;
   showUltimateLifeFlasks = true;
   showUltimateLifeFlasksMinQuality = 10;
+
+  highlightUniques = true;
+  highlightRareJewellery = true;
 
   weaponFilters: WeaponFilter[] = [];
 

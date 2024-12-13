@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, JewelleryRarity, QualityItemType, SocketedItemType, WeaponFilter, WeaponTier, WeaponType } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideLowJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterShowUnique, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold, filterHighlightRareJewellery } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
-const LOCAL_STORAGE_KEY = 'filter-v4';
+const LOCAL_STORAGE_KEY = 'filter-v5';
 
 @Component({
   selector: 'app-root',
@@ -33,10 +33,13 @@ export class AppComponent implements OnInit {
   toggleHideJewellery = () => { this.filter.hideJewellery = !this.filter.hideJewellery; this.updateFilter(); }
   toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilter(); }
   toggleHideGold = () => { this.filter.hideGold = !this.filter.hideGold; this.updateFilter(); }
-  toggleShowUniques = () => { this.filter.showUniques = !this.filter.showUniques; this.updateFilter(); }
+
   toggleShowSocketedItems = () => { this.filter.showSocketedItems = !this.filter.showSocketedItems; this.updateFilter(); }
   toggleShowQualityItems = () => { this.filter.showQualityItems = !this.filter.showQualityItems; this.updateFilter(); }
   toggleShowUltimateLifeFlasks = () => { this.filter.showUltimateLifeFlasks = !this.filter.showUltimateLifeFlasks; this.updateFilter(); }
+
+  toggleHighLightUniques = () => { this.filter.highlightUniques = !this.filter.highlightUniques; this.updateFilter(); }
+  toggleHighLightRareJewellery = () => { this.filter.highlightRareJewellery = !this.filter.highlightRareJewellery; this.updateFilter(); }
 
   removeWeaponType(index: number) { this.filter.weaponFilters.splice(index, 1); this.updateFilter();  }
   toggleShowWeapon = (index: number) => { this.filter.weaponFilters[index].show = !this.filter.weaponFilters[index].show; this.updateFilter(); }
@@ -72,14 +75,15 @@ export class AppComponent implements OnInit {
     this.filterText = filterTemplate
       .replace('{filterHideFlasks}', this.filter.hideFlasks ? filterHideFlasks : '')
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
-      .replace('{filterHideLowJewellery}', this.filter.hideJewellery ? filterHideLowJewellery.replace('{jewelleryRarity}', (this.filter.hideJewelleryOfRarity === JewelleryRarity.NormalAndMagic ? 'Magic' : 'Normal')): '')
+      .replace('{filterHideJewellery}', this.filter.hideJewellery ? filterHideJewellery.replace('{jewelleryRarity}', (this.filter.hideJewelleryOfRarity === JewelleryRarity.NormalAndMagic ? 'Magic' : 'Normal')): '')
       .replace('{filterHideNormalAndMagicItems}', this.filter.hideNormalAndMagicItems ? filterHideNormalAndMagicItems : '')
       .replace('{filterHideGold}', this.filter.hideGold ? filterHideGold.replace('{minGold}', (this.filter.hideGoldLowerThan || 50).toString()): '')
-      .replace('{filterShowUnique}', this.filter.showUniques ? filterShowUnique : '')
       .replace('{filterShowOneSocket}', this.filter.showSocketedItems && this.filter.showSocketedItemsType === SocketedItemType.All ? filterShowOneSocket : '')
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
       .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '1' : '10') : '')
       .replace('{filterShowUltimateLifeFlasks}', this.filter.showUltimateLifeFlasks ? filterShowUltimateLifeFlasks.replace('{minFlaskQuality}', (this.filter.showUltimateLifeFlasksMinQuality || 10).toString()): '')
+      .replace('{filterHighlightUniques}', this.filter.highlightUniques ? filterHighlightUniques : '')
+      .replace('{filterHighlightRareJewellery}', this.filter.highlightRareJewellery ? filterHighlightRareJewellery : '')
       .replace('{filterPreferredWeaponTypes}', weaponFilterText)
       .replace('{filterPreferredBodyArmour}', bodyArmourFilterText)
       .replace('{filterPreferredHelmet}', helmetFilterText)
