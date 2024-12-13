@@ -197,32 +197,47 @@
                     </div>
                     <div class="filter-group-body">
 
+                      @for (weapon of filter.weaponFilters; track $index) {
                       <div class="filter full-span">
                         <span class="input-group-btn">
-                          <button  class="btn toggle-btn"></button>
+                          <button class="btn toggle-btn" [class.off]="!weapon.show" (click)="toggleShowWeapon($index)"></button>
                         </span>
                         <span class="filter-body">
-                          <div class="filter-title">
-                            <span>Crossbows</span>
+                          <div tabindex="-1" class="multiselect filter-select">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="weapon.weaponType" (change)="updateFilter()" [disabled]="!weapon.show">
+                                <option [value]="WeaponType.Bows">Bows</option>
+                                <option [value]="WeaponType.OneHandMaces">One Hand Maces</option>
+                                <option [value]="WeaponType.Quivers">Quivers</option>
+                                <option [value]="WeaponType.Sceptres">Sceptres</option>
+                                <option [value]="WeaponType.Staves">Staves</option>
+                                <option [value]="WeaponType.TwoHandMaces">Two Hand Maces</option>
+                                <option [value]="WeaponType.Wands">Wands</option>
+                                <option [value]="WeaponType.QuarterStaves">QuarterStaves</option>
+                              </select>
+                            </div>
                           </div>
                           <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
                             <div class="multiselect__tags">
-                              <select>
-                                <option value="All">Expert only</option>
-                                <option value="All">Advanced only</option>
-                                <option value="All">All</option>
+                              <select [(ngModel)]="weapon.weaponTier" (change)="updateFilter()" [disabled]="!weapon.show">
+                                <option [value]="WeaponTier.ExpertOnly">Expert only</option>
+                                <option [value]="WeaponTier.AdvancedAndExpert">Advanced only</option>
+                                <option [value]="WeaponTier.All">All</option>
                               </select>
                             </div>
                           </div>
                         </span>
                         <span class="input-group-btn">
-                          <button class="btn remove-btn"></button>
+                          <button class="btn remove-btn" (click)="removeWeaponType($index)"></button>
                         </span>
                       </div>
+                      }
 
                       <div class="filter filter-padded">
-                          <button type="button" class="btn clear-btn" style="width: 100%;"><span>Add Weapon Type</span></button>
+                        <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addWeaponType()">
+                          <span>Add Weapon Type</span>
+                        </button>
                       </div>
                     </div>
                     <div class="clear"></div>
@@ -358,8 +373,9 @@
     </div>
 
     <div class="bottom">
-      <!-- <span class="copyright">
-      </span> -->
+      <span class="copyright">
+        This website is in no way affeliated with GGG. I'm making and updating this website in my spare time. You can support me by <a href="https://gofund.me/cf875b64" target="_blank">donating</a>!
+      </span>
       <br>
     </div>
   </div>

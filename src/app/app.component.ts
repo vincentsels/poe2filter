@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, QualityItemType, SocketedItemType } from './filter';
+import { Filter, FlaskType, QualityItemType, SocketedItemType, WeaponFilter, WeaponTier, WeaponType } from './filter';
 import { filterHideFlasks, filterHideNormalAndRareItems, filterHideLowJewellery, filterHideScrolls, filterShow2Sockets, filterShowRareJewellery, filterShowOneSocket, filterShowUltimateLifeFlasks, filterShowUnique, filterTemplate, filterShowQuality } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   FlaskType = FlaskType;
   SocketedItemType = SocketedItemType;
   QualityItemType = QualityItemType;
+  WeaponType = WeaponType;
+  WeaponTier = WeaponTier;
 
   ngOnInit(): void {
     this.updateFilter();
@@ -30,6 +32,13 @@ export class AppComponent implements OnInit {
   toggleShowSocketedItems = () => { this.filter.showSocketedItems = !this.filter.showSocketedItems; this.updateFilter(); }
   toggleShowQualityItems = () => { this.filter.showQualityItems = !this.filter.showQualityItems; this.updateFilter(); }
   toggleShowUltimateLifeFlasks = () => { this.filter.showUltimateLifeFlasks = !this.filter.showUltimateLifeFlasks; this.updateFilter(); }
+
+  removeWeaponType(index: number) {
+    this.filter.weaponFilters.splice(index, 1);
+  }
+
+  toggleShowWeapon = (index: number) => this.filter.weaponFilters[index].show = !this.filter.weaponFilters[index].show;
+  addWeaponType = () => this.filter.weaponFilters.push(new WeaponFilter());
 
   updateFilter() {
     this.filterText = filterTemplate
