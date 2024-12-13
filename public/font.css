@@ -1,0 +1,14 @@
+﻿
+@font-face{font-family:"FontinSmallCaps";font-weight:normal;font-style:normal;src:local("☺"),url('/font/fontin-smallcaps-webfont.woff') format("woff")}
+@font-face{font-family:"FontinRegular";font-weight:normal;font-style:normal;src:local("☺"),url('/font/fontin-regular-webfont.woff') format("woff")}
+@font-face{font-family:"FontinItalic";font-weight:normal;font-style:normal;src:local("☺"),url('/font/fontin-italic-webfont.woff') format("woff")}
+@font-face{font-family:"FontinBold";font-weight:normal;font-style:normal;src:local("☺"),url('/font/fontin-bold-webfont.woff') format("woff")}
+@font-face{font-family:"Cinzel";font-weight:normal;font-style:normal;src:local("Cinzel-Regular"),url('/font/Cinzel-Regular.woff') format("woff")}
+@font-face{font-family:"Cinzel-Medium";font-weight:normal;font-style:normal;src:local("Cinzel-Medium"),url('/font/Cinzel-Medium.woff') format("woff")}
+@font-face{font-family:"OptimusPrincepsSemiBold";font-weight:bold;font-style:normal;src:local("☺"),url('/font/OptimusPrincepsSemiBold.ttf') format("truetype")}
+@font-face{font-family:"FrizQuadrataC";font-weight:normal;font-style:normal;src:local("☺"),url('/font/FrizQuadrataC.woff') format("woff")}
+@font-face{font-family:"Daehan";font-weight:normal;font-style:normal;src:local("☺"),url('/font/Daehan.woff') format("woff")}
+@font-face{font-family:"Noto Sans JP";font-weight:normal;font-style:normal;src:local("☺"),url('/font/noto-sans-jp-v42-latin_japanese-regular.woff2') format("woff2"),url('/font/noto-sans-jp-v42-latin_japanese-regular.woff') format("woff")}
+@font-face{font-family:"Noto Serif JP";font-weight:normal;font-style:normal;src:local("☺"),url('/font/noto-serif-jp-v21-latin_japanese-regular.woff2') format("woff2"),url('/font/noto-serif-jp-v21-latin_japanese-regular.woff') format("woff")}
+@font-face{font-family:"Quikhand";font-style:normal;font-weight:normal;src:local("Quikhand"),url("./Quikhand.woff") format("woff")}
+@font-face{font-family:"Caveat-Bold";font-style:normal;font-weight:normal;src:local("Caveat-Bold"),url("./Caveat-Bold.woff2") format("woff2")}
