@@ -30,15 +30,13 @@ export const filterShowQuality =
 
 export const filterPreferredWeaponType =
 `Show
-  Class {weaponType}
-  BaseType {tierType}
+  Class {weaponType}{tierType}
   Rarity = Rare
   PlayEffect Yellow
   MinimapIcon 2 Yellow Kite
 
 Show
-  Class Crossbows
-  BaseType {tierType}
+  Class {weaponType}{tierType}
   Rarity <= Magic
 `;
 

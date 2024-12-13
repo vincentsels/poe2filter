@@ -222,7 +222,7 @@
                             <div class="multiselect__tags">
                               <select [(ngModel)]="weapon.weaponTier" (change)="updateFilter()" [disabled]="!weapon.show">
                                 <option [value]="WeaponTier.ExpertOnly">Expert only</option>
-                                <option [value]="WeaponTier.AdvancedAndExpert">Advanced only</option>
+                                <option [value]="WeaponTier.AdvancedAndExpert">Advanced and Expert</option>
                                 <option [value]="WeaponTier.All">All</option>
                               </select>
                             </div>
