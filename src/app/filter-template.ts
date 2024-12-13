@@ -81,7 +81,7 @@ export const filterShowUltimateLifeFlasks =
   Quality > {minFlaskQuality}
 `;
 
-export const filterHideNormalAndRareItems =
+export const filterHideNormalAndMagicItems =
 `Hide
   Class "Body Armour" "Boots" "Gloves" "Helmets" "Shields" "Bows" "Crossbows" "Claws" "Daggers" "One Hand" "Two Hand" "Quiver" "Sceptre" "Wand" "Quarterstave" "Stave" "Belt" "Focus" "Maces"
   Rarity <= Magic
@@ -319,7 +319,7 @@ Show
 ##### Hide crap items
 #######################################################
 
-{filterHideNormalAndRareItems}
+{filterHideNormalAndMagicItems}
 {filterHideLowJewellery}
 
 #######################################################

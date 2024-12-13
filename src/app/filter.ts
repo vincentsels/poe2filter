@@ -4,7 +4,7 @@ export class Filter {
   hideScrolls = true;
   hideJewellery = true;
   hideJewelleryLowerThan = 60;
-  hideNormalAndRareItems = true;
+  hideNormalAndMagicItems = true;
   showUniques = true;
   showRareJewellery = true;
   showSocketedItems = true;
