@@ -5496,7 +5496,7 @@ body {
   left: 0;
   font-size: 13px;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  background: url('/protected/image/gen/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
+  background: url('/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
   background-position: 0px -94px;
   min-width: 359px;
   height: 41px;
@@ -5616,14 +5616,14 @@ body {
   right: 135px;
   top: 0px;
   bottom: 0px;
-  background: url('/protected/image/gen/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
+  background: url('/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
   background-position: 0px -47px;
   height: 45px;
   background-repeat: repeat-x
 }
 
 #statusBar .statusBarRight {
-  background: url('/protected/image/gen/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
+  background: url('/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
   background-position: -222px -94px;
   width: 137px;
   height: 45px;
@@ -5633,7 +5633,7 @@ body {
 }
 
 #statusBar .pointsIcon {
-  background: url('/protected/image/gen/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
+  background: url('/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
   background-position: 0px -141px;
   width: 16px;
   height: 16px;
@@ -5645,7 +5645,7 @@ body {
 }
 
 #statusBar .psnPointsIcon::after {
-  background: url('/protected/image/gen/platform.png?v=1733975490043&key=nbKZTaHvvfVSeKJ80zwgCA') no-repeat;
+  background: url('/platform.png?v=1733975490043&key=nbKZTaHvvfVSeKJ80zwgCA') no-repeat;
   background-position: -22px -22px;
   width: 22px;
   height: 22px;
@@ -5673,7 +5673,7 @@ body {
 .platform-sony::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/platform.png?v=1733975490043&key=nbKZTaHvvfVSeKJ80zwgCA');
+  background-image: url('/platform.png?v=1733975490043&key=nbKZTaHvvfVSeKJ80zwgCA');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -5722,7 +5722,7 @@ body {
 .profile-link.challenges-completed.Ancestral::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Ancestral.png?v=1733975490371&key=RooPOiSubFUz0dIjvUneGQ');
+  background-image: url('/achievement-Ancestral.png?v=1733975490371&key=RooPOiSubFUz0dIjvUneGQ');
   vertical-align: middle;
   width: 22px;
   height: 21px;
@@ -5892,7 +5892,7 @@ body {
 .profile-link.challenges-completed.AncestralRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-AncestralRuthless.png?v=1733975490371&key=9Q0ksMSiZrbCLI4-yFhbrw');
+  background-image: url('/achievement-AncestralRuthless.png?v=1733975490371&key=9Q0ksMSiZrbCLI4-yFhbrw');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -5934,7 +5934,7 @@ body {
 .profile-link.challenges-completed.Azmeri::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Azmeri.png?v=1733975490371&key=FyyLlb3qjKzYNT0sgJ55bw');
+  background-image: url('/achievement-Azmeri.png?v=1733975490371&key=FyyLlb3qjKzYNT0sgJ55bw');
   vertical-align: middle;
   width: 22px;
   height: 21px;
@@ -6104,7 +6104,7 @@ body {
 .profile-link.challenges-completed.AzmeriRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-AzmeriRuthless.png?v=1733975490371&key=tI52dUGVLROm3I0HxsS4VQ');
+  background-image: url('/achievement-AzmeriRuthless.png?v=1733975490371&key=tI52dUGVLROm3I0HxsS4VQ');
   vertical-align: middle;
   width: 22px;
   height: 21px;
@@ -6146,7 +6146,7 @@ body {
 .profile-link.challenges-completed.Crucible::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Crucible.png?v=1733975490371&key=6vv3JyeFZGnGPfSQuQi55A');
+  background-image: url('/achievement-Crucible.png?v=1733975490371&key=6vv3JyeFZGnGPfSQuQi55A');
   vertical-align: middle;
   width: 21px;
   height: 22px;
@@ -6316,7 +6316,7 @@ body {
 .profile-link.challenges-completed.CrucibleRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-CrucibleRuthless.png?v=1733975490371&key=bLlUj1P7oFPcBlCu2hOSgQ');
+  background-image: url('/achievement-CrucibleRuthless.png?v=1733975490371&key=bLlUj1P7oFPcBlCu2hOSgQ');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -6358,7 +6358,7 @@ body {
 .profile-link.challenges-completed.Necropolis::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Necropolis.png?v=1733975490371&key=ck43egz8m9ohd9XrRlb_Og');
+  background-image: url('/achievement-Necropolis.png?v=1733975490371&key=ck43egz8m9ohd9XrRlb_Og');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -6528,7 +6528,7 @@ body {
 .profile-link.challenges-completed.NecropolisRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-NecropolisRuthless.png?v=1733975490371&key=lNw9kLiMR1w7Md4gINi38A');
+  background-image: url('/achievement-NecropolisRuthless.png?v=1733975490371&key=lNw9kLiMR1w7Md4gINi38A');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -6570,7 +6570,7 @@ body {
 .profile-link.challenges-completed.Sanctum::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Sanctum.png?v=1733975490371&key=pAxi2FAAWomFH0Ban4IDew');
+  background-image: url('/achievement-Sanctum.png?v=1733975490371&key=pAxi2FAAWomFH0Ban4IDew');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -6740,7 +6740,7 @@ body {
 .profile-link.challenges-completed.Village::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Village.png?v=1733975490371&key=lvwMyJPTOb1b7qPON2_5VA');
+  background-image: url('/achievement-Village.png?v=1733975490371&key=lvwMyJPTOb1b7qPON2_5VA');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -6910,7 +6910,7 @@ body {
 .profile-link.challenges-completed.VillageRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-VillageRuthless.png?v=1733975490371&key=qrf_AjGLQMZYXZ09NPHyQA');
+  background-image: url('/achievement-VillageRuthless.png?v=1733975490371&key=qrf_AjGLQMZYXZ09NPHyQA');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -7966,7 +7966,7 @@ small {
 .platform-sony::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/platform.png?v=1733975490043&key=nbKZTaHvvfVSeKJ80zwgCA');
+  background-image: url('/platform.png?v=1733975490043&key=nbKZTaHvvfVSeKJ80zwgCA');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -8015,7 +8015,7 @@ small {
 .profile-link.challenges-completed.Ancestral::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Ancestral.png?v=1733975490371&key=RooPOiSubFUz0dIjvUneGQ');
+  background-image: url('/achievement-Ancestral.png?v=1733975490371&key=RooPOiSubFUz0dIjvUneGQ');
   vertical-align: middle;
   width: 22px;
   height: 21px;
@@ -8185,7 +8185,7 @@ small {
 .profile-link.challenges-completed.AncestralRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-AncestralRuthless.png?v=1733975490371&key=9Q0ksMSiZrbCLI4-yFhbrw');
+  background-image: url('/achievement-AncestralRuthless.png?v=1733975490371&key=9Q0ksMSiZrbCLI4-yFhbrw');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -8227,7 +8227,7 @@ small {
 .profile-link.challenges-completed.Azmeri::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Azmeri.png?v=1733975490371&key=FyyLlb3qjKzYNT0sgJ55bw');
+  background-image: url('/achievement-Azmeri.png?v=1733975490371&key=FyyLlb3qjKzYNT0sgJ55bw');
   vertical-align: middle;
   width: 22px;
   height: 21px;
@@ -8397,7 +8397,7 @@ small {
 .profile-link.challenges-completed.AzmeriRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-AzmeriRuthless.png?v=1733975490371&key=tI52dUGVLROm3I0HxsS4VQ');
+  background-image: url('/achievement-AzmeriRuthless.png?v=1733975490371&key=tI52dUGVLROm3I0HxsS4VQ');
   vertical-align: middle;
   width: 22px;
   height: 21px;
@@ -8439,7 +8439,7 @@ small {
 .profile-link.challenges-completed.Crucible::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Crucible.png?v=1733975490371&key=6vv3JyeFZGnGPfSQuQi55A');
+  background-image: url('/achievement-Crucible.png?v=1733975490371&key=6vv3JyeFZGnGPfSQuQi55A');
   vertical-align: middle;
   width: 21px;
   height: 22px;
@@ -8609,7 +8609,7 @@ small {
 .profile-link.challenges-completed.CrucibleRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-CrucibleRuthless.png?v=1733975490371&key=bLlUj1P7oFPcBlCu2hOSgQ');
+  background-image: url('/achievement-CrucibleRuthless.png?v=1733975490371&key=bLlUj1P7oFPcBlCu2hOSgQ');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -8651,7 +8651,7 @@ small {
 .profile-link.challenges-completed.Necropolis::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Necropolis.png?v=1733975490371&key=ck43egz8m9ohd9XrRlb_Og');
+  background-image: url('/achievement-Necropolis.png?v=1733975490371&key=ck43egz8m9ohd9XrRlb_Og');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -8821,7 +8821,7 @@ small {
 .profile-link.challenges-completed.NecropolisRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-NecropolisRuthless.png?v=1733975490371&key=lNw9kLiMR1w7Md4gINi38A');
+  background-image: url('/achievement-NecropolisRuthless.png?v=1733975490371&key=lNw9kLiMR1w7Md4gINi38A');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -8863,7 +8863,7 @@ small {
 .profile-link.challenges-completed.Sanctum::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Sanctum.png?v=1733975490371&key=pAxi2FAAWomFH0Ban4IDew');
+  background-image: url('/achievement-Sanctum.png?v=1733975490371&key=pAxi2FAAWomFH0Ban4IDew');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -9033,7 +9033,7 @@ small {
 .profile-link.challenges-completed.Village::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-Village.png?v=1733975490371&key=lvwMyJPTOb1b7qPON2_5VA');
+  background-image: url('/achievement-Village.png?v=1733975490371&key=lvwMyJPTOb1b7qPON2_5VA');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -9203,7 +9203,7 @@ small {
 .profile-link.challenges-completed.VillageRuthless::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/achievement-VillageRuthless.png?v=1733975490371&key=qrf_AjGLQMZYXZ09NPHyQA');
+  background-image: url('/achievement-VillageRuthless.png?v=1733975490371&key=qrf_AjGLQMZYXZ09NPHyQA');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -9313,7 +9313,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBG00 {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -60px -90px;
   width: 5px;
   height: 18px;
@@ -9321,7 +9321,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBG01 {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -38px -90px;
   width: 8px;
   height: 18px;
@@ -9329,7 +9329,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBG02 {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -18px -90px;
   width: 10px;
   height: 18px;
@@ -9337,7 +9337,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBG03 {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -46px -90px;
   width: 8px;
   height: 18px;
@@ -9345,7 +9345,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBG04 {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -28px -90px;
   width: 10px;
   height: 18px;
@@ -9353,7 +9353,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAa {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: 0px 0px;
   width: 20px;
   height: 18px;
@@ -9361,7 +9361,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAb {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -20px 0px;
   width: 20px;
   height: 18px;
@@ -9369,7 +9369,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAc {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: 0px -18px;
   width: 20px;
   height: 18px;
@@ -9377,7 +9377,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAd {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -20px -18px;
   width: 20px;
   height: 18px;
@@ -9385,7 +9385,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAe {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -40px 0px;
   width: 20px;
   height: 18px;
@@ -9393,7 +9393,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAf {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -40px -18px;
   width: 20px;
   height: 18px;
@@ -9401,7 +9401,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAg {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: 0px -36px;
   width: 20px;
   height: 18px;
@@ -9409,7 +9409,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAh {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -20px -36px;
   width: 20px;
   height: 18px;
@@ -9417,7 +9417,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAi {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -40px -36px;
   width: 20px;
   height: 18px;
@@ -9425,7 +9425,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAj {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -60px 0px;
   width: 20px;
   height: 18px;
@@ -9433,7 +9433,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAk {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -60px -18px;
   width: 20px;
   height: 18px;
@@ -9441,7 +9441,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAl {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -60px -36px;
   width: 20px;
   height: 18px;
@@ -9449,7 +9449,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAm {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: 0px -54px;
   width: 20px;
   height: 18px;
@@ -9457,7 +9457,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAn {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -20px -54px;
   width: 20px;
   height: 18px;
@@ -9465,7 +9465,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAo {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -40px -54px;
   width: 20px;
   height: 18px;
@@ -9473,7 +9473,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAp {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -60px -54px;
   width: 20px;
   height: 18px;
@@ -9481,7 +9481,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAq {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -80px 0px;
   width: 20px;
   height: 18px;
@@ -9489,7 +9489,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAr {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -80px -18px;
   width: 20px;
   height: 18px;
@@ -9497,7 +9497,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAs {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -80px -36px;
   width: 20px;
   height: 18px;
@@ -9505,7 +9505,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAt {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -80px -54px;
   width: 20px;
   height: 18px;
@@ -9513,7 +9513,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAu {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: 0px -72px;
   width: 20px;
   height: 18px;
@@ -9521,7 +9521,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAv {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -20px -72px;
   width: 20px;
   height: 18px;
@@ -9529,7 +9529,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAw {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -40px -72px;
   width: 20px;
   height: 18px;
@@ -9537,7 +9537,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAx {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -60px -72px;
   width: 20px;
   height: 18px;
@@ -9545,7 +9545,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAy {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -80px -72px;
   width: 20px;
   height: 18px;
@@ -9553,7 +9553,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGAz {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -100px 0px;
   width: 20px;
   height: 18px;
@@ -9561,7 +9561,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGBa {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -100px -18px;
   width: 20px;
   height: 18px;
@@ -9569,7 +9569,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGBc {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -100px -36px;
   width: 20px;
   height: 18px;
@@ -9577,7 +9577,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGBd {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -100px -54px;
   width: 20px;
   height: 18px;
@@ -9585,7 +9585,7 @@ small {
 }
 
 .PoEMarkup.glyph.HBGBe {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -100px -72px;
   width: 20px;
   height: 18px;
@@ -9593,7 +9593,7 @@ small {
 }
 
 .PoEMarkup.glyph.hbgi00 {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: -54px -90px;
   width: 6px;
   height: 18px;
@@ -9601,7 +9601,7 @@ small {
 }
 
 .PoEMarkup.glyph.hbgi04 {
-  background: url('/protected/image/gen/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
+  background: url('/glyph.png?v=1733975490071&key=zUW33cUvgXoL-c1vs4T3Ng') no-repeat;
   background-position: 0px -90px;
   width: 18px;
   height: 18px;
@@ -9850,257 +9850,257 @@ small {
 }
 
 .ultimatumMods .ultimatumMod[type=BloodAltar] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: 0px 0px
 }
 
 .ultimatumMods .ultimatumMod[type=BuffsExpireFaster] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -39px 0px
 }
 
 .ultimatumMods .ultimatumMod[type=CantLeaveArea] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: 0px -39px
 }
 
 .ultimatumMods .ultimatumMod[type=CertainMonsterMod] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -39px -39px
 }
 
 .ultimatumMods .ultimatumMod[type=ChaoticTouch] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -78px 0px
 }
 
 .ultimatumMods .ultimatumMod[type=ChokingMiasma] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -78px -39px
 }
 
 .ultimatumMods .ultimatumMod[type=CorruptedBlood] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: 0px -78px
 }
 
 .ultimatumMods .ultimatumMod[type=CurseAilmentReflection] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -39px -78px
 }
 
 .ultimatumMods .ultimatumMod[type=DeadlyMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -78px -78px
 }
 
 .ultimatumMods .ultimatumMod[type=DebuffEncounter] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -117px 0px
 }
 
 .ultimatumMods .ultimatumMod[type=DefeatAllWavesTime] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -117px -39px
 }
 
 .ultimatumMods .ultimatumMod[type=DexterousMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -117px -78px
 }
 
 .ultimatumMods .ultimatumMod[type=ElementalTotem] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: 0px -117px
 }
 
 .ultimatumMods .ultimatumMod[type=EncounterDaemonEffect] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -39px -117px
 }
 
 .ultimatumMods .ultimatumMod[type=EnvironmentalHazards] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -78px -117px
 }
 
 .ultimatumMods .ultimatumMod[type=EscalatingDamageTaken] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -117px -117px
 }
 
 .ultimatumMods .ultimatumMod[type=EscalatingMonsterSpeed] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -156px 0px
 }
 
 .ultimatumMods .ultimatumMod[type=Flamethrower] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -156px -39px
 }
 
 .ultimatumMods .ultimatumMod[type=FrostInfection] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -156px -78px
 }
 
 .ultimatumMods .ultimatumMod[type=GainCertainAmountRuin] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -156px -117px
 }
 
 .ultimatumMods .ultimatumMod[type=HinderingFlasks] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: 0px -156px
 }
 
 .ultimatumMods .ultimatumMod[type=LessCooldownRecovery] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -39px -156px
 }
 
 .ultimatumMods .ultimatumMod[type=LessenedReach] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -78px -156px
 }
 
 .ultimatumMods .ultimatumMod[type=LethalRareMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -117px -156px
 }
 
 .ultimatumMods .ultimatumMod[type=LightningDamagefromMana] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -156px -156px
 }
 
 .ultimatumMods .ultimatumMod[type=LimitedFlasks] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -195px 0px
 }
 
 .ultimatumMods .ultimatumMod[type=LongerCooldowns] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -195px -39px
 }
 
 .ultimatumMods .ultimatumMod[type=MonsterAppliesDebuff] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -195px -78px
 }
 
 .ultimatumMods .ultimatumMod[type=MonsterAppliesRuin] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -195px -117px
 }
 
 .ultimatumMods .ultimatumMod[type=MonstersMod] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -195px -156px
 }
 
 .ultimatumMods .ultimatumMod[type=OccasionalImpotence] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: 0px -195px
 }
 
 .ultimatumMods .ultimatumMod[type=OverwhelmingMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -156px -195px
 }
 
 .ultimatumMods .ultimatumMod[type=PhysicalTotem] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -195px -195px
 }
 
 .ultimatumMods .ultimatumMod[type=PreciseMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -234px 0px
 }
 
 .ultimatumMods .ultimatumMod[type=PrismaticMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -234px -39px
 }
 
 .ultimatumMods .ultimatumMod[type=ReducedRecovery] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -234px -78px
 }
 
 .ultimatumMods .ultimatumMod[type=ResistantMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -234px -117px
 }
 
 .ultimatumMods .ultimatumMod[type=RestlessDead] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -234px -195px
 }
 
 .ultimatumMods .ultimatumMod[type=RestlessDeadRuin] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -234px -156px
 }
 
 .ultimatumMods .ultimatumMod[type=Revenant] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: 0px -234px
 }
 
 .ultimatumMods .ultimatumMod[type=Sawblade] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -39px -234px
 }
 
 .ultimatumMods .ultimatumMod[type=ScatteredProjectiles] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -78px -234px
 }
 
 .ultimatumMods .ultimatumMod[type=SharedAuras] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -117px -234px
 }
 
 .ultimatumMods .ultimatumMod[type=ShieldingMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -156px -234px
 }
 
 .ultimatumMods .ultimatumMod[type=ShrunkenReach] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -195px -234px
 }
 
 .ultimatumMods .ultimatumMod[type=SiphonedCharges] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -234px -234px
 }
 
 .ultimatumMods .ultimatumMod[type=SiphoningMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -273px 0px
 }
 
 .ultimatumMods .ultimatumMod[type=StormcallerRunes] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -273px -39px
 }
 
 .ultimatumMods .ultimatumMod[type=UnluckyCrits] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -273px -78px
 }
 
 .ultimatumMods .ultimatumMod[type=UnstoppableMonsters] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -273px -117px
 }
 
 .ultimatumMods .ultimatumMod[type=VaalArena] {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -273px -156px
 }
 
@@ -10115,17 +10115,17 @@ small {
 }
 
 .ultimatumMods .ultimatumMod[tier="2"]::after {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -39px -195px
 }
 
 .ultimatumMods .ultimatumMod[tier="3"]::after {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -78px -195px
 }
 
 .ultimatumMods .ultimatumMod[tier="4"]::after {
-  background: url('/protected/image/gen/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
+  background: url('/ultimatum.png?v=1733975490447&key=KjN5OeA8-zQW3r8LEpgXRA') no-repeat;
   background-position: -117px -195px
 }
 
@@ -10170,22 +10170,22 @@ small {
 }
 
 .logbookMod .lc.faction[faction=Faction1]::before {
-  background: url('/protected/image/gen/expedition.png?v=1733975490075&key=Wnk-NHi-ltu_ECiyCMMIsg') no-repeat;
+  background: url('/expedition.png?v=1733975490075&key=Wnk-NHi-ltu_ECiyCMMIsg') no-repeat;
   background-position: 0px 0px
 }
 
 .logbookMod .lc.faction[faction=Faction2]::before {
-  background: url('/protected/image/gen/expedition.png?v=1733975490075&key=Wnk-NHi-ltu_ECiyCMMIsg') no-repeat;
+  background: url('/expedition.png?v=1733975490075&key=Wnk-NHi-ltu_ECiyCMMIsg') no-repeat;
   background-position: -18px 0px
 }
 
 .logbookMod .lc.faction[faction=Faction3]::before {
-  background: url('/protected/image/gen/expedition.png?v=1733975490075&key=Wnk-NHi-ltu_ECiyCMMIsg') no-repeat;
+  background: url('/expedition.png?v=1733975490075&key=Wnk-NHi-ltu_ECiyCMMIsg') no-repeat;
   background-position: 0px -18px
 }
 
 .logbookMod .lc.faction[faction=Faction4]::before {
-  background: url('/protected/image/gen/expedition.png?v=1733975490075&key=Wnk-NHi-ltu_ECiyCMMIsg') no-repeat;
+  background: url('/expedition.png?v=1733975490075&key=Wnk-NHi-ltu_ECiyCMMIsg') no-repeat;
   background-position: -18px -18px
 }
 
@@ -10200,32 +10200,32 @@ small {
 }
 
 .corpse-type--beast {
-  background: url('/protected/image/gen/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
+  background: url('/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
   background-position: 0px 0px
 }
 
 .corpse-type--construct {
-  background: url('/protected/image/gen/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
+  background: url('/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
   background-position: -18px 0px
 }
 
 .corpse-type--demon {
-  background: url('/protected/image/gen/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
+  background: url('/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
   background-position: 0px -18px
 }
 
 .corpse-type--eldritch {
-  background: url('/protected/image/gen/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
+  background: url('/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
   background-position: -18px -18px
 }
 
 .corpse-type--humanoid {
-  background: url('/protected/image/gen/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
+  background: url('/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
   background-position: -36px 0px
 }
 
 .corpse-type--undead {
-  background: url('/protected/image/gen/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
+  background: url('/affliction.png?v=1733975490087&key=N2KEyEVr7a9qWnsLyHnXLg') no-repeat;
   background-position: -36px -18px
 }
 
@@ -10237,172 +10237,172 @@ small {
 }
 
 .rewards__reward-icon--alch {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: 0px 0px
 }
 
 .rewards__reward-icon--alt {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -24px 0px
 }
 
 .rewards__reward-icon--annul {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: 0px -24px
 }
 
 .rewards__reward-icon--aug {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -24px -24px
 }
 
 .rewards__reward-icon--awakened-sextant {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -48px 0px
 }
 
 .rewards__reward-icon--bauble {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -48px -24px
 }
 
 .rewards__reward-icon--blessed {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: 0px -48px
 }
 
 .rewards__reward-icon--chance {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -24px -48px
 }
 
 .rewards__reward-icon--chaos {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -48px -48px
 }
 
 .rewards__reward-icon--chisel {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -72px 0px
 }
 
 .rewards__reward-icon--chrome {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -72px -24px
 }
 
 .rewards__reward-icon--divine-vessel {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -72px -48px
 }
 
 .rewards__reward-icon--divine {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: 0px -72px
 }
 
 .rewards__reward-icon--enkindling-orb {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -24px -72px
 }
 
 .rewards__reward-icon--exalted {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -48px -72px
 }
 
 .rewards__reward-icon--fusing {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -72px -72px
 }
 
 .rewards__reward-icon--gcp {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -96px 0px
 }
 
 .rewards__reward-icon--instilling-orb {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -96px -24px
 }
 
 .rewards__reward-icon--jewellers {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -96px -48px
 }
 
 .rewards__reward-icon--mirror {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -96px -72px
 }
 
 .rewards__reward-icon--orb-of-binding {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: 0px -96px
 }
 
 .rewards__reward-icon--orb-of-horizons {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -24px -96px
 }
 
 .rewards__reward-icon--orb-of-unmaking {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -48px -96px
 }
 
 .rewards__reward-icon--regal {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -72px -96px
 }
 
 .rewards__reward-icon--regret {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -96px -96px
 }
 
 .rewards__reward-icon--sacred-orb {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -120px 0px
 }
 
 .rewards__reward-icon--scour {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -120px -24px
 }
 
 .rewards__reward-icon--scrap {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -120px -48px
 }
 
 .rewards__reward-icon--stacked-deck {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -120px -72px
 }
 
 .rewards__reward-icon--transmute {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -120px -96px
 }
 
 .rewards__reward-icon--vaal {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: 0px -120px
 }
 
 .rewards__reward-icon--veiled-chaos-orb {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -24px -120px
 }
 
 .rewards__reward-icon--veiled-scarab {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -48px -120px
 }
 
 .rewards__reward-icon--whetstone {
-  background: url('/protected/image/gen/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
+  background: url('/sanctum.png?v=1733975490327&key=LhaJaa_2T0UV1K1NKJzilQ') no-repeat;
   background-position: -72px -120px
 }
 
@@ -12157,7 +12157,7 @@ small {
 .newItemContainer.iW1 .socketLink2,
 .newItemContainer.iW1 .socketLink1,
 .newItemContainer.iW1 .socketLink0 {
-  background: url('/protected/image/gen/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
+  background: url('/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
   background-position: -175px 0px;
   width: 15px;
   height: 38px
@@ -12167,7 +12167,7 @@ small {
 .newItemContainer.iW2 .socketLink4,
 .newItemContainer.iW2 .socketLink2,
 .newItemContainer.iW2 .socketLink0 {
-  background: url('/protected/image/gen/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
+  background: url('/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
   background-position: -70px -140px;
   width: 38px;
   height: 15px
@@ -12317,7 +12317,7 @@ small {
 }
 
 .newItemContainer .socket--jewel {
-  background: url('/protected/image/gen/socket2.png?v=1733975490315&key=bOOTV3VD4QQrcQMzHLZ1RA') no-repeat center/35px auto;
+  background: url('/socket2.png?v=1733975490315&key=bOOTV3VD4QQrcQMzHLZ1RA') no-repeat center/35px auto;
   background-position: 0px -35px;
   width: 35px;
   height: 35px
@@ -12326,7 +12326,7 @@ small {
 .newItemContainer .socket--jewel::after {
   width: 35px;
   height: 35px;
-  background: url('/protected/image/gen/socket2.png?v=1733975490315&key=bOOTV3VD4QQrcQMzHLZ1RA') no-repeat center/35px auto;
+  background: url('/socket2.png?v=1733975490315&key=bOOTV3VD4QQrcQMzHLZ1RA') no-repeat center/35px auto;
   display: block
 }
 
@@ -12346,7 +12346,7 @@ small {
 }
 
 .newItemContainer .socket--rune {
-  background: url('/protected/image/gen/socket2.png?v=1733975490315&key=bOOTV3VD4QQrcQMzHLZ1RA') no-repeat center/35px auto;
+  background: url('/socket2.png?v=1733975490315&key=bOOTV3VD4QQrcQMzHLZ1RA') no-repeat center/35px auto;
   background-position: 0px -140px;
   width: 35px;
   height: 35px
@@ -12355,7 +12355,7 @@ small {
 .newItemContainer .socket--rune::after {
   width: 35px;
   height: 35px;
-  background: url('/protected/image/gen/socket2.png?v=1733975490315&key=bOOTV3VD4QQrcQMzHLZ1RA') no-repeat center/35px auto;
+  background: url('/socket2.png?v=1733975490315&key=bOOTV3VD4QQrcQMzHLZ1RA') no-repeat center/35px auto;
   display: block
 }
 
@@ -12370,7 +12370,7 @@ small {
 }
 
 .newItemContainer .socket.socketStr {
-  background: url('/protected/image/gen/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
+  background: url('/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
   background-position: -140px 0px
 }
 
@@ -12383,7 +12383,7 @@ small {
 }
 
 .newItemContainer .socket.socketDex {
-  background: url('/protected/image/gen/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
+  background: url('/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
   background-position: -35px -105px
 }
 
@@ -12396,7 +12396,7 @@ small {
 }
 
 .newItemContainer .socket.socketInt {
-  background: url('/protected/image/gen/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
+  background: url('/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
   background-position: -105px 0px
 }
 
@@ -12409,17 +12409,17 @@ small {
 }
 
 .newItemContainer .socket.socketGen {
-  background: url('/protected/image/gen/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
+  background: url('/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
   background-position: -140px -35px
 }
 
 .newItemContainer .socket.socketDelve {
-  background: url('/protected/image/gen/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
+  background: url('/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
   background-position: -105px -35px
 }
 
 .newItemContainer .socket.socketAbyss {
-  background: url('/protected/image/gen/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
+  background: url('/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat;
   background-position: 0px -70px
 }
 
@@ -12430,7 +12430,7 @@ small {
   height: 31px;
   margin: 2px;
   border-radius: 50%;
-  background: url('/protected/image/gen/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat
+  background: url('/socket.png?v=1733975490319&key=mf1B3nj-F9flN8KRLcBQ8A') no-repeat
 }
 
 .newItemContainer .socket.socketed:hover::after {
@@ -12707,7 +12707,7 @@ body {
 }
 
 .pointsIcon {
-  background: url('/protected/image/gen/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
+  background: url('/ui-sprite.png?v=1733975490051&key=hcYqaIbeIeQAwESlJH12PQ') no-repeat;
   background-position: 0px -141px;
   width: 16px;
   height: 16px;
@@ -12868,7 +12868,7 @@ body {
 }
 
 .loader div:nth-child(1) {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: 0px 0px;
   width: 200px;
   height: 200px;
@@ -12882,7 +12882,7 @@ body {
 }
 
 .loader div:nth-child(2) {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: 0px -200px;
   width: 116px;
   height: 116px;
@@ -12896,7 +12896,7 @@ body {
 }
 
 .loader div:nth-child(3) {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -200px 0px;
   width: 157px;
   height: 157px;
@@ -18122,28 +18122,28 @@ button.toast-close-button {
 }
 
 .nav-tabs .menu-search>a::before {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -282px -200px;
   height: 18px;
   width: 18px
 }
 
 .nav-tabs .menu-exchange>a::before {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -264px -200px;
   height: 18px;
   width: 18px
 }
 
 .nav-tabs .menu-about>a::before {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -246px -200px;
   height: 18px;
   width: 18px
 }
 
 .nav-tabs .menu-settings>a::before {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -300px -200px;
   height: 18px;
   width: 18px
@@ -18304,7 +18304,7 @@ button.toast-close-button {
 #trade .search-bar .status-select .multiselect__option span.poe2::before {
   display: inline-block;
   content: " ";
-  background-image: url('/protected/image/gen/platform.png?v=1733975490043&key=nbKZTaHvvfVSeKJ80zwgCA');
+  background-image: url('/platform.png?v=1733975490043&key=nbKZTaHvvfVSeKJ80zwgCA');
   vertical-align: middle;
   width: 22px;
   height: 22px;
@@ -18540,7 +18540,7 @@ button.toast-close-button {
   left: 50%;
   margin-top: -10px;
   margin-left: -10px;
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -206px -200px
 }
 
@@ -18553,7 +18553,7 @@ button.toast-close-button {
   left: 50%;
   margin-top: -15px;
   margin-left: -15px;
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -320px -157px;
   transform: scale(0.75)
 }
@@ -18567,7 +18567,7 @@ button.toast-close-button {
   left: 50%;
   margin-top: -8px;
   margin-left: -8px;
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -150px -230px
 }
 
@@ -18580,7 +18580,7 @@ button.toast-close-button {
   left: 50%;
   margin-top: -8px;
   margin-left: -8px;
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -150px -230px;
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
@@ -18598,7 +18598,7 @@ button.toast-close-button {
   left: 50%;
   margin-top: -9px;
   margin-left: -9px;
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -116px -230px
 }
 
@@ -18611,7 +18611,7 @@ button.toast-close-button {
   left: 50%;
   margin-top: -10px;
   margin-left: -10px;
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -166px -200px
 }
 
@@ -18624,7 +18624,7 @@ button.toast-close-button {
   left: 50%;
   margin-top: -7.5px;
   margin-left: -7.5px;
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -212px -230px
 }
 
@@ -18737,7 +18737,7 @@ button.toast-close-button {
 }
 
 #trade .controls .livesearch-btn>.plus {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -134px -230px;
   display: block;
   width: 16px;
@@ -18761,7 +18761,7 @@ button.toast-close-button {
   -ms-transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -150px -230px;
   display: block;
   width: 16px;
@@ -18851,11 +18851,6 @@ button.toast-close-button {
 .exchange .filter-group-body.dimmed .exchange-filter-item.highlighted {
   border: 1px solid #abab5a;
   opacity: 1
-}
-
-#trade .search-bar .blue .filter-group .filter-group-body,
-#trade .search-bar .filter-group.blue .filter-group-body {
-  padding: 0 39px 0 39px
 }
 
 #trade .search-bar .search-advanced-pane.brown .filter-group.expanded:not(.invalid)+.filter-group,
@@ -19270,7 +19265,7 @@ button.toast-close-button {
 .results .row.row-total .layout-btn.layout-immersion,
 .results #trade .row-total.search-bar .layout-btn.layout-immersion,
 #trade .results .row-total.search-bar .layout-btn.layout-immersion {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -290px -157px;
   right: 84px
 }
@@ -19278,7 +19273,7 @@ button.toast-close-button {
 .results .row.row-total .layout-btn.layout-compact,
 .results #trade .row-total.search-bar .layout-btn.layout-compact,
 #trade .results .row-total.search-bar .layout-btn.layout-compact {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -230px -157px;
   right: 46px
 }
@@ -19286,7 +19281,7 @@ button.toast-close-button {
 .results .row.row-total .layout-btn.layout-compact-two,
 .results #trade .row-total.search-bar .layout-btn.layout-compact-two,
 #trade .results .row-total.search-bar .layout-btn.layout-compact-two {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -200px -157px;
   right: 8px
 }
@@ -19327,7 +19322,7 @@ button.toast-close-button {
 .results .row .refresh,
 .results #trade .search-bar .refresh,
 #trade .results .search-bar .refresh {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -320px -157px;
   width: 30px;
   height: 30px;
@@ -19400,7 +19395,7 @@ button.toast-close-button {
 .results .row .copy,
 .results #trade .search-bar .copy,
 #trade .results .search-bar .copy {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -260px -157px;
   width: 30px;
   height: 30px;
@@ -19414,7 +19409,7 @@ button.toast-close-button {
 .results .row .searchBy,
 .results #trade .search-bar .searchBy,
 #trade .results .search-bar .searchBy {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -116px -200px;
   width: 30px;
   height: 30px;
@@ -19487,14 +19482,14 @@ button.toast-close-button {
 .results .row .s.sorted.sorted-asc::after,
 .results #trade .search-bar .s.sorted.sorted-asc::after,
 #trade .results .search-bar .s.sorted.sorted-asc::after {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -318px -200px
 }
 
 .results .row .s.sorted.sorted-desc::after,
 .results #trade .search-bar .s.sorted.sorted-desc::after,
 #trade .results .search-bar .s.sorted.sorted-desc::after {
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -336px -200px
 }
 
@@ -19707,7 +19702,7 @@ button.toast-close-button {
   height: 20px;
   float: right;
   margin-right: -4px;
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -186px -200px;
   content: " "
 }
@@ -20089,7 +20084,7 @@ i.flag.cn {
   left: 50%;
   margin-top: -10px;
   margin-left: -10px;
-  background: url('/protected/image/gen/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
+  background: url('/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ') no-repeat;
   background-position: -146px -200px
 }
 
@@ -20129,7 +20124,7 @@ i.flag.cn {
 #trade .multiselect.filter-select .multiselect__tags {
   border-color: #1e2124;
   max-height: 30px;
-  padding: 4px 7px
+  padding: 0px
 }
 
 #trade .multiselect.filter-select .multiselect__tags:focus-within:focus {
