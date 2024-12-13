@@ -92,6 +92,21 @@
                         </span>
                       </div>
 
+                      <div class="filter full-span" [class.disabled]="!filter.hideGold">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.hideGold" (click)="toggleHideGold()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Gold Stacks Lower Than
+                            <div class="filter-tip"><p>You will still pick up smaller stacks too.</p></div>
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [disabled]="!filter.hideGold" [(ngModel)]="filter.hideGoldLowerThan" (change)="updateFilter()">
+                        </span>
+                      </div>
+
                     </div>
 
                     <div class="clear"></div>
@@ -169,7 +184,7 @@
                             Show Quality Ultimate Life Flasks
                           </div>
                           <span class="sep"></span>
-                          <input type="number" value="10" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                          <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
                             [disabled]="!filter.showUltimateLifeFlasks"  [(ngModel)]="filter.showUltimateLifeFlasksMinQuality" (change)="updateFilter()">
                         </span>
                       </div>

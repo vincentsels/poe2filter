@@ -86,6 +86,11 @@ export const filterHideLowJewellery =
   Rarity <= {jewelleryRarity}
 `;
 
+export const filterHideGold =
+`Hide
+  BaseType == "Gold"
+  StackSize < {minGold}`
+
 export const filterTemplate =
 `#######################################################
 ##### Always show
@@ -319,20 +324,11 @@ Show
 	PlayEffect White
 
 #######################################################
-##### Hide crap items
+##### Hide stuff
 #######################################################
 
 {filterHideNormalAndMagicItems}
 {filterHideLowJewellery}
-
-#######################################################
-##### Show/hide scrolls of ID
-#######################################################
-
 {filterHideScrolls}
-
-#######################################################
-##### Only quality flasks
-#######################################################
-
-{filterHideFlasks}`;
+{filterHideFlasks}
+{filterHideGold}`

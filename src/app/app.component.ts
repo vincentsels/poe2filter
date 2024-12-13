@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, JewelleryRarity, QualityItemType, SocketedItemType, WeaponFilter, WeaponTier, WeaponType } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideLowJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterShowUnique, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideLowJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterShowUnique, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
-const LOCAL_STORAGE_KEY = 'filter-v3';
+const LOCAL_STORAGE_KEY = 'filter-v4';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
   toggleHideScrolls = () => { this.filter.hideScrolls = !this.filter.hideScrolls; this.updateFilter(); }
   toggleHideJewellery = () => { this.filter.hideJewellery = !this.filter.hideJewellery; this.updateFilter(); }
   toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilter(); }
+  toggleHideGold = () => { this.filter.hideGold = !this.filter.hideGold; this.updateFilter(); }
   toggleShowUniques = () => { this.filter.showUniques = !this.filter.showUniques; this.updateFilter(); }
   toggleShowSocketedItems = () => { this.filter.showSocketedItems = !this.filter.showSocketedItems; this.updateFilter(); }
   toggleShowQualityItems = () => { this.filter.showQualityItems = !this.filter.showQualityItems; this.updateFilter(); }
@@ -73,6 +74,7 @@ export class AppComponent implements OnInit {
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
       .replace('{filterHideLowJewellery}', this.filter.hideJewellery ? filterHideLowJewellery.replace('{jewelleryRarity}', (this.filter.hideJewelleryOfRarity === JewelleryRarity.NormalAndMagic ? 'Magic' : 'Normal')): '')
       .replace('{filterHideNormalAndMagicItems}', this.filter.hideNormalAndMagicItems ? filterHideNormalAndMagicItems : '')
+      .replace('{filterHideGold}', this.filter.hideGold ? filterHideGold.replace('{minGold}', (this.filter.hideGoldLowerThan || 50).toString()): '')
       .replace('{filterShowUnique}', this.filter.showUniques ? filterShowUnique : '')
       .replace('{filterShowOneSocket}', this.filter.showSocketedItems && this.filter.showSocketedItemsType === SocketedItemType.All ? filterShowOneSocket : '')
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')

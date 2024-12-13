@@ -5,6 +5,8 @@ export class Filter {
   hideJewellery = true;
   hideJewelleryOfRarity = JewelleryRarity.Normal;
   hideNormalAndMagicItems = true;
+  hideGold = true;
+  hideGoldLowerThan = 50;
   showUniques = true;
   showSocketedItems = true;
   showSocketedItemsType = SocketedItemType.All;
