@@ -281,6 +281,12 @@ Show
 
 Show
 	Class "Currency"
+	BaseType "Logbook"
+	PlayEffect Orange
+	MinimapIcon 2 Orange Moon
+
+Show
+	Class "Currency"
 	BaseType "Artifact"
 	PlayEffect Yellow
 	MinimapIcon 2 Yellow Moon
