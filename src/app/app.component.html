@@ -26,11 +26,12 @@
             <div class="search-bar search-advanced">
               <div class="search-advanced-items">
                 <div class="search-advanced-pane blue">
+
                   <div class="filter-group expanded">
                     <div class="filter-group-header">
                       <div class="filter">
                         <span class="filter-body">
-                          <span class="filter-title filter-title-clickable">
+                          <span class="filter-title">
                             <span>General Filters</span>
                           </span>
                         </span>
@@ -57,17 +58,38 @@
                         </span>
                       </div>
 
+                      <div class="filter filter-property full-span">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Scrolls of Wisdom
+                          </div>
+                        </span>
+                      </div>
+
                       <div class="filter full-span">
                         <span class="input-group-btn">
                           <button class="btn toggle-btn"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            <i class="mutate-type mutate-type-explicit">explicit</i>
-                            <span>Hide Flasks</span>
+                            <span>Hide Jewellery Lower Than</span>
                           </div>
                           <span class="sep"></span>
-                          <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <input value="60" type="number" placeholder="max" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                        </span>
+                      </div>
+
+                      <div class="filter filter-property full-span">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Normal And Rare Items
+                          </div>
                         </span>
                       </div>
 
@@ -97,19 +119,114 @@
 
                     <div class="clear"></div>
                   </div>
-                </div>
-                <div class="search-advanced-pane brown">
+
                   <div class="filter-group expanded">
                     <div class="filter-group-header">
                       <div class="filter">
                         <span class="filter-body">
-                          <div class="filter-title filter-title-clickable">
-                            Preferred Weapon Type
+                          <span class="filter-title">
+                            <span>General Highlights</span>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter filter-property full-span">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Highlight Uniques
+                          </div>
+                        </span>
+                      </div>
+
+                      <div class="filter filter-property full-span">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Highlight Rare Jewellery
+                          </div>
+                        </span>
+                      </div>
+
+                      <div class="filter filter-property full-span">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Show Socketed Items
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                            <div class="multiselect__tags">
+                              <select>
+                                <option value="All">All</option>
+                                <option value="All">2 Sockets</option>
+                              </select>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+
+                      <div class="filter filter-property full-span">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Show Quality Items
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                            <div class="multiselect__tags">
+                              <select>
+                                <option value="All">All</option>
+                                <option value="All">> 10 Quality</option>
+                              </select>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+
+                      <div class="filter full-span">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            <span>Show Quality Ultimate Life Flasks</span>
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" value="10" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="clear"></div>
+                  </div>
+
+                </div>
+
+                <div class="search-advanced-pane blue">
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Show Weapon Types
                           </div>
                         </span>
                       </div>
                     </div>
                     <div class="filter-group-body">
+
                       <div class="filter full-span">
                         <span class="input-group-btn">
                           <button  class="btn toggle-btn"></button>
@@ -140,6 +257,91 @@
                     </div>
                     <div class="clear"></div>
                   </div>
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Show Base Armour Types
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter full-span">
+                        <span class="input-group-btn">
+                          <button  class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            <span>Body Armour</span>
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <span class="sep"></span>
+                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <span class="sep"></span>
+                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                        </span>
+                      </div>
+
+                      <div class="filter full-span">
+                        <span class="input-group-btn">
+                          <button  class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            <span>Helmet</span>
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <span class="sep"></span>
+                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <span class="sep"></span>
+                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                        </span>
+                      </div>
+
+                      <div class="filter full-span">
+                        <span class="input-group-btn">
+                          <button  class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            <span>Gloves</span>
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <span class="sep"></span>
+                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <span class="sep"></span>
+                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                        </span>
+                      </div>
+
+                      <div class="filter full-span">
+                        <span class="input-group-btn">
+                          <button  class="btn toggle-btn"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            <span>Boots</span>
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <span class="sep"></span>
+                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                          <span class="sep"></span>
+                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax">
+                        </span>
+                      </div>
+
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+
                 </div>
               </div>
             </div>

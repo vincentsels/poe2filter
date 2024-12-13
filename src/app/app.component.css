@@ -29,3 +29,21 @@ select option {
   outline: none;
   border: none;
 }
+
+.results .row,.results #trade .search-bar,#trade .results .search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  margin: 0;
+  opacity: 1;
+  background-color: rgba(10,10,10,.8);
+  position: relative;
+  transition: opacity .5s
+}
+
+.results .row h2,.results #trade .search-bar h2,#trade .results .search-bar h2,.results .row h3,.results #trade .search-bar h3,#trade .results .search-bar h3 {
+  color: #e2e2e2;
+  font-family: "FontinSmallcaps",sans-serif;
+  font-weight: normal
+}
