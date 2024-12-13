@@ -43,6 +43,18 @@ export class AppComponent implements OnInit {
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
       .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '0' : '10') : '')
       .replace('{filterShowUltimateLifeFlasks}', this.filter.showUltimateLifeFlasks ? filterShowUltimateLifeFlasks.replace('{minFlaskQuality}', (this.filter.showUltimateLifeFlasksMinQuality || 10).toString()): '')
+  }
 
+  download() {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(this.filterText));
+    element.setAttribute('download', 'poe2filter.filter');
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
   }
 }
