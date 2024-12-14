@@ -118,6 +118,18 @@
                         </span>
                       </div>
 
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideCommonCharms">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.hideCommonCharms" (click)="toggleHideCommonCharms()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Common Charms
+                            <div class="filter-tip"><p>Golden, Amethyst, Thawing Charms, Quality Charms and Unique Charms are still shown.</p></div>
+                          </div>
+                        </span>
+                      </div>
+
                     </div>
 
                     <div class="clear"></div>

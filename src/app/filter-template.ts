@@ -124,6 +124,13 @@ export const filterHideRunes =
   BaseType "Rune"
 `
 
+export const filterHideCommonCharms =
+`Hide
+  Class "Charms"
+  Rarity <= Magic
+  Quality = 0
+`
+
 export const filterTemplate =
 `#######################################################
 ##### Highlights
@@ -162,187 +169,188 @@ export const filterTemplate =
 #######################################################
 
 Show
-	Class Currency
-	BaseType "Divine Orb" "Orb of Chance" "Perfect Jeweller's Orb" "Mirror of Kalandra"
-	PlayEffect Brown
-	MinimapIcon 2 Brown Circle
+  Class Currency
+  BaseType "Divine Orb" "Orb of Chance" "Perfect Jeweller's Orb" "Mirror of Kalandra"
+  PlayEffect Brown
+  MinimapIcon 2 Brown Circle
 
 Show
-	Class Currency
-	BaseType "Exalted Orb" "Chaos Orb" "Orb of Alchemy" "Orb of Annulment" "Gemcutter's Prism" "Glassblower's Bauble" "Greater Jeweller's Orb"
-	PlayEffect Orange
-	MinimapIcon 2 Orange Circle
+  Class Currency
+  BaseType "Exalted Orb" "Chaos Orb" "Orb of Alchemy" "Orb of Annulment" "Gemcutter's Prism" "Glassblower's Bauble" "Greater Jeweller's Orb"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
 
 Show
-	Class Currency
-	BaseType == "Regal Orb" "Artificer's Orb" "Lesser Jeweller's Orb" "Vaal Orb"
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Circle
+  Class Currency
+  BaseType == "Regal Orb" "Artificer's Orb" "Lesser Jeweller's Orb" "Vaal Orb"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
 
 Show
-	Class Currency
-	BaseType == "Orb of Transmutation" "Orb of Augmentation" "Orb of Alteration" "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
-	PlayEffect White
-	MinimapIcon 2 White Circle
+  Class Currency
+  BaseType == "Orb of Transmutation" "Orb of Augmentation" "Orb of Alteration" "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
+  PlayEffect White
+  MinimapIcon 2 White Circle
 
 Show
-	Class == "Stackable Currency"
-	BaseType "Shard"
-	PlayEffect White
-	MinimapIcon 2 White Circle
+  Class == "Stackable Currency"
+  BaseType "Shard"
+  PlayEffect White
+  MinimapIcon 2 White Circle
 
 #######################################################
 ##### Essence
 #######################################################
 
 Show
-	BaseType "Essence"
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Circle
+  BaseType "Essence"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
 
 #######################################################
 ##### Maps
 #######################################################
 
 Show
-	BaseType " Fragment" "Breachstone" "Simulacrum" " Tablet" "Cowardly Fate" "Deadly Fate" "Victorious Fate"
-	PlayEffect Orange
-	MinimapIcon 2 Orange Diamond
+  BaseType " Fragment" "Breachstone" "Simulacrum" " Tablet" "Cowardly Fate" "Deadly Fate" "Victorious Fate"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Diamond
 
 Show
-	Class "Currency"
-	BaseType "Simulacrum Splinter" "Breach Splinter" " Artifact"
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Diamond
+  Class "Currency"
+  BaseType "Simulacrum Splinter" "Breach Splinter" " Artifact"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Diamond
 
 Show
-	BaseType "Waystone"
-	WaystoneTier >= 12
-	PlayEffect Brown
-	MinimapIcon 2 Brown Diamond
+  BaseType "Waystone"
+  WaystoneTier >= 12
+  PlayEffect Brown
+  MinimapIcon 2 Brown Diamond
 
 Show
-	BaseType "Waystone"
-	WaystoneTier >= 8
-	PlayEffect Orange
-	MinimapIcon 2 Orange Diamond
+  BaseType "Waystone"
+  WaystoneTier >= 8
+  PlayEffect Orange
+  MinimapIcon 2 Orange Diamond
 
 Show
-	BaseType "Waystone"
-	WaystoneTier >= 4
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Diamond
+  BaseType "Waystone"
+  WaystoneTier >= 4
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Diamond
 
 Show
-	BaseType "Waystone"
-	WaystoneTier >= 1
-	PlayEffect White
-	MinimapIcon 2 White Diamond
+  BaseType "Waystone"
+  WaystoneTier >= 1
+  PlayEffect White
+  MinimapIcon 2 White Diamond
 
 #######################################################
 ##### Trials
 #######################################################
 
 Show
-	BaseType "Djinn Barya" "Inscribed Ultimatum"
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Diamond
+  BaseType "Djinn Barya" "Inscribed Ultimatum"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Diamond
 
 #######################################################
 ##### Socketables
 #######################################################
 
 Show
-	Class == "Socketable"
-	BaseType "Soul Core" "Timeless"
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Circle
+  Class == "Socketable"
+  BaseType "Soul Core" "Timeless"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
 
 #######################################################
 ##### Charms
 #######################################################
 
 Show
-	BaseType "Charm"
-	PlayEffect White
-	MinimapIcon 2 White Circle
+  Class "Charms"
+  BaseType "Thawing Charm" "Amethyst Charm" "Golden Charm"
+  PlayEffect White
+  MinimapIcon 2 White Circle
 
 #######################################################
 ##### Jewels
 #######################################################
 
 Show
-	Class == "Jewels"
-	PlayEffect White
-	MinimapIcon 2 White Circle
+  Class == "Jewels"
+  PlayEffect White
+  MinimapIcon 2 White Circle
 
 #######################################################
 ##### Relics
 #######################################################
 
 Show
-	Class "Relic"
-	PlayEffect White
-	MinimapIcon 2 White Circle
+  Class "Relic"
+  PlayEffect White
+  MinimapIcon 2 White Circle
 
 #######################################################
 ##### Oil
 #######################################################
 
 Show
-	Class Currency
-	BaseType "Oil"
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Circle
+  Class Currency
+  BaseType "Oil"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
 
 #######################################################
 ##### Expedition currency
 #######################################################
 
 Show
-	Class "Currency"
-	BaseType == "Exotic Coinage"
-	PlayEffect Orange
-	MinimapIcon 2 Orange Moon
+  Class "Currency"
+  BaseType == "Exotic Coinage"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Moon
 
 Show
-	Class "Currency"
-	BaseType "Logbook"
-	PlayEffect Orange
-	MinimapIcon 2 Orange Moon
+  Class "Currency"
+  BaseType "Logbook"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Moon
 
 Show
-	Class "Currency"
-	BaseType "Artifact"
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Moon
+  Class "Currency"
+  BaseType "Artifact"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Moon
 
 #######################################################
 ##### Simulacrum currency
 #######################################################
 
 Show
-	Class Currency
-	BaseType "Splinter of Chayula" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Timeless Vaal Splinter"
-	PlayEffect Orange
-	MinimapIcon 2 Orange Circle
+  Class Currency
+  BaseType "Splinter of Chayula" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Timeless Vaal Splinter"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
 
 Show
-	Class Currency
-	BaseType "Timeless Eternal Empire Splinter" "Timeless Karui Splinter"
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Circle
+  Class Currency
+  BaseType "Timeless Eternal Empire Splinter" "Timeless Karui Splinter"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
 
 Show
-	Class Currency
-	BaseType "Splinter of Esh" "Splinter of Tul" "Splinter of Uul-Netol" "Splinter of Xoph"
-	PlayEffect White
-	MinimapIcon 2 White Circle
+  Class Currency
+  BaseType "Splinter of Esh" "Splinter of Tul" "Splinter of Uul-Netol" "Splinter of Xoph"
+  PlayEffect White
+  MinimapIcon 2 White Circle
 
 Show
-	Class Currency
-	BaseType "Simulacrum Splinter"
-	PlayEffect White
+  Class Currency
+  BaseType "Simulacrum Splinter"
+  PlayEffect White
 
 #######################################################
 ##### Hide stuff
@@ -353,4 +361,5 @@ Show
 {filterHideScrolls}
 {filterHideFlasks}
 {filterHideGold}
-{filterHideRunes}`;
+{filterHideRunes}
+{filterHideCommonCharms}`;
