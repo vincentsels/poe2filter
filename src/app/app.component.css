@@ -85,3 +85,31 @@ select[disabled] {
   font-family: "FontinSmallcaps",sans-serif;
   font-weight: normal
 }
+
+.filter-body-no-checkbox {
+  margin-left: 39px;
+}
+
+.tier-hidden {
+  background-color: #1d1d1d !important;
+  opacity: 0.3 !important;
+}
+
+.tier-shown {
+}
+
+.tier-white {
+  background-color: #ffffff60 !important;
+}
+
+.tier-yellow {
+  background-color: #e4e40075 !important;
+}
+
+.tier-orange {
+  background-color: #f39e0085 !important;
+}
+
+.tier-brown {
+  background-color: #f34d0093 !important;
+}

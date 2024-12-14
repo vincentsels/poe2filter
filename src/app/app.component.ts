@@ -24,6 +24,15 @@ export class AppComponent implements OnInit {
 
   copyText = 'Copy';
 
+  dynamicWaystoneThresholds = [
+    { style: 'tier-hidden', level: '' },
+    { style: 'tier-shown', level: '' },
+    { style: 'tier-white', level: '' },
+    { style: 'tier-yellow', level: '' },
+    { style: 'tier-orange', level: '' },
+    { style: 'tier-brown', level: '' },
+  ];
+
   ngOnInit(): void {
     const filterFromStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (filterFromStorage) this.filter = JSON.parse(filterFromStorage) as Filter;
@@ -76,7 +85,13 @@ export class AppComponent implements OnInit {
   toggleShowGloves = () => { this.filter.showGloves = !this.filter.showGloves; this.updateFilter(); }
   toggleShowBoots = () => { this.filter.showBoots = !this.filter.showBoots; this.updateFilter(); }
 
-  toggleDynamicWaystones = () => { this.filter.dynamicWaystones = !this.filter.dynamicWaystones; this.updateFilter(); }
+  toggleDynamicWaystones = () => {
+    this.filter.dynamicWaystones = !this.filter.dynamicWaystones;
+    if (this.filter.dynamicWaystones && !this.filter.dynamicWaystonesLevel) {
+      this.filter.dynamicWaystonesLevel = 1;
+    }
+    this.updateFilter();
+  }
 
   updateFilter() {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
@@ -131,12 +146,22 @@ export class AppComponent implements OnInit {
 
   buildDynamicWaystoneFilter() {
     const currLevel = this.filter.dynamicWaystonesLevel || 1;
+
     const showFrom = currLevel - (3 + Math.floor(currLevel / 4));
     const highlightTiers = [
-      { level: currLevel + 3, color: 'Brown' },
-      { level: currLevel + 1, color: 'Orange' },
-      { level: currLevel, color: 'Yellow' },
-      { level: currLevel - 1, color: 'White' },
+      { level: Math.min(currLevel + 3, 16), color: 'Brown' },
+      { level: Math.min(currLevel + 1, 15), color: 'Orange' },
+      { level: Math.min(currLevel, 14), color: 'Yellow' },
+      { level: Math.min(currLevel - 1, 13), color: 'White' },
+    ];
+
+    this.dynamicWaystoneThresholds = [
+      { style: 'tier-hidden', level: showFrom > 1 ? '< ' + showFrom.toString() : '🞪' },
+      { style: 'tier-shown', level: currLevel > 2 ? '≥ ' + Math.max(showFrom, 1) : '🞪' },
+      { style: 'tier-white', level: highlightTiers[3].level >= 1 ? '≥ ' + highlightTiers[3].level : '🞪' },
+      { style: 'tier-yellow', level: highlightTiers[2].level >= 1 ? '≥ ' + highlightTiers[2].level : '🞪' },
+      { style: 'tier-orange', level: highlightTiers[1].level >= 1 ? '≥ ' + highlightTiers[1].level : '🞪' },
+      { style: 'tier-brown', level: highlightTiers[0].level >= 1 ? '≥ ' + highlightTiers[0].level : '🞪' },
     ];
 
     let text = '';
