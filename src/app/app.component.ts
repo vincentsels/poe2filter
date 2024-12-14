@@ -34,8 +34,8 @@ export class AppComponent implements OnInit {
   toggleHideScrolls = () => { this.filter.hideScrolls = !this.filter.hideScrolls; this.updateFilter(); }
   toggleHideJewellery = () => { this.filter.hideJewellery = !this.filter.hideJewellery; this.updateFilter(); }
   toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilter(); }
-  toggleHideRunes = () => { this.filter.hideRunes = !this.filter.hideRunes; this.updateFilter(); }
   toggleHideCommonCharms = () => { this.filter.hideCommonCharms = !this.filter.hideCommonCharms; this.updateFilter(); }
+  toggleHideRunes = () => { this.filter.hideRunes = !this.filter.hideRunes; this.updateFilter(); }
 
   toggleHideGold = () => {
     this.filter.hideGold = !this.filter.hideGold;
@@ -104,8 +104,8 @@ export class AppComponent implements OnInit {
       .replace('{filterHideJewellery}', this.filter.hideJewellery ? filterHideJewellery.replace('{jewelleryRarity}', (this.filter.hideJewelleryOfRarity === JewelleryRarity.NormalAndMagic ? 'Magic' : 'Normal')) : '')
       .replace('{filterHideNormalAndMagicItems}', this.filter.hideNormalAndMagicItems ? filterHideNormalAndMagicItems : '')
       .replace('{filterHideGold}', this.filter.hideGold ? filterHideGold.replace('{minGold}', (this.filter.hideGoldLowerThan || 10000).toString()): '')
-      .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')
       .replace('{filterHideCommonCharms}', this.filter.hideCommonCharms ? filterHideCommonCharms : '')
+      .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')
       .replace('{filterShowOneSocket}', this.filter.showSocketedItems && this.filter.showSocketedItemsType === SocketedItemType.All ? filterShowOneSocket : '')
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
       .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '1' : '10') : '')

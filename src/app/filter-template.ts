@@ -118,17 +118,17 @@ export const filterHideGold =
   StackSize < {minGold}
 `
 
-export const filterHideRunes =
-`Hide
-  Class == "Socketable"
-  BaseType "Rune"
-`
-
 export const filterHideCommonCharms =
 `Hide
   Class "Charms"
   Rarity <= Magic
   Quality = 0
+`
+
+export const filterHideRunes =
+`Hide
+  Class == "Socketable"
+  BaseType "Rune"
 `
 
 export const filterTemplate =
@@ -361,5 +361,5 @@ Show
 {filterHideScrolls}
 {filterHideFlasks}
 {filterHideGold}
-{filterHideRunes}
-{filterHideCommonCharms}`;
+{filterHideCommonCharms}
+{filterHideRunes}`;
