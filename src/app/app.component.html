@@ -462,18 +462,14 @@
                       @if (filter.dynamicWaystones) {
                       <div class="filter full-span" [class.disabled]="!filter.dynamicWaystones">
                         <span class="filter-body filter-body-no-checkbox">
-                          <span class="sep"></span>
-                          <input type="text" class="form-control minmax tier-hidden" disabled [(ngModel)]="dynamicWaystoneThresholds[0].level">
-                          <span class="sep"></span>
-                          <input type="text" class="form-control minmax tier-shown" disabled [(ngModel)]="dynamicWaystoneThresholds[1].level">
-                          <span class="sep"></span>
-                          <input type="text" class="form-control minmax tier-white" disabled [(ngModel)]="dynamicWaystoneThresholds[2].level">
-                          <span class="sep"></span>
-                          <input type="text" class="form-control minmax tier-yellow" disabled [(ngModel)]="dynamicWaystoneThresholds[3].level">
-                          <span class="sep"></span>
-                          <input type="text" class="form-control minmax tier-orange" disabled [(ngModel)]="dynamicWaystoneThresholds[4].level">
-                          <span class="sep"></span>
-                          <input type="text" class="form-control minmax tier-brown" disabled [(ngModel)]="dynamicWaystoneThresholds[5].level">
+                          <div class="threshold-set">
+                            <div class="threshold tier-hidden">{{ dynamicWaystoneThresholds[0].level }}</div>
+                            <div class="threshold tier-shown">{{ dynamicWaystoneThresholds[1].level }}</div>
+                            <div class="threshold tier-white">{{ dynamicWaystoneThresholds[2].level }}</div>
+                            <div class="threshold tier-yellow">{{ dynamicWaystoneThresholds[3].level }}</div>
+                            <div class="threshold tier-orange">{{ dynamicWaystoneThresholds[4].level }}</div>
+                            <div class="threshold tier-brown">{{ dynamicWaystoneThresholds[5].level }}</div>
+                          </div>
                         </span>
                       </div>
                       }

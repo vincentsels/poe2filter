@@ -87,7 +87,25 @@ select[disabled] {
 }
 
 .filter-body-no-checkbox {
-  margin-left: 39px;
+  padding-left: 39px;
+  width: 100%;
+}
+
+.threshold-set {
+  display: flex;
+  gap: 3px;
+  height: 30px;
+  width: 100%;
+}
+
+.threshold {
+  text-align: center;
+  flex: auto;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #fff;
+  background: #1e2124;
+  padding: 5px;
 }
 
 .tier-hidden {
