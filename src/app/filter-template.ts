@@ -20,8 +20,12 @@ export const filterShowOneSocket =
 
 export const filterShow2Sockets =
 `Show
-  Sockets >= 2
+  Sockets 2
   MinimapIcon 2 White Kite
+
+Show
+  Sockets 3
+  MinimapIcon 2 Yellow Kite
 `;
 
 export const filterShowQuality =
