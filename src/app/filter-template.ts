@@ -116,7 +116,7 @@ export const filterHideGold =
 `Hide
   BaseType == "Gold"
   StackSize < {minGold}
-`
+`;
 
 export const filterHideCommonCharms =
 `Hide
@@ -129,7 +129,52 @@ export const filterHideRunes =
 `Hide
   Class == "Socketable"
   BaseType "Rune"
-`
+`;
+
+export const filterHideWaystone =
+`Hide
+  BaseType "Waystone"
+  WaystoneTier < {tier}
+`;
+
+export const filterShowWaystone =
+`Show
+  BaseType "Waystone"
+  WaystoneTier >= {tier}
+`;
+
+export const filterHighlightWaystone =
+`Show
+  BaseType "Waystone"
+  WaystoneTier >= {tier}
+  PlayEffect {color}
+  MinimapIcon 2 {color} Diamond
+`;
+
+export const filterStaticWaystones =
+`Show
+  BaseType "Waystone"
+  WaystoneTier > 12
+  PlayEffect Brown
+  MinimapIcon 2 Brown Diamond
+
+Show
+  BaseType "Waystone"
+  WaystoneTier > 8
+  PlayEffect Orange
+  MinimapIcon 2 Orange Diamond
+
+Show
+  BaseType "Waystone"
+  WaystoneTier > 4
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Diamond
+
+Show
+  BaseType "Waystone"
+  WaystoneTier >= 1
+  PlayEffect White
+  MinimapIcon 2 White Diamond`;
 
 export const filterTemplate =
 `#######################################################
@@ -163,6 +208,33 @@ export const filterTemplate =
 {filterPreferredHelmet}
 {filterPreferredGloves}
 {filterPreferredBoots}
+
+#######################################################
+##### Dynamic waystones
+#######################################################
+
+{filterDynamicWaystones}
+
+#######################################################
+##### Static waystones
+#######################################################
+
+{filterStaticWaystones}
+
+#######################################################
+##### Special map types
+#######################################################
+
+Show
+  BaseType " Fragment" "Breachstone" "Simulacrum" " Tablet" "Cowardly Fate" "Deadly Fate" "Victorious Fate"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Diamond
+
+Show
+  Class "Currency"
+  BaseType "Simulacrum Splinter" "Breach Splinter"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Diamond
 
 #######################################################
 ##### Regular currency
@@ -206,45 +278,6 @@ Show
   BaseType "Essence"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
-
-#######################################################
-##### Maps
-#######################################################
-
-Show
-  BaseType " Fragment" "Breachstone" "Simulacrum" " Tablet" "Cowardly Fate" "Deadly Fate" "Victorious Fate"
-  PlayEffect Orange
-  MinimapIcon 2 Orange Diamond
-
-Show
-  Class "Currency"
-  BaseType "Simulacrum Splinter" "Breach Splinter" " Artifact"
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Diamond
-
-Show
-  BaseType "Waystone"
-  WaystoneTier >= 12
-  PlayEffect Brown
-  MinimapIcon 2 Brown Diamond
-
-Show
-  BaseType "Waystone"
-  WaystoneTier >= 8
-  PlayEffect Orange
-  MinimapIcon 2 Orange Diamond
-
-Show
-  BaseType "Waystone"
-  WaystoneTier >= 4
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Diamond
-
-Show
-  BaseType "Waystone"
-  WaystoneTier >= 1
-  PlayEffect White
-  MinimapIcon 2 White Diamond
 
 #######################################################
 ##### Trials

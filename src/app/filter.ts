@@ -43,6 +43,9 @@ export class Filter {
   showBootsArm: number | null = null;
   showBootsEs: number | null = null;
   showBootsEva: number | null = null;
+
+  dynamicWaystones = false;
+  dynamicWaystonesLevel: number | null = null;
 }
 
 export class WeaponFilter {

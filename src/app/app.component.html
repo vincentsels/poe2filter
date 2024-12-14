@@ -432,6 +432,38 @@
                     <div class="clear"></div>
                   </div>
 
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <span class="filter-title">
+                            Dynamic Filters
+                            <div class="filter-tip"><p>Items will be hidden, shown and/or highlighted in a different color based on where you are currently at. This will require you to update the filter regularly.</p></div>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter full-span" [class.disabled]="!filter.dynamicWaystones">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.dynamicWaystones" (click)="toggleDynamicWaystones()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Current Waystone Level
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [disabled]="!filter.dynamicWaystones" [(ngModel)]="filter.dynamicWaystonesLevel" (change)="updateFilter()">
+                        </span>
+                      </div>
+
+                    </div>
+
+                    <div class="clear"></div>
+                  </div>
+
                 </div>
               </div>
             </div>

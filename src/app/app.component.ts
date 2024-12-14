@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, JewelleryRarity, QualityItemType, SocketedItemType, WeaponFilter, WeaponTier, WeaponType } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
 const LOCAL_STORAGE_KEY = 'filter-v5';
@@ -76,6 +76,8 @@ export class AppComponent implements OnInit {
   toggleShowGloves = () => { this.filter.showGloves = !this.filter.showGloves; this.updateFilter(); }
   toggleShowBoots = () => { this.filter.showBoots = !this.filter.showBoots; this.updateFilter(); }
 
+  toggleDynamicWaystones = () => { this.filter.dynamicWaystones = !this.filter.dynamicWaystones; this.updateFilter(); }
+
   updateFilter() {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
       .replaceAll('{weaponType}', `"${w.weaponType}"`)
@@ -98,6 +100,8 @@ export class AppComponent implements OnInit {
       this.filter.showBoots && (this.filter.showBootsArm || this.filter.showBootsEs || this.filter.showBootsEva)
       ? filterPreferredBoots.replace('{defences}', this.formatDefences(this.filter.showBootsArm, this.filter.showBootsEs, this.filter.showBootsEva)) : '';
 
+    const dynamicWaystoneFilterText = this.buildDynamicWaystoneFilter();
+
     this.filterText = filterTemplate
       .replace('{filterHideFlasks}', this.filter.hideFlasks ? filterHideFlasks : '')
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
@@ -117,9 +121,41 @@ export class AppComponent implements OnInit {
       .replace('{filterPreferredBodyArmour}', bodyArmourFilterText)
       .replace('{filterPreferredHelmet}', helmetFilterText)
       .replace('{filterPreferredGloves}', glovesFilterText)
-      .replace('{filterPreferredBoots}', bootsFilterText);
+      .replace('{filterPreferredBoots}', bootsFilterText)
+      .replace('{filterStaticWaystones}', this.filter.dynamicWaystones ? '' : filterStaticWaystones)
+      .replace('{filterDynamicWaystones}', this.filter.dynamicWaystones ? dynamicWaystoneFilterText : '')
+      ;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));
+  }
+
+  buildDynamicWaystoneFilter() {
+    const currLevel = this.filter.dynamicWaystonesLevel || 1;
+    const showFrom = currLevel - (3 + Math.floor(currLevel / 4));
+    const highlightTiers = [
+      { level: currLevel + 3, color: 'Brown' },
+      { level: currLevel + 1, color: 'Orange' },
+      { level: currLevel, color: 'Yellow' },
+      { level: currLevel - 1, color: 'White' },
+    ];
+
+    let text = '';
+
+    for (let threshold of highlightTiers) {
+      if (threshold.level >= 1) {
+        text += filterHighlightWaystone.replace('{tier}', Math.max(threshold.level, 1).toString()).replaceAll('{color}', threshold.color) + '\n';
+      }
+    }
+
+    if (currLevel > 2) {
+      text += filterShowWaystone.replace('{tier}', Math.max(showFrom, 1).toString()) + '\n';
+    }
+
+    if (showFrom > 1) {
+      text += filterHideWaystone.replace('{tier}', showFrom.toString()) + '\n';
+    }
+
+    return text.trimEnd();
   }
 
   formatDefences(arm: number | null, es: number | null, eva: number | null): string {
