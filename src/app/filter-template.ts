@@ -84,7 +84,7 @@ export const filterShowUltimateLifeFlasks =
 
 export const filterHideNormalAndMagicItems =
 `Hide
-  Class "Body Armour" "Boots" "Gloves" "Helmets" "Shields" "Bows" "Crossbows" "Claws" "Daggers" "One Hand" "Two Hand" "Quiver" "Sceptre" "Wand" "Quarterstave" "Stave" "Belt" "Focus" "Maces"
+  Class "Body Armour" "Boots" "Gloves" "Helmets" "Shields" "Bows" "Crossbows" "Claws" "Daggers" "One Hand" "Two Hand" "Quiver" "Sceptre" "Wand" "Quarterstave" "Stave" "Focus" "Maces"
   Rarity <= Magic
 `;
 
