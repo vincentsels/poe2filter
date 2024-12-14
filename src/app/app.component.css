@@ -43,6 +43,22 @@ select[disabled] {
   margin-bottom: 12px;
 }
 
+.copy-btn {
+  color: #e2e2e2;
+  background-color: #1e2124;
+  position: relative;
+  padding: 6px;
+  line-height: 16px;
+  min-height: 34px;
+  min-width: 34px;
+  min-width: 96px;
+  margin-left: 12px;
+
+  &:hover {
+    background-color: #2d3136;
+  }
+}
+
 .filter-output {
   background-color: #000;
   padding: 8px;

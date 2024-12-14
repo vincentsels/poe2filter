@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
   WeaponType = WeaponType;
   WeaponTier = WeaponTier;
 
+  copyText = 'Copy';
+
   ngOnInit(): void {
     const filterFromStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (filterFromStorage) this.filter = JSON.parse(filterFromStorage) as Filter;
@@ -112,6 +114,12 @@ export class AppComponent implements OnInit {
     element.click();
 
     document.body.removeChild(element);
+  }
+
+  copyToClipboard() {
+    navigator.clipboard.writeText(this.filterText);
+    this.copyText = 'Copied!';
+    setTimeout(() => this.copyText = 'Copy', 1000);
   }
 
   clear() {

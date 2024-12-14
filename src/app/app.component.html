@@ -439,7 +439,13 @@
 
     <div class="results block output">
       <div class="row row-total">
-        <h3>Filter output</h3>
+        <h3>
+          Filter output
+        </h3>
+
+        <button type="button" class="btn copy-btn" (click)="copyToClipboard()">
+          {{ copyText }}
+        </button>
         <!-- <button title="Default" class="layout-btn layout-immersion"></button>
         <button title="Compact" class="layout-btn layout-compact"></button>
         <button title="Compact Two-Columned" class="layout-btn layout-compact-two"></button> -->
@@ -459,7 +465,9 @@
               You can open the correct folder from the Game's Settings Menu (under 'Game').</li>
             <li>Select the filter from the dropdown menu in the Game's Settings Menu (under 'Game'). The game will save it for future use, and load it on startup.</li>
             <li>If you change your filter, download the file again and move it over the existing file. Make sure the file name is still correct; your browser might have appended (1) to the file name. Then click the 'Reload' button in the Game Menu.</li>
+            <li>Alternatively, copy the filter text using the 'Copy' button, and change the contents of your filter file in the PoE2 directory. You'll still need to click the 'Reload' button in the Game Menu.</li>
             <li>The game will tell you when the filter was loaded correctly (or if it encountered a parsing error).</li>
+            <li>This website will store your filter in the browser. However, note that upon a new version of the website, the filter might get cleared!</li>
           </ol>
 
           <p>
