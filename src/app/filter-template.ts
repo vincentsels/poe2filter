@@ -115,7 +115,14 @@ export const filterHideJewellery =
 export const filterHideGold =
 `Hide
   BaseType == "Gold"
-  StackSize < {minGold}`
+  StackSize < {minGold}
+`
+
+export const filterHideRunes =
+`Hide
+  Class == "Socketable"
+  BaseType "Rune"
+`
 
 export const filterTemplate =
 `#######################################################
@@ -242,7 +249,7 @@ Show
 	MinimapIcon 2 Yellow Diamond
 
 #######################################################
-##### Runes
+##### Socketables
 #######################################################
 
 Show
@@ -250,18 +257,6 @@ Show
 	BaseType "Soul Core" "Timeless"
 	PlayEffect Yellow
 	MinimapIcon 2 Yellow Circle
-
-Show
-	Class == "Socketable"
-	BaseType "Iron Rune"
-	PlayEffect Yellow
-	MinimapIcon 2 Yellow Circle
-
-Show
-	Class == "Socketable"
-	BaseType "Rune"
-	PlayEffect White
-	MinimapIcon 2 White Circle
 
 #######################################################
 ##### Charms
@@ -357,4 +352,5 @@ Show
 {filterHideJewellery}
 {filterHideScrolls}
 {filterHideFlasks}
-{filterHideGold}`
+{filterHideGold}
+{filterHideRunes}`;

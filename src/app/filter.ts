@@ -7,6 +7,7 @@ export class Filter {
   hideNormalAndMagicItems = true;
   hideGold = true;
   hideGoldLowerThan = 50;
+  hideRunes = true;
 
   showSocketedItems = true;
   showSocketedItemsType = SocketedItemType.All;

@@ -107,6 +107,17 @@
                         </span>
                       </div>
 
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideRunes">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.hideRunes" (click)="toggleHideRunes()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Runes
+                          </div>
+                        </span>
+                      </div>
+
                     </div>
 
                     <div class="clear"></div>
