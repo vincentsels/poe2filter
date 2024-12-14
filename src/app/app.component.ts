@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
 
   updateFilter() {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
-      .replaceAll('{weaponType}', w.weaponType)
+      .replaceAll('{weaponType}', `"${w.weaponType}"`)
       .replaceAll('{tierType}', w.weaponTier === WeaponTier.ExpertOnly ? '\n  BaseType "Expert "' : w.weaponTier === WeaponTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
     ).join('\n');
 
