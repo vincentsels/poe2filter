@@ -17,6 +17,8 @@ export class Filter {
 
   highlightUniques = true;
   highlightRareJewellery = true;
+  highlightSkillGems = false;
+  highlightSkillGemsLevel = null;
 
   weaponFilters: WeaponFilter[] = [];
 

@@ -174,9 +174,10 @@
                           </div>
                           <span class="sep"></span>
                           <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [disabled]="!filter.showUltimateLifeFlasks"  [(ngModel)]="filter.showUltimateLifeFlasksMinQuality" (change)="updateFilter()">
+                            [disabled]="!filter.showUltimateLifeFlasks" [(ngModel)]="filter.showUltimateLifeFlasksMinQuality" (change)="updateFilter()">
                         </span>
                       </div>
+
                     </div>
 
                     <div class="clear"></div>
@@ -215,6 +216,21 @@
                             Highlight Rare Jewelry
                             <div class="filter-tip"><p>Rare jewellery (Amulets, Rings, Belts) is always shown, but this will additionally highlight it to make it stand out.</p></div>
                           </div>
+                        </span>
+                      </div>
+
+                      <div class="filter full-span" [class.disabled]="!filter.highlightSkillGems">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.highlightSkillGems" (click)="toggleHighlightSkillGems()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Highlight Skill Gems Starting At
+                            <div class="filter-tip"><p>Includes Uncut Skill Gems and Uncut Spirit Gems.</p></div>
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [disabled]="!filter.highlightSkillGems" [(ngModel)]="filter.highlightSkillGemsLevel" (change)="updateFilter()">
                         </span>
                       </div>
 
