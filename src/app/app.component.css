@@ -71,6 +71,7 @@ select[disabled] {
   height: 300px;
   outline: none;
   border: none;
+  font-family: monospace;
 }
 
 .results .row,.results #trade .search-bar,#trade .results .search-bar {
