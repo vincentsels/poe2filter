@@ -455,7 +455,7 @@
                           </div>
                           <span class="sep"></span>
                           <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [disabled]="!filter.dynamicWaystones" [(ngModel)]="filter.dynamicWaystonesLevel" (change)="updateFilter()">
+                            [disabled]="!filter.dynamicWaystones" [(ngModel)]="filter.dynamicWaystonesLevel" (keyup)="updateFilter()">
                         </span>
                       </div>
 
@@ -465,10 +465,10 @@
                           <div class="threshold-set">
                             <div class="threshold tier-hidden">{{ dynamicWaystoneThresholds[0].level }}</div>
                             <div class="threshold tier-shown">{{ dynamicWaystoneThresholds[1].level }}</div>
-                            <div class="threshold tier-white">{{ dynamicWaystoneThresholds[2].level }}</div>
-                            <div class="threshold tier-yellow">{{ dynamicWaystoneThresholds[3].level }}</div>
-                            <div class="threshold tier-orange">{{ dynamicWaystoneThresholds[4].level }}</div>
-                            <div class="threshold tier-brown">{{ dynamicWaystoneThresholds[5].level }}</div>
+                            <div class="threshold tier-white">{{ dynamicWaystoneThresholds[2].level }}<span class="dot"></span></div>
+                            <div class="threshold tier-yellow">{{ dynamicWaystoneThresholds[3].level }}<span class="dot"></span></div>
+                            <div class="threshold tier-orange">{{ dynamicWaystoneThresholds[4].level }}<span class="dot"></span></div>
+                            <div class="threshold tier-brown">{{ dynamicWaystoneThresholds[5].level }}<span class="dot"></span></div>
                           </div>
                         </span>
                       </div>

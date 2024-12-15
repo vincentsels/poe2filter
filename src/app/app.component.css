@@ -102,10 +102,23 @@ select[disabled] {
   text-align: center;
   flex: auto;
   font-size: 13px;
-  line-height: 1.45;
+  line-height: 22px;
   color: #fff;
   background: #1e2124;
   padding: 5px;
+
+  .dot {
+    position: absolute;
+
+    &::after {
+      content: " •";
+      opacity: 0.6;
+      font-size: 300%;
+      vertical-align: baseline;
+      line-height: 18px;
+      margin-left: 8px;
+    }
+  }
 }
 
 .tier-hidden {
@@ -117,17 +130,29 @@ select[disabled] {
 }
 
 .tier-white {
-  background-color: #ffffff60 !important;
+  background-color: rgba(255, 255, 255, 0.301);
+  .dot::after {
+    color: white;
+  }
 }
 
 .tier-yellow {
-  background-color: #e4e40075 !important;
+  background-color: rgba(255, 255, 0, 0.226);
+  .dot::after {
+    color: yellow;
+  }
 }
 
 .tier-orange {
-  background-color: #f39e0085 !important;
+  background-color: rgba(255, 145, 0, 0.281);
+  .dot::after {
+    color: orangered;
+  }
 }
 
 .tier-brown {
-  background-color: #f34d0093 !important;
+  background-color: rgba(173, 81, 20, 0.274);
+  .dot::after {
+    color: brown;
+  }
 }
