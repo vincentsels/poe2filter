@@ -242,13 +242,19 @@ Show
 
 Show
   Class Currency
-  BaseType "Divine Orb" "Orb of Chance" "Perfect Jeweller's Orb" "Mirror of Kalandra"
+  BaseType "Perfect Jeweller's Orb" "Mirror of Kalandra"
+  PlayEffect Purple
+  MinimapIcon 2 Purple Circle
+
+Show
+  Class Currency
+  BaseType "Divine Orb" "Greater Jeweller's Orb" "Perfect Jeweller's Orb" "Mirror of Kalandra"
   PlayEffect Brown
   MinimapIcon 2 Brown Circle
 
 Show
   Class Currency
-  BaseType "Exalted Orb" "Chaos Orb" "Orb of Alchemy" "Orb of Annulment" "Gemcutter's Prism" "Glassblower's Bauble" "Greater Jeweller's Orb"
+  BaseType "Exalted Orb" "Chaos Orb" "Orb of Alchemy" "Orb of Annulment" "Gemcutter's Prism" "Glassblower's Bauble" "Orb of Chance"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
@@ -260,15 +266,17 @@ Show
 
 Show
   Class Currency
-  BaseType == "Orb of Transmutation" "Orb of Augmentation" "Orb of Alteration" "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
+  BaseType == "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
+  Class Currency
+  BaseType == "Orb of Transmutation" "Orb of Augmentation"
+
+Show
   Class == "Stackable Currency"
   BaseType "Shard"
-  PlayEffect White
-  MinimapIcon 2 White Circle
 
 #######################################################
 ##### Essence
