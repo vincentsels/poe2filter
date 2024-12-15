@@ -157,6 +157,10 @@ select[disabled] {
   }
 }
 
+.examples-title {
+  text-align: center;
+}
+
 .examples {
   display: flex;
   flex-wrap: wrap;
