@@ -360,6 +360,34 @@ Show
   MinimapIcon 2 Yellow Circle
 
 #######################################################
+##### Omens
+#######################################################
+
+Show
+  Class "Omen"
+  BaseType "Omen of Whittling" "Omen of Sinistral Erasure" "Omen of Dextral Erasure" "Omen of Sinistral Annulment" "Omen of Dextral Annulment"
+  PlayEffect Purple
+  MinimapIcon 2 Purple Circle
+
+Show
+  Class "Omen"
+  BaseType "Omen of Amelioration" "Omen of Corruption"
+  PlayEffect Brown
+  MinimapIcon 2 Brown Circle
+
+Show
+  Class "Omen"
+  BaseType "Greater Annulment" "Omen of Resurgence" "Omen of Sinistral Exaltation" "Omen of Dextral Exaltation" "Omen of Greater Exaltation" "Omen of Sinistral Alchemy" "Omen of Refreshment" "Omen of Dextral Alchemy" "Omen of Sinistral Coronation"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
+
+Show
+  Class "Omen"
+  BaseType "Dextral Coronation"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
+
+#######################################################
 ##### Expedition currency
 #######################################################
 
