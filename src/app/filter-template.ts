@@ -386,6 +386,74 @@ Show
   MinimapIcon 2 White Circle
 
 #######################################################
+##### Breach
+#######################################################
+
+# Breachstone           38
+#
+# Esh's Catalyst        0.3
+# Neural Catalyst       0.3
+# Reaver Catalyst       0.2
+# Chayula's Catalyst    0.2
+# Tul's Catalyst        0.2
+# Xoph's Catalyst       0.15
+# Breach Splinter       0.15
+#
+# Adaptive Catalyst     0.1
+# Flesh Catalyst        0.1
+# Skittering Catalyst   0.1
+# Sibilant Catalyst     0.07
+# Uul-Netol's Catalyst  0.05
+# Carapace Catalyst     0.05
+
+Show
+  Class Currency
+  BaseType "Breachstone"
+  PlayEffect Brown
+  MinimapIcon 2 Brown Circle
+
+Show
+  Class Currency
+  BaseType "Esh's Catalyst" "Neural Catalyst" "Reaver Catalyst" "Chayula's Catalyst" "Tul's Catalyst" "Xoph's Catalyst" "Breach Splinter"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
+
+Show
+  Class Currency
+  BaseType "Adaptive Catalyst" "Flesh Catalyst" "Skittering Catalyst" "Sibilant Catalyst" "Uul-Netol's Catalyst" "Carapace Catalyst"
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
+#######################################################
+##### Fragments
+#######################################################
+
+# An Audience with the King  167
+#
+# Faded Crisis Fragment      27
+# Ancient Crisis Fragment    19
+# Weathered Crisis Fragment  17
+
+# Deadly Fate                11
+# Cowardly Fate              6
+# Victorious Fate            5
+
+Show
+  BaseType "An Audience with the King"
+  PlayEffect Purple
+  MinimapIcon 2 Purple Circle
+
+Show
+  BaseType "Faded Crisis Fragment" "Ancient Crisis Fragment" "Weathered Crisis Fragment"
+  PlayEffect Brown
+  MinimapIcon 2 Brown Circle
+
+Show
+  BaseType "Deadly Fate" "Cowardly Fate" "Victorious Fate"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
+
+#######################################################
 ##### Essences
 #######################################################
 
