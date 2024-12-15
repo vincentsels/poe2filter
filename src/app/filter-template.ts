@@ -114,19 +114,19 @@ export const filterHideJewellery =
 
 export const filterHideGold =
 `Hide
-  BaseType == "Gold"
+  BaseType "Gold"
   StackSize < {minGold}
 `;
 
 export const filterHighlightGold =
 `Show
-  BaseType == "Gold"
+  BaseType "Gold"
   StackSize >= {yellowGoldLevel}
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  BaseType == "Gold"
+  BaseType "Gold"
   StackSize >= {whiteGoldLevel}
   PlayEffect White
   MinimapIcon 2 White Circle
@@ -141,7 +141,7 @@ export const filterHideCommonCharms =
 
 export const filterHideRunes =
 `Hide
-  Class == "Socketable"
+  Class "Socketable"
   BaseType "Rune"
 `;
 
@@ -249,42 +249,71 @@ Show
 ##### Regular currency
 #######################################################
 
+# Mirror of Kalandra      ?
+# Perfect Jeweller's Orb  72
+#
+# Greater Jeweller's Orb  18
+# Divine Orb              9
+#
+# Orb of Annulment        2
+# Chaos Orb               1
+# Exalted Orb             1
+# Orb of Chance           1
+# Gemcutter's Prism       1
+# Orb of Alchemy          0.5
+#
+# Vaal Orb                0.2
+# Regal Orb               0.15
+# Glassblower's Bauble    0.3
+# Artificer's Orb         0.2
+# Lesser Jeweller's Orb   0.2
+#
+# Armourer's Scrap        0.25
+# Arcanist's Etcher       0.2
+# Blacksmith's Whetstone  0.1
+#
+# Orb of Transmutation    0.01
+# Orb of Augmentation     0.001
+# Transmutation Shard     0.001
+# Regal Shard             0.05
+# Chance Shard            0.015
+
 Show
-  Class Currency
-  BaseType "Perfect Jeweller's Orb" "Mirror of Kalandra"
+  Class "Stackable Currency"
+  BaseType "Mirror of Kalandra" "Perfect Jeweller's Orb"
   PlayEffect Purple
   MinimapIcon 2 Purple Circle
 
 Show
-  Class Currency
-  BaseType "Divine Orb" "Greater Jeweller's Orb"
+  Class "Stackable Currency"
+  BaseType "Greater Jeweller's Orb" "Divine Orb"
   PlayEffect Brown
   MinimapIcon 2 Brown Circle
 
 Show
-  Class Currency
-  BaseType "Exalted Orb" "Chaos Orb" "Orb of Alchemy" "Orb of Annulment" "Gemcutter's Prism" "Glassblower's Bauble" "Orb of Chance"
+  Class "Stackable Currency"
+  BaseType "Orb of Annulment" "Exalted Orb" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
-  Class Currency
-  BaseType == "Regal Orb" "Artificer's Orb" "Lesser Jeweller's Orb" "Vaal Orb"
+  Class "Stackable Currency"
+  BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  Class Currency
-  BaseType == "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
+  Class "Stackable Currency"
+  BaseType "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
-  Class Currency
-  BaseType == "Orb of Transmutation" "Orb of Augmentation"
+  Class "Stackable Currency"
+  BaseType "Orb of Transmutation" "Orb of Augmentation"
 
 Show
-  Class == "Stackable Currency"
+  Class "Stackable Currency"
   BaseType "Shard"
 
 #######################################################
@@ -435,7 +464,7 @@ Show
 # Faded Crisis Fragment      27
 # Ancient Crisis Fragment    19
 # Weathered Crisis Fragment  17
-
+#
 # Deadly Fate                11
 # Cowardly Fate              6
 # Victorious Fate            5
@@ -446,19 +475,14 @@ Show
   MinimapIcon 2 Purple Circle
 
 Show
-  BaseType "Faded Crisis Fragment" "Ancient Crisis Fragment" "Weathered Crisis Fragment"
-  PlayEffect Brown
-  MinimapIcon 2 Brown Circle
-
-Show
   BaseType "Deadly Fate" "Cowardly Fate" "Victorious Fate"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
-  BaseType "Fragment" # Safety Catch-all
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Circle
+  BaseType "Fragment" # Specific fragments can't seem to be added; just adding this catch-all
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
 
 #######################################################
 ##### Expedition
@@ -467,19 +491,19 @@ Show
 Show
   Class "Expedition Logbooks"
   PlayEffect Orange
-  MinimapIcon 2 Orange Moon
+  MinimapIcon 2 Orange Circle
 
 Show
   Class "Currency"
   BaseType "Exotic Coinage"
   PlayEffect Orange
-  MinimapIcon 2 Orange Moon
+  MinimapIcon 2 Orange Circle
 
 Show
   Class "Currency"
   BaseType "Artifact"
   PlayEffect Yellow
-  MinimapIcon 2 Yellow Moon
+  MinimapIcon 2 Yellow Circle
 
 #######################################################
 ##### Essences
