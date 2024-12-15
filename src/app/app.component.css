@@ -40,6 +40,7 @@ select[disabled] {
 
   &.bigger {
     font-size: 150%;
+    margin-bottom: 12px;
   }
 }
 
