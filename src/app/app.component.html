@@ -281,7 +281,7 @@
                         <span class="filter-body">
                           <div class="filter-title">
                             Show Weapon Types
-                            <div class="filter-tip"><p>If you checked the 'Hide Normal And Magic Items' box before,
+                            <div class="filter-tip"><p>If you checked the 'Hide Weapons And Armour' box before,
                               here you can specify which Weapon Base Types you still want to show Normal and Magic items of.
                               Specify whether you only want to show the Advanced and/or Expert versions.
                               Note that Rare and Unique Weapons are always shown.</p></div>
@@ -346,7 +346,7 @@
                         <span class="filter-body">
                           <div class="filter-title">
                             Show Armour Types
-                            <div class="filter-tip"><p>If you checked the 'Hide Normal And Magic Items' box before,
+                            <div class="filter-tip"><p>If you checked the 'Hide Weapons And Armour' box before,
                               here you can specify which Armour Base Types you still want to show Normal and Magic items of.
                               Specify a minimum Armour (Arm), Energy Shield (ES) and/or Evasion (Eva) base value to be shown.
                               Specifying two will only show items that meet both criteria (Hence, specifying all three will show no items).
@@ -475,10 +475,10 @@
                             <div class="threshold tier-hidden" title="Waystones {{ dynamicWaystoneThresholds[0].level }} are hidden">
                               {{ dynamicWaystoneThresholds[0].level }}
                             </div>
-                            <div class="threshold tier-shown" title="Waystones {{ dynamicWaystoneThresholds[1].level }} are shown">
+                            <div class="threshold tier-shown" title="Waystones {{ dynamicWaystoneThresholds[1].level }} are shown without highlight">
                               {{ dynamicWaystoneThresholds[1].level }}
                             </div>
-                            <div class="threshold tier-white" title="Waystones {{ dynamicWaystoneThresholds[2].level }} receive a White highlight">
+                            <div class="threshold tier-white" title="Waystones {{ dynamicWaystoneThresholds[2].level }} receive a white highlight">
                               {{ dynamicWaystoneThresholds[2].level }}<span class="dot"></span>
                             </div>
                             <div class="threshold tier-yellow" title="Waystones {{ dynamicWaystoneThresholds[3].level }} receive a yellow highlight">
@@ -537,8 +537,8 @@
     <div class="results block">
       <div class="row row-total row-justify-content-left">
         <div class="info">
-          <h2 class="info-title">Warning! Unidentified <strong>Item Tiers</strong> are currently not supported!</h2>
-          Hence, using 'Hide Normal And Magic Items' will currently hide Magic Items even if they have a tier.
+          <h2 class="info-title">Warning! Filtering on <strong>Item Tiers</strong> is currently not supported by GGG!</h2>
+          If you're hiding Magic Items, they will be hidden even if they have a Tier.
           Therefore, <strong>after defeating a boss</strong> or rare monster, quickly <strong>check</strong> whether they dropped any Magic Item with a Tier.
         </div>
       </div>
