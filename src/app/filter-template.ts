@@ -566,7 +566,7 @@ Show
 ##### Omens
 #######################################################
 
-# Omen of Whittling	            112
+# Omen of Whittling             112
 # Omen of Sinistral Erasure     ?
 # Omen of Dextral Erasure       ?
 # Omen of Sinistral Annulment   ?
