@@ -65,8 +65,17 @@
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            Hide Normal And Magic Items
-                            <div class="filter-tip"><p>Hides all Normal and Magic weapons and armour; except for the ones specified in the Weapon and Armour filter below.</p></div>
+                            Hide Weapons And Armour
+                            <div class="filter-tip"><p>Hides all Normal and/or Magic weapons and armour; except for the ones specified in the Weapon and Armour filter on the right.</p></div>
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                            <div class="multiselect__tags">
+                              <select [disabled]="!filter.hideNormalAndMagicItems" [(ngModel)]="filter.hideNormalAndMagicItemsOfRarity" (change)="updateFilter()">
+                                <option [value]="RarityToHide.Normal">Normal</option>
+                                <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
+                              </select>
+                            </div>
                           </div>
                         </span>
                       </div>
@@ -84,8 +93,8 @@
                           <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
                             <div class="multiselect__tags">
                               <select [disabled]="!filter.hideJewellery" [(ngModel)]="filter.hideJewelleryOfRarity" (change)="updateFilter()">
-                                <option [value]="JewelleryRarity.Normal">Normal</option>
-                                <option [value]="JewelleryRarity.NormalAndMagic">Normal and Magic</option>
+                                <option [value]="RarityToHide.Normal">Normal</option>
+                                <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
                               </select>
                             </div>
                           </div>

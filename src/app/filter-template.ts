@@ -103,13 +103,13 @@ export const filterShowUltimateLifeFlasks =
 export const filterHideNormalAndMagicItems =
 `Hide
   Class "Body Armour" "Boots" "Gloves" "Helmets" "Bows" "Crossbows" "Focus" "One Hand Maces" "Quivers" "Quarterstaves" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-  Rarity <= Magic
+  Rarity <= {itemRarity}
 `;
 
 export const filterHideJewellery =
 `Hide
   Class "Amulet" "Ring" "Belt"
-  Rarity <= {jewelleryRarity}
+  Rarity <= {itemRarity}
 `;
 
 export const filterHideGold =
