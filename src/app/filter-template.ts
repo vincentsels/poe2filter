@@ -241,15 +241,9 @@ export const filterTemplate =
 #######################################################
 
 Show
-  BaseType " Fragment" "Breachstone" "Simulacrum" " Tablet" "Cowardly Fate" "Deadly Fate" "Victorious Fate"
+  BaseType "Precursor Tablet"
   PlayEffect Orange
   MinimapIcon 2 Orange Diamond
-
-Show
-  Class "Currency"
-  BaseType "Simulacrum Splinter" "Breach Splinter"
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Diamond
 
 #######################################################
 ##### Regular currency
@@ -294,15 +288,6 @@ Show
   BaseType "Shard"
 
 #######################################################
-##### Essence
-#######################################################
-
-Show
-  BaseType "Essence"
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Circle
-
-#######################################################
 ##### Trials
 #######################################################
 
@@ -316,7 +301,7 @@ Show
 #######################################################
 
 Show
-  Class == "Socketable"
+  Class "Socketables"
   BaseType "Soul Core" "Timeless"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
@@ -336,7 +321,7 @@ Show
 #######################################################
 
 Show
-  Class == "Jewels"
+  Class "Jewels"
   PlayEffect White
   MinimapIcon 2 White Circle
 
@@ -350,18 +335,132 @@ Show
   MinimapIcon 2 White Circle
 
 #######################################################
-##### Oil
+##### Delirium
 #######################################################
+
+# Distilled Isolation  205
+# Simulacrum           108
+# Distilled Suffering  71
+#
+# Distilled Fear       23
+#
+# Distilled Despair    8
+# Distilled Disgust    6
+#
+# Distilled Envy       2
+# Distilled Paranoia   1
+#
+# Distilled Greed      0.3
+# Simulacrum Splinter  0.3
+# Distilled Guilt      0.1
+# Distilled Ire        0.05
 
 Show
   Class Currency
-  BaseType "Oil"
+  BaseType "Distilled Isolation" "Simulacrum" "Distilled Suffering"
+  PlayEffect Purple
+  MinimapIcon 2 Purple Circle
+
+Show
+  Class Currency
+  BaseType "Distilled Fear"
+  PlayEffect Brown
+  MinimapIcon 2 Brown Circle
+
+Show
+  Class Currency
+  BaseType "Distilled Despair" "Distilled Disgust"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
+
+Show
+  Class Currency
+  BaseType "Distilled Envy" "Distilled Paranoia"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
+
+Show
+  Class Currency
+  BaseType "Distilled Greed" "Simulacrum Splinter" "Distilled Guilt" "Distilled Ire"
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
+#######################################################
+##### Essences
+#######################################################
+
+# Greater Essence of Torment      26
+# Greater Essence of Haste        23
+# Greater Essence of Ruin         15
+#
+# Greater Essence of Sorcery      10
+# Greater Essence of Electricity  9
+# Greater Essence of Enhancement  8
+# Greater Essence of Flames       6
+# Greater Essence of Ice          6
+# Greater Essence of the Mind     5
+# Greater Essence of the Body     4
+# Greater Essence of Battle       3
+# Greater Essence of the Infinite 3
+#
+# Essence of Torment              1
+# Essence of Ruin                 1
+# Essence of Haste                1
+#
+# Essence of Electricity          0.4
+# Essence of the Body             0.1
+# Essence of the Mind             0.1
+# Essence of Enhancement          0.2
+# Essence of Flames               0.1
+# Essence of Ice                  0.1
+# Essence of Battle               0.2
+# Essence of Sorcery              0.2
+# Essence of the Infinite         0.1
+
+Show
+  BaseType "Greater Essence of Torment" "Greater Essence of Haste" "Greater Essence of Ruin"
+  PlayEffect Brown
+  MinimapIcon 2 Brown Circle
+
+Show
+  BaseType "Greater Essence of Sorcery" "Greater Essence of Electricity" "Greater Essence of Enhancement" "Greater Essence of Flames" "Greater Essence of Ice" "Greater Essence of the Mind" "Greater Essence of the Body" "Greater Essence of Battle" "Greater Essence of the Infinite"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
+
+Show
+  BaseType "Essence of Torment" "Essence of Ruin" "Essence of Haste"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
+
+Show
+  BaseType "Essence of Sorcery" "Essence of Electricity" "Essence of Enhancement" "Essence of Flames" "Essence of Ice" "Essence of the Mind" "Essence of the Body" "Essence of Battle" "Essence of the Infinite"
+  PlayEffect White
+  MinimapIcon 2 White Circle
 
 #######################################################
 ##### Omens
 #######################################################
+
+# Omen of Whittling	            112
+# Omen of Sinistral Erasure     ?
+# Omen of Dextral Erasure       ?
+# Omen of Sinistral Annulment   ?
+# Omen of Dextral Annulment     ?
+#
+# Omen of Amelioration          17
+# Omen of Corruption            11
+#
+# Omen of Greater Annulment     3
+# Omen of Resurgence            2.5
+# Omen of Sinistral Exaltation  2
+# Omen of Dextral Exaltation    2
+# Omen of Greater Exaltation    1.5
+# Omen of Sinistral Alchemy     1.5
+# Omen of Refreshment           1
+# Omen of Dextral Alchemy       1
+# Omen of Sinistral Coronation  1
+#
+# Omen of Dextral Coronation    0.5
 
 Show
   Class "Omen"
@@ -407,33 +506,6 @@ Show
   BaseType "Artifact"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Moon
-
-#######################################################
-##### Simulacrum currency
-#######################################################
-
-Show
-  Class Currency
-  BaseType "Splinter of Chayula" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Timeless Vaal Splinter"
-  PlayEffect Orange
-  MinimapIcon 2 Orange Circle
-
-Show
-  Class Currency
-  BaseType "Timeless Eternal Empire Splinter" "Timeless Karui Splinter"
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Circle
-
-Show
-  Class Currency
-  BaseType "Splinter of Esh" "Splinter of Tul" "Splinter of Uul-Netol" "Splinter of Xoph"
-  PlayEffect White
-  MinimapIcon 2 White Circle
-
-Show
-  Class Currency
-  BaseType "Simulacrum Splinter"
-  PlayEffect White
 
 #######################################################
 ##### Hide stuff
