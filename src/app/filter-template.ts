@@ -292,25 +292,25 @@ Show
 
 Show
   Class "Stackable Currency"
-  BaseType "Orb of Annulment" "Exalted Orb" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
+  BaseType "Exalted Orb"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
   Class "Stackable Currency"
-  BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb"
+  BaseType "Orb of Annulment" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
   Class "Stackable Currency"
-  BaseType "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
+  BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
   Class "Stackable Currency"
-  BaseType "Orb of Transmutation" "Orb of Augmentation"
+  BaseType "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher" "Orb of Transmutation" "Orb of Augmentation"
 
 Show
   Class "Stackable Currency"
