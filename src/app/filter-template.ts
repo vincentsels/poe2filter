@@ -263,7 +263,7 @@ Show
 
 Show
   Class Currency
-  BaseType "Divine Orb" "Greater Jeweller's Orb" "Perfect Jeweller's Orb" "Mirror of Kalandra"
+  BaseType "Divine Orb" "Greater Jeweller's Orb"
   PlayEffect Brown
   MinimapIcon 2 Brown Circle
 
