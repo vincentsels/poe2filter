@@ -118,6 +118,20 @@ export const filterHideGold =
   StackSize < {minGold}
 `;
 
+export const filterHighlightGold =
+`Show
+  BaseType == "Gold"
+  StackSize >= {yellowGoldLevel}
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
+
+Show
+  BaseType == "Gold"
+  StackSize >= {whiteGoldLevel}
+  PlayEffect White
+  MinimapIcon 2 White Circle
+`;
+
 export const filterHideCommonCharms =
 `Hide
   Class "Charms"
@@ -184,6 +198,7 @@ export const filterTemplate =
 {filterHighlightUniques}
 {filterHighlightRareJewellery}
 {filterHighlightSkillGems}
+{filterHighlightGold}
 
 #######################################################
 ##### Filter Exceptions
