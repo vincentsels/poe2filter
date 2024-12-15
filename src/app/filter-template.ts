@@ -398,8 +398,7 @@ Show
   MinimapIcon 2 Orange Moon
 
 Show
-  Class "Currency"
-  BaseType "Logbook"
+  Class "Expedition Logbooks"
   PlayEffect Orange
   MinimapIcon 2 Orange Moon
 
