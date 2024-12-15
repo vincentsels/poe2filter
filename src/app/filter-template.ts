@@ -237,7 +237,7 @@ export const filterTemplate =
 {filterStaticWaystones}
 
 #######################################################
-##### Special map types
+##### Precursor Tablets
 #######################################################
 
 Show
@@ -295,16 +295,6 @@ Show
   BaseType "Djinn Barya" "Inscribed Ultimatum"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Diamond
-
-#######################################################
-##### Socketables
-#######################################################
-
-Show
-  Class "Socketables"
-  BaseType "Soul Core" "Timeless"
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Circle
 
 #######################################################
 ##### Charms
@@ -385,6 +375,12 @@ Show
   PlayEffect White
   MinimapIcon 2 White Circle
 
+Show
+  Class Currency
+  BaseType "Distilled" # Safety Catch-all
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
 #######################################################
 ##### Breach
 #######################################################
@@ -424,6 +420,12 @@ Show
   PlayEffect White
   MinimapIcon 2 White Circle
 
+Show
+  Class Currency
+  BaseType "Catalyst" # Safety Catch-all
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
 #######################################################
 ##### Fragments
 #######################################################
@@ -452,6 +454,32 @@ Show
   BaseType "Deadly Fate" "Cowardly Fate" "Victorious Fate"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
+
+Show
+  BaseType "Fragment" # Safety Catch-all
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
+
+#######################################################
+##### Expedition
+#######################################################
+
+Show
+  Class "Expedition Logbooks"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Moon
+
+Show
+  Class "Currency"
+  BaseType "Exotic Coinage"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Moon
+
+Show
+  Class "Currency"
+  BaseType "Artifact"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Moon
 
 #######################################################
 ##### Essences
@@ -505,6 +533,11 @@ Show
   PlayEffect White
   MinimapIcon 2 White Circle
 
+Show
+  BaseType "Essence" # Safety Catch-all
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
 #######################################################
 ##### Omens
 #######################################################
@@ -554,26 +587,63 @@ Show
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
+Show
+  Class "Omen" # Safety Catch-all
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
 #######################################################
-##### Expedition currency
+##### Soul Cores
 #######################################################
 
-Show
-  Class "Currency"
-  BaseType == "Exotic Coinage"
-  PlayEffect Orange
-  MinimapIcon 2 Orange Moon
+# Soul Core of Azcapa      44
+# Soul Core of Zalatl      12
+#
+# Soul Core of Citaqualotl 4
+# Soul Core of Tacati      4
+#
+# Soul Core of Jiquani     2
+# Soul Core of Puhuarte    2
+#
+# Soul Core of Opiloti     1
+# Soul Core of Atmohua     1
+# Soul Core of Cholotl     1
+# Soul Core of Quipolatl   1
+# Soul Core of Ticaba      1
+# Soul Core of Topotante   1
+# Soul Core of Tzamoto     1
+# Soul Core of Xopec       1
+# Soul Core of Zantipi     1
 
 Show
-  Class "Expedition Logbooks"
-  PlayEffect Orange
-  MinimapIcon 2 Orange Moon
+  Class "Socketable"
+  BaseType "Soul Core of Azcapa" "Core of Zalatl"
+  PlayEffect Brown
+  MinimapIcon 2 Brown Circle
 
 Show
-  Class "Currency"
-  BaseType "Artifact"
+  Class "Socketable"
+  BaseType "Soul Core of Citaqualotl" "Core of Tacati"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
+
+Show
+  Class "Socketable"
+  BaseType "Soul Core of Jiquani" "Core of Puhuarte"
   PlayEffect Yellow
-  MinimapIcon 2 Yellow Moon
+  MinimapIcon 2 Yellow Circle
+
+Show
+  Class "Socketable"
+  BaseType "Soul Core of Opiloti" "Soul Core of Atmohua" "Soul Core of Cholotl" "Soul Core of Quipolatl" "Soul Core of Ticaba" "Soul Core of Topotante" "Soul Core of Tzamoto" "Soul Core of Xopec" "Soul Core of Zantipi"
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
+Show
+  Class "Socketable"
+  BaseType "Soul Core" # Safety Catch-all
+  PlayEffect White
+  MinimapIcon 2 White Circle
 
 #######################################################
 ##### Hide stuff
