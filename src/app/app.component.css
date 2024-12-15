@@ -37,6 +37,10 @@ select[disabled] {
 
 .info-title {
   margin-bottom: 6px;
+
+  &.bigger {
+    font-size: 150%;
+  }
 }
 
 #trade {
