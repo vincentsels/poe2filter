@@ -523,13 +523,17 @@
                 </button> -->
               </div>
               <div class="controls-center">
-                <button type="button" class="btn search-btn" (click)="download()">
+                <button type="button" class="btn download-btn" (click)="download()">
                   Download
+                </button>
+
+                <button type="button" class="btn copy-btn" (click)="copyToClipboard()">
+                  {{ copyText }}
                 </button>
               </div>
               <div class="controls-right">
                 <button type="button" class="btn clear-btn" (click)="clear()">
-                  Clear
+                  Reset
                 </button>
                 <!-- <button type="button" class="btn toggle-search-btn">
                   <span alt="Toggle" class="chevron"></span>
@@ -561,10 +565,6 @@
         <h3>
           Filter output
         </h3>
-
-        <button type="button" class="btn copy-btn" (click)="copyToClipboard()">
-          {{ copyText }}
-        </button>
         <!-- <button title="Default" class="layout-btn layout-immersion"></button>
         <button title="Compact" class="layout-btn layout-compact"></button>
         <button title="Compact Two-Columned" class="layout-btn layout-compact-two"></button> -->

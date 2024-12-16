@@ -215,7 +215,9 @@ export class AppComponent implements OnInit {
   }
 
   clear() {
-    this.filter = new Filter();
-    this.updateFilter();
+    if (confirm("Are you sure you want to reset your filter to the defaults? This cannot be undone.")) {
+      this.filter = new Filter();
+      this.updateFilter();
+    };
   }
 }

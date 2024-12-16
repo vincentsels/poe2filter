@@ -205,3 +205,31 @@ select[disabled] {
 .display-block {
   display: block !important;
 }
+
+.download-btn, .copy-btn  {
+  width: calc(50% - 12px);
+}
+
+.download-btn  {
+  width: calc(50% - 12px);
+  background-color: #0f304d !important;
+  border-color: #4c4c7d !important;
+}
+
+@media (max-width: 767px) {
+  #trade .controls .download-btn, #trade .controls .copy-btn {
+      margin-bottom: 5px;
+  }
+}
+@media (max-width: 1199px) {
+  #trade .controls .download-btn, #trade .controls .copy-btn {
+      min-width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  #trade .controls .clear-btn {
+      float: unset;
+      margin-right: 5px; /* No idea why this is required */
+  }
+}
