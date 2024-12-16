@@ -320,19 +320,19 @@ Show
 
 Show
   Class "Stackable Currency"
-  BaseType "Mirror of Kalandra" "Perfect Jeweller's Orb"
+  BaseType == "Mirror of Kalandra" "Perfect Jeweller's Orb"
   PlayEffect Purple
   MinimapIcon 2 Purple Circle
 
 Show
   Class "Stackable Currency"
-  BaseType "Greater Jeweller's Orb" "Divine Orb"
+  BaseType == "Greater Jeweller's Orb" "Divine Orb"
   PlayEffect Brown
   MinimapIcon 2 Brown Circle
 
 Show
   Class "Stackable Currency"
-  BaseType "Exalted Orb"
+  BaseType == "Exalted Orb"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
@@ -343,7 +343,7 @@ Show
 #######################################################
 
 Show
-  BaseType "Djinn Barya" "Inscribed Ultimatum"
+  BaseType == "Djinn Barya" "Inscribed Ultimatum"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Diamond
 
@@ -353,7 +353,7 @@ Show
 
 Show
   Class "Charms"
-  BaseType "Thawing Charm" "Amethyst Charm" "Golden Charm"
+  BaseType == "Thawing Charm" "Amethyst Charm" "Golden Charm"
   PlayEffect White
   MinimapIcon 2 White Circle
 
@@ -404,25 +404,25 @@ Show
 
 Show
   Class Currency
-  BaseType "Distilled Fear"
+  BaseType == "Distilled Fear"
   PlayEffect Brown
   MinimapIcon 2 Brown Circle
 
 Show
   Class Currency
-  BaseType "Distilled Despair" "Distilled Disgust"
+  BaseType == "Distilled Despair" "Distilled Disgust"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
   Class Currency
-  BaseType "Distilled Envy" "Distilled Paranoia"
+  BaseType == "Distilled Envy" "Distilled Paranoia"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
   Class Currency
-  BaseType "Distilled Greed" "Simulacrum Splinter" "Distilled Guilt" "Distilled Ire"
+  BaseType == "Distilled Greed" "Simulacrum Splinter" "Distilled Guilt" "Distilled Ire"
   PlayEffect White
   MinimapIcon 2 White Circle
 
@@ -455,19 +455,19 @@ Show
 
 Show
   Class Currency
-  BaseType "Breachstone"
+  BaseType == "Breachstone"
   PlayEffect Brown
   MinimapIcon 2 Brown Circle
 
 Show
   Class Currency
-  BaseType "Esh's Catalyst" "Neural Catalyst" "Reaver Catalyst" "Chayula's Catalyst" "Tul's Catalyst" "Xoph's Catalyst" "Breach Splinter"
+  BaseType == "Esh's Catalyst" "Neural Catalyst" "Reaver Catalyst" "Chayula's Catalyst" "Tul's Catalyst" "Xoph's Catalyst" "Breach Splinter"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
   Class Currency
-  BaseType "Adaptive Catalyst" "Flesh Catalyst" "Skittering Catalyst" "Sibilant Catalyst" "Uul-Netol's Catalyst" "Carapace Catalyst"
+  BaseType == "Adaptive Catalyst" "Flesh Catalyst" "Skittering Catalyst" "Sibilant Catalyst" "Uul-Netol's Catalyst" "Carapace Catalyst"
   PlayEffect White
   MinimapIcon 2 White Circle
 
@@ -492,12 +492,12 @@ Show
 # Victorious Fate            5
 
 Show
-  BaseType "An Audience with the King"
+  BaseType == "An Audience with the King"
   PlayEffect Purple
   MinimapIcon 2 Purple Circle
 
 Show
-  BaseType "Deadly Fate" "Cowardly Fate" "Victorious Fate"
+  BaseType == "Deadly Fate" "Cowardly Fate" "Victorious Fate"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
@@ -511,12 +511,12 @@ Show
 #######################################################
 
 Show
-  Class "Expedition Logbooks"
+  Class == "Expedition Logbooks"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
-  Class "Currency"
+  Class == "Currency"
   BaseType "Exotic Coinage"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
@@ -560,22 +560,22 @@ Show
 # Essence of the Infinite         0.1
 
 Show
-  BaseType "Greater Essence of Torment" "Greater Essence of Haste" "Greater Essence of Ruin"
+  BaseType == "Greater Essence of Torment" "Greater Essence of Haste" "Greater Essence of Ruin"
   PlayEffect Brown
   MinimapIcon 2 Brown Circle
 
 Show
-  BaseType "Greater Essence of Sorcery" "Greater Essence of Electricity" "Greater Essence of Enhancement" "Greater Essence of Flames" "Greater Essence of Ice" "Greater Essence of the Mind" "Greater Essence of the Body" "Greater Essence of Battle" "Greater Essence of the Infinite"
+  BaseType == "Greater Essence of Sorcery" "Greater Essence of Electricity" "Greater Essence of Enhancement" "Greater Essence of Flames" "Greater Essence of Ice" "Greater Essence of the Mind" "Greater Essence of the Body" "Greater Essence of Battle" "Greater Essence of the Infinite"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
-  BaseType "Essence of Torment" "Essence of Ruin" "Essence of Haste"
+  BaseType == "Essence of Torment" "Essence of Ruin" "Essence of Haste"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  BaseType "Essence of Sorcery" "Essence of Electricity" "Essence of Enhancement" "Essence of Flames" "Essence of Ice" "Essence of the Mind" "Essence of the Body" "Essence of Battle" "Essence of the Infinite"
+  BaseType == "Essence of Sorcery" "Essence of Electricity" "Essence of Enhancement" "Essence of Flames" "Essence of Ice" "Essence of the Mind" "Essence of the Body" "Essence of Battle" "Essence of the Infinite"
   PlayEffect White
   MinimapIcon 2 White Circle
 
@@ -611,25 +611,25 @@ Show
 
 Show
   Class "Omen"
-  BaseType "Omen of Whittling" "Omen of Sinistral Erasure" "Omen of Dextral Erasure" "Omen of Sinistral Annulment" "Omen of Dextral Annulment"
+  BaseType == "Omen of Whittling" "Omen of Sinistral Erasure" "Omen of Dextral Erasure" "Omen of Sinistral Annulment" "Omen of Dextral Annulment"
   PlayEffect Purple
   MinimapIcon 2 Purple Circle
 
 Show
   Class "Omen"
-  BaseType "Omen of Amelioration" "Omen of Corruption"
+  BaseType == "Omen of Amelioration" "Omen of Corruption"
   PlayEffect Brown
   MinimapIcon 2 Brown Circle
 
 Show
   Class "Omen"
-  BaseType "Greater Annulment" "Omen of Resurgence" "Omen of Sinistral Exaltation" "Omen of Dextral Exaltation" "Omen of Greater Exaltation" "Omen of Sinistral Alchemy" "Omen of Refreshment" "Omen of Dextral Alchemy" "Omen of Sinistral Coronation"
+  BaseType == "Omen of Greater Annulment" "Omen of Resurgence" "Omen of Sinistral Exaltation" "Omen of Dextral Exaltation" "Omen of Greater Exaltation" "Omen of Sinistral Alchemy" "Omen of Refreshment" "Omen of Dextral Alchemy" "Omen of Sinistral Coronation"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
   Class "Omen"
-  BaseType "Dextral Coronation"
+  BaseType == "Omen of Dextral Coronation"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
@@ -663,25 +663,25 @@ Show
 
 Show
   Class "Socketable"
-  BaseType "Soul Core of Azcapa" "Core of Zalatl"
+  BaseType == "Soul Core of Azcapa" "Soul Core of Zalatl"
   PlayEffect Brown
   MinimapIcon 2 Brown Circle
 
 Show
   Class "Socketable"
-  BaseType "Soul Core of Citaqualotl" "Core of Tacati"
+  BaseType == "Soul Core of Citaqualotl" "Soul Core of Tacati"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
   Class "Socketable"
-  BaseType "Soul Core of Jiquani" "Core of Puhuarte"
+  BaseType == "Soul Core of Jiquani" "Soul Core of Puhuarte"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
   Class "Socketable"
-  BaseType "Soul Core of Opiloti" "Soul Core of Atmohua" "Soul Core of Cholotl" "Soul Core of Quipolatl" "Soul Core of Ticaba" "Soul Core of Topotante" "Soul Core of Tzamoto" "Soul Core of Xopec" "Soul Core of Zantipi"
+  BaseType == "Soul Core of Opiloti" "Soul Core of Atmohua" "Soul Core of Cholotl" "Soul Core of Quipolatl" "Soul Core of Ticaba" "Soul Core of Topotante" "Soul Core of Tzamoto" "Soul Core of Xopec" "Soul Core of Zantipi"
   PlayEffect White
   MinimapIcon 2 White Circle
 
