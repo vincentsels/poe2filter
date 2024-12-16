@@ -398,7 +398,7 @@ Show
 
 Show
   Class Currency
-  BaseType "Distilled Isolation" "Simulacrum" "Distilled Suffering"
+  BaseType == "Distilled Isolation" "Simulacrum" "Distilled Suffering"
   PlayEffect Purple
   MinimapIcon 2 Purple Circle
 
