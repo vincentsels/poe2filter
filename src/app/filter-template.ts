@@ -145,6 +145,46 @@ export const filterHideRunes =
   BaseType "Rune"
 `;
 
+export const filterHideCommonCurrency =
+`Hide
+  Class "Stackable Currency"
+  BaseType "Orb of Transmutation" "Orb of Augmentation" "Transmutation Shard" "Regal Shard" "Chance Shard" "Artificer's Shard"
+`;
+
+export const filterHighlightCommonCurrency =
+`Show
+  Class "Stackable Currency"
+  BaseType "Orb of Annulment" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
+
+Show
+  Class "Stackable Currency"
+  BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb"
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
+Show
+  Class "Stackable Currency"
+  BaseType "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher" "Orb of Transmutation" "Orb of Augmentation"
+
+Show
+  Class "Stackable Currency"
+  BaseType "Shard"
+`;
+
+export const filterShowCommonCurrency =
+`Show
+  Class "Stackable Currency"
+  BaseType "Orb of Annulment" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
+Show
+  Class "Stackable Currency"
+  BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb"
+`;
+
 export const filterHideWaystone =
 `Hide
   BaseType "Waystone"
@@ -296,25 +336,7 @@ Show
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
-Show
-  Class "Stackable Currency"
-  BaseType "Orb of Annulment" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Circle
-
-Show
-  Class "Stackable Currency"
-  BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb"
-  PlayEffect White
-  MinimapIcon 2 White Circle
-
-Show
-  Class "Stackable Currency"
-  BaseType "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher" "Orb of Transmutation" "Orb of Augmentation"
-
-Show
-  Class "Stackable Currency"
-  BaseType "Shard"
+{filterShowCommonCurrency}
 
 #######################################################
 ##### Trials
@@ -679,4 +701,5 @@ Show
 {filterHideFlasks}
 {filterHideGold}
 {filterHideCommonCharms}
-{filterHideRunes}`;
+{filterHideRunes}
+{filterHideCommonCurrency}`;

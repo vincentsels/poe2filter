@@ -139,6 +139,18 @@
                         </span>
                       </div>
 
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideCommonCurrency">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.hideCommonCurrency" (click)="toggleHideCommonCurrency()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Common Currency
+                            <div class="filter-tip"><p>Hides Orb of Agumentation, Orb of Transmutation, and shards. Also, currency worth less than an Exalted Orb is shown a Drop Tier lower (e.g. white instead of yellow).</p></div>
+                          </div>
+                        </span>
+                      </div>
+
                     </div>
 
                     <div class="clear"></div>

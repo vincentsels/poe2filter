@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, WeaponTier, WeaponType } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterHideCommonCurrency, filterShowCommonCurrency, filterHighlightCommonCurrency } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
 const LOCAL_STORAGE_KEY = 'filter-v6';
@@ -45,6 +45,7 @@ export class AppComponent implements OnInit {
   toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilter(); }
   toggleHideCommonCharms = () => { this.filter.hideCommonCharms = !this.filter.hideCommonCharms; this.updateFilter(); }
   toggleHideRunes = () => { this.filter.hideRunes = !this.filter.hideRunes; this.updateFilter(); }
+  toggleHideCommonCurrency = () => { this.filter.hideCommonCurrency = !this.filter.hideCommonCurrency; this.updateFilter(); }
 
   toggleHideGold = () => {
     this.filter.hideGold = !this.filter.hideGold;
@@ -125,6 +126,8 @@ export class AppComponent implements OnInit {
       .replace('{filterHideGold}', this.filter.hideGold ? filterHideGold.replace('{minGold}', (this.filter.hideGoldLowerThan || 10000).toString()): '')
       .replace('{filterHideCommonCharms}', this.filter.hideCommonCharms ? filterHideCommonCharms : '')
       .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')
+      .replace('{filterHideCommonCurrency}', this.filter.hideCommonCurrency ? filterHideCommonCurrency : '')
+      .replace('{filterShowCommonCurrency}', this.filter.hideCommonCurrency ? filterShowCommonCurrency : filterHighlightCommonCurrency)
       .replace('{filterShowOneSocket}', this.filter.showSocketedItems && this.filter.showSocketedItemsType === SocketedItemType.All ? filterShowOneSocket : '')
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
       .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '1' : '10') : '')

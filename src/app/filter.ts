@@ -10,6 +10,7 @@ export class Filter {
   hideGoldLowerThan = 50;
   hideCommonCharms = true;
   hideRunes = false;
+  hideCommonCurrency = false;
 
   showSocketedItems = true;
   showSocketedItemsType = SocketedItemType.All;
