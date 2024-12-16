@@ -216,6 +216,16 @@ select[disabled] {
   border-color: #4c4c7d !important;
 }
 
+@media (min-width: 768px) {
+  .col-md-3, #trade .controls .controls-left, #trade .controls .controls-right {
+      width: 25% !important;
+  }
+
+  .col-md-6, #trade .controls .controls-center {
+      width: 50% !important;;
+  }
+}
+
 @media (max-width: 767px) {
   #trade .controls .download-btn, #trade .controls .copy-btn {
       margin-bottom: 5px;

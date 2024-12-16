@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   WeaponType = WeaponType;
   WeaponTier = WeaponTier;
 
-  copyText = 'Copy';
+  copyText = 'Copy to Clipboard';
 
   dynamicWaystoneThresholds = [
     { style: 'tier-hidden', level: '' },
@@ -211,7 +211,7 @@ export class AppComponent implements OnInit {
   copyToClipboard() {
     navigator.clipboard.writeText(this.filterText);
     this.copyText = 'Copied!';
-    setTimeout(() => this.copyText = 'Copy', 1000);
+    setTimeout(() => this.copyText = 'Copy to Clipboard', 1000);
   }
 
   clear() {
