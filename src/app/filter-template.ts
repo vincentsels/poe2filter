@@ -64,12 +64,11 @@ Show
 export const filterPreferredArmourType =
 `Show
   Class == {armourType}{tierType}
-  Rarity == Rare
-{defenceType}{rarePlayEffect}
+  Rarity == Rare{defenceType}{rarePlayEffect}
 
 Show
   Class == {armourType}{tierType}
-  Rarity <= {rarity}
+  Rarity == {rarity}{defenceType}
 `;
 
 export const filterHideScrolls =

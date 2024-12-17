@@ -190,19 +190,19 @@ export class AppComponent implements OnInit {
 
   formatDefenceType(defenceType: DefenceType) {
     if (defenceType === DefenceType.All) {
-      return '\n';
+      return '';
     } else if (defenceType === DefenceType.Armour) {
-      return '  BaseArmour > 0\n  BaseEnergyShield = 0\n  BaseEvasion = 0';
+      return '\n  BaseArmour > 0\n  BaseEnergyShield == 0\n  BaseEvasion == 0';
     } else if (defenceType === DefenceType.ArmourEnergyShield) {
-      return '  BaseArmour > 0\n  BaseEnergyShield > 0\n  BaseEvasion = 0';
+      return '\n  BaseArmour > 0\n  BaseEnergyShield > 0\n  BaseEvasion == 0';
     } else if (defenceType === DefenceType.ArmourEvasion) {
-      return '  BaseArmour > 0\n  BaseEnergyShield = 0\n  BaseEvasion > 0';
+      return '\n  BaseArmour > 0\n  BaseEnergyShield == 0\n  BaseEvasion > 0';
     } else if (defenceType === DefenceType.EnergyShield) {
-      return '  BaseArmour = 0\n  BaseEnergyShield > 0\n  BaseEvasion = 0';
+      return '\n  BaseArmour == 0\n  BaseEnergyShield > 0\n  BaseEvasion == 0';
     } else if (defenceType === DefenceType.Evasion) {
-      return '  BaseArmour = 0\n  BaseEnergyShield = 0\n  BaseEvasion > 0';
+      return '\n  BaseArmour == 0\n  BaseEnergyShield == 0\n  BaseEvasion > 0';
     } else if (defenceType === DefenceType.EvasionEnergyShield) {
-      return '  BaseArmour = 0\n  BaseEnergyShield > 0\n  BaseEvasion > 0';
+      return '\n  BaseArmour == 0\n  BaseEnergyShield > 0\n  BaseEvasion > 0';
     }
     return '';
   }
