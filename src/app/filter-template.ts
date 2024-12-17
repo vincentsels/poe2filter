@@ -133,10 +133,22 @@ export const filterHideRunes =
   BaseType "Rune"
 `;
 
-export const filterHideCommonCurrency =
+export const filterHideShards =
 `Hide
   Class "Stackable Currency"
-  BaseType "Orb of Transmutation" "Orb of Augmentation" "Transmutation Shard" "Regal Shard" "Chance Shard" "Artificer's Shard"
+  BaseType "Transmutation Shard" "Regal Shard" "Chance Shard" "Artificer's Shard"
+`;
+
+export const filterHideCommonOrbs =
+`Hide
+  Class "Stackable Currency"
+  BaseType "Orb of Transmutation" "Orb of Augmentation"
+`;
+
+export const filterShowShards =
+`Show
+  Class "Stackable Currency"
+  BaseType "Transmutation Shard" "Regal Shard" "Chance Shard" "Artificer's Shard"
 `;
 
 export const filterHighlightCommonCurrency =
@@ -155,10 +167,7 @@ Show
 Show
   Class "Stackable Currency"
   BaseType "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher" "Orb of Transmutation" "Orb of Augmentation"
-
-Show
-  Class "Stackable Currency"
-  BaseType "Shard"
+{filterShowShards}
 `;
 
 export const filterShowCommonCurrency =
@@ -170,7 +179,7 @@ export const filterShowCommonCurrency =
 
 Show
   Class "Stackable Currency"
-  BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb"
+  BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb" "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
 `;
 
 export const filterHideWaystone =
@@ -445,6 +454,12 @@ Show
   MinimapIcon 2 Brown Circle
 
 Show
+  Class Rings
+  BaseType == "Breach Ring"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
+
+Show
   Class Currency
   BaseType == "Esh's Catalyst" "Neural Catalyst" "Reaver Catalyst" "Chayula's Catalyst" "Tul's Catalyst" "Xoph's Catalyst" "Breach Splinter"
   PlayEffect Yellow
@@ -687,4 +702,5 @@ Show
 {filterHideGold}
 {filterHideCommonCharms}
 {filterHideRunes}
-{filterHideCommonCurrency}`;
+{filterHideCommonOrbs}
+{filterHideShards}`;

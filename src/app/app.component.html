@@ -1,5 +1,6 @@
 <div class="container-fluid full" id="app">
   <div class="content">
+
     <div class="wrapper">
       <div id="statusBar">
         <div class="statusBarCenter"></div>
@@ -10,11 +11,23 @@
           <img src="/logo-filter.png">
         </a>
       </div>
+
       <div id="trade" class="block">
         <div class="top">
           <div class="search-panel">
             <div class="search-bar search-advanced">
               <div class="search-advanced-items">
+
+                @if (filterResetWarning) {
+                <div class="row row-total row-justify-content-left">
+                  <div class="info">
+                    <h2 class="info-title"><strong>Heads up!</strong> Your previously stored filter was reset!</h2>
+                    Due to a breaking change in the structure of the filter, your previously stored filter could no longer be reloaded.
+                    Please revise all settings. We apologize for this inconvenience.
+                  </div>
+                </div>
+                }
+
                 <div class="search-advanced-pane blue">
 
                   <div class="filter-group expanded">
@@ -146,7 +159,16 @@
                         <span class="filter-body">
                           <div class="filter-title">
                             Hide Common Currency
-                            <div class="filter-tip"><p>Hides Orb of Agumentation, Orb of Transmutation, and shards. Also, currency worth less than an Exalted Orb is shown a Drop Tier lower (e.g. white instead of yellow).</p></div>
+                            <div class="filter-tip"><p>Whether or not to hide Shards and/or Orbs of Agumentation and Transmutation. Also, currency worth less than an Exalted Orb is shown a Drop Tier lower (e.g. white instead of yellow).</p></div>
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                            <div class="multiselect__tags">
+                              <select [disabled]="!filter.hideCommonCurrency" [(ngModel)]="filter.hideCommonCurrencyType" (change)="updateFilter()">
+                                <option [value]="CurrencyToHide.ShardsOnly">Shards Only</option>
+                                <option [value]="CurrencyToHide.AllCommon">Common Orbs Too</option>
+                              </select>
+                            </div>
                           </div>
                         </span>
                       </div>

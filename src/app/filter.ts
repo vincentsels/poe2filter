@@ -11,6 +11,7 @@ export class Filter {
   hideCommonCharms = true;
   hideRunes = false;
   hideCommonCurrency = false;
+  hideCommonCurrencyType = CurrencyToHide.ShardsOnly;
 
   showSocketedItems = true;
   showSocketedItemsType = SocketedItemType.All;
@@ -129,4 +130,9 @@ export enum QualityItemType {
 export enum RarityToHide {
   Normal = "Normal",
   NormalAndMagic = "NormalAndMagic",
+}
+
+export enum CurrencyToHide {
+  ShardsOnly = "ShardsOnly",
+  AllCommon = "AllCommon",
 }

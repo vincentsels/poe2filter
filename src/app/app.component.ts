@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterHideCommonCurrency, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect } from './filter-template';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide } from './filter';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
-const LOCAL_STORAGE_KEY = 'filter-v6';
+const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
+const LOCAL_STORAGE_KEY = 'filter-v7';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +25,10 @@ export class AppComponent implements OnInit {
   ArmourType = ArmourType;
   DefenceType = DefenceType;
   Rarity = MinimumRarity;
+  CurrencyToHide = CurrencyToHide;
 
   copyText = 'Copy to Clipboard';
+  filterResetWarning = false;
 
   dynamicWaystoneThresholds = [
     { style: 'tier-hidden', level: '' },
@@ -37,9 +40,15 @@ export class AppComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    const filterSet = localStorage.getItem(LOCAL_STORAGE_KEY_FILTER_STORED);
     const filterFromStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (filterFromStorage) this.filter = JSON.parse(filterFromStorage) as Filter;
-    this.updateFilter();
+
+    if (filterSet && !filterFromStorage) {
+      this.filterResetWarning = true;
+    }
+
+    this.updateFilter(false);
   }
 
   toggleHideFlasks = () => { this.filter.hideFlasks = !this.filter.hideFlasks; this.updateFilter(); }
@@ -96,7 +105,7 @@ export class AppComponent implements OnInit {
     this.updateFilter();
   }
 
-  updateFilter() {
+  updateFilter(resetWarning = true) {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
       .replaceAll('{weaponType}', w.weaponType == WeaponType.All ? this.formatAllWeaponTypes() : `"${w.weaponType}"`)
       .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
@@ -114,6 +123,17 @@ export class AppComponent implements OnInit {
 
     const dynamicWaystoneFilterText = this.buildDynamicWaystoneFilter();
 
+    let commonCurrency = '';
+    if (this.filter.hideCommonCurrency) {
+      if (this.filter.hideCommonCurrencyType === CurrencyToHide.AllCommon) {
+        commonCurrency = filterShowCommonCurrency;
+      } else {
+        commonCurrency = filterHighlightCommonCurrency.replace('{filterShowShards}', '\n')
+      }
+    } else {
+      commonCurrency = filterHighlightCommonCurrency.replace('{filterShowShards}', '\n' + filterShowShards);
+    }
+
     this.filterText = filterTemplate
       .replace('{filterHideFlasks}', this.filter.hideFlasks ? filterHideFlasks : '')
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
@@ -122,8 +142,9 @@ export class AppComponent implements OnInit {
       .replace('{filterHideGold}', this.filter.hideGold ? filterHideGold.replace('{minGold}', (this.filter.hideGoldLowerThan || 10000).toString()): '')
       .replace('{filterHideCommonCharms}', this.filter.hideCommonCharms ? filterHideCommonCharms : '')
       .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')
-      .replace('{filterHideCommonCurrency}', this.filter.hideCommonCurrency ? filterHideCommonCurrency : '')
-      .replace('{filterShowCommonCurrency}', this.filter.hideCommonCurrency ? filterShowCommonCurrency : filterHighlightCommonCurrency)
+      .replace('{filterHideCommonOrbs}', this.filter.hideCommonCurrency && this.filter.hideCommonCurrencyType === CurrencyToHide.AllCommon ? filterHideCommonOrbs : '')
+      .replace('{filterHideShards}', this.filter.hideCommonCurrency ? filterHideShards : '')
+      .replace('{filterShowCommonCurrency}', commonCurrency)
       .replace('{filterShowOneSocket}', this.filter.showSocketedItems && this.filter.showSocketedItemsType === SocketedItemType.All ? filterShowOneSocket : '')
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
       .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '1' : '10') : '')
@@ -139,6 +160,11 @@ export class AppComponent implements OnInit {
       ;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));
+    localStorage.setItem(LOCAL_STORAGE_KEY_FILTER_STORED, '1');
+
+    if (resetWarning) {
+      this.filterResetWarning = false;
+    }
   }
 
   formatAllWeaponTypes() {
