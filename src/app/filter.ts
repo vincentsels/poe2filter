@@ -64,9 +64,7 @@ export class ArmourFilter {
   armourType = ArmourType.All;
   rarity = MinimumRarity.Normal;
   baseTypeTier = BaseTypeTier.ExpertOnly;
-  armour = false;
-  evasion = false;
-  energyShield = false;
+  defenceType = DefenceType.All;
 }
 
 export enum WeaponType {
@@ -90,6 +88,16 @@ export enum ArmourType {
   Helmet = "Helmet",
   Gloves = "Gloves",
   Boots = "Boots",
+}
+
+export enum DefenceType {
+  All = "All",
+  Armour = "Armour",
+  Evasion = "Evasion",
+  EnergyShield = "EnergyShield",
+  ArmourEvasion = "ArmourEvasion",
+  ArmourEnergyShield = "ArmourEnergyShield",
+  EvasionEnergyShield = "EvasionEnergyShield",
 }
 
 export enum MinimumRarity {

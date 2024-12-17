@@ -64,35 +64,12 @@ Show
 export const filterPreferredArmourType =
 `Show
   Class == {armourType}{tierType}
-  Rarity == Rare{defenceType}{rarePlayEffect}
+  Rarity == Rare
+{defenceType}{rarePlayEffect}
 
 Show
   Class == {armourType}{tierType}
   Rarity <= {rarity}
-`;
-
-export const filterPreferredBodyArmour =
-`Show
-  Class "Body Armour"
-{defences}
-`;
-
-export const filterPreferredHelmet =
-`Show
-  Class "Helmet"
-{defences}
-`;
-
-export const filterPreferredGloves =
-`Show
-  Class "Gloves"
-{defences}
-`;
-
-export const filterPreferredBoots =
-`Show
-  Class "Boots"
-{defences}
 `;
 
 export const filterHideScrolls =

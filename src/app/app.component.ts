@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterHideCommonCurrency, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect } from './filter-template';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType } from './filter';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterHideCommonCurrency, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
 const LOCAL_STORAGE_KEY = 'filter-v6';
@@ -20,8 +20,9 @@ export class AppComponent implements OnInit {
   SocketedItemType = SocketedItemType;
   QualityItemType = QualityItemType;
   WeaponType = WeaponType;
-  WeaponTier = BaseTypeTier;
+  BaseTypeTier = BaseTypeTier;
   ArmourType = ArmourType;
+  DefenceType = DefenceType;
   Rarity = MinimumRarity;
 
   copyText = 'Copy to Clipboard';
@@ -83,10 +84,9 @@ export class AppComponent implements OnInit {
   toggleShowWeapon = (index: number) => { this.filter.weaponFilters[index].show = !this.filter.weaponFilters[index].show; this.updateFilter(); }
   addWeaponType = () => { this.filter.weaponFilters.push(new WeaponFilter()); this.updateFilter(); }
 
-  toggleShowBodyArmour = () => { this.filter.showBodyArmour = !this.filter.showBodyArmour; this.updateFilter(); }
-  toggleShowHelmet = () => { this.filter.showHelmet = !this.filter.showHelmet; this.updateFilter(); }
-  toggleShowGloves = () => { this.filter.showGloves = !this.filter.showGloves; this.updateFilter(); }
-  toggleShowBoots = () => { this.filter.showBoots = !this.filter.showBoots; this.updateFilter(); }
+  removeArmourType(index: number) { this.filter.armourFilters.splice(index, 1); this.updateFilter();  }
+  toggleShowArmour = (index: number) => { this.filter.armourFilters[index].show = !this.filter.armourFilters[index].show; this.updateFilter(); }
+  addArmourType = () => { this.filter.armourFilters.push(new ArmourFilter()); this.updateFilter(); }
 
   toggleDynamicWaystones = () => {
     this.filter.dynamicWaystones = !this.filter.dynamicWaystones;
@@ -101,15 +101,15 @@ export class AppComponent implements OnInit {
       .replaceAll('{weaponType}', w.weaponType == WeaponType.All ? this.formatAllWeaponTypes() : `"${w.weaponType}"`)
       .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
       .replaceAll('{rarity}', (w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
-      .replace('{rarePlayEffect}', (w.weaponType === WeaponType.All ? '\n' : '\n' + filterRarePlayEffect))
+      .replace('{rarePlayEffect}', (w.weaponType === WeaponType.All ? '' : '\n' + filterRarePlayEffect))
     ).join('\n');
 
     const armourFilterText = this.filter.armourFilters.filter(w => w.show).map(w => filterPreferredArmourType
       .replaceAll('{armourType}', w.armourType == ArmourType.All ? this.formatAllArmourTypes() : `"${w.armourType}"`)
       .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
       .replaceAll('{rarity}', (w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
-      .replaceAll('{defenceType}', this.formatDefenceType(w.armour, w.evasion, w.energyShield))
-      .replace('{rarePlayEffect}', (w.armourType === ArmourType.All ? '\n' : '\n' + filterRarePlayEffect))
+      .replaceAll('{defenceType}', this.formatDefenceType(w.defenceType))
+      .replace('{rarePlayEffect}', (w.armourType === ArmourType.All ? '' : '\n' + filterRarePlayEffect))
     ).join('\n');
 
     const dynamicWaystoneFilterText = this.buildDynamicWaystoneFilter();
@@ -188,23 +188,23 @@ export class AppComponent implements OnInit {
     return text.trimEnd();
   }
 
-  formatDefenceType(armour: boolean, evasion: boolean, energyShield: boolean) {
-    let defences = '';
-    if (armour) defences += '  BaseArmour > 0\n';
-    if (!armour) defences += '  BaseArmour == 0\n';
-    if (evasion) defences += '  BaseEvasion > 0\n';
-    if (!evasion) defences += '  BaseEvasion == 0\n';
-    if (energyShield) defences += '  BaseEnergyShield > 0\n';
-    if (!energyShield) defences += '  BaseEnergyShield == 0\n';
-    return defences.trimEnd();
-  }
-
-  formatDefences(arm: number | null, es: number | null, eva: number | null): string {
-    let defences = '';
-    if (arm) defences += '  BaseArmour >= ' + arm + '\n';
-    if (es) defences += '  BaseEnergyShield >= ' + es + '\n';
-    if (eva) defences += '  BaseEvasion >= ' + eva + '\n';
-    return defences.trimEnd();
+  formatDefenceType(defenceType: DefenceType) {
+    if (defenceType === DefenceType.All) {
+      return '\n';
+    } else if (defenceType === DefenceType.Armour) {
+      return '  BaseArmour > 0\n  BaseEnergyShield = 0\n  BaseEvasion = 0';
+    } else if (defenceType === DefenceType.ArmourEnergyShield) {
+      return '  BaseArmour > 0\n  BaseEnergyShield > 0\n  BaseEvasion = 0';
+    } else if (defenceType === DefenceType.ArmourEvasion) {
+      return '  BaseArmour > 0\n  BaseEnergyShield = 0\n  BaseEvasion > 0';
+    } else if (defenceType === DefenceType.EnergyShield) {
+      return '  BaseArmour = 0\n  BaseEnergyShield > 0\n  BaseEvasion = 0';
+    } else if (defenceType === DefenceType.Evasion) {
+      return '  BaseArmour = 0\n  BaseEnergyShield = 0\n  BaseEvasion > 0';
+    } else if (defenceType === DefenceType.EvasionEnergyShield) {
+      return '  BaseArmour = 0\n  BaseEnergyShield > 0\n  BaseEvasion > 0';
+    }
+    return '';
   }
 
   download() {

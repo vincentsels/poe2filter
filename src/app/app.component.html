@@ -294,7 +294,7 @@
                           <div class="filter-title">
                             Show Weapon Types
                             <div class="filter-tip"><p>If you checked the 'Hide Weapons And Armour' box before,
-                              here you can specify which Weapon Base Types you still want to show Normal and Magic items of.
+                              here you can specify which Weapon Base Types you still want to show Normal and/or Magic items of.
                               Specify whether you only want to show the Advanced and/or Expert versions.
                               Note that Rare and Unique Weapons are always shown.</p></div>
                           </div>
@@ -328,21 +328,21 @@
                             </div>
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 150px;">
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 120px;">
                             <div class="multiselect__tags">
                               <select [(ngModel)]="weapon.rarity" (change)="updateFilter()" [disabled]="!weapon.show">
-                                <option [value]="Rarity.Normal">Normal and Up</option>
-                                <option [value]="Rarity.Magic">Magic and Up</option>
+                                <option [value]="Rarity.Normal">≥ Normal</option>
+                                <option [value]="Rarity.Magic">≥ Magic</option>
                               </select>
                             </div>
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 190px;">
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 140px;">
                             <div class="multiselect__tags">
                               <select [(ngModel)]="weapon.baseTypeTier" (change)="updateFilter()" [disabled]="!weapon.show">
-                                <option [value]="WeaponTier.ExpertOnly">Expert only</option>
-                                <option [value]="WeaponTier.AdvancedAndExpert">Advanced and Expert</option>
-                                <option [value]="WeaponTier.All">All</option>
+                                <option [value]="BaseTypeTier.ExpertOnly">Expert only</option>
+                                <option [value]="BaseTypeTier.AdvancedAndExpert">≥ Advanced</option>
+                                <option [value]="BaseTypeTier.All">All</option>
                               </select>
                             </div>
                           </div>
@@ -356,6 +356,88 @@
                       <div class="filter filter-padded">
                         <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addWeaponType()">
                           Add Weapon Type
+                        </button>
+                      </div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Show Armour Types
+                            <div class="filter-tip"><p>If you checked the 'Hide Weapons And Armour' box before,
+                              here you can specify which Armour Base Types you still want to show Normal and/or Magic items of.
+                              Specify whether you only want to show the Advanced and/or Expert versions.
+                              Note that Rare and Unique Weapons are always shown.</p></div>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      @for (armour of filter.armourFilters; track $index) {
+                      <div class="filter full-span">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!armour.show" (click)="toggleShowArmour($index)"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div tabindex="-1" class="multiselect filter-select">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="armour.armourType" (change)="updateFilter()" [disabled]="!armour.show">
+                                <option [value]="ArmourType.All">All</option>
+                                <option [value]="ArmourType.BodyArmour">Body Armour</option>
+                                <option [value]="ArmourType.Helmet">Helmets</option>
+                                <option [value]="ArmourType.Gloves">Gloves</option>
+                                <option [value]="ArmourType.Boots">Boots</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 100px;">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="armour.defenceType" (change)="updateFilter()" [disabled]="!armour.show">
+                                <option [value]="DefenceType.All">All</option>
+                                <option [value]="DefenceType.Armour">Arm</option>
+                                <option [value]="DefenceType.Evasion">Eva</option>
+                                <option [value]="DefenceType.EnergyShield">ES</option>
+                                <option [value]="DefenceType.ArmourEvasion">Arm/Eva</option>
+                                <option [value]="DefenceType.ArmourEnergyShield">Arm/ES</option>
+                                <option [value]="DefenceType.EvasionEnergyShield">Eva/ES</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 120px;">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="armour.rarity" (change)="updateFilter()" [disabled]="!armour.show">
+                                <option [value]="Rarity.Normal">≥ Normal</option>
+                                <option [value]="Rarity.Magic">≥ Magic</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 140px;">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="armour.baseTypeTier" (change)="updateFilter()" [disabled]="!armour.show">
+                                <option [value]="BaseTypeTier.ExpertOnly">Expert only</option>
+                                <option [value]="BaseTypeTier.AdvancedAndExpert">≥ Advanced</option>
+                                <option [value]="BaseTypeTier.All">All</option>
+                              </select>
+                            </div>
+                          </div>
+                        </span>
+                        <span class="input-group-btn">
+                          <button class="btn remove-btn" (click)="removeArmourType($index)"></button>
+                        </span>
+                      </div>
+                      }
+
+                      <div class="filter filter-padded">
+                        <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addArmourType()">
+                          Add Armour Type
                         </button>
                       </div>
                     </div>
