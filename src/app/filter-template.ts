@@ -47,12 +47,14 @@ export const filterShowQuality =
   Quality >= {minItemQuality}
 `;
 
+export const filterRarePlayEffect =
+`  PlayEffect Yellow
+  MinimapIcon 2 Yellow Kite`;
+
 export const filterPreferredWeaponType =
 `Show
   Class == {weaponType}{tierType}
-  Rarity == Rare
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Kite
+  Rarity == Rare{rarePlayEffect}
 
 Show
   Class == {weaponType}{tierType}
@@ -62,9 +64,7 @@ Show
 export const filterPreferredArmourType =
 `Show
   Class == {armourType}{tierType}
-  Rarity == Rare{defenceType}
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Kite
+  Rarity == Rare{defenceType}{rarePlayEffect}
 
 Show
   Class == {armourType}{tierType}

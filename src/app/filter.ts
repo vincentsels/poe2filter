@@ -54,14 +54,14 @@ export class Filter {
 
 export class WeaponFilter {
   show = true;
-  weaponType = WeaponType.Bows;
+  weaponType = WeaponType.All;
   rarity = MinimumRarity.Normal;
   baseTypeTier = BaseTypeTier.ExpertOnly;
 }
 
 export class ArmourFilter {
   show = true;
-  armourType = ArmourType.BodyArmour;
+  armourType = ArmourType.All;
   rarity = MinimumRarity.Normal;
   baseTypeTier = BaseTypeTier.ExpertOnly;
   armour = false;
