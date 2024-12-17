@@ -26,6 +26,8 @@ export class Filter {
 
   weaponFilters: WeaponFilter[] = [];
 
+  armourFilters: ArmourFilter[] = [];
+
   showBodyArmour = false;
   showBodyArmourArm: number | null = null;
   showBodyArmourEs: number | null = null;
@@ -53,10 +55,22 @@ export class Filter {
 export class WeaponFilter {
   show = true;
   weaponType = WeaponType.Bows;
-  weaponTier = WeaponTier.ExpertOnly;
+  rarity = MinimumRarity.Normal;
+  baseTypeTier = BaseTypeTier.ExpertOnly;
+}
+
+export class ArmourFilter {
+  show = true;
+  armourType = ArmourType.BodyArmour;
+  rarity = MinimumRarity.Normal;
+  baseTypeTier = BaseTypeTier.ExpertOnly;
+  armour = false;
+  evasion = false;
+  energyShield = false;
 }
 
 export enum WeaponType {
+  All = 'All',
   Bows = 'Bows',
   Crossbows = 'Crossbows',
   Foci = 'Foci',
@@ -70,7 +84,20 @@ export enum WeaponType {
   Wands = 'Wands',
 }
 
-export enum WeaponTier {
+export enum ArmourType {
+  All = "All",
+  BodyArmour = "Body Armour",
+  Helmet = "Helmet",
+  Gloves = "Gloves",
+  Boots = "Boots",
+}
+
+export enum MinimumRarity {
+  Magic = "Magic",
+  Normal = "Normal",
+}
+
+export enum BaseTypeTier {
   ExpertOnly = "ExpertOnly",
   AdvancedAndExpert = "AdvancedAndExpert",
   All = "All",

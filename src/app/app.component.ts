@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, WeaponTier, WeaponType } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterHideCommonCurrency, filterShowCommonCurrency, filterHighlightCommonCurrency } from './filter-template';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType } from './filter';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterPreferredBodyArmour, filterPreferredHelmet, filterPreferredGloves, filterPreferredBoots, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterHideCommonCurrency, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
 const LOCAL_STORAGE_KEY = 'filter-v6';
@@ -20,7 +20,9 @@ export class AppComponent implements OnInit {
   SocketedItemType = SocketedItemType;
   QualityItemType = QualityItemType;
   WeaponType = WeaponType;
-  WeaponTier = WeaponTier;
+  WeaponTier = BaseTypeTier;
+  ArmourType = ArmourType;
+  Rarity = MinimumRarity;
 
   copyText = 'Copy to Clipboard';
 
@@ -96,25 +98,17 @@ export class AppComponent implements OnInit {
 
   updateFilter() {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
-      .replaceAll('{weaponType}', `"${w.weaponType}"`)
-      .replaceAll('{tierType}', w.weaponTier === WeaponTier.ExpertOnly ? '\n  BaseType "Expert "' : w.weaponTier === WeaponTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
+      .replaceAll('{weaponType}', w.weaponType == WeaponType.All ? this.formatAllWeaponTypes() : `"${w.weaponType}"`)
+      .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType == "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType == "Expert " "Advanced "' : '')
+      .replaceAll('{rarity}', (w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
     ).join('\n');
 
-    const bodyArmourFilterText =
-      this.filter.showBodyArmour && (this.filter.showBodyArmourArm || this.filter.showBodyArmourEs || this.filter.showBodyArmourEva)
-      ? filterPreferredBodyArmour.replace('{defences}', this.formatDefences(this.filter.showBodyArmourArm, this.filter.showBodyArmourEs, this.filter.showBodyArmourEva)) : '';
-
-    const helmetFilterText =
-      this.filter.showHelmet && (this.filter.showHelmetArm || this.filter.showHelmetEs || this.filter.showHelmetEva)
-      ? filterPreferredHelmet.replace('{defences}', this.formatDefences(this.filter.showHelmetArm, this.filter.showHelmetEs, this.filter.showHelmetEva)) : '';
-
-    const glovesFilterText =
-      this.filter.showGloves && (this.filter.showGlovesArm || this.filter.showGlovesEs || this.filter.showGlovesEva)
-      ? filterPreferredGloves.replace('{defences}', this.formatDefences(this.filter.showGlovesArm, this.filter.showGlovesEs, this.filter.showGlovesEva)) : '';
-
-    const bootsFilterText =
-      this.filter.showBoots && (this.filter.showBootsArm || this.filter.showBootsEs || this.filter.showBootsEva)
-      ? filterPreferredBoots.replace('{defences}', this.formatDefences(this.filter.showBootsArm, this.filter.showBootsEs, this.filter.showBootsEva)) : '';
+    const armourFilterText = this.filter.armourFilters.filter(w => w.show).map(w => filterPreferredArmourType
+      .replaceAll('{armourType}', w.armourType == ArmourType.All ? this.formatAllArmourTypes() : `"${w.armourType}"`)
+      .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType == "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType == "Expert " "Advanced "' : '')
+      .replaceAll('{rarity}', (w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
+      .replaceAll('{defenceType}', this.formatDefenceType(w.armour, w.evasion, w.energyShield))
+    ).join('\n');
 
     const dynamicWaystoneFilterText = this.buildDynamicWaystoneFilter();
 
@@ -137,15 +131,20 @@ export class AppComponent implements OnInit {
       .replace('{filterHighlightSkillGems}', this.filter.highlightSkillGems ? filterHighlightSkillGems.replaceAll('{skillGemLevel}', (this.filter.highlightSkillGemsLevel || 1).toString()) : '')
       .replace('{filterHighlightGold}', this.filter.hideGold && this.filter.hideGoldLowerThan ? filterHighlightGold.replaceAll('{whiteGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 20).toString()).replaceAll('{yellowGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 100).toString()) : '')
       .replace('{filterPreferredWeaponTypes}', weaponFilterText)
-      .replace('{filterPreferredBodyArmour}', bodyArmourFilterText)
-      .replace('{filterPreferredHelmet}', helmetFilterText)
-      .replace('{filterPreferredGloves}', glovesFilterText)
-      .replace('{filterPreferredBoots}', bootsFilterText)
+      .replace('{filterPreferredArmourTypes}', armourFilterText)
       .replace('{filterStaticWaystones}', this.filter.dynamicWaystones ? '' : filterStaticWaystones)
       .replace('{filterDynamicWaystones}', this.filter.dynamicWaystones ? dynamicWaystoneFilterText : '')
       ;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));
+  }
+
+  formatAllWeaponTypes() {
+    return Object.values(WeaponType).filter((value) => value !== WeaponType.All).map(w => `"${w}"`).join(' ');
+  }
+
+  formatAllArmourTypes() {
+    return Object.values(ArmourType).filter((value) => value !== ArmourType.All).map(w => `"${w}"`).join(' ');
   }
 
   buildDynamicWaystoneFilter() {
@@ -185,6 +184,17 @@ export class AppComponent implements OnInit {
     }
 
     return text.trimEnd();
+  }
+
+  formatDefenceType(armour: boolean, evasion: boolean, energyShield: boolean) {
+    let defences = '';
+    if (armour) defences += '  BaseArmour > 0\n';
+    if (!armour) defences += '  BaseArmour == 0\n';
+    if (evasion) defences += '  BaseEvasion > 0\n';
+    if (!evasion) defences += '  BaseEvasion == 0\n';
+    if (energyShield) defences += '  BaseEnergyShield > 0\n';
+    if (!energyShield) defences += '  BaseEnergyShield == 0\n';
+    return defences.trimEnd();
   }
 
   formatDefences(arm: number | null, es: number | null, eva: number | null): string {

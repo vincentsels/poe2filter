@@ -50,13 +50,25 @@ export const filterShowQuality =
 export const filterPreferredWeaponType =
 `Show
   Class == {weaponType}{tierType}
-  Rarity = Rare
+  Rarity == Rare
   PlayEffect Yellow
   MinimapIcon 2 Yellow Kite
 
 Show
   Class == {weaponType}{tierType}
-  Rarity <= Magic
+  Rarity == {rarity}
+`;
+
+export const filterPreferredArmourType =
+`Show
+  Class == {armourType}{tierType}
+  Rarity == Rare{defenceType}
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Kite
+
+Show
+  Class == {armourType}{tierType}
+  Rarity <= {rarity}
 `;
 
 export const filterPreferredBodyArmour =
@@ -136,7 +148,7 @@ export const filterHideCommonCharms =
 `Hide
   Class "Charms"
   Rarity <= Magic
-  Quality = 0
+  Quality == 0
 `
 
 export const filterHideRunes =
@@ -259,10 +271,7 @@ export const filterTemplate =
 ##### Always show preferred armor types
 #######################################################
 
-{filterPreferredBodyArmour}
-{filterPreferredHelmet}
-{filterPreferredGloves}
-{filterPreferredBoots}
+{filterPreferredArmourTypes}
 
 #######################################################
 ##### Dynamic waystones

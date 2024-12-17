@@ -312,6 +312,7 @@
                           <div tabindex="-1" class="multiselect filter-select">
                             <div class="multiselect__tags">
                               <select [(ngModel)]="weapon.weaponType" (change)="updateFilter()" [disabled]="!weapon.show">
+                                <option [value]="WeaponType.All">All</option>
                                 <option [value]="WeaponType.Bows">Bows</option>
                                 <option [value]="WeaponType.Crossbows">Crossbows</option>
                                 <option [value]="WeaponType.Foci">Focus</option>
@@ -327,9 +328,18 @@
                             </div>
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
                             <div class="multiselect__tags">
-                              <select [(ngModel)]="weapon.weaponTier" (change)="updateFilter()" [disabled]="!weapon.show">
+                              <select [(ngModel)]="weapon.rarity" (change)="updateFilter()" [disabled]="!weapon.show">
+                                <option [value]="Rarity.Normal">Normal and Up</option>
+                                <option [value]="Rarity.Magic">Magic and Up</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="weapon.baseTypeTier" (change)="updateFilter()" [disabled]="!weapon.show">
                                 <option [value]="WeaponTier.ExpertOnly">Expert only</option>
                                 <option [value]="WeaponTier.AdvancedAndExpert">Advanced and Expert</option>
                                 <option [value]="WeaponTier.All">All</option>
@@ -348,107 +358,6 @@
                           Add Weapon Type
                         </button>
                       </div>
-                    </div>
-                    <div class="clear"></div>
-                  </div>
-
-                  <div class="filter-group expanded">
-                    <div class="filter-group-header">
-                      <div class="filter">
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Show Armour Types
-                            <div class="filter-tip"><p>If you checked the 'Hide Weapons And Armour' box before,
-                              here you can specify which Armour Base Types you still want to show Normal and Magic items of.
-                              Specify a minimum Armour (Arm), Energy Shield (ES) and/or Evasion (Eva) base value to be shown.
-                              Specifying two will only show items that meet both criteria (Hence, specifying all three will show no items).
-                              Note that Rare and Unique Items are always shown.</p></div>
-                          </div>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="filter-group-body">
-
-                      <div class="filter full-span" [class.disabled]="!filter.showBodyArmour">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.showBodyArmour" (click)="toggleShowBodyArmour()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Body Armour
-                          </div>
-                          <span class="sep"></span>
-                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [(ngModel)]="filter.showBodyArmourArm" (keydown)="filter.showBodyArmour = true;" (change)="updateFilter()">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [(ngModel)]="filter.showBodyArmourEs" (keydown)="filter.showBodyArmour = true;" (change)="updateFilter()">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [(ngModel)]="filter.showBodyArmourEva" (keydown)="filter.showBodyArmour = true;" (change)="updateFilter()">
-                        </span>
-                      </div>
-
-                      <div class="filter full-span" [class.disabled]="!filter.showHelmet">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.showHelmet" (click)="toggleShowHelmet()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Helmet
-                          </div>
-                          <span class="sep"></span>
-                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                          [(ngModel)]="filter.showHelmetArm" (keydown)="filter.showHelmet = true;" (change)="updateFilter()">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                          [(ngModel)]="filter.showHelmetEs" (keydown)="filter.showHelmet = true;" (change)="updateFilter()">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                          [(ngModel)]="filter.showHelmetEva" (keydown)="filter.showHelmet = true;" (change)="updateFilter()">
-                        </span>
-                      </div>
-
-                      <div class="filter full-span" [class.disabled]="!filter.showGloves">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.showGloves" (click)="toggleShowGloves()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Gloves
-                          </div>
-                          <span class="sep"></span>
-                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                          [(ngModel)]="filter.showGlovesArm" (keydown)="filter.showGloves = true;" (change)="updateFilter()">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                          [(ngModel)]="filter.showGlovesEs" (keydown)="filter.showGloves = true;" (change)="updateFilter()">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                          [(ngModel)]="filter.showGlovesEva" (keydown)="filter.showGloves = true;" (change)="updateFilter()">
-                        </span>
-                      </div>
-
-                      <div class="filter full-span" [class.disabled]="!filter.showBoots">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.showBoots" (click)="toggleShowBoots()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Boots
-                          </div>
-                          <span class="sep"></span>
-                          <input type="number" placeholder="Arm" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [(ngModel)]="filter.showBootsArm" (keydown)="filter.showBoots = true;" (change)="updateFilter();">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="ES" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [(ngModel)]="filter.showBootsEs" (keydown)="filter.showBoots = true;" (change)="updateFilter()">
-                          <span class="sep"></span>
-                          <input type="number" placeholder="Eva" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [(ngModel)]="filter.showBootsEva" (keydown)="filter.showBoots = true;" (change)="updateFilter()">
-                        </span>
-                      </div>
-
                     </div>
                     <div class="clear"></div>
                   </div>
