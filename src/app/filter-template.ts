@@ -73,7 +73,8 @@ Show
 
 export const filterHideScrolls =
 `Hide
-  BaseType "Scroll of Wisdom"
+  Class "Stackable Currency"
+  BaseType == "Scroll of Wisdom"
 `;
 
 export const filterHideFlasks =
@@ -102,19 +103,22 @@ export const filterHideJewellery =
 
 export const filterHideGold =
 `Hide
-  BaseType "Gold"
+  Class "Stackable Currency"
+  BaseType == "Gold"
   StackSize < {minGold}
 `;
 
 export const filterHighlightGold =
 `Show
-  BaseType "Gold"
+  Class "Stackable Currency"
+  BaseType == "Gold"
   StackSize >= {yellowGoldLevel}
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  BaseType "Gold"
+  Class "Stackable Currency"
+  BaseType == "Gold"
   StackSize >= {whiteGoldLevel}
   PlayEffect White
   MinimapIcon 2 White Circle
