@@ -105,6 +105,12 @@ export class AppComponent implements OnInit {
     this.updateFilter();
   }
 
+  updateWeaponType(weapon: WeaponFilter) {
+    if ([WeaponType.Sceptres, WeaponType.Staves, WeaponType.Wands].includes(weapon.weaponType)) {
+      weapon.baseTypeTier = BaseTypeTier.All;
+    }
+  }
+
   updateFilter(resetWarning = true) {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
       .replaceAll('{weaponType}', w.weaponType == WeaponType.All ? this.formatAllWeaponTypes() : `"${w.weaponType}"`)

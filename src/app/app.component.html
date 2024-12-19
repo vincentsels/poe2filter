@@ -318,7 +318,10 @@
                             <div class="filter-tip"><p>If you checked the 'Hide Weapons And Armour' box before,
                               here you can specify which Weapon Base Types you still want to show Normal and/or Magic items of.
                               Specify whether you only want to show the Advanced and/or Expert versions.
-                              Note that Rare and Unique Weapons are always shown.</p></div>
+                              Note that Rare and Unique Weapons are always shown.<br/><br/>
+                              Note that Sceptres, Staves and Wands don't have Advanced or Expert base types. These will be hidden
+                              if you only show Advanced or Expert weapons.
+                              </p></div>
                           </div>
                         </span>
                       </div>
@@ -333,7 +336,7 @@
                         <span class="filter-body">
                           <div tabindex="-1" class="multiselect filter-select">
                             <div class="multiselect__tags">
-                              <select [(ngModel)]="weapon.weaponType" (change)="updateFilter()" [disabled]="!weapon.show">
+                              <select [(ngModel)]="weapon.weaponType" (change)="updateWeaponType(weapon); updateFilter();" [disabled]="!weapon.show">
                                 <option [value]="WeaponType.All">All</option>
                                 <option [value]="WeaponType.Bows">Bows</option>
                                 <option [value]="WeaponType.Crossbows">Crossbows</option>
@@ -362,8 +365,10 @@
                           <div tabindex="-1" class="multiselect filter-select" style="width: 140px;">
                             <div class="multiselect__tags">
                               <select [(ngModel)]="weapon.baseTypeTier" (change)="updateFilter()" [disabled]="!weapon.show">
+                                @if (weapon.weaponType !== WeaponType.Sceptres && weapon.weaponType !== WeaponType.Staves && weapon.weaponType !== WeaponType.Wands) {
                                 <option [value]="BaseTypeTier.ExpertOnly">Expert only</option>
                                 <option [value]="BaseTypeTier.AdvancedAndExpert">≥ Advanced</option>
+                                }
                                 <option [value]="BaseTypeTier.All">All</option>
                               </select>
                             </div>
