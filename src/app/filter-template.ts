@@ -288,23 +288,23 @@ Show
 #######################################################
 
 # Mirror of Kalandra      ?
-# Perfect Jeweller's Orb  72
+# Perfect Jeweller's Orb  191
 #
+# Divine Orb              50
 # Greater Jeweller's Orb  18
-# Divine Orb              9
 #
-# Orb of Annulment        2
-# Chaos Orb               1
+# Orb of Annulment        3
+# Orb of Chance           3
+# Chaos Orb               2
+# Gemcutter's Prism       2
 # Exalted Orb             1
-# Orb of Chance           1
-# Gemcutter's Prism       1
+
 # Orb of Alchemy          0.5
-#
-# Vaal Orb                0.2
-# Regal Orb               0.15
-# Glassblower's Bauble    0.3
+# Vaal Orb                0.4
+# Glassblower's Bauble    0.4
+# Regal Orb               0.3
 # Artificer's Orb         0.2
-# Lesser Jeweller's Orb   0.2
+# Lesser Jeweller's Orb   0.12
 #
 # Armourer's Scrap        0.25
 # Arcanist's Etcher       0.2
@@ -320,13 +320,13 @@ Show
   Class "Stackable Currency"
   BaseType == "Mirror of Kalandra" "Perfect Jeweller's Orb"
   PlayEffect Purple
-  MinimapIcon 2 Purple Circle
+  MinimapIcon 0 Purple Circle
 
 Show
   Class "Stackable Currency"
   BaseType == "Greater Jeweller's Orb" "Divine Orb"
   PlayEffect Brown
-  MinimapIcon 2 Brown Circle
+  MinimapIcon 1 Brown Circle
 
 Show
   Class "Stackable Currency"
@@ -398,13 +398,13 @@ Show
   Class Currency
   BaseType == "Distilled Isolation" "Simulacrum" "Distilled Suffering"
   PlayEffect Purple
-  MinimapIcon 2 Purple Circle
+  MinimapIcon 0 Purple Circle
 
 Show
   Class Currency
   BaseType == "Distilled Fear"
   PlayEffect Brown
-  MinimapIcon 2 Brown Circle
+  MinimapIcon 1 Brown Circle
 
 Show
   Class Currency
@@ -455,7 +455,7 @@ Show
   Class Currency
   BaseType == "Breachstone"
   PlayEffect Brown
-  MinimapIcon 2 Brown Circle
+  MinimapIcon 1 Brown Circle
 
 Show
   Class Rings
@@ -498,7 +498,7 @@ Show
 Show
   BaseType == "An Audience with the King"
   PlayEffect Purple
-  MinimapIcon 2 Purple Circle
+  MinimapIcon 0 Purple Circle
 
 Show
   BaseType == "Deadly Fate" "Cowardly Fate" "Victorious Fate"
@@ -566,7 +566,7 @@ Show
 Show
   BaseType == "Greater Essence of Torment" "Greater Essence of Haste" "Greater Essence of Ruin"
   PlayEffect Brown
-  MinimapIcon 2 Brown Circle
+  MinimapIcon 1 Brown Circle
 
 Show
   BaseType == "Greater Essence of Sorcery" "Greater Essence of Electricity" "Greater Essence of Enhancement" "Greater Essence of Flames" "Greater Essence of Ice" "Greater Essence of the Mind" "Greater Essence of the Body" "Greater Essence of Battle" "Greater Essence of the Infinite"
@@ -617,13 +617,13 @@ Show
   Class "Omen"
   BaseType == "Omen of Whittling" "Omen of Sinistral Erasure" "Omen of Dextral Erasure" "Omen of Sinistral Annulment" "Omen of Dextral Annulment"
   PlayEffect Purple
-  MinimapIcon 2 Purple Circle
+  MinimapIcon 0 Purple Circle
 
 Show
   Class "Omen"
   BaseType == "Omen of Amelioration" "Omen of Corruption"
   PlayEffect Brown
-  MinimapIcon 2 Brown Circle
+  MinimapIcon 1 Brown Circle
 
 Show
   Class "Omen"
@@ -669,7 +669,7 @@ Show
   Class "Socketable"
   BaseType == "Soul Core of Azcapa" "Soul Core of Zalatl"
   PlayEffect Brown
-  MinimapIcon 2 Brown Circle
+  MinimapIcon 1 Brown Circle
 
 Show
   Class "Socketable"
