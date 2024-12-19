@@ -285,21 +285,6 @@
                         </span>
                       </div>
 
-                      <div class="filter full-span" [class.disabled]="!filter.highlightSkillGems">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.highlightSkillGems" (click)="toggleHighlightSkillGems()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Highlight Skill Gems Starting At
-                            <div class="filter-tip"><p>Includes Uncut Skill Gems and Uncut Spirit Gems.</p></div>
-                          </div>
-                          <span class="sep"></span>
-                          <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [disabled]="!filter.highlightSkillGems" [(ngModel)]="filter.highlightSkillGemsLevel" (change)="updateFilter()">
-                        </span>
-                      </div>
-
                     </div>
 
                     <div class="clear"></div>
@@ -502,27 +487,83 @@
                       <div class="filter full-span" [class.disabled]="!filter.dynamicWaystones">
                         <span class="filter-body filter-body-no-checkbox">
                           <div class="threshold-set">
-                            <div class="threshold tier-hidden" title="Waystones {{ dynamicWaystoneThresholds[0].level }} are hidden">
+                            <div class="threshold tier-hidden" title="Waystones tier {{ dynamicWaystoneThresholds[0].level }} are hidden">
                               {{ dynamicWaystoneThresholds[0].level }}
                             </div>
-                            <div class="threshold tier-shown" title="Waystones {{ dynamicWaystoneThresholds[1].level }} are shown without highlight">
+                            <div class="threshold tier-shown" title="Waystones tier {{ dynamicWaystoneThresholds[1].level }} are shown without highlight">
                               {{ dynamicWaystoneThresholds[1].level }}
                             </div>
-                            <div class="threshold tier-white" title="Waystones {{ dynamicWaystoneThresholds[2].level }} receive a white highlight">
+                            <div class="threshold tier-white" title="Waystones tier {{ dynamicWaystoneThresholds[2].level }} receive a white highlight">
                               {{ dynamicWaystoneThresholds[2].level }}<span class="dot"></span>
                             </div>
-                            <div class="threshold tier-yellow" title="Waystones {{ dynamicWaystoneThresholds[3].level }} receive a yellow highlight">
+                            <div class="threshold tier-yellow" title="Waystones tier {{ dynamicWaystoneThresholds[3].level }} receive a yellow highlight">
                               {{ dynamicWaystoneThresholds[3].level }}<span class="dot"></span>
                             </div>
-                            <div class="threshold tier-orange" title="Waystones {{ dynamicWaystoneThresholds[4].level }} receive an orange highlight">
+                            <div class="threshold tier-orange" title="Waystones tier {{ dynamicWaystoneThresholds[4].level }} receive an orange highlight">
                               {{ dynamicWaystoneThresholds[4].level }}<span class="dot"></span>
                             </div>
-                            <div class="threshold tier-brown" title="Waystones {{ dynamicWaystoneThresholds[5].level }} receive a brown highlight">
+                            <div class="threshold tier-brown" title="Waystones tier {{ dynamicWaystoneThresholds[5].level }} receive a brown highlight">
                               {{ dynamicWaystoneThresholds[5].level }}<span class="dot"></span>
                             </div>
                           </div>
                         </span>
                       </div>
+                      }
+
+                      <div class="filter full-span" [class.disabled]="!filter.dynamicSkillGems">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.dynamicSkillGems" (click)="toggleDynamicSkillGems()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Minimum Skill Gem Level
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [disabled]="!filter.dynamicSkillGems" [(ngModel)]="filter.dynamicSkillGemsLevel" (keyup)="updateFilter()">
+                        </span>
+                      </div>
+
+                      @if (filter.dynamicSkillGems) {
+                      <div class="filter full-span" [class.disabled]="!filter.dynamicSkillGems">
+                        <span class="filter-body filter-body-no-checkbox">
+                          <div class="threshold-set">
+                            <div class="threshold-label">Skill & Spirit Gems</div>
+                            <div class="threshold-values">
+                              <div class="threshold tier-hidden" title="Skill gems level {{ dynamicSkillGemThresholds[0].level }} are hidden">
+                                {{ dynamicSkillGemThresholds[0].level }}
+                              </div>
+                              <div class="threshold tier-white" title="Skill gems level {{ dynamicSkillGemThresholds[1].level }} receive a white highlight">
+                                {{ dynamicSkillGemThresholds[1].level }}<span class="dot"></span>
+                              </div>
+                              <div class="threshold tier-yellow" title="Skill gems level {{ dynamicSkillGemThresholds[2].level }} receive a yellow highlight">
+                                {{ dynamicSkillGemThresholds[2].level }}<span class="dot"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+
+                      @if ((filter.dynamicSkillGemsLevel || 1) < 17) {
+                      <div class="filter full-span" [class.disabled]="!filter.dynamicSkillGems">
+                        <span class="filter-body filter-body-no-checkbox">
+                          <div class="threshold-set">
+                            <div class="threshold-label">Support Gems</div>
+                            <div class="threshold-values">
+                              <div class="threshold tier-hidden" title="Support gems level {{ dynamicSupportGemThresholds[0].level }} are hidden">
+                                {{ dynamicSupportGemThresholds[0].level }}
+                              </div>
+                              <div class="threshold tier-white" title="Support gems level {{ dynamicSupportGemThresholds[1].level }} receive a white highlight">
+                                {{ dynamicSupportGemThresholds[1].level }}<span class="dot"></span>
+                              </div>
+                              <div class="threshold tier-yellow" title="Support gems level {{ dynamicSupportGemThresholds[2].level }} receive a yellow highlight">
+                                {{ dynamicSupportGemThresholds[2].level }}<span class="dot"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+                      }
                       }
 
                     </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHighlightSkillGems, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
@@ -37,6 +37,18 @@ export class AppComponent implements OnInit {
     { style: 'tier-yellow', level: '' },
     { style: 'tier-orange', level: '' },
     { style: 'tier-brown', level: '' },
+  ];
+
+  dynamicSkillGemThresholds = [
+    { style: 'tier-hidden', level: '' },
+    { style: 'tier-white', level: '' },
+    { style: 'tier-yellow', level: '' },
+  ];
+
+  dynamicSupportGemThresholds = [
+    { style: 'tier-hidden', level: '' },
+    { style: 'tier-white', level: '' },
+    { style: 'tier-yellow', level: '' },
   ];
 
   ngOnInit(): void {
@@ -81,14 +93,6 @@ export class AppComponent implements OnInit {
   toggleHighLightUniques = () => { this.filter.highlightUniques = !this.filter.highlightUniques; this.updateFilter(); }
   toggleHighLightRareJewellery = () => { this.filter.highlightRareJewellery = !this.filter.highlightRareJewellery; this.updateFilter(); }
 
-  toggleHighlightSkillGems = () => {
-    this.filter.highlightSkillGems = !this.filter.highlightSkillGems;
-    if (this.filter.highlightSkillGems && !this.filter.highlightSkillGemsLevel) {
-      this.filter.highlightSkillGemsLevel = 15;
-    }
-    this.updateFilter();
-  }
-
   removeWeaponType(index: number) { this.filter.weaponFilters.splice(index, 1); this.updateFilter();  }
   toggleShowWeapon = (index: number) => { this.filter.weaponFilters[index].show = !this.filter.weaponFilters[index].show; this.updateFilter(); }
   addWeaponType = () => { this.filter.weaponFilters.push(new WeaponFilter()); this.updateFilter(); }
@@ -101,6 +105,14 @@ export class AppComponent implements OnInit {
     this.filter.dynamicWaystones = !this.filter.dynamicWaystones;
     if (this.filter.dynamicWaystones && !this.filter.dynamicWaystonesLevel) {
       this.filter.dynamicWaystonesLevel = 1;
+    }
+    this.updateFilter();
+  }
+
+  toggleDynamicSkillGems = () => {
+    this.filter.dynamicSkillGems = !this.filter.dynamicSkillGems;
+    if (this.filter.dynamicSkillGems && !this.filter.dynamicSkillGemsLevel) {
+      this.filter.dynamicSkillGemsLevel = 1;
     }
     this.updateFilter();
   }
@@ -128,6 +140,7 @@ export class AppComponent implements OnInit {
     ).join('\n');
 
     const dynamicWaystoneFilterText = this.buildDynamicWaystoneFilter();
+    const dynamicSkillGemFilterText = this.buildDynamicSkillGemFilter();
 
     let commonCurrency = '';
     if (this.filter.hideCommonCurrency) {
@@ -157,12 +170,12 @@ export class AppComponent implements OnInit {
       .replace('{filterShowUltimateLifeFlasks}', this.filter.showUltimateLifeFlasks ? filterShowUltimateLifeFlasks.replace('{minFlaskQuality}', (this.filter.showUltimateLifeFlasksMinQuality || 0).toString()) : '')
       .replace('{filterHighlightUniques}', this.filter.highlightUniques ? filterHighlightUniques : '')
       .replace('{filterHighlightRareJewellery}', this.filter.highlightRareJewellery ? filterHighlightRareJewellery : '')
-      .replace('{filterHighlightSkillGems}', this.filter.highlightSkillGems ? filterHighlightSkillGems.replaceAll('{skillGemLevel}', (this.filter.highlightSkillGemsLevel || 1).toString()) : '')
       .replace('{filterHighlightGold}', this.filter.hideGold && this.filter.hideGoldLowerThan ? filterHighlightGold.replaceAll('{whiteGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 20).toString()).replaceAll('{yellowGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 100).toString()) : '')
       .replace('{filterPreferredWeaponTypes}', weaponFilterText)
       .replace('{filterPreferredArmourTypes}', armourFilterText)
       .replace('{filterStaticWaystones}', this.filter.dynamicWaystones ? '' : filterStaticWaystones)
       .replace('{filterDynamicWaystones}', this.filter.dynamicWaystones ? dynamicWaystoneFilterText : '')
+      .replace('{filterDynamicSkillGems}', this.filter.dynamicSkillGems ? dynamicSkillGemFilterText : '')
       ;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));
@@ -184,7 +197,7 @@ export class AppComponent implements OnInit {
   buildDynamicWaystoneFilter() {
     const currLevel = this.filter.dynamicWaystonesLevel || 1;
 
-    const showFrom = currLevel - (3 + Math.floor(currLevel / 4));
+    const showFrom = currLevel - 3;
     const highlightTiers = [
       { level: Math.min(currLevel + 3, 16), color: 'Brown' },
       { level: Math.min(currLevel + 1, 15), color: 'Orange' },
@@ -218,6 +231,54 @@ export class AppComponent implements OnInit {
     }
 
     return text.trimEnd();
+  }
+
+  buildDynamicSkillGemFilter() {
+    const level = this.filter.dynamicSkillGemsLevel || 1;
+    const supportLevel = level <= 12 ? 1 : level <= 14 ? 2 : level <= 16 ? 3 : 4
+
+    this.dynamicSkillGemThresholds = [
+      { style: 'tier-hidden', level: level > 1 ? '< ' + level.toString() : '🞪' },
+      { style: 'tier-white', level: level.toString() },
+      { style: 'tier-yellow', level: '> ' + level.toString() },
+    ];
+
+    this.dynamicSupportGemThresholds = [
+      { style: 'tier-hidden', level: supportLevel === 2 ? '1' : supportLevel > 1 && supportLevel < 4 ? '< ' + supportLevel : '🞪' },
+      { style: 'tier-white', level: supportLevel === 4 ? '🞪' : supportLevel.toString() },
+      { style: 'tier-yellow', level: supportLevel >= 3 ? '🞪' : supportLevel === 2 ? '3' : '> ' + supportLevel.toString() },
+    ];
+
+    let skillGemHighlightYellowText = filterHighlightGem
+      .replace('{type}', '"Skill Gem" "Spirit Gem"')
+      .replace('{level}', '> ' + level)
+      .replaceAll('{color}', 'Yellow');
+
+    let skillGemHighlightWhiteText = filterHighlightGem
+      .replace('{type}', '"Skill Gem" "Spirit Gem"')
+      .replace('{level}', '== ' + level)
+      .replaceAll('{color}', 'White');
+
+    let skillGemHideText = filterHideGem
+      .replace('{type}', '"Skill Gem" "Spirit Gem"')
+      .replace('{level}', '< ' + level);
+
+    let supportGemHighlightYellowText = filterHighlightGem
+      .replace('{type}', '"Support Gem"')
+      .replace('{level}', '> ' + supportLevel)
+      .replaceAll('{color}', 'Yellow');
+
+    let supportGemHighlightWhiteText = filterHighlightGem
+      .replace('{type}', '"Support Gem"')
+      .replace('{level}', '== ' + supportLevel)
+      .replaceAll('{color}', 'White');
+
+    let supportGemHideText = supportLevel === 1 ? '' : filterHideGem
+      .replace('{type}', '"Support Gem"')
+      .replace('{level}', '< ' + supportLevel);
+
+    return skillGemHighlightYellowText + '\n' + skillGemHighlightWhiteText + '\n' + skillGemHideText
+      + '\n' + supportGemHighlightYellowText + '\n' + supportGemHighlightWhiteText + '\n' + supportGemHideText
   }
 
   formatDefenceType(defenceType: DefenceType) {

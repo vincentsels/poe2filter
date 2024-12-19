@@ -13,20 +13,6 @@ export const filterHighlightRareJewellery =
   MinimapIcon 2 Yellow Kite
 `;
 
-export const filterHighlightSkillGems =
-`Show
-  BaseType "Skill Gem"
-  ItemLevel >= {skillGemLevel}
-  PlayEffect White
-  MinimapIcon 2 White Circle
-
-Show
-  BaseType "Spirit Gem"
-  ItemLevel >= {skillGemLevel}
-  PlayEffect White
-  MinimapIcon 2 White Circle
-`;
-
 export const filterShowOneSocket =
 `Show
   Sockets 1
@@ -231,6 +217,20 @@ Show
   PlayEffect White
   MinimapIcon 2 White Diamond`;
 
+export const filterHideGem =
+`Hide
+  BaseType {type}
+  ItemLevel {level}
+`;
+
+export const filterHighlightGem =
+`Show
+  BaseType {type}
+  ItemLevel {level}
+  PlayEffect {color}
+  MinimapIcon 2 {color} Circle
+`;
+
 export const filterTemplate =
 `#######################################################
 ##### Highlights
@@ -238,7 +238,6 @@ export const filterTemplate =
 
 {filterHighlightUniques}
 {filterHighlightRareJewellery}
-{filterHighlightSkillGems}
 {filterHighlightGold}
 
 #######################################################
@@ -273,6 +272,12 @@ export const filterTemplate =
 #######################################################
 
 {filterStaticWaystones}
+
+#######################################################
+##### Dynamic skill gems
+#######################################################
+
+{filterDynamicSkillGems}
 
 #######################################################
 ##### Precursor Tablets

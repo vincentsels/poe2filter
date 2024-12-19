@@ -102,11 +102,29 @@ select[disabled] {
   gap: 3px;
   height: 30px;
   width: 100%;
+  cursor: default;
+}
+
+.threshold-label {
+  flex: 50%;
+  text-align: right;
+  align-content: center;
+  padding-right: 12px;
+  color: #fff8e1;
+}
+
+.threshold-values {
+  flex: 50%;
+  display: flex;
+  gap: 3px;
+  height: 30px;
+  width: 100%;
+  cursor: default;
 }
 
 .threshold {
   text-align: center;
-  flex: auto;
+  flex: 1;
   font-size: 13px;
   line-height: 22px;
   color: #fff;

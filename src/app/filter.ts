@@ -22,8 +22,6 @@ export class Filter {
 
   highlightUniques = true;
   highlightRareJewellery = true;
-  highlightSkillGems = false;
-  highlightSkillGemsLevel: number | null = null;
 
   weaponFilters: WeaponFilter[] = [];
 
@@ -51,6 +49,9 @@ export class Filter {
 
   dynamicWaystones = false;
   dynamicWaystonesLevel: number | null = null;
+
+  dynamicSkillGems = false;
+  dynamicSkillGemsLevel: number | null = null;
 }
 
 export class WeaponFilter {
