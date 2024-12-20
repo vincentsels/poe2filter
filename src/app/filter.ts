@@ -52,6 +52,9 @@ export class Filter {
 
   dynamicSkillGems = false;
   dynamicSkillGemsLevel: number | null = null;
+
+  customRulesTop: string | null = null;
+  customRulesBottom: string | null = null;
 }
 
 export class WeaponFilter {

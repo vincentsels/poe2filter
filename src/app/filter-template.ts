@@ -233,6 +233,12 @@ export const filterHighlightGem =
 
 export const filterTemplate =
 `#######################################################
+##### Custom Rules
+#######################################################
+
+{filterCustomRulesTop}
+
+#######################################################
 ##### Highlights
 #######################################################
 
@@ -712,4 +718,10 @@ Show
 {filterHideCommonCharms}
 {filterHideRunes}
 {filterHideCommonOrbs}
-{filterHideShards}`;
+{filterHideShards}
+
+#######################################################
+##### Custom Rules
+#######################################################
+
+{filterCustomRulesBottom}`;

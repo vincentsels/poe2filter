@@ -30,6 +30,8 @@ export class AppComponent implements OnInit {
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
 
+  tab: 'quickFilters' | 'customRules' = 'quickFilters';
+
   dynamicWaystoneThresholds = [
     { style: 'tier-hidden', level: '' },
     { style: 'tier-shown', level: '' },
@@ -176,6 +178,8 @@ export class AppComponent implements OnInit {
       .replace('{filterStaticWaystones}', this.filter.dynamicWaystones ? '' : filterStaticWaystones)
       .replace('{filterDynamicWaystones}', this.filter.dynamicWaystones ? dynamicWaystoneFilterText : '')
       .replace('{filterDynamicSkillGems}', this.filter.dynamicSkillGems ? dynamicSkillGemFilterText : '')
+      .replace('{filterCustomRulesTop}', this.filter.customRulesTop ? this.filter.customRulesTop : '')
+      .replace('{filterCustomRulesBottom}', this.filter.customRulesBottom ? this.filter.customRulesBottom : '')
       ;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));

@@ -64,7 +64,7 @@ select[disabled] {
   }
 }
 
-.filter-output {
+textarea.filter-output, textarea.custom-rules {
   background-color: #000;
   padding: 8px;
   width: 100%;
@@ -72,6 +72,12 @@ select[disabled] {
   outline: none;
   border: none;
   font-family: monospace;
+  font-size: 13px;
+}
+
+textarea.custom-rules {
+  background-color: rgba(45, 49, 54, .3);
+  height: 200px;
 }
 
 .results .row,.results #trade .search-bar,#trade .results .search-bar {
@@ -260,4 +266,37 @@ select[disabled] {
       float: unset;
       margin-right: 5px; /* No idea why this is required */
   }
+}
+
+.nav-tabs .menu-tab:not(.active) {
+  cursor: pointer;
+}
+
+.nav-tabs .menu-tab > a {
+  height: 32px;
+}
+
+.nav-tabs .menu-tab > a::before {
+  content: " ";
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-tabs .menu-quick-filter > a::before {
+  background: url(/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ) no-repeat;
+  background-position: -282px -200px;
+  height: 18px;
+  width: 18px;
+}
+
+.nav-tabs .menu-advanced-rules > a::before {
+  background: url(/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ) no-repeat;
+  background-position: -168px -200px;
+  height: 18px;
+  width: 18px;
+}
+
+.reset-font {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
 }

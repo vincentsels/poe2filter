@@ -13,9 +13,30 @@
       </div>
 
       <div id="trade" class="block">
+        <div class="navigation">
+          <ul role="tablist" class="nav nav-tabs main">
+            <li role="presentation" class="menu-tab menu-quick-filter" [class.active]="tab === 'quickFilters'">
+              <a (click)="tab = 'quickFilters'">
+                <span>Quick Filters</span>
+              </a>
+            </li>
+            <li role="presentation" class="menu-tab menu-advanced-rules" [class.active]="tab === 'customRules'">
+              <a (click)="tab = 'customRules'">
+                <span>Custom Rules</span>
+              </a>
+            </li>
+          </ul>
+          <ul role="tablist" class="nav nav-tabs account">
+            <li role="presentation" class="menu-about">
+            </li>
+            <li role="presentation" class="menu-settings">
+            </li>
+          </ul>
+        </div>
         <div class="top">
           <div class="search-panel">
             <div class="search-bar search-advanced">
+              @if(tab === 'quickFilters') {
               <div class="search-advanced-items">
 
                 @if (filterResetWarning) {
@@ -573,6 +594,67 @@
 
                 </div>
               </div>
+              } @else if (tab === 'customRules') {
+              <div class="search-advanced-items">
+
+                <div class="row row-total row-justify-content-left">
+                  <div class="info reset-font">
+                    These rules will be inserted at the top and at the bottom of the filter, respectively. You can use this to make your own modifications, exceptions, highlights,...
+                    Beware that this might cause the filter not to load, use at your own risk!
+                    Please read about how filters work on the <a href="https://www.pathofexile.com/item-filter/about" target="_blank">official page</a>.
+                  </div>
+                </div>
+
+                <div class="search-advanced-pane blue">
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <span class="filter-title">
+                            Insert At Top
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter filter-property full-span">
+                        <textarea class="custom-rules" [(ngModel)]="filter.customRulesTop" (keyup)="updateFilter()"></textarea>
+                      </div>
+
+                    </div>
+
+                    <div class="clear"></div>
+                  </div>
+
+                </div>
+
+                <div class="search-advanced-pane blue">
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <span class="filter-title">
+                            Insert At Bottom
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter filter-property full-span">
+                        <textarea class="custom-rules" [(ngModel)]="filter.customRulesBottom" (keyup)="updateFilter()"></textarea>
+                      </div>
+
+                    </div>
+
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              </div>
+              }
             </div>
             <div class="controls">
               <div class="controls-left">
@@ -694,7 +776,7 @@
               <h3 class="info-title">Easy to use</h3>
 
               <p>
-                Going with <strong>the defaults is just fine for most people</strong>, but it's <strong>easy to adapt</strong> it to your preferences or where you're currently at in the game. This means the filter is slightly opinionated, but probably what most players will agree on. You can always add your custom rules afterwards to the top of the filter.
+                Going with <strong>the defaults is just fine for most people</strong>, but it's <strong>easy to adapt</strong> it to your preferences or where you're currently at in the game. This means the filter is slightly opinionated, but probably what most players will agree on. You can always add your own custom rules using the 'Custom Rules' tab.
               </p>
 
               <h3 class="info-title">Nothing to learn</h3>
