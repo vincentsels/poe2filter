@@ -53,6 +53,9 @@ export class Filter {
   dynamicSkillGems = false;
   dynamicSkillGemsLevel: number | null = null;
 
+  cosmeticTopCurrencyLabels = false;
+  cosmeticTopCurrencyAlertSounds = false;
+
   customRulesTop: string | null = null;
   customRulesBottom: string | null = null;
 }

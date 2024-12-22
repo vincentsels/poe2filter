@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
 
-  tab: 'quickFilters' | 'customRules' = 'quickFilters';
+  tab: 'quickFilters' | 'customRules' | 'cosmetic' = 'quickFilters';
 
   dynamicWaystoneThresholds = [
     { style: 'tier-hidden', level: '' },
@@ -119,6 +119,9 @@ export class AppComponent implements OnInit {
     this.updateFilter();
   }
 
+  toggleCosmeticTopCurrencyLabel = () => { this.filter.cosmeticTopCurrencyLabels = !this.filter.cosmeticTopCurrencyLabels; this.updateFilter(); }
+  toggleCosmeticTopCurrencyAlertSounds = () => { this.filter.cosmeticTopCurrencyAlertSounds = !this.filter.cosmeticTopCurrencyAlertSounds; this.updateFilter(); }
+
   updateWeaponType(weapon: WeaponFilter) {
     if ([WeaponType.Sceptres, WeaponType.Staves, WeaponType.Wands].includes(weapon.weaponType)) {
       weapon.baseTypeTier = BaseTypeTier.All;
@@ -178,6 +181,8 @@ export class AppComponent implements OnInit {
       .replace('{filterStaticWaystones}', this.filter.dynamicWaystones ? '' : filterStaticWaystones)
       .replace('{filterDynamicWaystones}', this.filter.dynamicWaystones ? dynamicWaystoneFilterText : '')
       .replace('{filterDynamicSkillGems}', this.filter.dynamicSkillGems ? dynamicSkillGemFilterText : '')
+      .replace('{filterCosmeticTopCurrencyLabels}', this.filter.cosmeticTopCurrencyLabels ? filterCosmeticTopCurrencyLabels : '')
+      .replace('{filterCosmeticTopCurrencyAlertSounds}', this.filter.cosmeticTopCurrencyAlertSounds ? filterCosmeticTopCurrencyAlertSounds : '')
       .replace('{filterCustomRulesTop}', this.filter.customRulesTop ? this.filter.customRulesTop : '')
       .replace('{filterCustomRulesBottom}', this.filter.customRulesBottom ? this.filter.customRulesBottom : '')
       ;

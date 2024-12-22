@@ -231,12 +231,47 @@ export const filterHighlightGem =
   MinimapIcon 2 {color} Circle
 `;
 
+export const filterCosmeticTopCurrencyLabels =
+`Show
+  Class "Stackable Currency"
+  BaseType == "Mirror of Kalandra" "Perfect Jeweller's Orb" "Divine Orb"
+  SetFontSize 45
+  Continue
+
+Show
+  Class "Stackable Currency"
+  BaseType == "Exalted Orb" "Greater Jeweller's Orb"
+  SetFontSize 40
+  Continue
+`;
+
+export const filterCosmeticTopCurrencyAlertSounds =
+`Show
+  Class "Stackable Currency"
+  BaseType == "Mirror of Kalandra" "Perfect Jeweller's Orb" "Divine Orb"
+  PlayAlertSound 6 300
+  Continue
+
+Show
+  Class "Stackable Currency"
+  BaseType == "Exalted Orb" "Greater Jeweller's Orb"
+  PlayAlertSound 2 300
+  Continue
+`;
+
 export const filterTemplate =
 `#######################################################
 ##### Custom Rules
 #######################################################
 
 {filterCustomRulesTop}
+
+#######################################################
+##### Cosmetic effects
+#######################################################
+
+{filterCosmeticTopCurrencyLabels}
+{filterCosmeticTopCurrencyAlertSounds}
 
 #######################################################
 ##### Highlights
@@ -376,11 +411,26 @@ Show
   MinimapIcon 2 White Circle
 
 #######################################################
-##### Relics
+##### Sanctum
 #######################################################
 
 Show
   Class "Relic"
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
+Show
+  BaseType "Gold Key" "Silver Key" "Bronze Key"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
+
+Show
+  BaseType "Silver Key"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
+
+Show
+  BaseType "Bronze Key"
   PlayEffect White
   MinimapIcon 2 White Circle
 

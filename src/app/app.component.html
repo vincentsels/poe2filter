@@ -20,6 +20,11 @@
                 <span>Quick Filters</span>
               </a>
             </li>
+            <li role="presentation" class="menu-tab menu-cosmetic" [class.active]="tab === 'cosmetic'">
+              <a (click)="tab = 'cosmetic'">
+                <span>Cosmetic</span>
+              </a>
+            </li>
             <li role="presentation" class="menu-tab menu-advanced-rules" [class.active]="tab === 'customRules'">
               <a (click)="tab = 'customRules'">
                 <span>Custom Rules</span>
@@ -592,6 +597,80 @@
                     <div class="clear"></div>
                   </div>
 
+                </div>
+              </div>
+              } @else if (tab === 'cosmetic') {
+              <div class="search-advanced-items">
+
+                <div class="row row-total row-justify-content-left">
+                  <div class="info reset-font">
+                    We recommend keeping the game's default visuals. However, if you want certain drops to stand out even more, or make top currency
+                    more easily clickable very late-game, these settings allow you to.
+                  </div>
+                </div>
+
+                <div class="search-advanced-pane blue">
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <span class="filter-title">
+                            Visual settings
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter full-span" [class.disabled]="!filter.cosmeticTopCurrencyLabels">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.cosmeticTopCurrencyLabels" (click)="toggleCosmeticTopCurrencyLabel()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Top-Tier Currency Label Size
+                            <div class="filter-tip"><p>Exalted Orbs and Greater Jeweller's Orb will be shown larger; Divine Orbs, Perfect Jeweller's Orbs and Mirrors of Kalandra even larger.</p></div>
+                          </div>
+                        </span>
+                      </div>
+
+                    </div>
+
+                    <div class="clear"></div>
+                  </div>
+
+                </div>
+
+                <div class="search-advanced-pane blue">
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <span class="filter-title">
+                            Sound settings
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter full-span" [class.disabled]="!filter.cosmeticTopCurrencyAlertSounds">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.cosmeticTopCurrencyAlertSounds" (click)="toggleCosmeticTopCurrencyAlertSounds()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Top-Tier Currency Alert Sounds
+                          </div>
+                        </span>
+                      </div>
+
+                    </div>
+
+                    <div class="clear"></div>
+                  </div>
                 </div>
               </div>
               } @else if (tab === 'customRules') {

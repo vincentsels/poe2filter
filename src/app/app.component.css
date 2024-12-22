@@ -296,6 +296,13 @@ textarea.custom-rules {
   width: 18px;
 }
 
+.nav-tabs .menu-cosmetic > a::before {
+  background: url(/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ) no-repeat;
+  background-position: -148px -200px;
+  height: 18px;
+  width: 18px;
+}
+
 .reset-font {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.3rem;
