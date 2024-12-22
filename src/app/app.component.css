@@ -307,3 +307,13 @@ textarea.custom-rules {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.3rem;
 }
+
+.nav-tabs.main {
+  width: 80% !important;
+  padding: 0;
+}
+
+.nav-tabs.account {
+  width: 20% !important;
+  padding: 0;
+}
