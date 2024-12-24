@@ -317,3 +317,41 @@ textarea.custom-rules {
   width: 20% !important;
   padding: 0;
 }
+
+.praises {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-direction: row;
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+  }
+}
+
+.praise {
+  flex: 1 1 calc(20% - 1rem);
+  box-sizing: border-box;
+  padding: 1rem;
+
+  .praise-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  .author {
+    color: #e2e2e2;
+    opacity: 0.8;
+    margin-top: 8px;
+
+    &&::before {
+      content: ' — ';
+      margin-left: 8px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    flex: 1 1 calc(50% - 1rem);
+    text-align: center;
+  }
+}
