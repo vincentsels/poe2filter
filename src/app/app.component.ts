@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide } from './filter';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, ItemClass, BaseType, Rarity, DisplayType, CustomRule } from './filter';
 import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds } from './filter-template';
 import { FormsModule } from '@angular/forms';
 
@@ -24,13 +24,17 @@ export class AppComponent implements OnInit {
   BaseTypeTier = BaseTypeTier;
   ArmourType = ArmourType;
   DefenceType = DefenceType;
-  Rarity = MinimumRarity;
+  MinimumRarity = MinimumRarity;
   CurrencyToHide = CurrencyToHide;
+  ItemClass = ItemClass;
+  BaseType = BaseType;
+  Rarity = Rarity;
+  DisplayType = DisplayType;
 
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
 
-  tab: 'quickFilters' | 'customRules' | 'cosmetic' = 'quickFilters';
+  tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'customRules';
 
   dynamicWaystoneThresholds = [
     { style: 'tier-hidden', level: '' },
@@ -56,13 +60,23 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     const filterSet = localStorage.getItem(LOCAL_STORAGE_KEY_FILTER_STORED);
     const filterFromStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (filterFromStorage) this.filter = JSON.parse(filterFromStorage) as Filter;
+    if (filterFromStorage) {
+      this.filter = JSON.parse(filterFromStorage) as Filter;
+      this.migrateFilter();
+    }
 
     if (filterSet && !filterFromStorage) {
       this.filterResetWarning = true;
     }
 
     this.updateFilter(false);
+  }
+
+  migrateFilter() {
+    // Update the filter to the latest version
+    if (this.filter.customRules === undefined) this.filter.customRules = [];
+
+    this.updateFilter();
   }
 
   toggleHideFlasks = () => { this.filter.hideFlasks = !this.filter.hideFlasks; this.updateFilter(); }
@@ -102,6 +116,10 @@ export class AppComponent implements OnInit {
   removeArmourType(index: number) { this.filter.armourFilters.splice(index, 1); this.updateFilter();  }
   toggleShowArmour = (index: number) => { this.filter.armourFilters[index].show = !this.filter.armourFilters[index].show; this.updateFilter(); }
   addArmourType = () => { this.filter.armourFilters.push(new ArmourFilter()); this.updateFilter(); }
+
+  removeCustomRule(index: number) { this.filter.customRules.splice(index, 1); this.updateFilter();  }
+  toggleRuleActive = (index: number) => { this.filter.customRules[index].active = !this.filter.customRules[index].active; this.updateFilter(); }
+  addCustomRule = () => { this.filter.customRules.push(new CustomRule()); this.updateFilter(); }
 
   toggleDynamicWaystones = () => {
     this.filter.dynamicWaystones = !this.filter.dynamicWaystones;
@@ -183,8 +201,8 @@ export class AppComponent implements OnInit {
       .replace('{filterDynamicSkillGems}', this.filter.dynamicSkillGems ? dynamicSkillGemFilterText : '')
       .replace('{filterCosmeticTopCurrencyLabels}', this.filter.cosmeticTopCurrencyLabels ? filterCosmeticTopCurrencyLabels : '')
       .replace('{filterCosmeticTopCurrencyAlertSounds}', this.filter.cosmeticTopCurrencyAlertSounds ? filterCosmeticTopCurrencyAlertSounds : '')
-      .replace('{filterCustomRulesTop}', this.filter.customRulesTop ? this.filter.customRulesTop : '')
-      .replace('{filterCustomRulesBottom}', this.filter.customRulesBottom ? this.filter.customRulesBottom : '')
+      .replace('{filterFreeRulesTop}', this.filter.freeRulesTop ? this.filter.freeRulesTop : '')
+      .replace('{filterFreeRulesBottom}', this.filter.freeRulesBottom ? this.filter.freeRulesBottom : '')
       ;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));

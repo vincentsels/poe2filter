@@ -264,7 +264,7 @@ export const filterTemplate =
 ##### Custom Rules
 #######################################################
 
-{filterCustomRulesTop}
+{filterFreeRulesTop}
 
 #######################################################
 ##### Cosmetic effects
@@ -774,4 +774,4 @@ Show
 ##### Custom Rules
 #######################################################
 
-{filterCustomRulesBottom}`;
+{filterFreeRulesBottom}`;

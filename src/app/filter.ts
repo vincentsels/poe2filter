@@ -56,8 +56,43 @@ export class Filter {
   cosmeticTopCurrencyLabels = false;
   cosmeticTopCurrencyAlertSounds = false;
 
-  customRulesTop: string | null = null;
-  customRulesBottom: string | null = null;
+  customRules: CustomRule[] = [];
+
+  freeRulesTop: string | null = null;
+  freeRulesBottom: string | null = null;
+}
+
+export class CustomRule {
+  active = true;
+  class: ItemClass = ItemClass.All;
+  baseTypes: BaseType[] = [BaseType.All];
+  minimumRarity: Rarity = Rarity.Normal;
+  displayType = DisplayType.Show;
+}
+
+export enum ItemClass {
+  All = 'All',
+}
+
+export enum BaseType {
+  All = 'All',
+}
+
+export enum Rarity {
+  Normal = 'Normal',
+  Magic = 'Magic',
+  Rare = 'Rare',
+  Unique = 'Unique',
+}
+
+export enum DisplayType {
+  Hide = 'Hide',
+  Show = 'Show',
+  White = 'White',
+  Yellow = 'Yellow',
+  Orange = 'Orange',
+  Brown = 'Brown',
+  Purple = 'Purple',
 }
 
 export class WeaponFilter {
