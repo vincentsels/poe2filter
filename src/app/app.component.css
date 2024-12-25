@@ -337,6 +337,15 @@ textarea.custom-rules {
   .praise-text {
     position: relative;
     display: inline-block;
+
+    /* &::before {
+      content: '“';
+      position: absolute;
+      left: -20px;
+      bottom: -50px;
+      opacity: 0.2;
+      font-size: 400%;
+    } */
   }
 
   .author {
