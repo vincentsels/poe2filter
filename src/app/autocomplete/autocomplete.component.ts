@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, computed, signal } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, HostListener, OnInit, computed, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 @Component({
@@ -8,7 +8,7 @@ import { FormsModule } from "@angular/forms";
   styleUrl: './autocomplete.component.scss',
   imports: [FormsModule]
 })
-export class AutocompleteComponent {
+export class AutocompleteComponent implements OnInit {
   @Input({ required: true }) options: string[] = [];
   @Input({ required: true }) showOptions: boolean = true;
 
@@ -19,7 +19,20 @@ export class AutocompleteComponent {
 
   open = false;
   searchText = signal('');
-  selectedValuesSignal = signal(this.selectedValues);
+  selectedValuesSignal = signal<string[]>([]);
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent) {
+    if (this.open && !this.elementRef.nativeElement.contains(event.target)) {
+      this.open = false;
+    }
+  }
+
+  constructor(private elementRef: ElementRef) {}
+
+  ngOnInit() {
+    this.selectedValuesSignal.set(this.selectedValues);
+  }
 
   onSelectedValuesChange(newValues: string[]) {
     this.selectedValues = newValues;
@@ -58,6 +71,11 @@ export class AutocompleteComponent {
       }
     }
     this.onSelectedValuesChange(this.selectedValues);
+  }
+
+  close() {
+    this.open = false;
+    this.searchText.set('');
   }
 
   filteredOptions = computed(() => {
