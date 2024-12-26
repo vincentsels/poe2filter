@@ -8,6 +8,10 @@
   color: #e2e2e2;
 }
 
+.disabled {
+  color: #e2e2e299;
+}
+
 input {
   border-color: rgba(0, 0, 0, 0);
   background: #1e2124;
@@ -32,6 +36,10 @@ input {
   overflow-x: clip;
   text-overflow: ellipsis;
   box-sizing: border-box;
+
+  &.disabled {
+    cursor: default;
+  }
 }
 
 .auto-complete-input {

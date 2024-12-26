@@ -11,6 +11,7 @@ import { FormsModule } from "@angular/forms";
 export class AutocompleteComponent implements OnInit {
   @Input({ required: true }) options: string[] = [];
   @Input({ required: true }) showOptions: boolean = true;
+  @Input({ required: true }) disabled: boolean = false;
 
   @Input({ required: true }) selectedValues: string[] = [];
   @Output() selectedValuesChange = new EventEmitter<string[]>();
@@ -41,6 +42,7 @@ export class AutocompleteComponent implements OnInit {
   }
 
   openAndSetFocus() {
+    if (this.disabled) return;
     this.open = true;
     setTimeout(() => {
       if (this.inputElement) {

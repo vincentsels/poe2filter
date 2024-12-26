@@ -1,6 +1,6 @@
-<div class="auto-complete">
+<div class="auto-complete" [class.disabled]="disabled">
   @if (!open) {
-  <div class="auto-complete-label" (click)="openAndSetFocus()">{{ formattedSelectedValues() }}</div>
+  <div class="auto-complete-label" [class.disabled]="disabled" (click)="openAndSetFocus()">{{ formattedSelectedValues() }}</div>
   } @else {
   <div class="auto-complete-select">
     <div class="auto-complete-input">

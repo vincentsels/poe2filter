@@ -712,6 +712,7 @@
                           <span class="sep"></span>
                           <pf-autocomplete
                             [options]="getBaseTypesForItemType(rule.class)()"
+                            [disabled]="!rule.active"
                             [showOptions]="rule.class !== 'All'"
                             [(selectedValues)]="rule.baseTypes"></pf-autocomplete>
                           <!-- <div tabindex="-1" class="multiselect filter-select">
