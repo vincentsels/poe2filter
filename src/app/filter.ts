@@ -64,18 +64,10 @@ export class Filter {
 
 export class CustomRule {
   active = true;
-  class: ItemClass = ItemClass.All;
-  baseTypes: BaseType[] = [BaseType.All];
+  class: string = 'All';
+  baseTypes: string[] = ['All'];
   minimumRarity: Rarity = Rarity.Normal;
   displayType = DisplayType.Show;
-}
-
-export enum ItemClass {
-  All = 'All',
-}
-
-export enum BaseType {
-  All = 'All',
 }
 
 export enum Rarity {

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, ItemClass, BaseType, Rarity, DisplayType, CustomRule } from './filter';
+import { Component, computed, OnInit } from '@angular/core';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule } from './filter';
 import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds } from './filter-template';
 import { FormsModule } from '@angular/forms';
+import { itemData } from './item-data';
 
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
 const LOCAL_STORAGE_KEY = 'filter-v7';
@@ -26,8 +27,6 @@ export class AppComponent implements OnInit {
   DefenceType = DefenceType;
   MinimumRarity = MinimumRarity;
   CurrencyToHide = CurrencyToHide;
-  ItemClass = ItemClass;
-  BaseType = BaseType;
   Rarity = Rarity;
   DisplayType = DisplayType;
 
@@ -35,6 +34,8 @@ export class AppComponent implements OnInit {
   filterResetWarning = false;
 
   tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'customRules';
+
+  itemData = itemData;
 
   dynamicWaystoneThresholds = [
     { style: 'tier-hidden', level: '' },
@@ -352,4 +353,9 @@ export class AppComponent implements OnInit {
       this.updateFilter();
     };
   }
+
+  getBaseTypesForItemType = (itemType: string) => computed(() => {
+    if (itemType === 'All') return 'All';
+    return this.itemData.find(i => i.itemType === itemType)!.baseTypes;
+  });
 }

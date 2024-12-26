@@ -683,7 +683,8 @@
 
                 <div class="row row-total row-justify-content-left">
                   <div class="info reset-font">
-                    Here you can create custom show and hide rules based on item Class and Base Type.
+                    Here you can create custom show and hide rules based on Item Class and Base Type. The rules are inserted and processed in the order they are listed.
+                    The higher the rule, the higher its precedence. Typically, first create specific highlight rules, then specific show rules, and only then hide rules.
                   </div>
                 </div>
 
@@ -698,18 +699,26 @@
                           <button class="btn toggle-btn" [class.off]="!rule.active" (click)="toggleRuleActive($index)"></button>
                         </span>
                         <span class="filter-body">
-                          <div tabindex="-1" class="multiselect filter-select">
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
                             <div class="multiselect__tags">
-                              <select [(ngModel)]="rule.class" (change)="updateFilter()" [disabled]="!rule.active">
-                                <option [value]="ItemClass.All">All</option>
+                              <select [(ngModel)]="rule.class" (change)="rule.baseTypes = ['All']; updateFilter()" [disabled]="!rule.active">
+                                <option [value]="'All'">All</option>
+                                @for (itemType of itemData; track itemType.itemType) {
+                                <option [value]="itemType.itemType">{{ itemType.itemType }}</option>
+                                }
                               </select>
                             </div>
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 100px;">
+                          <div tabindex="-1" class="multiselect filter-select">
                             <div class="multiselect__tags">
                               <select [(ngModel)]="rule.baseTypes" (change)="updateFilter()" [disabled]="!rule.active">
-                                <option [value]="[BaseType.All]">All</option>
+                                <option [value]="['All']">All</option>
+                                @if(rule.class !== 'All') {
+                                @for (baseType of getBaseTypesForItemType(rule.class)(); track $index) {
+                                <option [value]="baseType">{{ baseType }}</option>
+                                }
+                                }
                               </select>
                             </div>
                           </div>
@@ -717,7 +726,7 @@
                           <div tabindex="-1" class="multiselect filter-select" style="width: 120px;">
                             <div class="multiselect__tags">
                               <select [(ngModel)]="rule.minimumRarity" (change)="updateFilter()" [disabled]="!rule.active">
-                                <option [value]="Rarity.Normal">≥ Normal</option>
+                                <option [value]="Rarity.Normal">All</option>
                                 <option [value]="Rarity.Magic">≥ Magic</option>
                                 <option [value]="Rarity.Rare">≥ Rare</option>
                                 <option [value]="Rarity.Unique">≥ Unique</option>
@@ -725,7 +734,7 @@
                             </div>
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 140px;">
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 100px;">
                             <div class="multiselect__tags">
                               <select [(ngModel)]="rule.displayType" (change)="updateFilter()" [disabled]="!rule.active">
                                 <option [value]="DisplayType.Hide">Hide</option>
@@ -747,7 +756,7 @@
 
                       <div class="filter filter-padded">
                         <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addCustomRule()">
-                          Add Armour Type
+                          Add Custom Rule
                         </button>
                       </div>
 
