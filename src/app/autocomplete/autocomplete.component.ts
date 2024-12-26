@@ -19,9 +19,11 @@ export class AutocompleteComponent {
 
   open = false;
   searchText = signal('');
+  selectedValuesSignal = signal(this.selectedValues);
 
   onSelectedValuesChange(newValues: string[]) {
     this.selectedValues = newValues;
+    this.selectedValuesSignal.set(newValues);
     this.selectedValuesChange.emit(this.selectedValues);
   }
 
@@ -62,5 +64,9 @@ export class AutocompleteComponent {
     const searchTextValue = this.searchText();
     if (!searchTextValue) return this.options;
     return this.options.filter(o => o.toLowerCase().includes(searchTextValue.toLowerCase()));
+  });
+
+  formattedSelectedValues = computed(() => {
+    return this.selectedValuesSignal().join(', ');
   });
 }

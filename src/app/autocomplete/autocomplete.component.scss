@@ -28,6 +28,10 @@ input {
   height: 30px;
   vertical-align: middle;
   cursor: text;
+  white-space: nowrap;
+  overflow-x: clip;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 }
 
 .auto-complete-input {
@@ -67,15 +71,8 @@ input {
 }
 
 .close-btn {
-  &::before {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    left: 50%;
-    margin-top: -10px;
-    margin-left: -10px;
-    background: url(/trade.png?v=1733975490307&key=nIFEZiE4lkptZMARNY-yNQ) no-repeat;
-    background-position: -206px -200px;
-  }
+    width: 40px;
+    height: 30px;
+    margin-left: 2px;
+    border: none !important;
 }

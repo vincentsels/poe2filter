@@ -1,12 +1,12 @@
 <div class="auto-complete">
   @if (!open) {
-  <div class="auto-complete-label" (click)="openAndSetFocus()">{{ selectedValues }}</div>
+  <div class="auto-complete-label" (click)="openAndSetFocus()">{{ formattedSelectedValues() }}</div>
   } @else {
   <div class="auto-complete-select">
     <div class="auto-complete-input">
       <input #autoCompleteInputElement type="text" class="form-control" [(ngModel)]="searchText" (ngModelChange)="searchText.set($event)">
 
-      <button class="btn" (click)="open = !open">OK</button>
+      <button class="btn close-btn" (click)="open = !open">OK</button>
     </div>
     <div class="auto-complete-options" (keydown.enter)="open = !open">
       <div class="auto-complete-option" [class.selected]="isSelected('All')" (click)="toggle('All')">All</div>
