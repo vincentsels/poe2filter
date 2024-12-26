@@ -178,6 +178,8 @@ export class AppComponent implements OnInit {
       commonCurrency = filterHighlightCommonCurrency.replace('{filterShowShards}', '\n' + filterShowShards);
     }
 
+    const customRules = this.buildCustomRules();
+
     this.filterText = filterTemplate
       .replace('{filterHideFlasks}', this.filter.hideFlasks ? filterHideFlasks : '')
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
@@ -205,6 +207,7 @@ export class AppComponent implements OnInit {
       .replace('{filterCosmeticTopCurrencyAlertSounds}', this.filter.cosmeticTopCurrencyAlertSounds ? filterCosmeticTopCurrencyAlertSounds : '')
       .replace('{filterFreeRulesTop}', this.filter.freeRulesTop ? this.filter.freeRulesTop : '')
       .replace('{filterFreeRulesBottom}', this.filter.freeRulesBottom ? this.filter.freeRulesBottom : '')
+      .replace('{filterCustomRules}', customRules)
       ;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));
@@ -213,6 +216,24 @@ export class AppComponent implements OnInit {
     if (resetWarning) {
       this.filterResetWarning = false;
     }
+  }
+
+  buildCustomRules() {
+    return this.filter.customRules.filter(r => r.active).map(r => this.formatRule(r)).join('\n');
+  }
+
+  formatRule(rule: CustomRule): any {
+    const showHide = rule.displayType === DisplayType.Hide ? 'Hide' : 'Show';
+    const itemClass = rule.class === 'All' ? '' : `\n  Class == "${rule.class}"`;
+    const baseTypes = rule.baseTypes.length === 0 || rule.baseTypes.includes('All') ? '' : `\n  BaseType == ${rule.baseTypes.map(t => `"${t}"`).join(' ')}`;
+    const highlight = rule.displayType === DisplayType.Hide || rule.displayType === DisplayType.Show ? ''
+      : `
+  PlayEffect ${rule.displayType}
+  MinimapIcon 2 ${rule.displayType} Circle`
+
+    return `
+${showHide}${itemClass}${baseTypes}
+  Rarity >= "${rule.minimumRarity}"${highlight}`;
   }
 
   formatAllWeaponTypes() {
