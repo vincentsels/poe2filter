@@ -710,7 +710,11 @@
                             </div>
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select">
+                          <pf-autocomplete
+                            [options]="getBaseTypesForItemType(rule.class)()"
+                            [showOptions]="rule.class !== 'All'"
+                            [(selectedValues)]="rule.baseTypes"></pf-autocomplete>
+                          <!-- <div tabindex="-1" class="multiselect filter-select">
                             <div class="multiselect__tags">
                               <select [(ngModel)]="rule.baseTypes" (change)="updateFilter()" [disabled]="!rule.active">
                                 <option [value]="['All']">All</option>
@@ -721,7 +725,7 @@
                                 }
                               </select>
                             </div>
-                          </div>
+                          </div> -->
                           <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select" style="width: 120px;">
                             <div class="multiselect__tags">

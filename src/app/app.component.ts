@@ -3,6 +3,7 @@ import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, Wea
 import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
 const LOCAL_STORAGE_KEY = 'filter-v7';
@@ -11,7 +12,7 @@ const LOCAL_STORAGE_KEY = 'filter-v7';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [FormsModule]
+  imports: [FormsModule, AutocompleteComponent]
 })
 export class AppComponent implements OnInit {
   filter = new Filter();
@@ -355,7 +356,7 @@ export class AppComponent implements OnInit {
   }
 
   getBaseTypesForItemType = (itemType: string) => computed(() => {
-    if (itemType === 'All') return 'All';
+    if (itemType === 'All') return ['All'];
     return this.itemData.find(i => i.itemType === itemType)!.baseTypes;
   });
 }
