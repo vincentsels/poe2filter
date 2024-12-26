@@ -7,7 +7,7 @@ export const filterHighlightUniques =
 
 export const filterHighlightRareJewellery =
 `Show
-  Class "Amulet" "Ring" "Belt"
+  Class == "Amulets" "Rings" "Belts"
   Rarity Rare
   PlayEffect Yellow
   MinimapIcon 2 Yellow Kite
@@ -59,18 +59,19 @@ Show
 
 export const filterHideScrolls =
 `Hide
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Scroll of Wisdom"
 `;
 
 export const filterHideFlasks =
 `Hide
-  Class "Flask"
+  Class "Flasks"
   Rarity <= Magic
 `;
 
 export const filterShowUltimateLifeFlasks =
 `Show
+  Class "Flasks"
   BaseType "Ultimate Life Flask"
   Quality > {minFlaskQuality}
 `;
@@ -83,27 +84,27 @@ export const filterHideNormalAndMagicItems =
 
 export const filterHideJewellery =
 `Hide
-  Class "Amulet" "Ring" "Belt"
+  Class == "Amulets" "Rings" "Belts"
   Rarity <= {itemRarity}
 `;
 
 export const filterHideGold =
 `Hide
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Gold"
   StackSize < {minGold}
 `;
 
 export const filterHighlightGold =
 `Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Gold"
   StackSize >= {yellowGoldLevel}
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Gold"
   StackSize >= {whiteGoldLevel}
   PlayEffect White
@@ -112,63 +113,63 @@ Show
 
 export const filterHideCommonCharms =
 `Hide
-  Class "Charms"
+  Class == "Charms"
   Rarity <= Magic
   Quality == 0
 `
 
 export const filterHideRunes =
 `Hide
-  Class "Socketable"
+  Class == "Socketable"
   BaseType "Rune"
 `;
 
 export const filterHideShards =
 `Hide
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType "Transmutation Shard" "Regal Shard" "Chance Shard" "Artificer's Shard"
 `;
 
 export const filterHideCommonOrbs =
 `Hide
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType "Orb of Transmutation" "Orb of Augmentation"
 `;
 
 export const filterShowShards =
 `Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType "Transmutation Shard" "Regal Shard" "Chance Shard" "Artificer's Shard"
 `;
 
 export const filterHighlightCommonCurrency =
 `Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType "Orb of Annulment" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher" "Orb of Transmutation" "Orb of Augmentation"
 {filterShowShards}
 `;
 
 export const filterShowCommonCurrency =
 `Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType "Orb of Annulment" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb" "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
 `;
 
@@ -233,13 +234,13 @@ export const filterHighlightGem =
 
 export const filterCosmeticTopCurrencyLabels =
 `Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Mirror of Kalandra" "Perfect Jeweller's Orb" "Divine Orb"
   SetFontSize 45
   Continue
 
 Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Exalted Orb" "Greater Jeweller's Orb"
   SetFontSize 40
   Continue
@@ -247,13 +248,13 @@ Show
 
 export const filterCosmeticTopCurrencyAlertSounds =
 `Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Mirror of Kalandra" "Perfect Jeweller's Orb" "Divine Orb"
   PlayAlertSound 6 300
   Continue
 
 Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Exalted Orb" "Greater Jeweller's Orb"
   PlayAlertSound 2 300
   Continue
@@ -363,19 +364,19 @@ Show
 # Chance Shard            0.015
 
 Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Mirror of Kalandra" "Perfect Jeweller's Orb"
   PlayEffect Purple
   MinimapIcon 0 Purple Circle
 
 Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Greater Jeweller's Orb" "Divine Orb"
   PlayEffect Brown
   MinimapIcon 1 Brown Circle
 
 Show
-  Class "Stackable Currency"
+  Class == "Stackable Currency"
   BaseType == "Exalted Orb"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
@@ -396,7 +397,7 @@ Show
 #######################################################
 
 Show
-  Class "Charms"
+  Class == "Charms"
   BaseType == "Thawing Charm" "Amethyst Charm" "Golden Charm"
   PlayEffect White
   MinimapIcon 2 White Circle
@@ -406,7 +407,7 @@ Show
 #######################################################
 
 Show
-  Class "Jewels"
+  Class == "Jewels"
   PlayEffect White
   MinimapIcon 2 White Circle
 
@@ -415,12 +416,12 @@ Show
 #######################################################
 
 Show
-  Class "Relic"
+  Class == "Relics"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
-  BaseType "Gold Key" "Silver Key" "Bronze Key"
+  BaseType "Gold Key"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
@@ -456,37 +457,37 @@ Show
 # Distilled Ire        0.05
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType == "Distilled Isolation" "Simulacrum" "Distilled Suffering"
   PlayEffect Purple
   MinimapIcon 0 Purple Circle
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType == "Distilled Fear"
   PlayEffect Brown
   MinimapIcon 1 Brown Circle
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType == "Distilled Despair" "Distilled Disgust"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType == "Distilled Envy" "Distilled Paranoia"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType == "Distilled Greed" "Simulacrum Splinter" "Distilled Guilt" "Distilled Ire"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType "Distilled" # Safety Catch-all
   PlayEffect White
   MinimapIcon 2 White Circle
@@ -513,7 +514,7 @@ Show
 # Carapace Catalyst     0.05
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType == "Breachstone"
   PlayEffect Brown
   MinimapIcon 1 Brown Circle
@@ -525,19 +526,19 @@ Show
   MinimapIcon 2 Orange Circle
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType == "Esh's Catalyst" "Neural Catalyst" "Reaver Catalyst" "Chayula's Catalyst" "Tul's Catalyst" "Xoph's Catalyst" "Breach Splinter"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType == "Adaptive Catalyst" "Flesh Catalyst" "Skittering Catalyst" "Sibilant Catalyst" "Uul-Netol's Catalyst" "Carapace Catalyst"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
-  Class Currency
+  Class == "Stackable Currency"
   BaseType "Catalyst" # Safety Catch-all
   PlayEffect White
   MinimapIcon 2 White Circle
@@ -581,13 +582,13 @@ Show
   MinimapIcon 2 Orange Circle
 
 Show
-  Class == "Currency"
-  BaseType "Exotic Coinage"
+  Class == "Stackable Currency"
+  BaseType == "Exotic Coinage"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
-  Class "Currency"
+  Class == "Stackable Currency"
   BaseType "Artifact"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
@@ -625,26 +626,31 @@ Show
 # Essence of the Infinite         0.1
 
 Show
+  Class == "Stackable Currency"
   BaseType == "Greater Essence of Torment" "Greater Essence of Haste" "Greater Essence of Ruin"
   PlayEffect Brown
   MinimapIcon 1 Brown Circle
 
 Show
+  Class == "Stackable Currency"
   BaseType == "Greater Essence of Sorcery" "Greater Essence of Electricity" "Greater Essence of Enhancement" "Greater Essence of Flames" "Greater Essence of Ice" "Greater Essence of the Mind" "Greater Essence of the Body" "Greater Essence of Battle" "Greater Essence of the Infinite"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
+  Class == "Stackable Currency"
   BaseType == "Essence of Torment" "Essence of Ruin" "Essence of Haste"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
+  Class == "Stackable Currency"
   BaseType == "Essence of Sorcery" "Essence of Electricity" "Essence of Enhancement" "Essence of Flames" "Essence of Ice" "Essence of the Mind" "Essence of the Body" "Essence of Battle" "Essence of the Infinite"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
+  Class == "Stackable Currency"
   BaseType "Essence" # Safety Catch-all
   PlayEffect White
   MinimapIcon 2 White Circle
@@ -675,31 +681,31 @@ Show
 # Omen of Dextral Coronation    0.5
 
 Show
-  Class "Omen"
+  Class == "Omen"
   BaseType == "Omen of Whittling" "Omen of Sinistral Erasure" "Omen of Dextral Erasure" "Omen of Sinistral Annulment" "Omen of Dextral Annulment"
   PlayEffect Purple
   MinimapIcon 0 Purple Circle
 
 Show
-  Class "Omen"
+  Class == "Omen"
   BaseType == "Omen of Amelioration" "Omen of Corruption"
   PlayEffect Brown
   MinimapIcon 1 Brown Circle
 
 Show
-  Class "Omen"
+  Class == "Omen"
   BaseType == "Omen of Greater Annulment" "Omen of Resurgence" "Omen of Sinistral Exaltation" "Omen of Dextral Exaltation" "Omen of Greater Exaltation" "Omen of Sinistral Alchemy" "Omen of Refreshment" "Omen of Dextral Alchemy" "Omen of Sinistral Coronation"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
-  Class "Omen"
+  Class == "Omen"
   BaseType == "Omen of Dextral Coronation"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  Class "Omen" # Safety Catch-all
+  Class == "Omen" # Safety Catch-all
   PlayEffect White
   MinimapIcon 2 White Circle
 
@@ -727,31 +733,31 @@ Show
 # Soul Core of Zantipi     1
 
 Show
-  Class "Socketable"
+  Class == "Socketable"
   BaseType == "Soul Core of Azcapa" "Soul Core of Zalatl"
   PlayEffect Brown
   MinimapIcon 1 Brown Circle
 
 Show
-  Class "Socketable"
+  Class == "Socketable"
   BaseType == "Soul Core of Citaqualotl" "Soul Core of Tacati"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
 Show
-  Class "Socketable"
+  Class == "Socketable"
   BaseType == "Soul Core of Jiquani" "Soul Core of Puhuarte"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
-  Class "Socketable"
+  Class == "Socketable"
   BaseType == "Soul Core of Opiloti" "Soul Core of Atmohua" "Soul Core of Cholotl" "Soul Core of Quipolatl" "Soul Core of Ticaba" "Soul Core of Topotante" "Soul Core of Tzamoto" "Soul Core of Xopec" "Soul Core of Zantipi"
   PlayEffect White
   MinimapIcon 2 White Circle
 
 Show
-  Class "Socketable"
+  Class == "Socketable"
   BaseType "Soul Core" # Safety Catch-all
   PlayEffect White
   MinimapIcon 2 White Circle
