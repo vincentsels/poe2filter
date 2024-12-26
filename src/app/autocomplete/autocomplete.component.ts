@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, HostListener, OnInit, computed, signal } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Output, ViewChild, HostListener, computed, signal, input, model } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
 @Component({
@@ -8,19 +8,18 @@ import { FormsModule } from "@angular/forms";
   styleUrl: './autocomplete.component.scss',
   imports: [FormsModule]
 })
-export class AutocompleteComponent implements OnInit {
-  @Input({ required: true }) options: string[] = [];
-  @Input({ required: true }) showOptions: boolean = true;
-  @Input({ required: true }) disabled: boolean = false;
+export class AutocompleteComponent {
+  options = input.required<string[]>();
+  showOptions = input.required<boolean>();
+  disabled = input.required<boolean>();
+  selectedValues = model.required<string[]>();
 
-  @Input({ required: true }) selectedValues: string[] = [];
   @Output() selectedValuesChange = new EventEmitter<string[]>();
 
   @ViewChild('autoCompleteInputElement') inputElement!: ElementRef;
 
   open = false;
   searchText = signal('');
-  selectedValuesSignal = signal<string[]>([]);
 
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent) {
@@ -31,18 +30,13 @@ export class AutocompleteComponent implements OnInit {
 
   constructor(private elementRef: ElementRef) {}
 
-  ngOnInit() {
-    this.selectedValuesSignal.set(this.selectedValues);
-  }
-
   onSelectedValuesChange(newValues: string[]) {
-    this.selectedValues = newValues;
-    this.selectedValuesSignal.set(newValues);
-    this.selectedValuesChange.emit(this.selectedValues);
+    this.selectedValues.set(newValues);
+    this.selectedValuesChange.emit(newValues);
   }
 
   openAndSetFocus() {
-    if (this.disabled) return;
+    if (this.disabled()) return;
     this.open = true;
     setTimeout(() => {
       if (this.inputElement) {
@@ -52,27 +46,28 @@ export class AutocompleteComponent implements OnInit {
   }
 
   isSelected(option: string) {
-    return this.selectedValues.includes(option);
+    return this.selectedValues().includes(option);
   }
 
   toggle(option: string) {
+    let newValues = this.selectedValues();
     if (this.isSelected(option)) {
-      this.selectedValues = this.selectedValues.filter(v => v !== option);
-      if (this.selectedValues.length === 0) {
-        this.selectedValues = ['All'];
+      newValues = newValues.filter(v => v !== option);
+      if (newValues.length === 0) {
+        newValues = ['All'];
       }
     } else {
       if (option === 'All') {
-        this.selectedValues = ['All'];
+        newValues = ['All'];
       } else {
-        if (option != 'All' && this.selectedValues.includes('All')) {
-          this.selectedValues = [option];
+        if (option != 'All' && newValues.includes('All')) {
+          newValues = [option];
         } else {
-          this.selectedValues = [...this.selectedValues, option];
+          newValues = [...newValues, option];
         }
       }
     }
-    this.onSelectedValuesChange(this.selectedValues);
+    this.onSelectedValuesChange(newValues);
   }
 
   close() {
@@ -82,11 +77,11 @@ export class AutocompleteComponent implements OnInit {
 
   filteredOptions = computed(() => {
     const searchTextValue = this.searchText();
-    if (!searchTextValue) return this.options;
-    return this.options.filter(o => o.toLowerCase().includes(searchTextValue.toLowerCase()));
+    if (!searchTextValue) return this.options();
+    return this.options().filter(o => o.toLowerCase().includes(searchTextValue.toLowerCase()));
   });
 
   formattedSelectedValues = computed(() => {
-    return this.selectedValuesSignal().join(', ');
+    return this.selectedValues().join(', ');
   });
 }

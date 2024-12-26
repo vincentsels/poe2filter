@@ -355,8 +355,13 @@ export class AppComponent implements OnInit {
     };
   }
 
-  getBaseTypesForItemType = (itemType: string) => computed(() => {
+  getBaseTypesForItemType = (itemType: string) => {
     if (itemType === 'All') return ['All'];
     return this.itemData.find(i => i.itemType === itemType)!.baseTypes;
-  });
+  }
+
+  selectedValuesChanged(rule: CustomRule, values: string[]) {
+    rule.baseTypes = values;
+    this.updateFilter();
+  }
 }

@@ -1,6 +1,6 @@
-<div class="auto-complete" [class.disabled]="disabled">
+<div class="auto-complete" [class.disabled]="disabled()">
   @if (!open) {
-  <div class="auto-complete-label" [class.disabled]="disabled" (click)="openAndSetFocus()">{{ formattedSelectedValues() }}</div>
+  <div class="auto-complete-label" [class.disabled]="disabled()" (click)="openAndSetFocus()">{{ formattedSelectedValues() }}</div>
   } @else {
   <div class="auto-complete-select">
     <div class="auto-complete-input">
@@ -10,7 +10,7 @@
     </div>
     <div class="auto-complete-options" (keydown.enter)="close()">
       <div class="auto-complete-option" [class.selected]="isSelected('All')" (click)="toggle('All')">All</div>
-      @if(showOptions) {
+      @if(showOptions()) {
       @for (baseType of filteredOptions(); track $index) {
       <div class="auto-complete-option" [class.selected]="isSelected(baseType)" (click)="toggle(baseType)">{{ baseType }}</div>
       }
