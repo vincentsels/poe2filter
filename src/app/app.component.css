@@ -375,3 +375,7 @@ textarea.custom-rules {
 .full-width {
   width: 100% !important;
 }
+
+.filter-double-padded-right {
+  padding-right: 85px;
+}

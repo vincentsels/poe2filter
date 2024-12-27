@@ -66,8 +66,16 @@ export class CustomRule {
   active = true;
   class: string = 'All';
   baseTypes: string[] = ['All'];
-  minimumRarity: Rarity = Rarity.Normal;
+  rarityComparator: Comparator = Comparator.GreaterThanOrEqual;
+  rarity: Rarity = Rarity.Normal;
   displayType = DisplayType.Show;
+  continue = false;
+}
+
+export enum Comparator {
+  GreaterThanOrEqual = '>=',
+  LessThanOrEqual = '<=',
+  Equal = '==',
 }
 
 export enum Rarity {

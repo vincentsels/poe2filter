@@ -1,5 +1,5 @@
 import { Component, computed, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule } from './filter';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator } from './filter';
 import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   MinimumRarity = MinimumRarity;
   CurrencyToHide = CurrencyToHide;
   Rarity = Rarity;
+  Comparator = Comparator;
   DisplayType = DisplayType;
 
   copyText = 'Copy to Clipboard';
@@ -229,11 +230,11 @@ export class AppComponent implements OnInit {
     const highlight = rule.displayType === DisplayType.Hide || rule.displayType === DisplayType.Show ? ''
       : `
   PlayEffect ${rule.displayType}
-  MinimapIcon 2 ${rule.displayType} Circle`
+  MinimapIcon 2 ${rule.displayType} Pentagon`
 
     return `
 ${showHide}${itemClass}${baseTypes}
-  Rarity >= "${rule.minimumRarity}"${highlight}`;
+  Rarity ${rule.rarityComparator} "${rule.rarity}"${highlight}` + (rule.continue ? '\n  Continue' : '');
   }
 
   formatAllWeaponTypes() {

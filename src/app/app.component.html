@@ -683,8 +683,8 @@
 
                 <div class="row row-total row-justify-content-left">
                   <div class="info reset-font">
-                    Here you can create custom show and hide rules based on Item Class and Base Type. The rules are inserted and processed in the order they are listed.
-                    The higher the rule, the higher its precedence. Typically, first create specific highlight rules, then specific show rules, and only then hide rules.
+                    Here you can create custom show, hide and highlight rules based on Item Class, Base Type and Rarity. The rules are inserted and processed in the order they are listed.
+                    The higher the rule, the higher its precedence. The last checkbox adds the 'Continue' statement, which tells the game to continue evaluating rules further down.
                   </div>
                 </div>
 
@@ -717,13 +717,23 @@
                             [selectedValues]="rule.baseTypes"
                             (selectedValuesChange)="selectedValuesChanged(rule, $event)"></pf-autocomplete>
                           <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 50px;">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="rule.rarityComparator" (change)="updateFilter()" [disabled]="!rule.active">
+                                <option [value]="Comparator.GreaterThanOrEqual">≥</option>
+                                <option [value]="Comparator.Equal">=</option>
+                                <option [value]="Comparator.LessThanOrEqual">≤</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select" style="width: 120px;">
                             <div class="multiselect__tags">
-                              <select [(ngModel)]="rule.minimumRarity" (change)="updateFilter()" [disabled]="!rule.active">
-                                <option [value]="Rarity.Normal">All</option>
-                                <option [value]="Rarity.Magic">≥ Magic</option>
-                                <option [value]="Rarity.Rare">≥ Rare</option>
-                                <option [value]="Rarity.Unique">≥ Unique</option>
+                              <select [(ngModel)]="rule.rarity" (change)="updateFilter()" [disabled]="!rule.active">
+                                <option [value]="Rarity.Normal">Normal</option>
+                                <option [value]="Rarity.Magic">Magic</option>
+                                <option [value]="Rarity.Rare">Rare</option>
+                                <option [value]="Rarity.Unique">Unique</option>
                               </select>
                             </div>
                           </div>
@@ -742,13 +752,16 @@
                             </div>
                           </div>
                         </span>
+                        <span class="input-group-btn" title="Continue">
+                          <button class="btn toggle-btn" [class.off]="!rule.continue" (click)="rule.continue = !rule.continue; updateFilter();"></button>
+                        </span>
                         <span class="input-group-btn">
                           <button class="btn remove-btn" (click)="removeCustomRule($index)"></button>
                         </span>
                       </div>
                       }
 
-                      <div class="filter filter-padded">
+                      <div class="filter filter-padded filter-double-padded-right">
                         <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addCustomRule()">
                           Add Custom Rule
                         </button>
@@ -1133,9 +1146,9 @@
             </div>
             <div class="praise">
               <span class="praise-text">
-                THAT IS SO GOOD
+                Dude, this is super cool stuff. With your filter generator i can quickly make ssf filters for my characters.
               </span>
-              <div class="author">xh4736</div>
+              <div class="author">the_longest_cat</div>
             </div>
             <div class="praise">
               <span class="praise-text">
