@@ -6,7 +6,7 @@ import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
-const LOCAL_STORAGE_KEY = 'filter-v7';
+const LOCAL_STORAGE_KEY = 'filter-v8';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
 
-  tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'customRules';
+  tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'quickFilters';
 
   itemData = itemData;
 
