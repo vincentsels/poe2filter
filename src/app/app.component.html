@@ -116,8 +116,9 @@
                           <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
                             <div class="multiselect__tags">
                               <select [disabled]="!filter.hideNormalAndMagicItems" [(ngModel)]="filter.hideNormalAndMagicItemsOfRarity" (change)="updateFilter()">
-                                <option [value]="RarityToHide.Normal">Normal</option>
-                                <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
+                                <option [value]="WeaponsAndArmourRarityToHide.Normal">Normal</option>
+                                <option [value]="WeaponsAndArmourRarityToHide.NormalAndMagic">Normal and Magic</option>
+                                <option [value]="WeaponsAndArmourRarityToHide.NormalMagicRareBelowExpert">Normal, Magic, Rare &lt; Expert</option>
                               </select>
                             </div>
                           </div>
@@ -684,7 +685,7 @@
                 <div class="row row-total row-justify-content-left">
                   <div class="info reset-font">
                     Here you can create custom show, hide and highlight rules based on Item Class, Base Type and Rarity. The rules are inserted and processed in the order they are listed.
-                    The higher the rule, the higher its precedence. The last checkbox adds the 'Continue' statement, which tells the game to continue evaluating rules further down.
+                    The higher the rule, the higher its precedence.
                   </div>
                 </div>
 
@@ -752,16 +753,16 @@
                             </div>
                           </div>
                         </span>
-                        <span class="input-group-btn" title="Continue">
+                        <!-- <span class="input-group-btn" title="Continue">
                           <button class="btn toggle-btn" [class.off]="!rule.continue" (click)="rule.continue = !rule.continue; updateFilter();"></button>
-                        </span>
+                        </span> -->
                         <span class="input-group-btn">
                           <button class="btn remove-btn" (click)="removeCustomRule($index)"></button>
                         </span>
                       </div>
                       }
 
-                      <div class="filter filter-padded filter-double-padded-right">
+                      <div class="filter filter-padded">
                         <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addCustomRule()">
                           Add Custom Rule
                         </button>

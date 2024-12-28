@@ -82,6 +82,17 @@ export const filterHideNormalAndMagicItems =
   Rarity <= {itemRarity}
 `;
 
+export const filterHideRareItemsBelowExpert =
+`Show
+  Class == "Body Armour" "Boots" "Gloves" "Helmets" "Bows" "Crossbows" "Foci" "One Hand Maces" "Quivers" "Quarterstaves" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+  BaseType "Expert "
+  Rarity >= Rare
+
+Hide
+  Class == "Body Armour" "Boots" "Gloves" "Helmets" "Bows" "Crossbows" "Foci" "One Hand Maces" "Quivers" "Quarterstaves" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+  Rarity <= Rare
+`;
+
 export const filterHideJewellery =
 `Hide
   Class == "Amulets" "Rings" "Belts"
@@ -772,6 +783,7 @@ Show
 #######################################################
 
 {filterHideNormalAndMagicItems}
+{filterHideRareItemsBelowExpert}
 {filterHideJewellery}
 {filterHideScrolls}
 {filterHideFlasks}

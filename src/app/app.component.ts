@@ -1,6 +1,6 @@
 import { Component, computed, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds } from './filter-template';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide } from './filter';
+import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideJewellery, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareItemsBelowExpert } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
 
   FlaskType = FlaskType;
   RarityToHide = RarityToHide;
+  WeaponsAndArmourRarityToHide = WeaponsAndArmourRarityToHide;
   SocketedItemType = SocketedItemType;
   QualityItemType = QualityItemType;
   WeaponType = WeaponType;
@@ -185,7 +186,8 @@ export class AppComponent implements OnInit {
       .replace('{filterHideFlasks}', this.filter.hideFlasks ? filterHideFlasks : '')
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
       .replace('{filterHideJewellery}', this.filter.hideJewellery ? filterHideJewellery.replace('{itemRarity}', (this.filter.hideJewelleryOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
-      .replace('{filterHideNormalAndMagicItems}', this.filter.hideNormalAndMagicItems ? filterHideNormalAndMagicItems.replace('{itemRarity}', (this.filter.hideNormalAndMagicItemsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
+      .replace('{filterHideNormalAndMagicItems}', this.filter.hideNormalAndMagicItems ? filterHideNormalAndMagicItems.replace('{itemRarity}', (this.filter.hideNormalAndMagicItemsOfRarity === WeaponsAndArmourRarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
+      .replace('{filterHideRareItemsBelowExpert}', this.filter.hideNormalAndMagicItems && this.filter.hideNormalAndMagicItemsOfRarity === WeaponsAndArmourRarityToHide.NormalMagicRareBelowExpert ? filterHideRareItemsBelowExpert : '')
       .replace('{filterHideGold}', this.filter.hideGold ? filterHideGold.replace('{minGold}', (this.filter.hideGoldLowerThan || 10000).toString()): '')
       .replace('{filterHideCommonCharms}', this.filter.hideCommonCharms ? filterHideCommonCharms : '')
       .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')

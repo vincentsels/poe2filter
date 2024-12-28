@@ -5,7 +5,7 @@ export class Filter {
   hideJewellery = true;
   hideJewelleryOfRarity = RarityToHide.Normal;
   hideNormalAndMagicItems = true;
-  hideNormalAndMagicItemsOfRarity = RarityToHide.NormalAndMagic;
+  hideNormalAndMagicItemsOfRarity = WeaponsAndArmourRarityToHide.NormalAndMagic;
   hideGold = true;
   hideGoldLowerThan = 50;
   hideCommonCharms = true;
@@ -172,6 +172,12 @@ export enum QualityItemType {
 export enum RarityToHide {
   Normal = "Normal",
   NormalAndMagic = "NormalAndMagic",
+}
+
+export enum WeaponsAndArmourRarityToHide {
+  Normal = "Normal",
+  NormalAndMagic = "NormalAndMagic",
+  NormalMagicRareBelowExpert = "NormalMagicRareBelowExpert",
 }
 
 export enum CurrencyToHide {
