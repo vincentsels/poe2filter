@@ -110,7 +110,39 @@
                           </div>
                           <span class="sep"></span>
                           <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [disabled]="!filter.hideLifeFlasks" [(ngModel)]="filter.hideLifeFlasksQuality" (change)="updateFilter()">
+                            [disabled]="!filter.hideLifeFlasks || filter.hideLifeFlasksBaseTypeExceptions.includes('None')"
+                            [(ngModel)]="filter.hideLifeFlasksQuality" (change)="updateFilter()">
+                        </span>
+                      </div>
+
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideManaFlasks">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.hideManaFlasks" (click)="toggleHideManaFlasks()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Mana Flasks
+                          </div>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label">
+                            Except
+                          </div>
+                          <span class="sep"></span>
+                          <pf-autocomplete
+                            [allLabel]="'None'"
+                            [options]="manaFlaskBaseTypes"
+                            [disabled]="!filter.hideManaFlasks"
+                            [showOptions]="true"
+                            [selectedValues]="filter.hideManaFlasksBaseTypeExceptions"
+                            (selectedValuesChange)="filter.hideManaFlasksBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label">
+                            Of Quality
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [disabled]="!filter.hideManaFlasks || filter.hideManaFlasksBaseTypeExceptions.includes('None')"
+                            [(ngModel)]="filter.hideManaFlasksQuality" (change)="updateFilter()">
                         </span>
                       </div>
 

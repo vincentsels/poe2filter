@@ -1,10 +1,10 @@
 export class Filter {
   hideLifeFlasks = true;
-  hideLifeFlasksQuality = 10;
+  hideLifeFlasksQuality: number | null = 10;
   hideLifeFlasksBaseTypeExceptions = ['Ultimate Life Flask'];
   hideManaFlasks = true;
-  hideManaFlasksQuality = 10;
-  hideManaFlasksTypeExceptions = ['Ultimate Mana Flask'];
+  hideManaFlasksQuality: number | null = null;
+  hideManaFlasksBaseTypeExceptions = ['None'];
   hideScrolls = true;
   hideJewellery = true;
   hideJewelleryOfRarity = RarityToHide.Normal;
