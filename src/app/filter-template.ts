@@ -93,9 +93,21 @@ Hide
   Rarity <= Rare
 `;
 
-export const filterHideJewellery =
+export const filterHideRings =
 `Hide
-  Class == "Amulets" "Rings" "Belts"
+  Class == "Rings"
+  Rarity <= {itemRarity}
+`;
+
+export const filterHideAmulets =
+`Hide
+  Class == "Amulets"
+  Rarity <= {itemRarity}
+`;
+
+export const filterHideBelts =
+`Hide
+  Class == "Belts"
   Rarity <= {itemRarity}
 `;
 
@@ -784,7 +796,9 @@ Show
 
 {filterHideNormalAndMagicItems}
 {filterHideRareItemsBelowExpert}
-{filterHideJewellery}
+{filterHideAmulets}
+{filterHideRings}
+{filterHideBelts}
 {filterHideScrolls}
 {filterHideFlasks}
 {filterHideGold}

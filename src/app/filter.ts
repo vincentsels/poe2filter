@@ -6,10 +6,14 @@ export class Filter {
   hideManaFlasksQuality: number | null = null;
   hideManaFlasksBaseTypeExceptions = ['None'];
   hideScrolls = true;
-  hideJewellery = true;
-  hideJewelleryOfRarity = RarityToHide.Normal;
+  hideRings = true;
+  hideRingsOfRarity = RarityToHide.NormalAndMagic;
   hideRingsBaseTypeExceptions = ['Gold Ring', 'Prismatic Ring', 'Amethyst Ring'];
-  hideAmuletsBaseTypeExceptions = ['Stellar Amulet', 'Gold Amulet'];
+  hideAmulets = true;
+  hideAmuletsOfRarity = RarityToHide.NormalAndMagic;
+  hideAmuletsBaseTypeExceptions = ['Gold Amulet', 'Stellar Amulet'];
+  hideBelts = true;
+  hideBeltsOfRarity = RarityToHide.NormalAndMagic;
   hideBeltsBaseTypeExceptions = ['Golden Obi', 'Utility Belt'];
   hideNormalAndMagicItems = true;
   hideNormalAndMagicItemsOfRarity = WeaponsAndArmourRarityToHide.NormalAndMagic;
@@ -24,7 +28,7 @@ export class Filter {
   hideCharmsBaseTypeExceptions = ['Thawing Charm', 'Amethyst Charm', 'Golden Charm'];
   hideRunes = false;
   hideRunesExceptions = ['None'];
-  hideCommonCurrency = false;
+  hideCommonCurrency = true;
   hideCommonCurrencyType = CurrencyToHide.ShardsOnly;
 
   highlightUniques = true;

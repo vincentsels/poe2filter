@@ -1,10 +1,13 @@
 <div class="auto-complete" [class.disabled]="disabled()">
   @if (!open) {
-  <div class="auto-complete-label" [class.disabled]="disabled()" (click)="openAndSetFocus()">{{ formattedSelectedValues() }}</div>
+  <div class="auto-complete-label" [class.disabled]="disabled()" (click)="openAndSetFocus()" [title]="formattedSelectedValues()">
+    {{ formattedSelectedValues() }}
+  </div>
   } @else {
   <div class="auto-complete-select">
     <div class="auto-complete-input">
-      <input #autoCompleteInputElement [placeholder]="formattedSelectedValues()" type="text" class="form-control" [(ngModel)]="searchText" (ngModelChange)="searchText.set($event)">
+      <input #autoCompleteInputElement [placeholder]="formattedSelectedValues()" type="text" class="form-control"
+        [(ngModel)]="searchText" (ngModelChange)="searchText.set($event)">
 
       <button class="btn close-btn" (click)="close()">OK</button>
     </div>
@@ -15,7 +18,7 @@
       <div class="auto-complete-option" [class.selected]="isSelected(baseType)" (click)="toggle(baseType)">{{ baseType }}</div>
       }
       }
+    </div>
   </div>
-</div>
   }
 </div>

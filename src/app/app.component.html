@@ -66,23 +66,12 @@
                       <div class="filter">
                         <span class="filter-body">
                           <span class="filter-title">
-                            General Filters
+                            Flask and Charm Filters
                           </span>
                         </span>
                       </div>
                     </div>
                     <div class="filter-group-body">
-
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideScrolls">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideScrolls" (click)="toggleHideScrolls()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Hide Scrolls of Wisdom
-                          </div>
-                        </span>
-                      </div>
 
                       <div class="filter filter-property full-span" [class.disabled]="!filter.hideLifeFlasks">
                         <span class="input-group-btn">
@@ -146,45 +135,53 @@
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideNormalAndMagicItems">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideCharms">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideNormalAndMagicItems" (click)="toggleHideNormalAndMagicItems()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideCharms" (click)="toggleHideCommonCharms()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            Hide Weapons And Armour
-                            <div class="filter-tip"><p>Hides all Normal and/or Magic weapons and armour; except for the ones specified in the Weapon and Armour filter on the right.</p></div>
+                            Hide Charms
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
-                            <div class="multiselect__tags">
-                              <select [disabled]="!filter.hideNormalAndMagicItems" [(ngModel)]="filter.hideNormalAndMagicItemsOfRarity" (change)="updateFilter()">
-                                <option [value]="WeaponsAndArmourRarityToHide.Normal">Normal</option>
-                                <option [value]="WeaponsAndArmourRarityToHide.NormalAndMagic">Normal and Magic</option>
-                                <option [value]="WeaponsAndArmourRarityToHide.NormalMagicRareBelowExpert">Normal, Magic, Rare &lt; Expert</option>
-                              </select>
-                            </div>
+                          <div class="filter-title filter-label">
+                            Except
                           </div>
+                          <span class="sep"></span>
+                          <pf-autocomplete style="width: 271px;"
+                            [allLabel]="'None'"
+                            [options]="charmBaseTypes"
+                            [disabled]="!filter.hideCharms"
+                            [showOptions]="true"
+                            [selectedValues]="filter.hideCharmsBaseTypeExceptions"
+                            (selectedValuesChange)="filter.hideCharmsBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
                         </span>
                       </div>
 
-                      <div class="filter full-span" [class.disabled]="!filter.hideJewellery">
+                    </div>
+
+                    <div class="clear"></div>
+                  </div>
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <span class="filter-title">
+                            Currency Filters
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideScrolls">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideJewellery" (click)="toggleHideJewellery()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideScrolls" (click)="toggleHideScrolls()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            Hide Jewellery
-                            <div class="filter-tip"><p>This hides Normal and/or Magic Jewellery (Amulets, Rings, Belts). Rare and Unique Jewellery is always shown.</p></div>
-                          </div>
-                          <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
-                            <div class="multiselect__tags">
-                              <select [disabled]="!filter.hideJewellery" [(ngModel)]="filter.hideJewelleryOfRarity" (change)="updateFilter()">
-                                <option [value]="RarityToHide.Normal">Normal</option>
-                                <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
-                              </select>
-                            </div>
+                            Hide Scrolls of Wisdom
                           </div>
                         </span>
                       </div>
@@ -199,31 +196,9 @@
                             <div class="filter-tip"><p>You will still pick up smaller stacks too. Stacks 20 times higher will be highlighted in white, 100 times higher in yellow.</p></div>
                           </div>
                           <span class="sep"></span>
+                          <span class="sep"></span>
                           <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
                             [disabled]="!filter.hideGold" [(ngModel)]="filter.hideGoldLowerThan" (change)="updateFilter()">
-                        </span>
-                      </div>
-
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideCharms">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideCharms" (click)="toggleHideCommonCharms()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Hide Common Charms
-                            <div class="filter-tip"><p>Golden, Amethyst, Thawing Charms, Quality Charms and Unique Charms are still shown.</p></div>
-                          </div>
-                        </span>
-                      </div>
-
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideRunes">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideRunes" (click)="toggleHideRunes()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Hide Runes
-                          </div>
                         </span>
                       </div>
 
@@ -248,6 +223,29 @@
                         </span>
                       </div>
 
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideRunes">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.hideRunes" (click)="toggleHideRunes()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Runes
+                          </div>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label">
+                            Except
+                          </div>
+                          <span class="sep"></span>
+                          <pf-autocomplete style="width: 271px;"
+                            [allLabel]="'None'"
+                            [options]="runeBaseTypes"
+                            [disabled]="!filter.hideRunes"
+                            [showOptions]="true"
+                            [selectedValues]="filter.hideRunesExceptions"
+                            (selectedValuesChange)="filter.hideRunesExceptions = $event; updateFilter();"></pf-autocomplete>
+                        </span>
+                      </div>
+
                     </div>
 
                     <div class="clear"></div>
@@ -258,50 +256,106 @@
                       <div class="filter">
                         <span class="filter-body">
                           <span class="filter-title">
-                            Exceptions
+                            Jewellery Filters
                           </span>
                         </span>
                       </div>
                     </div>
                     <div class="filter-group-body">
 
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.showSocketedItems">
+                      <div class="filter full-span" [class.disabled]="!filter.hideAmulets">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.showSocketedItems" (click)="toggleShowSocketedItems()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideAmulets" (click)="toggleHideAmulets()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            Show Socketed Items
+                            Hide Amulets
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
                             <div class="multiselect__tags">
-                              <select [disabled]="!filter.showSocketedItems" [(ngModel)]="filter.showSocketedItemsType" (change)="updateFilter()">
-                                <option [value]="SocketedItemType.All">All</option>
-                                <option [value]="SocketedItemType.TwoOrMoreSockets">2 Sockets</option>
+                              <select [disabled]="!filter.hideAmulets" [(ngModel)]="filter.hideAmuletsOfRarity" (change)="updateFilter()">
+                                <option [value]="RarityToHide.Normal">Normal</option>
+                                <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
                               </select>
                             </div>
                           </div>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label">
+                            Except
+                          </div>
+                          <span class="sep"></span>
+                          <pf-autocomplete
+                            [allLabel]="'None'"
+                            [options]="ringBaseTypes"
+                            [disabled]="!filter.hideAmulets"
+                            [showOptions]="true"
+                            [selectedValues]="filter.hideAmuletsBaseTypeExceptions"
+                            (selectedValuesChange)="filter.hideAmuletsBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.showQualityItems">
+                      <div class="filter full-span" [class.disabled]="!filter.hideRings">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.showQualityItems" (click)="toggleShowQualityItems()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideRings" (click)="toggleHideRings()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            Show Quality Items
+                            Hide Rings
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
                             <div class="multiselect__tags">
-                              <select [disabled]="!filter.showQualityItems" [(ngModel)]="filter.showQualityItemsType" (change)="updateFilter()">
-                                <option value="All">All</option>
-                                <option value="MinimumTenQuality">> 10 Quality</option>
+                              <select [disabled]="!filter.hideRings" [(ngModel)]="filter.hideRingsOfRarity" (change)="updateFilter()">
+                                <option [value]="RarityToHide.Normal">Normal</option>
+                                <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
                               </select>
                             </div>
                           </div>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label">
+                            Except
+                          </div>
+                          <span class="sep"></span>
+                          <pf-autocomplete
+                            [allLabel]="'None'"
+                            [options]="ringBaseTypes"
+                            [disabled]="!filter.hideRings"
+                            [showOptions]="true"
+                            [selectedValues]="filter.hideRingsBaseTypeExceptions"
+                            (selectedValuesChange)="filter.hideRingsBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+                        </span>
+                      </div>
+
+                      <div class="filter full-span" [class.disabled]="!filter.hideBelts">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.hideBelts" (click)="toggleHideBelts()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Belts
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
+                            <div class="multiselect__tags">
+                              <select [disabled]="!filter.hideBelts" [(ngModel)]="filter.hideBeltsOfRarity" (change)="updateFilter()">
+                                <option [value]="RarityToHide.Normal">Normal</option>
+                                <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label">
+                            Except
+                          </div>
+                          <span class="sep"></span>
+                          <pf-autocomplete
+                            [allLabel]="'None'"
+                            [options]="ringBaseTypes"
+                            [disabled]="!filter.hideBelts"
+                            [showOptions]="true"
+                            [selectedValues]="filter.hideBeltsBaseTypeExceptions"
+                            (selectedValuesChange)="filter.hideBeltsBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
                         </span>
                       </div>
 
@@ -354,6 +408,88 @@
                 </div>
 
                 <div class="search-advanced-pane blue">
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <span class="filter-title">
+                            Gear Filters
+                            <div class="filter-tip"><p>All currency is highlighted and shown on the minimap. Here you can highlight additional items and show them on the minimap, to make them stand out.</p></div>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideNormalAndMagicItems">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.hideNormalAndMagicItems" (click)="toggleHideNormalAndMagicItems()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Hide Weapons And Armour
+                            <div class="filter-tip"><p>Hides all Normal and/or Magic weapons and armour; except for the ones specified in the Weapon and Armour filter on the right.</p></div>
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                            <div class="multiselect__tags">
+                              <select [disabled]="!filter.hideNormalAndMagicItems" [(ngModel)]="filter.hideNormalAndMagicItemsOfRarity" (change)="updateFilter()">
+                                <option [value]="WeaponsAndArmourRarityToHide.Normal">Normal</option>
+                                <option [value]="WeaponsAndArmourRarityToHide.NormalAndMagic">Normal and Magic</option>
+                                <option [value]="WeaponsAndArmourRarityToHide.NormalMagicRareBelowExpert">Normal, Magic, Rare &lt; Expert</option>
+                              </select>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+
+                      @if(filter.hideNormalAndMagicItems) {
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.showSocketedItems">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.showSocketedItems" (click)="toggleShowSocketedItems()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Except Socketed Gear
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                            <div class="multiselect__tags">
+                              <select [disabled]="!filter.showSocketedItems" [(ngModel)]="filter.showSocketedItemsType" (change)="updateFilter()">
+                                <option [value]="SocketedItemType.All">All</option>
+                                <option [value]="SocketedItemType.TwoOrMoreSockets">2 Sockets</option>
+                              </select>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.showQualityItems">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.showQualityItems" (click)="toggleShowQualityItems()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Except Quality Gear
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+                            <div class="multiselect__tags">
+                              <select [disabled]="!filter.showQualityItems" [(ngModel)]="filter.showQualityItemsType" (change)="updateFilter()">
+                                <option value="All">All</option>
+                                <option value="MinimumTenQuality">> 10 Quality</option>
+                              </select>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+                      }
+
+                    </div>
+
+                    <div class="clear"></div>
+                  </div>
 
                   <div class="filter-group expanded">
                     <div class="filter-group-header">
