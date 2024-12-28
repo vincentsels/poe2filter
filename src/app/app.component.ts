@@ -40,6 +40,14 @@ export class AppComponent implements OnInit {
 
   itemData = itemData;
 
+  lifeFlaskBaseTypes = itemData.filter(i => i.itemType === 'Life Flasks')[0].baseTypes;
+  manaFlaskBaseTypes = itemData.filter(i => i.itemType === 'Mana Flasks')[0].baseTypes;
+  charmBaseTypes = itemData.filter(i => i.itemType === 'Charms')[0].baseTypes;
+  ringBaseTypes = itemData.filter(i => i.itemType === 'Rings')[0].baseTypes;
+  amuletBaseTypes = itemData.filter(i => i.itemType === 'Amulets')[0].baseTypes;
+  beltBaseTypes = itemData.filter(i => i.itemType === 'Belts')[0].baseTypes;
+  runeBaseTypes = itemData.filter(i => i.itemType === 'Socketable')[0].baseTypes.filter(b => b.includes('Rune'));
+
   dynamicWaystoneThresholds = [
     { style: 'tier-hidden', level: '' },
     { style: 'tier-shown', level: '' },
@@ -83,11 +91,12 @@ export class AppComponent implements OnInit {
     this.updateFilter();
   }
 
-  toggleHideFlasks = () => { this.filter.hideFlasks = !this.filter.hideFlasks; this.updateFilter(); }
+  toggleHideLifeFlasks = () => { this.filter.hideLifeFlasks = !this.filter.hideLifeFlasks; this.updateFilter(); }
+  toggleHideManaFlasks = () => { this.filter.hideManaFlasks = !this.filter.hideManaFlasks; this.updateFilter(); }
   toggleHideScrolls = () => { this.filter.hideScrolls = !this.filter.hideScrolls; this.updateFilter(); }
   toggleHideJewellery = () => { this.filter.hideJewellery = !this.filter.hideJewellery; this.updateFilter(); }
   toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilter(); }
-  toggleHideCommonCharms = () => { this.filter.hideCommonCharms = !this.filter.hideCommonCharms; this.updateFilter(); }
+  toggleHideCommonCharms = () => { this.filter.hideCharms = !this.filter.hideCharms; this.updateFilter(); }
   toggleHideRunes = () => { this.filter.hideRunes = !this.filter.hideRunes; this.updateFilter(); }
   toggleHideCommonCurrency = () => { this.filter.hideCommonCurrency = !this.filter.hideCommonCurrency; this.updateFilter(); }
 
@@ -101,14 +110,6 @@ export class AppComponent implements OnInit {
 
   toggleShowSocketedItems = () => { this.filter.showSocketedItems = !this.filter.showSocketedItems; this.updateFilter(); }
   toggleShowQualityItems = () => { this.filter.showQualityItems = !this.filter.showQualityItems; this.updateFilter(); }
-
-  toggleShowUltimateLifeFlasks = () => {
-    this.filter.showUltimateLifeFlasks = !this.filter.showUltimateLifeFlasks;
-    if (this.filter.showUltimateLifeFlasks && !this.filter.showUltimateLifeFlasksMinQuality) {
-      this.filter.showUltimateLifeFlasksMinQuality = 10;
-    }
-    this.updateFilter();
-  }
 
   toggleHighLightUniques = () => { this.filter.highlightUniques = !this.filter.highlightUniques; this.updateFilter(); }
   toggleHighLightRareJewellery = () => { this.filter.highlightRareJewellery = !this.filter.highlightRareJewellery; this.updateFilter(); }
@@ -183,13 +184,13 @@ export class AppComponent implements OnInit {
     const customRules = this.buildCustomRules();
 
     this.filterText = filterTemplate
-      .replace('{filterHideFlasks}', this.filter.hideFlasks ? filterHideFlasks : '')
+      .replace('{filterHideFlasks}', this.filter.hideLifeFlasks ? filterHideFlasks : '')
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
       .replace('{filterHideJewellery}', this.filter.hideJewellery ? filterHideJewellery.replace('{itemRarity}', (this.filter.hideJewelleryOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
       .replace('{filterHideNormalAndMagicItems}', this.filter.hideNormalAndMagicItems ? filterHideNormalAndMagicItems.replace('{itemRarity}', (this.filter.hideNormalAndMagicItemsOfRarity === WeaponsAndArmourRarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
       .replace('{filterHideRareItemsBelowExpert}', this.filter.hideNormalAndMagicItems && this.filter.hideNormalAndMagicItemsOfRarity === WeaponsAndArmourRarityToHide.NormalMagicRareBelowExpert ? filterHideRareItemsBelowExpert : '')
       .replace('{filterHideGold}', this.filter.hideGold ? filterHideGold.replace('{minGold}', (this.filter.hideGoldLowerThan || 10000).toString()): '')
-      .replace('{filterHideCommonCharms}', this.filter.hideCommonCharms ? filterHideCommonCharms : '')
+      .replace('{filterHideCommonCharms}', this.filter.hideCharms ? filterHideCommonCharms : '')
       .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')
       .replace('{filterHideCommonOrbs}', this.filter.hideCommonCurrency && this.filter.hideCommonCurrencyType === CurrencyToHide.AllCommon ? filterHideCommonOrbs : '')
       .replace('{filterHideShards}', this.filter.hideCommonCurrency ? filterHideShards : '')
@@ -197,7 +198,6 @@ export class AppComponent implements OnInit {
       .replace('{filterShowOneSocket}', this.filter.showSocketedItems && this.filter.showSocketedItemsType === SocketedItemType.All ? filterShowOneSocket : '')
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
       .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '1' : '10') : '')
-      .replace('{filterShowUltimateLifeFlasks}', this.filter.showUltimateLifeFlasks ? filterShowUltimateLifeFlasks.replace('{minFlaskQuality}', (this.filter.showUltimateLifeFlasksMinQuality || 0).toString()) : '')
       .replace('{filterHighlightUniques}', this.filter.highlightUniques ? filterHighlightUniques : '')
       .replace('{filterHighlightRareJewellery}', this.filter.highlightRareJewellery ? filterHighlightRareJewellery : '')
       .replace('{filterHighlightGold}', this.filter.hideGold && this.filter.hideGoldLowerThan ? filterHighlightGold.replaceAll('{whiteGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 20).toString()).replaceAll('{yellowGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 100).toString()) : '')

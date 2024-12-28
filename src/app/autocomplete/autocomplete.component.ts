@@ -9,6 +9,7 @@ import { FormsModule } from "@angular/forms";
   imports: [FormsModule]
 })
 export class AutocompleteComponent {
+  allLabel = input<string>('All');
   options = input.required<string[]>();
   showOptions = input.required<boolean>();
   disabled = input.required<boolean>();
@@ -54,13 +55,13 @@ export class AutocompleteComponent {
     if (this.isSelected(option)) {
       newValues = newValues.filter(v => v !== option);
       if (newValues.length === 0) {
-        newValues = ['All'];
+        newValues = [this.allLabel()];
       }
     } else {
-      if (option === 'All') {
-        newValues = ['All'];
+      if (option === this.allLabel()) {
+        newValues = [this.allLabel()];
       } else {
-        if (option != 'All' && newValues.includes('All')) {
+        if (option != this.allLabel() && newValues.includes(this.allLabel())) {
           newValues = [option];
         } else {
           newValues = [...newValues, option];

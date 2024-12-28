@@ -1,24 +1,31 @@
 export class Filter {
-  hideFlasks = true;
-  hideFlasksType = FlaskType.All;
+  hideLifeFlasks = true;
+  hideLifeFlasksQuality = 10;
+  hideLifeFlasksBaseTypeExceptions = ['Ultimate Life Flask'];
+  hideManaFlasks = true;
+  hideManaFlasksQuality = 10;
+  hideManaFlasksTypeExceptions = ['Ultimate Mana Flask'];
   hideScrolls = true;
   hideJewellery = true;
   hideJewelleryOfRarity = RarityToHide.Normal;
+  hideRingsBaseTypeExceptions = ['Gold Ring', 'Prismatic Ring', 'Amethyst Ring'];
+  hideAmuletsBaseTypeExceptions = ['Stellar Amulet', 'Gold Amulet'];
+  hideBeltsBaseTypeExceptions = ['Golden Obi', 'Utility Belt'];
   hideNormalAndMagicItems = true;
   hideNormalAndMagicItemsOfRarity = WeaponsAndArmourRarityToHide.NormalAndMagic;
+  showSocketedItems = true;
+  showSocketedItemsType = SocketedItemType.TwoOrMoreSockets;
+  showQualityItems = true;
+  showQualityItemsType = QualityItemType.MinimumTenQuality;
+
   hideGold = true;
   hideGoldLowerThan = 50;
-  hideCommonCharms = true;
+  hideCharms = true;
+  hideCharmsBaseTypeExceptions = ['Thawing Charm', 'Amethyst Charm', 'Golden Charm'];
   hideRunes = false;
+  hideRunesExceptions = ['None'];
   hideCommonCurrency = false;
   hideCommonCurrencyType = CurrencyToHide.ShardsOnly;
-
-  showSocketedItems = true;
-  showSocketedItemsType = SocketedItemType.All;
-  showQualityItems = true;
-  showQualityItemsType = QualityItemType.All;
-  showUltimateLifeFlasks = true;
-  showUltimateLifeFlasksMinQuality = 10;
 
   highlightUniques = true;
   highlightRareJewellery = true;

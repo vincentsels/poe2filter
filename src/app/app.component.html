@@ -84,22 +84,33 @@
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideFlasks">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideLifeFlasks">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideFlasks" (click)="toggleHideFlasks()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideLifeFlasks" (click)="toggleHideLifeFlasks()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            Hide Flasks
+                            Hide Life Flasks
                           </div>
-                          <!-- <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
-                            <div class="multiselect__tags">
-                              <select [disabled]="!filter.hideFlasks">
-                                <option value="All">All</option>
-                              </select>
-                            </div>
-                          </div> -->
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label">
+                            Except
+                          </div>
+                          <span class="sep"></span>
+                          <pf-autocomplete
+                            [allLabel]="'None'"
+                            [options]="lifeFlaskBaseTypes"
+                            [disabled]="!filter.hideLifeFlasks"
+                            [showOptions]="true"
+                            [selectedValues]="filter.hideLifeFlasksBaseTypeExceptions"
+                            (selectedValuesChange)="filter.hideLifeFlasksBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label">
+                            Of Quality
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [disabled]="!filter.hideLifeFlasks" [(ngModel)]="filter.hideLifeFlasksQuality" (change)="updateFilter()">
                         </span>
                       </div>
 
@@ -161,9 +172,9 @@
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideCommonCharms">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideCharms">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideCommonCharms" (click)="toggleHideCommonCharms()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideCharms" (click)="toggleHideCommonCharms()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
@@ -259,20 +270,6 @@
                               </select>
                             </div>
                           </div>
-                        </span>
-                      </div>
-
-                      <div class="filter full-span" [class.disabled]="!filter.showUltimateLifeFlasks">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.showUltimateLifeFlasks" (click)="toggleShowUltimateLifeFlasks()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Show Quality Ultimate Life Flasks
-                          </div>
-                          <span class="sep"></span>
-                          <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
-                            [disabled]="!filter.showUltimateLifeFlasks" [(ngModel)]="filter.showUltimateLifeFlasksMinQuality" (change)="updateFilter()">
                         </span>
                       </div>
 

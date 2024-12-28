@@ -379,3 +379,9 @@ textarea.custom-rules {
 .filter-double-padded-right {
   padding-right: 85px;
 }
+
+.filter-label {
+  border-left: none !important;
+  text-align: right !important;
+  width: unset !important;
+}
