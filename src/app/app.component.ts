@@ -1,6 +1,6 @@
-import { Component, computed, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicItems, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterShowUltimateLifeFlasks, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterHideCommonCharms, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareItemsBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
@@ -183,38 +183,84 @@ export class AppComponent implements OnInit {
       commonCurrency = filterHighlightCommonCurrency.replace('{filterShowShards}', '\n' + filterShowShards);
     }
 
+    let showLifeFlaskExceptionsFilterText = '';
+    if (this.filter.hideLifeFlasks && this.filter.hideLifeFlasksBaseTypeExceptions.length > 0) {
+      showLifeFlaskExceptionsFilterText = filterShowFlaskExceptions
+        .replace('{flaskType}', 'Life Flasks')
+        .replace('{baseTypes}', this.filter.hideLifeFlasksBaseTypeExceptions.map(t => `"${t}"`).join(' '))
+        .replace('{quality}', (this.filter.hideLifeFlasksQuality || 0).toString());
+    }
+
+    let showManaFlaskExceptionsFilterText = '';
+    if (this.filter.hideManaFlasks && this.filter.hideManaFlasksBaseTypeExceptions.length > 0) {
+      showManaFlaskExceptionsFilterText = filterShowFlaskExceptions
+        .replace('{flaskType}', 'Mana Flasks')
+        .replace('{baseTypes}', this.filter.hideManaFlasksBaseTypeExceptions.map(t => `"${t}"`).join(' '))
+        .replace('{quality}', (this.filter.hideManaFlasksQuality || 0).toString());
+    }
+
+    let showCharmExceptionsFilterText = '';
+    if (this.filter.hideCharms && this.filter.hideCharmsBaseTypeExceptions.length > 0) {
+      showCharmExceptionsFilterText = filterShowCharmExceptions
+        .replace('{baseTypes}', this.filter.hideCharmsBaseTypeExceptions.map(t => `"${t}"`).join(' '));
+    }
+
     const customRules = this.buildCustomRules();
 
     this.filterText = filterTemplate
-      .replace('{filterHideFlasks}', this.filter.hideLifeFlasks ? filterHideFlasks : '')
+      // Flask and Charm Filters
+      .replace('{filterShowLifeFlaskExceptions}', showLifeFlaskExceptionsFilterText)
+      .replace('{filterHideLifeFlasks}', this.filter.hideLifeFlasks ? filterHideFlasks.replaceAll('{flaskType}', 'Life Flasks') : '')
+      .replace('{filterShowManaFlaskExceptions}', showManaFlaskExceptionsFilterText)
+      .replace('{filterHideManaFlasks}', this.filter.hideManaFlasks ? filterHideFlasks.replaceAll('{flaskType}', 'Mana Flasks') : '')
+      .replace('{filterShowCharmExceptions}', showCharmExceptionsFilterText)
+      .replace('{filterHideCharms}', this.filter.hideCharms ? filterHideCharms : '')
+
+      // Currency Filters
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
-      .replace('{filterHideAmulets}', this.filter.hideAmulets ? filterHideAmulets.replace('{itemRarity}', (this.filter.hideAmuletsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
-      .replace('{filterHideRings}', this.filter.hideRings ? filterHideRings.replace('{itemRarity}', (this.filter.hideRingsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
-      .replace('{filterHideBelts}', this.filter.hideBelts ? filterHideBelts.replace('{itemRarity}', (this.filter.hideBeltsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
-      .replace('{filterHideNormalAndMagicItems}', this.filter.hideNormalAndMagicItems ? filterHideNormalAndMagicItems.replace('{itemRarity}', (this.filter.hideNormalAndMagicItemsOfRarity === WeaponsAndArmourRarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
-      .replace('{filterHideRareItemsBelowExpert}', this.filter.hideNormalAndMagicItems && this.filter.hideNormalAndMagicItemsOfRarity === WeaponsAndArmourRarityToHide.NormalMagicRareBelowExpert ? filterHideRareItemsBelowExpert : '')
+      .replace('{filterHighlightGold}', this.filter.hideGold && this.filter.hideGoldLowerThan ? filterHighlightGold.replaceAll('{whiteGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 20).toString()).replaceAll('{yellowGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 100).toString()) : '')
       .replace('{filterHideGold}', this.filter.hideGold ? filterHideGold.replace('{minGold}', (this.filter.hideGoldLowerThan || 10000).toString()): '')
-      .replace('{filterHideCommonCharms}', this.filter.hideCharms ? filterHideCommonCharms : '')
-      .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')
       .replace('{filterHideCommonOrbs}', this.filter.hideCommonCurrency && this.filter.hideCommonCurrencyType === CurrencyToHide.AllCommon ? filterHideCommonOrbs : '')
       .replace('{filterHideShards}', this.filter.hideCommonCurrency ? filterHideShards : '')
       .replace('{filterShowCommonCurrency}', commonCurrency)
+      .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')
+
+      // Jewellery Filters
+      .replace('{filterHideAmulets}', this.filter.hideAmulets ? filterHideAmulets.replace('{itemRarity}', (this.filter.hideAmuletsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
+      .replace('{filterHideRings}', this.filter.hideRings ? filterHideRings.replace('{itemRarity}', (this.filter.hideRingsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
+      .replace('{filterHideBelts}', this.filter.hideBelts ? filterHideBelts.replace('{itemRarity}', (this.filter.hideBeltsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
+
+      // Highlights
+      .replace('{filterHighlightUniques}', this.filter.highlightUniques ? filterHighlightUniques : '')
+      .replace('{filterHighlightRareJewellery}', this.filter.highlightRareJewellery ? filterHighlightRareJewellery : '')
+
+      // Gear Filters
       .replace('{filterShowOneSocket}', this.filter.showSocketedItems && this.filter.showSocketedItemsType === SocketedItemType.All ? filterShowOneSocket : '')
       .replace('{filterShow2Sockets}', this.filter.showSocketedItems ? filterShow2Sockets : '')
       .replace('{filterShowQuality}', this.filter.showQualityItems ? filterShowQuality.replace('{minItemQuality}', this.filter.showQualityItemsType === QualityItemType.All ? '1' : '10') : '')
-      .replace('{filterHighlightUniques}', this.filter.highlightUniques ? filterHighlightUniques : '')
-      .replace('{filterHighlightRareJewellery}', this.filter.highlightRareJewellery ? filterHighlightRareJewellery : '')
-      .replace('{filterHighlightGold}', this.filter.hideGold && this.filter.hideGoldLowerThan ? filterHighlightGold.replaceAll('{whiteGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 20).toString()).replaceAll('{yellowGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 100).toString()) : '')
       .replace('{filterPreferredWeaponTypes}', weaponFilterText)
       .replace('{filterPreferredArmourTypes}', armourFilterText)
+      .replace('{filterHideNormalAndMagicGear}', this.filter.hideNormalAndMagicItems ? filterHideNormalAndMagicGear.replace('{itemRarity}', (this.filter.hideNormalAndMagicItemsOfRarity === WeaponsAndArmourRarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
+      .replace('{filterHideRareGearBelowExpert}', this.filter.hideNormalAndMagicItems && this.filter.hideNormalAndMagicItemsOfRarity === WeaponsAndArmourRarityToHide.NormalMagicRareBelowExpert ? filterHideRareGearBelowExpert : '')
+
+      // Dynamic Filters
       .replace('{filterStaticWaystones}', this.filter.dynamicWaystones ? '' : filterStaticWaystones)
       .replace('{filterDynamicWaystones}', this.filter.dynamicWaystones ? dynamicWaystoneFilterText : '')
       .replace('{filterDynamicSkillGems}', this.filter.dynamicSkillGems ? dynamicSkillGemFilterText : '')
+
+      // Cosmetic Filters
       .replace('{filterCosmeticTopCurrencyLabels}', this.filter.cosmeticTopCurrencyLabels ? filterCosmeticTopCurrencyLabels : '')
       .replace('{filterCosmeticTopCurrencyAlertSounds}', this.filter.cosmeticTopCurrencyAlertSounds ? filterCosmeticTopCurrencyAlertSounds : '')
+
+      // Custom and Free Rules
       .replace('{filterFreeRulesTop}', this.filter.freeRulesTop ? this.filter.freeRulesTop : '')
       .replace('{filterFreeRulesBottom}', this.filter.freeRulesBottom ? this.filter.freeRulesBottom : '')
       .replace('{filterCustomRules}', customRules)
+
+      // Cleanup
+      .replace('\n\n\n\n\n', '\n\n')
+      .replace('\n\n\n\n', '\n\n')
+      .replace('\n\n\n', '\n\n')
       ;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));

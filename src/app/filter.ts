@@ -65,7 +65,7 @@ export class Filter {
   dynamicSkillGemsLevel: number | null = null;
 
   cosmeticTopCurrencyLabels = false;
-  cosmeticTopCurrencyAlertSounds = false;
+  cosmeticTopCurrencyAlertSounds = true;
 
   customRules: CustomRule[] = [];
 

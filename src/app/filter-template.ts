@@ -65,24 +65,36 @@ export const filterHideScrolls =
 
 export const filterHideFlasks =
 `Hide
-  Class "Flasks"
+  Class == {flaskType}
   Rarity <= Magic
 `;
 
-export const filterShowUltimateLifeFlasks =
+export const filterShowFlaskExceptions =
 `Show
-  Class "Life Flasks"
-  BaseType == "Ultimate Life Flask"
-  Quality > {minFlaskQuality}
+  Class {flaskType}
+  BaseType == {baseTypes}
+  Quality >= {minQuality}
 `;
 
-export const filterHideNormalAndMagicItems =
+export const filterHideCharms =
+`Hide
+  Class == "Charms"
+  Rarity <= Magic
+`;
+
+export const filterShowCharmExceptions =
+`Show
+  Class "Charms"
+  BaseType == {baseTypes}
+`;
+
+export const filterHideNormalAndMagicGear =
 `Hide
   Class == "Body Armour" "Boots" "Gloves" "Helmets" "Bows" "Crossbows" "Foci" "One Hand Maces" "Quivers" "Quarterstaves" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
   Rarity <= {itemRarity}
 `;
 
-export const filterHideRareItemsBelowExpert =
+export const filterHideRareGearBelowExpert =
 `Show
   Class == "Body Armour" "Boots" "Gloves" "Helmets" "Bows" "Crossbows" "Foci" "One Hand Maces" "Quivers" "Quarterstaves" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
   BaseType "Expert "
@@ -93,16 +105,34 @@ Hide
   Rarity <= Rare
 `;
 
-export const filterHideRings =
-`Hide
-  Class == "Rings"
-  Rarity <= {itemRarity}
+export const filterShowAmuletExceptions =
+`Show
+  Class "Amulets"
+  BaseType == {baseTypes}
 `;
 
 export const filterHideAmulets =
 `Hide
   Class == "Amulets"
   Rarity <= {itemRarity}
+`;
+
+export const filterShowRingExceptions =
+`Show
+  Class "Rings"
+  BaseType == {baseTypes}
+`;
+
+export const filterHideRings =
+`Hide
+  Class == "Rings"
+  Rarity <= {itemRarity}
+`;
+
+export const filterShowBeltExceptions =
+`Show
+  Class "Belts"
+  BaseType == {baseTypes}
 `;
 
 export const filterHideBelts =
@@ -134,12 +164,11 @@ Show
   MinimapIcon 2 White Circle
 `;
 
-export const filterHideCommonCharms =
-`Hide
-  Class == "Charms"
-  Rarity <= Magic
-  Quality == 0
-`
+export const filterShowRuneExceptions =
+`Show
+  Class == "Socketable"
+  BaseType == {baseTypes}
+`;
 
 export const filterHideRunes =
 `Hide
@@ -292,7 +321,7 @@ export const filterTemplate =
 {filterCustomRules}
 
 #######################################################
-##### Cosmetic effects
+##### Cosmetic Effects
 #######################################################
 
 {filterCosmeticTopCurrencyLabels}
@@ -304,28 +333,74 @@ export const filterTemplate =
 
 {filterHighlightUniques}
 {filterHighlightRareJewellery}
-{filterHighlightGold}
 
 #######################################################
-##### Filter Exceptions
+##### Life Flasks and Charms Filters
+#######################################################
+
+{filterShowLifeFlaskExceptions}
+{filterHideLifeFlasks}
+
+{filterShowManaFlaskExceptions}
+{filterHideManaFlasks}
+
+{filterShowCharmExceptions}
+{filterHideCharms}
+
+#######################################################
+##### Currency Filters
+#######################################################
+
+{filterHideScrolls}
+
+{filterHighlightGold}
+{filterHideGold}
+
+{filterHideCommonOrbs}
+{filterHideShards}
+
+{filterShowRuneExceptions}
+{filterHideRunes}
+
+#######################################################
+##### Jewellery Filters
+#######################################################
+
+{filterShowAmuletExceptions}
+{filterHideAmulets}
+
+{filterShowRingExceptions}
+{filterHideRings}
+
+{filterShowBeltExceptions}
+{filterHideBelts}
+
+#######################################################
+##### Gear Filter Exceptions
 #######################################################
 
 {filterShowOneSocket}
 {filterShow2Sockets}
 {filterShowQuality}
-{filterShowUltimateLifeFlasks}
 
 #######################################################
-##### Always show preferred weapon types
+##### Weapon Type Exceptions
 #######################################################
 
 {filterPreferredWeaponTypes}
 
 #######################################################
-##### Always show preferred armor types
+##### Armour Type Exceptions
 #######################################################
 
 {filterPreferredArmourTypes}
+
+#######################################################
+##### Gear Filters
+#######################################################
+
+{filterHideNormalAndMagicGear}
+{filterHideRareGearBelowExpert}
 
 #######################################################
 ##### Dynamic waystones
@@ -789,23 +864,6 @@ Show
   BaseType "Soul Core" # Safety Catch-all
   PlayEffect White
   MinimapIcon 2 White Circle
-
-#######################################################
-##### Hide stuff
-#######################################################
-
-{filterHideNormalAndMagicItems}
-{filterHideRareItemsBelowExpert}
-{filterHideAmulets}
-{filterHideRings}
-{filterHideBelts}
-{filterHideScrolls}
-{filterHideFlasks}
-{filterHideGold}
-{filterHideCommonCharms}
-{filterHideRunes}
-{filterHideCommonOrbs}
-{filterHideShards}
 
 #######################################################
 ##### Custom Rules
