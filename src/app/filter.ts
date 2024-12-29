@@ -30,7 +30,7 @@ export class Filter {
   hideRunes = false;
   hideRunesExceptions = ['None'];
   hideCommonCurrency = true;
-  hideCommonCurrencyType = CurrencyToHide.ShardsOnly;
+  hideCommonCurrencyType = CurrencyToHide.CommonShardsOnly;
 
   highlightUniques = true;
   highlightRareJewellery = true;
@@ -195,6 +195,7 @@ export enum WeaponsAndArmourRarityToHide {
 }
 
 export enum CurrencyToHide {
+  CommonShardsOnly = "CommonShardsOnly",
   ShardsOnly = "ShardsOnly",
   AllCommon = "AllCommon",
 }

@@ -218,13 +218,14 @@
                         <span class="filter-body">
                           <div class="filter-title">
                             Hide Common Currency
-                            <div class="filter-tip"><p>Whether or not to hide Shards and/or Orbs of Agumentation and Transmutation. Also, currency worth less than an Exalted Orb is shown a Drop Tier lower (e.g. white instead of yellow).</p></div>
+                            <div class="filter-tip"><p>Common Shards still shows Chance Shards.<br /><br/>Common orbs hides Orbs of Agumentation and Transmutation. In Addition, currency worth less than an Exalted Orb is shown a Drop Tier lower (e.g. white instead of yellow).</p></div>
                           </div>
                           <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
                             <div class="multiselect__tags">
                               <select [disabled]="!filter.hideCommonCurrency" [(ngModel)]="filter.hideCommonCurrencyType" (change)="updateFilter()">
-                                <option [value]="CurrencyToHide.ShardsOnly">Shards Only</option>
+                                <option [value]="CurrencyToHide.CommonShardsOnly">Common Shards Only</option>
+                                <option [value]="CurrencyToHide.ShardsOnly">All Shards</option>
                                 <option [value]="CurrencyToHide.AllCommon">Common Orbs Too</option>
                               </select>
                             </div>

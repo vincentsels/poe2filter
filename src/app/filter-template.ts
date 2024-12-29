@@ -180,10 +180,16 @@ export const filterHideRunes =
   BaseType "Rune"
 `;
 
+export const filterHideCommonShards =
+`Hide
+  Class == "Stackable Currency"
+  BaseType == "Transmutation Shard" "Regal Shard" "Artificer's Shard"
+`;
+
 export const filterHideShards =
 `Hide
   Class == "Stackable Currency"
-  BaseType == "Transmutation Shard" "Regal Shard" "Chance Shard" "Artificer's Shard"
+  BaseType == "Transmutation Shard" "Regal Shard" "Artificer's Shard" "Chance Shard"
 `;
 
 export const filterHideCommonOrbs =
@@ -195,7 +201,7 @@ export const filterHideCommonOrbs =
 export const filterShowShards =
 `Show
   Class == "Stackable Currency"
-  BaseType == "Transmutation Shard" "Regal Shard" "Chance Shard" "Artificer's Shard"
+  BaseType == "Transmutation Shard" "Regal Shard" "Artificer's Shard" "Chance Shard"
 `;
 
 export const filterHighlightCommonCurrency =
@@ -617,8 +623,8 @@ Show
 # Chayula's Catalyst    0.2
 # Tul's Catalyst        0.2
 # Xoph's Catalyst       0.15
-# Breach Splinter       0.15
 #
+# Breach Splinter       0.15
 # Adaptive Catalyst     0.1
 # Flesh Catalyst        0.1
 # Skittering Catalyst   0.1
@@ -640,13 +646,13 @@ Show
 
 Show
   Class == "Stackable Currency"
-  BaseType == "Esh's Catalyst" "Neural Catalyst" "Reaver Catalyst" "Chayula's Catalyst" "Tul's Catalyst" "Xoph's Catalyst" "Breach Splinter"
+  BaseType == "Esh's Catalyst" "Neural Catalyst" "Reaver Catalyst" "Chayula's Catalyst" "Tul's Catalyst" "Xoph's Catalyst"
   PlayEffect Yellow
   MinimapIcon 2 Yellow Circle
 
 Show
   Class == "Stackable Currency"
-  BaseType == "Adaptive Catalyst" "Flesh Catalyst" "Skittering Catalyst" "Sibilant Catalyst" "Uul-Netol's Catalyst" "Carapace Catalyst"
+  BaseType == "Adaptive Catalyst" "Flesh Catalyst" "Skittering Catalyst" "Sibilant Catalyst" "Uul-Netol's Catalyst" "Carapace Catalyst" "Breach Splinter"
   PlayEffect White
   MinimapIcon 2 White Circle
 
