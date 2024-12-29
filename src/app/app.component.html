@@ -503,7 +503,8 @@
                               Specify whether you only want to show the Advanced and/or Expert versions.
                               Note that Rare and Unique Weapons are always shown.<br/><br/>
                               Note that Sceptres, Staves, Wands and Quivers don't have Advanced or Expert base types. These will be hidden
-                              if you only show Advanced or Expert weapons.
+                              if you only show Advanced or Expert weapons.<br/><br/>
+                              You will find Shields in the Armour section below, so you can specify the desired defence type.
                               </p></div>
                           </div>
                         </span>
@@ -528,7 +529,6 @@
                                 <option [value]="WeaponType.QuarterStaves">QuarterStaves</option>
                                 <option [value]="WeaponType.Quivers">Quivers</option>
                                 <option [value]="WeaponType.Sceptres">Sceptres</option>
-                                <option [value]="WeaponType.Shields">Shields</option>
                                 <option [value]="WeaponType.Staves">Staves</option>
                                 <option [value]="WeaponType.TwoHandMaces">Two Hand Maces</option>
                                 <option [value]="WeaponType.Wands">Wands</option>
@@ -598,10 +598,12 @@
                             <div class="multiselect__tags">
                               <select [(ngModel)]="armour.armourType" (change)="updateFilter()" [disabled]="!armour.show">
                                 <option [value]="ArmourType.All">All</option>
+                                <option [value]="ArmourType.AllButShields">All But Shields</option>
                                 <option [value]="ArmourType.BodyArmour">Body Armour</option>
                                 <option [value]="ArmourType.Helmet">Helmets</option>
                                 <option [value]="ArmourType.Gloves">Gloves</option>
                                 <option [value]="ArmourType.Boots">Boots</option>
+                                <option [value]="ArmourType.Shields">Shields</option>
                               </select>
                             </div>
                           </div>

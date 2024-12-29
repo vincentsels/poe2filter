@@ -115,7 +115,7 @@ export class WeaponFilter {
 
 export class ArmourFilter {
   show = true;
-  armourType = ArmourType.All;
+  armourType = ArmourType.AllButShields;
   rarity = MinimumRarity.Normal;
   baseTypeTier = BaseTypeTier.ExpertOnly;
   defenceType = DefenceType.All;
@@ -138,10 +138,12 @@ export enum WeaponType {
 
 export enum ArmourType {
   All = "All",
+  AllButShields = "AllButShields",
   BodyArmour = "Body Armours",
   Helmet = "Helmets",
   Gloves = "Gloves",
   Boots = "Boots",
+  Shields = "Shields",
 }
 
 export enum DefenceType {

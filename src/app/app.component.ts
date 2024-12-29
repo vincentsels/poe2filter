@@ -90,6 +90,20 @@ export class AppComponent implements OnInit {
     // Update the filter to the latest version
     if (this.filter.customRules === undefined) this.filter.customRules = [];
 
+    const shieldFilters = JSON.parse(JSON.stringify(this.filter.weaponFilters.filter(w => w.weaponType === WeaponType.Shields)));
+    if (shieldFilters.length > 0) {
+      this.filter.weaponFilters = this.filter.weaponFilters.filter(w => w.weaponType !== WeaponType.Shields);
+      this.filter.armourFilters.push(...shieldFilters.map((s: WeaponFilter) => {
+        return {
+          show: s.show,
+          armourType: ArmourType.Shields,
+          rarity: s.rarity,
+          baseTypeTier: s.baseTypeTier,
+          defenceType: DefenceType.All,
+        } as ArmourFilter;
+      }));
+    }
+
     this.updateFilter();
   }
 
@@ -157,14 +171,14 @@ export class AppComponent implements OnInit {
 
   updateFilter(resetWarning = true) {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
-      .replaceAll('{weaponType}', w.weaponType == WeaponType.All ? this.formatAllWeaponTypes() : `"${w.weaponType}"`)
+      .replaceAll('{weaponType}', w.weaponType === WeaponType.All ? this.formatAllWeaponTypes() : `"${w.weaponType}"`)
       .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
       .replaceAll('{rarity}', (w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
       .replace('{rarePlayEffect}', (w.weaponType === WeaponType.All ? '' : '\n' + filterRarePlayEffect))
     ).join('\n');
 
     const armourFilterText = this.filter.armourFilters.filter(w => w.show).map(w => filterPreferredArmourType
-      .replaceAll('{armourType}', w.armourType == ArmourType.All ? this.formatAllArmourTypes() : `"${w.armourType}"`)
+      .replaceAll('{armourType}', w.armourType === ArmourType.All ? this.formatAllArmourTypes() : w.armourType === ArmourType.AllButShields ? this.formatAllArmourTypesButShields() : `"${w.armourType}"`)
       .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
       .replaceAll('{rarity}', (w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
       .replaceAll('{defenceType}', this.formatDefenceType(w.defenceType))
@@ -321,8 +335,12 @@ ${showHide}${itemClass}${baseTypes}
     return Object.values(WeaponType).filter((value) => value !== WeaponType.All).map(w => `"${w}"`).join(' ');
   }
 
+  formatAllArmourTypesButShields() {
+    return [ArmourType.BodyArmour, ArmourType.Helmet, ArmourType.Gloves, ArmourType.Boots].map(w => `"${w}"`).join(' ');
+  }
+
   formatAllArmourTypes() {
-    return Object.values(ArmourType).filter((value) => value !== ArmourType.All).map(w => `"${w}"`).join(' ');
+    return [ArmourType.BodyArmour, ArmourType.Helmet, ArmourType.Gloves, ArmourType.Boots, ArmourType.Shields].map(w => `"${w}"`).join(' ');
   }
 
   buildDynamicWaystoneFilter() {
