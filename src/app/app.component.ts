@@ -6,7 +6,7 @@ import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
-const LOCAL_STORAGE_KEY = 'filter-v8';
+const LOCAL_STORAGE_KEY = 'filter-v9';
 
 @Component({
   selector: 'app-root',
@@ -47,6 +47,8 @@ export class AppComponent implements OnInit {
   amuletBaseTypes = itemData.filter(i => i.itemType === 'Amulets')[0].baseTypes;
   beltBaseTypes = itemData.filter(i => i.itemType === 'Belts')[0].baseTypes;
   runeBaseTypes = itemData.filter(i => i.itemType === 'Socketable')[0].baseTypes.filter(b => b.includes('Rune'));
+
+  weaponTypesWithoutAdvancedAndExpert = [WeaponType.Sceptres, WeaponType.Staves, WeaponType.Wands, WeaponType.Quivers];
 
   dynamicWaystoneThresholds = [
     { style: 'tier-hidden', level: '' },
@@ -148,7 +150,7 @@ export class AppComponent implements OnInit {
   toggleCosmeticTopCurrencyAlertSounds = () => { this.filter.cosmeticTopCurrencyAlertSounds = !this.filter.cosmeticTopCurrencyAlertSounds; this.updateFilter(); }
 
   updateWeaponType(weapon: WeaponFilter) {
-    if ([WeaponType.Sceptres, WeaponType.Staves, WeaponType.Wands].includes(weapon.weaponType)) {
+    if (this.weaponTypesWithoutAdvancedAndExpert.includes(weapon.weaponType)) {
       weapon.baseTypeTier = BaseTypeTier.All;
     }
   }

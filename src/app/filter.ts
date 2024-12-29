@@ -7,13 +7,13 @@ export class Filter {
   hideManaFlasksBaseTypeExceptions = ['None'];
   hideScrolls = true;
   hideRings = true;
-  hideRingsOfRarity = RarityToHide.NormalAndMagic;
+  hideRingsOfRarity = RarityToHide.Normal;
   hideRingsBaseTypeExceptions = ['Gold Ring', 'Prismatic Ring', 'Amethyst Ring'];
   hideAmulets = true;
-  hideAmuletsOfRarity = RarityToHide.NormalAndMagic;
+  hideAmuletsOfRarity = RarityToHide.Normal;
   hideAmuletsBaseTypeExceptions = ['Gold Amulet', 'Stellar Amulet'];
   hideBelts = true;
-  hideBeltsOfRarity = RarityToHide.NormalAndMagic;
+  hideBeltsOfRarity = RarityToHide.Normal;
   hideBeltsBaseTypeExceptions = ['Golden Obi', 'Utility Belt'];
   hideNormalAndMagicItems = true;
   hideNormalAndMagicItemsOfRarity = WeaponsAndArmourRarityToHide.NormalAndMagic;

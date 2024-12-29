@@ -501,7 +501,7 @@
                               here you can specify which Weapon Base Types you still want to show Normal and/or Magic items of.
                               Specify whether you only want to show the Advanced and/or Expert versions.
                               Note that Rare and Unique Weapons are always shown.<br/><br/>
-                              Note that Sceptres, Staves and Wands don't have Advanced or Expert base types. These will be hidden
+                              Note that Sceptres, Staves, Wands and Quivers don't have Advanced or Expert base types. These will be hidden
                               if you only show Advanced or Expert weapons.
                               </p></div>
                           </div>
@@ -547,7 +547,7 @@
                           <div tabindex="-1" class="multiselect filter-select" style="width: 140px;">
                             <div class="multiselect__tags">
                               <select [(ngModel)]="weapon.baseTypeTier" (change)="updateFilter()" [disabled]="!weapon.show">
-                                @if (weapon.weaponType !== WeaponType.Sceptres && weapon.weaponType !== WeaponType.Staves && weapon.weaponType !== WeaponType.Wands) {
+                                @if (!weaponTypesWithoutAdvancedAndExpert.includes(weapon.weaponType)) {
                                 <option [value]="BaseTypeTier.ExpertOnly">Expert only</option>
                                 <option [value]="BaseTypeTier.AdvancedAndExpert">≥ Advanced</option>
                                 }
@@ -1040,9 +1040,9 @@
     <div class="results block">
       <div class="row row-total row-justify-content-left">
         <div class="info">
-          <h2 class="info-title">Warning! Filtering on <strong>Item Tiers</strong> is currently not supported by GGG!</h2>
-          If you're hiding Magic Items, they will be hidden even if they have a Tier.
-          Therefore, <strong>after defeating a boss</strong> or rare monster, quickly <strong>check</strong> whether they dropped any Magic Item with a Tier.
+          <h2 class="info-title">Warning! Filtering on <strong>Unidentified Item Tiers</strong> is currently not supported by GGG!</h2>
+          If you're hiding Magic or Rare Items, they will be hidden even if they are Tiered.
+          Therefore, <strong>after defeating a boss</strong> or rare monster, quickly <strong>check</strong> whether they dropped any Magic Item with an Unidentified Tier.
         </div>
       </div>
     </div>

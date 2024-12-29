@@ -100,6 +100,10 @@ export const filterHideRareGearBelowExpert =
   BaseType "Expert "
   Rarity >= Rare
 
+Show
+  Class == "Quivers" "Sceptres" "Staves" "Wands"
+  Rarity >= Rare
+
 Hide
   Class == "Body Armour" "Boots" "Gloves" "Helmets" "Bows" "Crossbows" "Foci" "One Hand Maces" "Quivers" "Quarterstaves" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
   Rarity <= Rare
