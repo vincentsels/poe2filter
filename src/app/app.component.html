@@ -1003,11 +1003,13 @@
               }
             </div>
             <div class="controls">
-              <div class="controls-left">
-                <!-- <button type="button" class="btn livesearch-btn">
-                  <span class="plus"></span>
-                  Activate Live Search
-                </button> -->
+              <div class="controls-left hide-on-md">
+                <button type="button" class="btn export-import-button" (click)="export()">
+                  Export
+                </button>
+                <button type="button" class="btn export-import-button" (click)="import()">
+                  Import
+                </button>
               </div>
               <div class="controls-center">
                 <button type="button" class="btn download-btn" (click)="download()">
@@ -1019,6 +1021,12 @@
                 </button>
               </div>
               <div class="controls-right">
+                <button type="button" class="btn export-import-button show-on-md" (click)="export()">
+                  Export
+                </button>
+                <button type="button" class="btn export-import-button show-on-md" (click)="import()">
+                  Import
+                </button>
                 <button type="button" class="btn clear-btn" (click)="clear()">
                   Reset
                 </button>

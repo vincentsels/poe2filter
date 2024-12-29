@@ -432,9 +432,13 @@ ${showHide}${itemClass}${baseTypes}
   }
 
   download() {
+    this.downloadTextAsFile(this.filterText, 'poe2filter.filter');
+  }
+
+  downloadTextAsFile(text: string, filename: string) {
     var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(this.filterText));
-    element.setAttribute('download', 'poe2filter.filter');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
 
     element.style.display = 'none';
     document.body.appendChild(element);
@@ -455,6 +459,22 @@ ${showHide}${itemClass}${baseTypes}
       this.filter = new Filter();
       this.updateFilter();
     };
+  }
+
+  export() {
+    this.downloadTextAsFile(JSON.stringify(this.filter, null, 2), LOCAL_STORAGE_KEY + '.json');
+  }
+
+  import() {
+    const importedFilter = prompt('Paste the contents of the exported file here:', '');
+    if (importedFilter) {
+      try {
+        this.filter = JSON.parse(importedFilter);
+        this.updateFilter();
+      } catch {
+        alert('Failed to import filter. Please ensure the filter is in the correct format and version: ' + LOCAL_STORAGE_KEY);
+      }
+    }
   }
 
   getBaseTypesForItemType = (itemType: string) => {

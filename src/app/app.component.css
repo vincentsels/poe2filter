@@ -240,6 +240,15 @@ textarea.custom-rules {
   border-color: #4c4c7d !important;
 }
 
+#trade .controls .clear-button {
+  min-width: 80px !important;
+}
+
+#trade .controls .export-import-button {
+  min-width: 80px;
+  margin-right: 5px;
+}
+
 @media (min-width: 768px) {
   .col-md-3, #trade .controls .controls-left, #trade .controls .controls-right {
       width: 25% !important;
@@ -262,7 +271,7 @@ textarea.custom-rules {
 }
 
 @media (max-width: 767px) {
-  #trade .controls .clear-btn {
+  #trade .controls .clear-btn, #trade .controls .export-import-button {
       float: unset;
       margin-right: 5px; /* No idea why this is required */
   }
@@ -384,4 +393,20 @@ textarea.custom-rules {
   border-left: none !important;
   text-align: right !important;
   width: unset !important;
+}
+
+@media (max-width: 767px) {
+  .hide-on-md {
+    display: none;
+  }
+}
+
+.show-on-md {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .show-on-md {
+    display: unset;
+  }
 }
