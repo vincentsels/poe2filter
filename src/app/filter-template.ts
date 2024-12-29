@@ -65,13 +65,13 @@ export const filterHideScrolls =
 
 export const filterHideFlasks =
 `Hide
-  Class == {flaskType}
+  Class == "{flaskType}"
   Rarity <= Magic
 `;
 
 export const filterShowFlaskExceptions =
 `Show
-  Class {flaskType}
+  Class "{flaskType}"
   BaseType == {baseTypes}
   Quality >= {minQuality}
 `;
@@ -84,7 +84,7 @@ export const filterHideCharms =
 
 export const filterShowCharmExceptions =
 `Show
-  Class "Charms"
+  Class == "Charms"
   BaseType == {baseTypes}
 `;
 
@@ -107,7 +107,7 @@ Hide
 
 export const filterShowAmuletExceptions =
 `Show
-  Class "Amulets"
+  Class == "Amulets"
   BaseType == {baseTypes}
 `;
 
@@ -119,7 +119,7 @@ export const filterHideAmulets =
 
 export const filterShowRingExceptions =
 `Show
-  Class "Rings"
+  Class == "Rings"
   BaseType == {baseTypes}
 `;
 
@@ -131,7 +131,7 @@ export const filterHideRings =
 
 export const filterShowBeltExceptions =
 `Show
-  Class "Belts"
+  Class == "Belts"
   BaseType == {baseTypes}
 `;
 
@@ -368,6 +368,12 @@ export const filterTemplate =
 
 {filterShowAmuletExceptions}
 {filterHideAmulets}
+
+Show
+  Class Rings
+  BaseType == "Breach Ring"
+  PlayEffect Orange
+  MinimapIcon 2 Orange Circle
 
 {filterShowRingExceptions}
 {filterHideRings}

@@ -68,6 +68,10 @@ input {
   padding: 6px 12px;
   height: 28px;
   vertical-align: middle;
+  overflow-x: clip;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 
   &:hover {
     background-color: #465260 !important;

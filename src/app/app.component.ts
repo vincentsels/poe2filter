@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
@@ -184,25 +184,49 @@ export class AppComponent implements OnInit {
     }
 
     let showLifeFlaskExceptionsFilterText = '';
-    if (this.filter.hideLifeFlasks && this.filter.hideLifeFlasksBaseTypeExceptions.length > 0) {
+    if (this.filter.hideLifeFlasks && this.filter.hideLifeFlasksBaseTypeExceptions.length > 0 && !this.filter.hideLifeFlasksBaseTypeExceptions.includes('None')) {
       showLifeFlaskExceptionsFilterText = filterShowFlaskExceptions
         .replace('{flaskType}', 'Life Flasks')
         .replace('{baseTypes}', this.filter.hideLifeFlasksBaseTypeExceptions.map(t => `"${t}"`).join(' '))
-        .replace('{quality}', (this.filter.hideLifeFlasksQuality || 0).toString());
+        .replace('{minQuality}', (this.filter.hideLifeFlasksQuality || 0).toString());
     }
 
     let showManaFlaskExceptionsFilterText = '';
-    if (this.filter.hideManaFlasks && this.filter.hideManaFlasksBaseTypeExceptions.length > 0) {
+    if (this.filter.hideManaFlasks && this.filter.hideManaFlasksBaseTypeExceptions.length > 0 && !this.filter.hideManaFlasksBaseTypeExceptions.includes('None')) {
       showManaFlaskExceptionsFilterText = filterShowFlaskExceptions
         .replace('{flaskType}', 'Mana Flasks')
         .replace('{baseTypes}', this.filter.hideManaFlasksBaseTypeExceptions.map(t => `"${t}"`).join(' '))
-        .replace('{quality}', (this.filter.hideManaFlasksQuality || 0).toString());
+        .replace('{minQuality}', (this.filter.hideManaFlasksQuality || 0).toString());
     }
 
     let showCharmExceptionsFilterText = '';
-    if (this.filter.hideCharms && this.filter.hideCharmsBaseTypeExceptions.length > 0) {
+    if (this.filter.hideCharms && this.filter.hideCharmsBaseTypeExceptions.length > 0 && !this.filter.hideCharmsBaseTypeExceptions.includes('None')) {
       showCharmExceptionsFilterText = filterShowCharmExceptions
         .replace('{baseTypes}', this.filter.hideCharmsBaseTypeExceptions.map(t => `"${t}"`).join(' '));
+    }
+
+    let showRuneExceptionsFilterText = '';
+    if (this.filter.hideRunes && this.filter.hideRunesExceptions.length > 0 && !this.filter.hideRunesExceptions.includes('None')) {
+      showRuneExceptionsFilterText = filterShowRuneExceptions
+        .replace('{baseTypes}', this.filter.hideRunesExceptions.map(t => `"${t}"`).join(' '));
+    }
+
+    let showAmuletExceptionsFilterText = '';
+    if (this.filter.hideAmulets && this.filter.hideAmuletsBaseTypeExceptions.length > 0 && !this.filter.hideAmuletsBaseTypeExceptions.includes('None')) {
+      showAmuletExceptionsFilterText = filterShowAmuletExceptions
+        .replace('{baseTypes}', this.filter.hideAmuletsBaseTypeExceptions.map(t => `"${t}"`).join(' '));
+    }
+
+    let showRingExceptionsFilterText = '';
+    if (this.filter.hideRings && this.filter.hideRingsBaseTypeExceptions.length > 0 && !this.filter.hideRingsBaseTypeExceptions.includes('None')) {
+      showRingExceptionsFilterText = filterShowRingExceptions
+        .replace('{baseTypes}', this.filter.hideRingsBaseTypeExceptions.map(t => `"${t}"`).join(' '));
+    }
+
+    let showBeltExceptionsFilterText = '';
+    if (this.filter.hideBelts && this.filter.hideBeltsBaseTypeExceptions.length > 0 && !this.filter.hideBeltsBaseTypeExceptions.includes('None')) {
+      showBeltExceptionsFilterText = filterShowBeltExceptions
+        .replace('{baseTypes}', this.filter.hideBeltsBaseTypeExceptions.map(t => `"${t}"`).join(' '));
     }
 
     const customRules = this.buildCustomRules();
@@ -223,11 +247,15 @@ export class AppComponent implements OnInit {
       .replace('{filterHideCommonOrbs}', this.filter.hideCommonCurrency && this.filter.hideCommonCurrencyType === CurrencyToHide.AllCommon ? filterHideCommonOrbs : '')
       .replace('{filterHideShards}', this.filter.hideCommonCurrency ? filterHideShards : '')
       .replace('{filterShowCommonCurrency}', commonCurrency)
+      .replace('{filterShowRuneExceptions}', showRuneExceptionsFilterText)
       .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')
 
       // Jewellery Filters
+      .replace('{filterShowAmuletExceptions}', showAmuletExceptionsFilterText)
       .replace('{filterHideAmulets}', this.filter.hideAmulets ? filterHideAmulets.replace('{itemRarity}', (this.filter.hideAmuletsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
+      .replace('{filterShowRingExceptions}', showRingExceptionsFilterText)
       .replace('{filterHideRings}', this.filter.hideRings ? filterHideRings.replace('{itemRarity}', (this.filter.hideRingsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
+      .replace('{filterShowBeltExceptions}', showBeltExceptionsFilterText)
       .replace('{filterHideBelts}', this.filter.hideBelts ? filterHideBelts.replace('{itemRarity}', (this.filter.hideBeltsOfRarity === RarityToHide.NormalAndMagic ? 'Magic' : 'Normal')) : '')
 
       // Highlights
@@ -258,9 +286,7 @@ export class AppComponent implements OnInit {
       .replace('{filterCustomRules}', customRules)
 
       // Cleanup
-      .replace('\n\n\n\n\n', '\n\n')
-      .replace('\n\n\n\n', '\n\n')
-      .replace('\n\n\n', '\n\n')
+      .replaceAll(/(?:\r?\n){2,}/g, '\n\n')
       ;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));

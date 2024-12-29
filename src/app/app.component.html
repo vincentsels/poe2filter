@@ -94,7 +94,7 @@
                             [selectedValues]="filter.hideLifeFlasksBaseTypeExceptions"
                             (selectedValuesChange)="filter.hideLifeFlasksBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
                           <span class="sep"></span>
-                          <div class="filter-title filter-label">
+                          <div class="filter-title filter-label" [class.disabled]="filter.hideLifeFlasks && filter.hideLifeFlasksBaseTypeExceptions.includes('None')">
                             Of Quality
                           </div>
                           <span class="sep"></span>
@@ -125,7 +125,7 @@
                             [selectedValues]="filter.hideManaFlasksBaseTypeExceptions"
                             (selectedValuesChange)="filter.hideManaFlasksBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
                           <span class="sep"></span>
-                          <div class="filter-title filter-label">
+                          <div class="filter-title filter-label" [class.disabled]="filter.hideLifeFlasks && filter.hideManaFlasksBaseTypeExceptions.includes('None')">
                             Of Quality
                           </div>
                           <span class="sep"></span>
@@ -287,7 +287,7 @@
                           <span class="sep"></span>
                           <pf-autocomplete
                             [allLabel]="'None'"
-                            [options]="ringBaseTypes"
+                            [options]="amuletBaseTypes"
                             [disabled]="!filter.hideAmulets"
                             [showOptions]="true"
                             [selectedValues]="filter.hideAmuletsBaseTypeExceptions"
@@ -302,6 +302,7 @@
                         <span class="filter-body">
                           <div class="filter-title">
                             Hide Rings
+                            <div class="filter-tip"><p>Breach Rings will always be highlighted in Brown.</p></div>
                           </div>
                           <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
@@ -351,7 +352,7 @@
                           <span class="sep"></span>
                           <pf-autocomplete
                             [allLabel]="'None'"
-                            [options]="ringBaseTypes"
+                            [options]="beltBaseTypes"
                             [disabled]="!filter.hideBelts"
                             [showOptions]="true"
                             [selectedValues]="filter.hideBeltsBaseTypeExceptions"
