@@ -5,6 +5,9 @@ export class Filter {
   hideManaFlasks = true;
   hideManaFlasksQuality: number | null = null;
   hideManaFlasksBaseTypeExceptions = ['None'];
+  hideCharms = true;
+  hideCharmsQuality: number | null = 0;
+  hideCharmsBaseTypeExceptions = ['Thawing Charm', 'Amethyst Charm', 'Golden Charm'];
   hideScrolls = true;
   hideRings = true;
   hideRingsOfRarity = RarityToHide.Normal;
@@ -24,8 +27,6 @@ export class Filter {
 
   hideGold = true;
   hideGoldLowerThan = 50;
-  hideCharms = true;
-  hideCharmsBaseTypeExceptions = ['Thawing Charm', 'Amethyst Charm', 'Golden Charm'];
   hideRunes = false;
   hideRunesExceptions = ['None'];
   hideCommonCurrency = true;

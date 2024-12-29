@@ -87,9 +87,6 @@ export class AppComponent implements OnInit {
   }
 
   migrateFilter() {
-    // Update the filter to the latest version
-    if (this.filter.customRules === undefined) this.filter.customRules = [];
-
     const shieldFilters = JSON.parse(JSON.stringify(this.filter.weaponFilters.filter(w => w.weaponType === WeaponType.Shields)));
     if (shieldFilters.length > 0) {
       this.filter.weaponFilters = this.filter.weaponFilters.filter(w => w.weaponType !== WeaponType.Shields);
@@ -102,6 +99,12 @@ export class AppComponent implements OnInit {
           defenceType: DefenceType.All,
         } as ArmourFilter;
       }));
+    }
+
+    if (this.filter.hideCharms && this.filter.hideCharmsBaseTypeExceptions.length > 0) {
+      if (this.filter.hideCharmsQuality === undefined) {
+        this.filter.hideCharmsQuality = 0;
+      }
     }
 
     this.updateFilter();

@@ -149,13 +149,21 @@
                             Except
                           </div>
                           <span class="sep"></span>
-                          <pf-autocomplete style="width: 271px;"
+                          <pf-autocomplete
                             [allLabel]="'None'"
                             [options]="charmBaseTypes"
                             [disabled]="!filter.hideCharms"
                             [showOptions]="true"
                             [selectedValues]="filter.hideCharmsBaseTypeExceptions"
                             (selectedValuesChange)="filter.hideCharmsBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label" [class.disabled]="filter.hideCharms && filter.hideCharmsBaseTypeExceptions.includes('None')">
+                            Of Quality
+                          </div>
+                          <span class="sep"></span>
+                          <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [disabled]="!filter.hideCharms || filter.hideCharmsBaseTypeExceptions.includes('None')"
+                            [(ngModel)]="filter.hideCharmsQuality" (change)="updateFilter()">
                         </span>
                       </div>
 
