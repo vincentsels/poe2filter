@@ -439,7 +439,8 @@
                         <span class="filter-body">
                           <div class="filter-title">
                             Hide Weapons And Armour
-                            <div class="filter-tip"><p>Hides all Normal and/or Magic and/or Non-Expert Rare Weapons and Armour; except for the ones specified in the Weapon and Armour filter below.</p></div>
+                            <div class="filter-tip"><p>Hides all Normal and/or Magic and/or Rare Weapons and Armour; except for the ones specified in the Weapon and Armour filter below.
+                            <br /><br /><strong>Warning!</strong> If you are hiding All Rares, be sure to add custom rules for the Weapon and Armour types you use, below.</p></div>
                           </div>
                           <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
@@ -447,7 +448,9 @@
                               <select [disabled]="!filter.hideNormalAndMagicItems" [(ngModel)]="filter.hideNormalAndMagicItemsOfRarity" (change)="updateFilter()">
                                 <option [value]="WeaponsAndArmourRarityToHide.Normal">Normal</option>
                                 <option [value]="WeaponsAndArmourRarityToHide.NormalAndMagic">Normal and Magic</option>
+                                <option [value]="WeaponsAndArmourRarityToHide.NormalMagicRareBelowAdvanced">Normal, Magic, Rare &lt; Advanced</option>
                                 <option [value]="WeaponsAndArmourRarityToHide.NormalMagicRareBelowExpert">Normal, Magic, Rare &lt; Expert</option>
+                                <option [value]="WeaponsAndArmourRarityToHide.NormalMagicRare">Normal, Magic, All Rare</option>
                               </select>
                             </div>
                           </div>

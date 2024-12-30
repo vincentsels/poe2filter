@@ -191,7 +191,9 @@ export enum RarityToHide {
 export enum WeaponsAndArmourRarityToHide {
   Normal = "Normal",
   NormalAndMagic = "NormalAndMagic",
+  NormalMagicRareBelowAdvanced = "NormalMagicRareBelowAdvanced",
   NormalMagicRareBelowExpert = "NormalMagicRareBelowExpert",
+  NormalMagicRare = "NormalMagicRare",
 }
 
 export enum CurrencyToHide {

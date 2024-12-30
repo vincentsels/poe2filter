@@ -94,6 +94,21 @@ export const filterHideNormalAndMagicGear =
   Rarity <= {itemRarity}
 `;
 
+export const filterHideRareGearBelowAdvanced =
+`Show
+  Class == "Body Armour" "Boots" "Gloves" "Helmets" "Bows" "Crossbows" "Foci" "One Hand Maces" "Quivers" "Quarterstaves" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+  BaseType "Expert " "Advanced "
+  Rarity >= Rare
+
+Show
+  Class == "Quivers" "Sceptres" "Staves" "Wands"
+  Rarity >= Rare
+
+Hide
+  Class == "Body Armour" "Boots" "Gloves" "Helmets" "Bows" "Crossbows" "Foci" "One Hand Maces" "Quivers" "Quarterstaves" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+  Rarity <= Rare
+`;
+
 export const filterHideRareGearBelowExpert =
 `Show
   Class == "Body Armour" "Boots" "Gloves" "Helmets" "Bows" "Crossbows" "Foci" "One Hand Maces" "Quivers" "Quarterstaves" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
@@ -416,6 +431,7 @@ Show
 #######################################################
 
 {filterHideNormalAndMagicGear}
+{filterHideRareGearBelowAdvanced}
 {filterHideRareGearBelowExpert}
 
 #######################################################
