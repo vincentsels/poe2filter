@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
 
-  tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'quickFilters';
+  tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'cosmetic';
 
   itemData = itemData;
 
@@ -47,6 +47,8 @@ export class AppComponent implements OnInit {
   amuletBaseTypes = itemData.filter(i => i.itemType === 'Amulets')[0].baseTypes;
   beltBaseTypes = itemData.filter(i => i.itemType === 'Belts')[0].baseTypes;
   runeBaseTypes = itemData.filter(i => i.itemType === 'Socketable')[0].baseTypes.filter(b => b.includes('Rune'));
+
+  currencyItemTypes = itemData.filter(i => i.itemClass === 'Stackable Currency').map(i => i.itemType);
 
   weaponTypesWithoutAdvancedAndExpert = [WeaponType.Sceptres, WeaponType.Staves, WeaponType.Wands, WeaponType.Quivers];
 
@@ -322,17 +324,19 @@ export class AppComponent implements OnInit {
   }
 
   formatRule(rule: CustomRule): any {
+    const itemData = this.itemData.find(i => i.itemType === rule.itemType);
+    const searchName = itemData?.currencySearchName;
     const showHide = rule.displayType === DisplayType.Hide ? 'Hide' : 'Show';
-    const itemClass = rule.class === 'All' ? '' : `\n  Class == "${rule.class}"`;
-    const baseTypes = rule.baseTypes.length === 0 || rule.baseTypes.includes('All') ? '' : `\n  BaseType == ${rule.baseTypes.map(t => `"${t}"`).join(' ')}`;
+    const itemClass = rule.itemClass === 'All' ? '' : `\n  Class == "${rule.itemClass}"`;
+    const baseTypes = rule.baseTypes.length === 0 || rule.baseTypes.includes('All') ? rule.itemClass === 'Stackable Currency' ? `\n  BaseType "${searchName}"` : '' : `\n  BaseType == ${rule.baseTypes.map(t => `"${t}"`).join(' ')}`;
+    const rarity = this.currencyItemTypes.includes(rule.itemType) ? '' : `\n  Rarity ${rule.rarityComparator} "${rule.rarity}"`;
     const highlight = rule.displayType === DisplayType.Hide || rule.displayType === DisplayType.Show ? ''
       : `
   PlayEffect ${rule.displayType}
   MinimapIcon 2 ${rule.displayType} Pentagon`
 
     return `
-${showHide}${itemClass}${baseTypes}
-  Rarity ${rule.rarityComparator} "${rule.rarity}"${highlight}` + (rule.continue ? '\n  Continue' : '');
+${showHide}${itemClass}${baseTypes}${rarity}${highlight}` + (rule.continue ? '\n  Continue' : '');
   }
 
   formatAllWeaponTypes() {
@@ -451,6 +455,17 @@ ${showHide}${itemClass}${baseTypes}
       return '\n  BaseArmour == 0\n  BaseEnergyShield > 0\n  BaseEvasion > 0';
     }
     return '';
+  }
+
+  itemTypeChanged(rule: CustomRule) {
+    const itemData = this.itemData.find(i => i.itemType === rule.itemType);
+    if (itemData) {
+      rule.itemClass = itemData.itemClass;
+    } else {
+      rule.itemClass = 'All';
+    }
+    rule.baseTypes = ['All'];
+    this.updateFilter();
   }
 
   download() {

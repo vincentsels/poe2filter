@@ -2,6 +2,7 @@ export const itemData = [
   {
     "itemType": "Amulets",
     "itemClass": "Amulets",
+    "currencySearchName": "Amulet",
     "baseTypes": [
       "Crimson Amulet",
       "Azure Amulet",
@@ -18,6 +19,7 @@ export const itemData = [
   {
     "itemType": "Belts",
     "itemClass": "Belts",
+    "currencySearchName": "Belt",
     "baseTypes": [
       "Golden Obi",
       "Rawhide Belt",
@@ -36,6 +38,7 @@ export const itemData = [
   {
     "itemType": "Body Armours",
     "itemClass": "Body Armours",
+    "currencySearchName": "Body Armour",
     "baseTypes": [
       "Golden Mantle",
       "Rusted Cuirass",
@@ -183,6 +186,7 @@ export const itemData = [
   {
     "itemType": "Boots",
     "itemClass": "Boots",
+    "currencySearchName": "Boots",
     "baseTypes": [
       "Golden Caligae",
       "Rough Greaves",
@@ -272,6 +276,7 @@ export const itemData = [
   {
     "itemType": "Bows",
     "itemClass": "Bows",
+    "currencySearchName": "Bow",
     "baseTypes": [
       "Crude Bow",
       "Shortbow",
@@ -303,6 +308,7 @@ export const itemData = [
   {
     "itemType": "Catalysts",
     "itemClass": "Stackable Currency",
+    "currencySearchName": "Catalyst",
     "baseTypes": [
       "Flesh Catalyst",
       "Neural Catalyst",
@@ -321,6 +327,7 @@ export const itemData = [
   {
     "itemType": "Charms",
     "itemClass": "Charms",
+    "currencySearchName": "Charm",
     "baseTypes": [
       "Thawing Charm",
       "Staunching Charm",
@@ -339,6 +346,7 @@ export const itemData = [
   {
     "itemType": "Crossbows",
     "itemClass": "Crossbows",
+    "currencySearchName": "Crossbow",
     "baseTypes": [
       "Makeshift Crossbow",
       "Tense Crossbow",
@@ -370,6 +378,7 @@ export const itemData = [
   {
     "itemType": "Currency",
     "itemClass": "Stackable Currency",
+    "currencySearchName": "Stackable Currency",
     "baseTypes": [
       "Blacksmith's Whetstone",
       "Arcanist's Etcher",
@@ -412,6 +421,7 @@ export const itemData = [
   {
     "itemType": "Distilled Emotions",
     "itemClass": "Stackable Currency",
+    "currencySearchName": "Distilled",
     "baseTypes": [
       "Distilled Despair",
       "Distilled Disgust",
@@ -428,6 +438,7 @@ export const itemData = [
   {
     "itemType": "Essences",
     "itemClass": "Stackable Currency",
+    "currencySearchName": "Essence",
     "baseTypes": [
       "Essence of the Body",
       "Essence of the Mind",
@@ -458,6 +469,7 @@ export const itemData = [
   {
     "itemType": "Foci",
     "itemClass": "Foci",
+    "currencySearchName": "Focus",
     "baseTypes": [
       "Twig Focus",
       "Woven Focus",
@@ -486,6 +498,7 @@ export const itemData = [
   {
     "itemType": "Gloves",
     "itemClass": "Gloves",
+    "currencySearchName": "Gloves",
     "baseTypes": [
       "Golden Bracers",
       "Stocky Mitts",
@@ -575,6 +588,7 @@ export const itemData = [
   {
     "itemType": "Helmets",
     "itemClass": "Helmets",
+    "currencySearchName": "Helmet",
     "baseTypes": [
       "Golden Wreath",
       "Golden Visage",
@@ -689,6 +703,7 @@ export const itemData = [
   {
     "itemType": "Jewels",
     "itemClass": "Jewels",
+    "currencySearchName": "Jewel",
     "baseTypes": [
       "Timeless Jewel",
       "Ruby",
@@ -704,6 +719,7 @@ export const itemData = [
   {
     "itemType": "Life Flasks",
     "itemClass": "Life Flasks",
+    "currencySearchName": "Life Flask",
     "baseTypes": [
       "Lesser Life Flask",
       "Medium Life Flask",
@@ -719,6 +735,7 @@ export const itemData = [
   {
     "itemType": "Mana Flasks",
     "itemClass": "Mana Flasks",
+    "currencySearchName": "Mana Flask",
     "baseTypes": [
       "Lesser Mana Flask",
       "Medium Mana Flask",
@@ -734,6 +751,7 @@ export const itemData = [
   {
     "itemType": "One Hand Maces",
     "itemClass": "One Hand Maces",
+    "currencySearchName": "One Hand Mace",
     "baseTypes": [
       "Wooden Club",
       "Smithing Hammer",
@@ -765,6 +783,7 @@ export const itemData = [
   {
     "itemType": "Quarterstaves",
     "itemClass": "Quarterstaves",
+    "currencySearchName": "Quarterstaff",
     "baseTypes": [
       "Wrapped Quarterstaff",
       "Long Quarterstaff",
@@ -796,6 +815,7 @@ export const itemData = [
   {
     "itemType": "Quivers",
     "itemClass": "Quivers",
+    "currencySearchName": "Quiver",
     "baseTypes": [
       "Broadhead Quiver",
       "Fire Quiver",
@@ -813,6 +833,7 @@ export const itemData = [
   {
     "itemType": "Relics",
     "itemClass": "Relics",
+    "currencySearchName": "Relic",
     "baseTypes": [
       "Urn Relic",
       "Amphora Relic",
@@ -826,6 +847,7 @@ export const itemData = [
   {
     "itemType": "Rings",
     "itemClass": "Rings",
+    "currencySearchName": "Ring",
     "baseTypes": [
       "Iron Ring",
       "Lazuli Ring",
@@ -845,6 +867,7 @@ export const itemData = [
   {
     "itemType": "Sceptres",
     "itemClass": "Sceptres",
+    "currencySearchName": "Sceptre",
     "baseTypes": [
       "Rattling Sceptre",
       "Stoic Sceptre",
@@ -864,6 +887,7 @@ export const itemData = [
   {
     "itemType": "Shields",
     "itemClass": "Shields",
+    "currencySearchName": "Shield",
     "baseTypes": [
       "Golden Flame",
       "Splintered Tower Shield",
@@ -955,6 +979,7 @@ export const itemData = [
   {
     "itemType": "Socketable",
     "itemClass": "Socketable",
+    "currencySearchName": "Socketable",
     "baseTypes": [
       "Desert Rune",
       "Glacial Rune",
@@ -986,6 +1011,7 @@ export const itemData = [
   {
     "itemType": "Staves",
     "itemClass": "Staves",
+    "currencySearchName": "Staff",
     "baseTypes": [
       "Ashen Staff",
       "Gelid Staff",
@@ -1005,6 +1031,7 @@ export const itemData = [
   {
     "itemType": "Two Hand Maces",
     "itemClass": "Two Hand Maces",
+    "currencySearchName": "Two Hand Mace",
     "baseTypes": [
       "Felled Greatclub",
       "Oak Greathammer",
@@ -1036,6 +1063,7 @@ export const itemData = [
   {
     "itemType": "Wands",
     "itemClass": "Wands",
+    "currencySearchName": "Wand",
     "baseTypes": [
       "Withered Wand",
       "Bone Wand",
@@ -1055,6 +1083,7 @@ export const itemData = [
   {
     "itemType": "Waystones",
     "itemClass": "Waystones",
+    "currencySearchName": "Waystone",
     "baseTypes": [
       "Waystone (Tier 1)",
       "Waystone (Tier 2)",

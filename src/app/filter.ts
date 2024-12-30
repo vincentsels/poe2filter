@@ -68,6 +68,8 @@ export class Filter {
   cosmeticTopCurrencyLabels = false;
   cosmeticTopCurrencyAlertSounds = true;
 
+  customCosmeticRules: CustomRule[] = [];
+
   customRules: CustomRule[] = [];
 
   freeRulesTop: string | null = null;
@@ -76,7 +78,8 @@ export class Filter {
 
 export class CustomRule {
   active = true;
-  class: string = 'All';
+  itemClass: string = 'All';
+  itemType: string = 'All';
   baseTypes: string[] = ['All'];
   rarityComparator: Comparator = Comparator.GreaterThanOrEqual;
   rarity: Rarity = Rarity.Normal;
