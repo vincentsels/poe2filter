@@ -167,6 +167,8 @@ export class AppComponent implements OnInit {
 
   toggleCosmeticTopCurrencyLabel = () => { this.filter.cosmeticTopCurrencyLabels = !this.filter.cosmeticTopCurrencyLabels; this.updateFilter(); }
   toggleCosmeticTopCurrencyAlertSounds = () => { this.filter.cosmeticTopCurrencyAlertSounds = !this.filter.cosmeticTopCurrencyAlertSounds; this.updateFilter(); }
+  toggleCosmeticRemoveAllHighlights = () => { this.filter.cosmeticRemoveAllHighlights = !this.filter.cosmeticRemoveAllHighlights; this.updateFilter(); }
+  toggleCosmeticRemoveAllMinimapIcons = () => { this.filter.cosmeticRemoveAllMinimapIcons = !this.filter.cosmeticRemoveAllMinimapIcons; this.updateFilter(); }
 
   updateWeaponType(weapon: WeaponFilter) {
     if (this.weaponTypesWithoutAdvancedAndExpert.includes(weapon.weaponType)) {
@@ -300,16 +302,22 @@ export class AppComponent implements OnInit {
 
       // Cosmetic Filters
       .replace('{filterCosmeticTopCurrencyLabels}', this.filter.cosmeticTopCurrencyLabels ? filterCosmeticTopCurrencyLabels : '')
-      .replace('{filterCosmeticTopCurrencyAlertSounds}', this.filter.cosmeticTopCurrencyAlertSounds ? filterCosmeticTopCurrencyAlertSounds : '')
+      .replace('{filterCosmeticTopCurrencyAlertSounds}', this.filter.cosmeticTopCurrencyAlertSounds ? filterCosmeticTopCurrencyAlertSounds : '');
 
-      // Custom and Free Rules
-      .replace('{filterFreeRulesTop}', this.filter.freeRulesTop ? this.filter.freeRulesTop : '')
+    if (this.filter.cosmeticRemoveAllHighlights) {
+      this.filterText = this.filterText.replace(/\n\s{2}PlayEffect.*$/gm, '');
+    }
+
+    if (this.filter.cosmeticRemoveAllMinimapIcons) {
+      this.filterText = this.filterText.replace(/\n\s{2}MinimapIcon.*$/gm, '');
+    }
+
+    // Custom and Free Rules -- these must come after optionally removing all highlights and minimap icons
+    this.filterText = this.filterText.replace('{filterFreeRulesTop}', this.filter.freeRulesTop ? this.filter.freeRulesTop : '')
       .replace('{filterFreeRulesBottom}', this.filter.freeRulesBottom ? this.filter.freeRulesBottom : '')
       .replace('{filterCustomRules}', customRules)
-
       // Cleanup
-      .replaceAll(/(?:\r?\n){2,}/g, '\n\n')
-      ;
+      .replaceAll(/(?:\r?\n){2,}/g, '\n\n');
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));
     localStorage.setItem(LOCAL_STORAGE_KEY_FILTER_STORED, '1');

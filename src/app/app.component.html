@@ -802,40 +802,7 @@
                       <div class="filter">
                         <span class="filter-body">
                           <span class="filter-title">
-                            Visual settings
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="filter-group-body">
-
-                      <div class="filter full-span" [class.disabled]="!filter.cosmeticTopCurrencyLabels">
-                        <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.cosmeticTopCurrencyLabels" (click)="toggleCosmeticTopCurrencyLabel()"></button>
-                        </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Top-Tier Currency Label Size
-                            <div class="filter-tip"><p>Exalted Orbs and Greater Jeweller's Orb will be shown larger; Divine Orbs, Perfect Jeweller's Orbs and Mirrors of Kalandra even larger.</p></div>
-                          </div>
-                        </span>
-                      </div>
-
-                    </div>
-
-                    <div class="clear"></div>
-                  </div>
-
-                </div>
-
-                <div class="search-advanced-pane blue">
-
-                  <div class="filter-group expanded">
-                    <div class="filter-group-header">
-                      <div class="filter">
-                        <span class="filter-body">
-                          <span class="filter-title">
-                            Sound settings
+                            Top-Tier Currency
                           </span>
                         </span>
                       </div>
@@ -853,8 +820,62 @@
                         </span>
                       </div>
 
-                    </div>
+                      <div class="filter full-span" [class.disabled]="!filter.cosmeticTopCurrencyLabels">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.cosmeticTopCurrencyLabels" (click)="toggleCosmeticTopCurrencyLabel()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Top-Tier Currency Label Size
+                            <div class="filter-tip"><p>Exalted Orbs and Greater Jeweller's Orb will be shown larger; Divine Orbs, Perfect Jeweller's Orbs and Mirrors of Kalandra even larger.</p></div>
+                          </div>
+                        </span>
+                      </div>
 
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+
+                </div>
+
+                <div class="search-advanced-pane blue">
+
+                  <div class="filter-group expanded">
+                    <div class="filter-group-header">
+                      <div class="filter">
+                        <span class="filter-body">
+                          <span class="filter-title">
+                            Bare Bone Mode
+                            <div class="filter-tip"><p>These filters allow you to remove all styles completely. You can also use them if you want to style everything from scratch, even map icons.</p></div>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="filter-group-body">
+
+                      <div class="filter full-span" [class.disabled]="!filter.cosmeticRemoveAllHighlights">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.cosmeticRemoveAllHighlights" (click)="toggleCosmeticRemoveAllHighlights()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Disable all Highlights
+                          </div>
+                        </span>
+                      </div>
+
+                      <div class="filter full-span" [class.disabled]="!filter.cosmeticRemoveAllMinimapIcons">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.cosmeticRemoveAllMinimapIcons" (click)="toggleCosmeticRemoveAllMinimapIcons()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Disable all Minimap Icons
+                           </div>
+                        </span>
+                      </div>
+
+                    </div>
                     <div class="clear"></div>
                   </div>
                 </div>
@@ -873,7 +894,7 @@
                     </div>
                     <div class="filter-group-body">
 
-                      @for (rule of filter.customRules; track $index) {
+                      @for (rule of filter.customCosmeticRules; track $index) {
                       <div class="filter full-span">
                         <span class="input-group-btn">
                           <button class="btn toggle-btn" [class.off]="!rule.active" (click)="toggleRuleActive($index)"></button>
@@ -943,7 +964,7 @@
 
                       <div class="filter filter-padded">
                         <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addCustomRule()">
-                          Add Custom Rule
+                          Add Cosmetic Rule
                         </button>
                       </div>
 

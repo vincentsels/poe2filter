@@ -66,6 +66,8 @@ export class Filter {
   dynamicSkillGemsLevel: number | null = null;
 
   cosmeticTopCurrencyLabels = false;
+  cosmeticRemoveAllHighlights = false;
+  cosmeticRemoveAllMinimapIcons = false;
   cosmeticTopCurrencyAlertSounds = true;
 
   customCosmeticRules: CustomRule[] = [];
