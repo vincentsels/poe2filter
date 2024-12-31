@@ -328,7 +328,14 @@ export class AppComponent implements OnInit {
   }
 
   buildCustomRules() {
-    return this.filter.customRules.filter(r => r.active).map(r => this.formatRule(r)).join('\n');
+    return this.filter.customRules
+      .filter(r => r.active)
+      .filter(r => !this.isEmptyRule(r))
+      .map(r => this.formatRule(r)).join('\n');
+  }
+
+  isEmptyRule(rule: CustomRule) {
+    return rule.itemType === 'All' && rule.itemClass === 'All' && (rule.baseTypes.length === 0 || rule.baseTypes.includes('All'));
   }
 
   formatRule(rule: CustomRule): any {
