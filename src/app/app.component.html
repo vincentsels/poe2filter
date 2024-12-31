@@ -205,7 +205,6 @@
                             <div class="filter-tip"><p>You will still pick up smaller stacks too. Stacks 20 times higher will be highlighted in white, 100 times higher in yellow.</p></div>
                           </div>
                           <span class="sep"></span>
-                          <span class="sep"></span>
                           <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
                             [disabled]="!filter.hideGold" [(ngModel)]="filter.hideGoldLowerThan" (change)="updateFilter()">
                         </span>
@@ -938,19 +937,28 @@
                             </div>
                           </div>
                         </span>
-                        <!-- <span class="input-group-btn" title="Continue">
-                          <button class="btn toggle-btn" [class.off]="!rule.continue" (click)="rule.continue = !rule.continue; updateFilter();"></button>
-                        </span> -->
+                        <span class="input-group-btn">
+                          <button class="btn toggle-button" [class.active]="rule.cosmeticOptions!.minimapIcon"
+                            (click)="rule.cosmeticOptions!.minimapIcon = !rule.cosmeticOptions!.minimapIcon; updateFilter();">
+                            Icon
+                          </button>
+                          <button class="btn toggle-button" [class.active]="rule.cosmeticOptions!.playEffect"
+                            (click)="rule.cosmeticOptions!.playEffect = !rule.cosmeticOptions!.playEffect; updateFilter();">
+                            Beam
+                          </button>
+                          <button class="btn toggle-button" [class.active]="rule.cosmeticOptions!.labelStyle"
+                            (click)="rule.cosmeticOptions!.labelStyle = !rule.cosmeticOptions!.labelStyle; updateFilter();">
+                            Label
+                          </button>
+                        </span>
                         <span class="input-group-btn">
                           <button class="btn remove-btn" (click)="removeCustomCosmeticRule($index)"></button>
                         </span>
                       </div>
+                      @if(rule.cosmeticOptions!.minimapIcon || rule.cosmeticOptions!.playEffect) {
                       <div class="filter filter-padded">
                         <span class="filter-body">
-                          <span class="input-group-btn">
-                            <button class="btn toggle-btn" [class.off]="!rule.cosmeticOptions!.minimapIcon" (click)="rule.cosmeticOptions!.minimapIcon = !rule.cosmeticOptions!.minimapIcon; updateFilter();"></button>
-                          </span>
-                          <span class="sep"></span>
+                          @if(rule.cosmeticOptions!.minimapIcon) {
                           <span class="filter-body" style="width: 55px">
                             <div class="filter-title">
                               Icon
@@ -1004,10 +1012,9 @@
                             </div>
                           </div>
                           <span class="sep"></span>
-                          <span class="input-group-btn">
-                            <button class="btn toggle-btn" [class.off]="!rule.cosmeticOptions!.playEffect" (click)="rule.cosmeticOptions!.playEffect = !rule.cosmeticOptions!.playEffect; updateFilter();"></button>
-                          </span>
-                          <span class="sep"></span>
+                          }
+
+                          @if(rule.cosmeticOptions!.playEffect) {
                           <span class="filter-body" style="width: 55px">
                             <div class="filter-title">
                               Beam
@@ -1042,8 +1049,10 @@
                             <button class="btn toggle-btn" [class.off]="!rule.cosmeticOptions!.playEffectTemp" [class.disabled]="!rule.active || !rule.cosmeticOptions!.playEffect"
                             (click)="rule.cosmeticOptions!.playEffectTemp = !rule.cosmeticOptions!.playEffectTemp; updateFilter();"></button>
                           </span>
+                          }
                         </span>
                       </div>
+                      }
                       }
 
                       <div class="filter filter-padded">

@@ -100,6 +100,7 @@ export class CosmeticOptions {
   playEffectColor: Color = Color.White;
   playEffectTemp = false;
 
+  labelStyle = false;
   backgroundColor: string | null = null;
   borderColor: string | null = null;
   textColor: string | null = null;

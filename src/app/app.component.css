@@ -410,3 +410,18 @@ textarea.custom-rules {
     display: unset;
   }
 }
+
+.toggle-button {
+  height: 30px;
+  border: none !important;
+  background-color: #090a0a !important;
+  margin-right: 4px;
+
+  &.active {
+    background-color: #45494e !important;
+  }
+
+  &:hover {
+    background-color: #2d3136 !important;
+  }
+}
