@@ -4,6 +4,7 @@ import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filt
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
 const LOCAL_STORAGE_KEY = 'filter-v9';
@@ -12,7 +13,7 @@ const LOCAL_STORAGE_KEY = 'filter-v9';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [FormsModule, AutocompleteComponent]
+  imports: [FormsModule, AutocompleteComponent, ColorPickerModule]
 })
 export class AppComponent implements OnInit {
   filter = new Filter();

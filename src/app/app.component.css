@@ -429,3 +429,11 @@ textarea.custom-rules {
     margin-right: 0;
   }
 }
+
+::ng-deep .color-picker {
+  background-color: #1e2124 !important;
+}
+
+::ng-deep .color-picker .hex-text {
+  display: none !important;
+}

@@ -1063,7 +1063,9 @@
                             </div>
                           </span>
                           <span class="sep"></span>
-                          <input type="text" placeholder="rrggbb" maxlength="6" pattern="[0-9a-fA-F]*" class="form-control minmax"
+                          <input type="text" placeholder="#rrggbb" maxlength="7" pattern="#[0-9a-fA-F]*" class="form-control minmax"
+                            [(colorPicker)]="rule.cosmeticOptions!.backgroundColor!" [style.background]="rule.cosmeticOptions!.backgroundColor"
+                            cpOutputFormat="hex" cpAlphaChannel="disabled"
                             [(ngModel)]="rule.cosmeticOptions!.backgroundColor" (change)="updateFilter()">
                           <span class="sep"></span>
                         </span>
