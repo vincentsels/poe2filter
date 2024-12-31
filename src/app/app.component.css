@@ -424,4 +424,8 @@ textarea.custom-rules {
   &:hover {
     background-color: #2d3136 !important;
   }
+
+  &:last-child {
+    margin-right: 0;
+  }
 }

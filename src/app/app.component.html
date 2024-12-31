@@ -1053,6 +1053,22 @@
                         </span>
                       </div>
                       }
+
+                      @if(rule.cosmeticOptions!.labelStyle) {
+                      <div class="filter filter-padded">
+                        <span class="filter-body">
+                          <span class="filter-body" style="width: 55px">
+                            <div class="filter-title">
+                              Label
+                            </div>
+                          </span>
+                          <span class="sep"></span>
+                          <input type="text" placeholder="rrggbb" maxlength="6" pattern="[0-9a-fA-F]*" class="form-control minmax"
+                            [(ngModel)]="rule.cosmeticOptions!.backgroundColor" (change)="updateFilter()">
+                          <span class="sep"></span>
+                        </span>
+                      </div>
+                      }
                       }
 
                       <div class="filter filter-padded">
