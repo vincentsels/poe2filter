@@ -896,7 +896,7 @@
                       @for (rule of filter.customCosmeticRules; track $index) {
                       <div class="filter full-span">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!rule.active" (click)="toggleRuleActive($index)"></button>
+                          <button class="btn toggle-btn" [class.off]="!rule.active" (click)="toggleCustomCosmeticRuleActive($index)"></button>
                         </span>
                         <span class="filter-body">
                           <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
@@ -937,32 +937,117 @@
                               </select>
                             </div>
                           </div>
-                          <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 100px;">
-                            <div class="multiselect__tags">
-                              <select [(ngModel)]="rule.displayType" (change)="updateFilter()" [disabled]="!rule.active">
-                                <option [value]="DisplayType.Hide">Hide</option>
-                                <option [value]="DisplayType.Show">Show</option>
-                                <option [value]="DisplayType.White">White</option>
-                                <option [value]="DisplayType.Yellow">Yellow</option>
-                                <option [value]="DisplayType.Orange">Orange</option>
-                                <option [value]="DisplayType.Brown">Brown</option>
-                                <option [value]="DisplayType.Purple">Purple</option>
-                              </select>
-                            </div>
-                          </div>
                         </span>
                         <!-- <span class="input-group-btn" title="Continue">
                           <button class="btn toggle-btn" [class.off]="!rule.continue" (click)="rule.continue = !rule.continue; updateFilter();"></button>
                         </span> -->
                         <span class="input-group-btn">
-                          <button class="btn remove-btn" (click)="removeCustomRule($index)"></button>
+                          <button class="btn remove-btn" (click)="removeCustomCosmeticRule($index)"></button>
+                        </span>
+                      </div>
+                      <div class="filter filter-padded">
+                        <span class="filter-body">
+                          <span class="input-group-btn">
+                            <button class="btn toggle-btn" [class.off]="!rule.cosmeticOptions!.minimapIcon" (click)="rule.cosmeticOptions!.minimapIcon = !rule.cosmeticOptions!.minimapIcon; updateFilter();"></button>
+                          </span>
+                          <span class="sep"></span>
+                          <span class="filter-body" style="width: 55px">
+                            <div class="filter-title">
+                              Icon
+                            </div>
+                          </span>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="rule.cosmeticOptions!.minimapIconSize" (change)="updateFilter()" [disabled]="!rule.active || !rule.cosmeticOptions!.minimapIcon">
+                                <option [value]="MinimapIconSize.Small">Small</option>
+                                <option [value]="MinimapIconSize.Medium">Medium</option>
+                                <option [value]="MinimapIconSize.Large">Large</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="rule.cosmeticOptions!.minimapIconColor" (change)="updateFilter()" [disabled]="!rule.active || !rule.cosmeticOptions!.minimapIcon">
+                                <option [value]="Color.Red">Red</option>
+                                <option [value]="Color.Green">Green</option>
+                                <option [value]="Color.Blue">Blue</option>
+                                <option [value]="Color.Brown">Brown</option>
+                                <option [value]="Color.White">White</option>
+                                <option [value]="Color.Yellow">Yellow</option>
+                                <option [value]="Color.Cyan">Cyan</option>
+                                <option [value]="Color.Grey">Grey</option>
+                                <option [value]="Color.Orange">Orange</option>
+                                <option [value]="Color.Pink">Pink</option>
+                                <option [value]="Color.Purple">Purple</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="rule.cosmeticOptions!.minimapIconShape" (change)="updateFilter()" [disabled]="!rule.active || !rule.cosmeticOptions!.minimapIcon">
+                                <option [value]="MinimapIconShape.Circle">Circle</option>
+                                <option [value]="MinimapIconShape.Diamond">Diamond</option>
+                                <option [value]="MinimapIconShape.Hexagon">Hexagon</option>
+                                <option [value]="MinimapIconShape.Square">Square</option>
+                                <option [value]="MinimapIconShape.Star">Star</option>
+                                <option [value]="MinimapIconShape.Triangle">Triangle</option>
+                                <option [value]="MinimapIconShape.Cross">Cross</option>
+                                <option [value]="MinimapIconShape.Moon">Moon</option>
+                                <option [value]="MinimapIconShape.Raindrop">Raindrop</option>
+                                <option [value]="MinimapIconShape.Kite">Kite</option>
+                                <option [value]="MinimapIconShape.Pentagon">Pentagon</option>
+                                <option [value]="MinimapIconShape.UpsideDownHouse">Upside-down House</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
+                          <span class="input-group-btn">
+                            <button class="btn toggle-btn" [class.off]="!rule.cosmeticOptions!.playEffect" (click)="rule.cosmeticOptions!.playEffect = !rule.cosmeticOptions!.playEffect; updateFilter();"></button>
+                          </span>
+                          <span class="sep"></span>
+                          <span class="filter-body" style="width: 55px">
+                            <div class="filter-title">
+                              Beam
+                            </div>
+                          </span>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="rule.cosmeticOptions!.playEffectColor" (change)="updateFilter()" [disabled]="!rule.active || !rule.cosmeticOptions!.playEffect">
+                                <option [value]="Color.Red">Red</option>
+                                <option [value]="Color.Green">Green</option>
+                                <option [value]="Color.Blue">Blue</option>
+                                <option [value]="Color.Brown">Brown</option>
+                                <option [value]="Color.White">White</option>
+                                <option [value]="Color.Yellow">Yellow</option>
+                                <option [value]="Color.Cyan">Cyan</option>
+                                <option [value]="Color.Grey">Grey</option>
+                                <option [value]="Color.Orange">Orange</option>
+                                <option [value]="Color.Pink">Pink</option>
+                                <option [value]="Color.Purple">Purple</option>
+                              </select>
+                            </div>
+                          </div>
+                          <span class="sep"></span>
+                          <span class="filter-body">
+                            <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.playEffect">
+                              Temp
+                            </div>
+                          </span>
+                          <span class="sep"></span>
+                          <span class="input-group-btn">
+                            <button class="btn toggle-btn" [class.off]="!rule.cosmeticOptions!.playEffectTemp" [class.disabled]="!rule.active || !rule.cosmeticOptions!.playEffect"
+                            (click)="rule.cosmeticOptions!.playEffectTemp = !rule.cosmeticOptions!.playEffectTemp; updateFilter();"></button>
+                          </span>
                         </span>
                       </div>
                       }
 
                       <div class="filter filter-padded">
-                        <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addCustomRule()">
+                        <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addCustomCosmeticRule()">
                           Add Cosmetic Rule
                         </button>
                       </div>
@@ -993,7 +1078,7 @@
                       @for (rule of filter.customRules; track $index) {
                       <div class="filter full-span">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!rule.active" (click)="toggleRuleActive($index)"></button>
+                          <button class="btn toggle-btn" [class.off]="!rule.active" (click)="toggleCustomRuleActive($index)"></button>
                         </span>
                         <span class="filter-body">
                           <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">

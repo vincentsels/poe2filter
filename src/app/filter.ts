@@ -86,13 +86,65 @@ export class CustomRule {
   rarityComparator: Comparator = Comparator.GreaterThanOrEqual;
   rarity: Rarity = Rarity.Normal;
   displayType = DisplayType.Show;
+  cosmeticOptions: CosmeticOptions | null = null;
   continue = false;
+}
+
+export class CosmeticOptions {
+  minimapIcon = false;
+  minimapIconSize = MinimapIconSize.Small;
+  minimapIconColor = Color.White;
+  minimapIconShape = MinimapIconShape.Circle;
+
+  playEffect = false;
+  playEffectColor: Color = Color.White;
+  playEffectTemp = false;
+
+  backgroundColor: string | null = null;
+  borderColor: string | null = null;
+  textColor: string | null = null;
+  fontSize: number | null = null;
 }
 
 export enum Comparator {
   GreaterThanOrEqual = '>=',
   LessThanOrEqual = '<=',
   Equal = '==',
+}
+
+export enum MinimapIconSize {
+  Large = 0,
+  Medium = 1,
+  Small = 2,
+}
+
+export enum MinimapIconShape {
+  Circle = 'Circle',
+  Diamond = 'Diamond',
+  Hexagon = 'Hexagon',
+  Square = 'Square',
+  Star = 'Star',
+  Triangle = 'Triangle',
+  Cross = 'Cross',
+  Moon = 'Moon',
+  Raindrop = 'Raindrop',
+  Kite = 'Kite',
+  Pentagon = 'Pentagon',
+  UpsideDownHouse = 'UpsideDownHouse',
+}
+
+export enum Color {
+  Red = 'Red',
+  Green = 'Green',
+  Blue = 'Blue',
+  Brown = 'Brown',
+  White = 'White',
+  Yellow = 'Yellow',
+  Cyan = 'Cyan',
+  Grey = 'Grey',
+  Orange = 'Orange',
+  Pink = 'Pink',
+  Purple = 'Purple',
 }
 
 export enum Rarity {

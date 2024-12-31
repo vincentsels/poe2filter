@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide } from './filter';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, CosmeticOptions, MinimapIconShape, MinimapIconSize, Color } from './filter';
 import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideCommonShards, filterHideRareGearBelowAdvanced } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
@@ -32,6 +32,9 @@ export class AppComponent implements OnInit {
   Rarity = Rarity;
   Comparator = Comparator;
   DisplayType = DisplayType;
+  MinimapIconShape = MinimapIconShape;
+  MinimapIconSize = MinimapIconSize;
+  Color = Color;
 
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
@@ -146,8 +149,17 @@ export class AppComponent implements OnInit {
   addArmourType = () => { this.filter.armourFilters.push(new ArmourFilter()); this.updateFilter(); }
 
   removeCustomRule(index: number) { this.filter.customRules.splice(index, 1); this.updateFilter();  }
-  toggleRuleActive = (index: number) => { this.filter.customRules[index].active = !this.filter.customRules[index].active; this.updateFilter(); }
+  toggleCustomRuleActive = (index: number) => { this.filter.customRules[index].active = !this.filter.customRules[index].active; this.updateFilter(); }
   addCustomRule = () => { this.filter.customRules.push(new CustomRule()); this.updateFilter(); }
+
+  removeCustomCosmeticRule(index: number) { this.filter.customCosmeticRules.splice(index, 1); this.updateFilter();  }
+  toggleCustomCosmeticRuleActive = (index: number) => { this.filter.customCosmeticRules[index].active = !this.filter.customCosmeticRules[index].active; this.updateFilter(); }
+  addCustomCosmeticRule = () => {
+    const cosmeticRule = new CustomRule();
+    cosmeticRule.cosmeticOptions = new CosmeticOptions();
+    this.filter.customCosmeticRules.push(cosmeticRule);
+    this.updateFilter();
+  }
 
   toggleDynamicWaystones = () => {
     this.filter.dynamicWaystones = !this.filter.dynamicWaystones;
@@ -169,6 +181,9 @@ export class AppComponent implements OnInit {
   toggleCosmeticTopCurrencyAlertSounds = () => { this.filter.cosmeticTopCurrencyAlertSounds = !this.filter.cosmeticTopCurrencyAlertSounds; this.updateFilter(); }
   toggleCosmeticRemoveAllHighlights = () => { this.filter.cosmeticRemoveAllHighlights = !this.filter.cosmeticRemoveAllHighlights; this.updateFilter(); }
   toggleCosmeticRemoveAllMinimapIcons = () => { this.filter.cosmeticRemoveAllMinimapIcons = !this.filter.cosmeticRemoveAllMinimapIcons; this.updateFilter(); }
+
+  toggleMinimapIcon = (rule: CustomRule) => { rule.cosmeticOptions!.minimapIcon = !rule.cosmeticOptions!.minimapIcon; this.updateFilter(); }
+  togglePlayEffect = (rule: CustomRule) => { rule.cosmeticOptions!.playEffect = !rule.cosmeticOptions!.playEffect; this.updateFilter(); }
 
   updateWeaponType(weapon: WeaponFilter) {
     if (this.weaponTypesWithoutAdvancedAndExpert.includes(weapon.weaponType)) {
