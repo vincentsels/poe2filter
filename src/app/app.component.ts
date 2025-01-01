@@ -105,6 +105,9 @@ export class AppComponent implements OnInit {
   }
 
   migrateFilter() {
+    // to v9
+
+    // Move shields over to armour
     const shieldFilters = JSON.parse(JSON.stringify(this.filter.weaponFilters.filter(w => w.weaponType === WeaponType.Shields)));
     if (shieldFilters.length > 0) {
       this.filter.weaponFilters = this.filter.weaponFilters.filter(w => w.weaponType !== WeaponType.Shields);
@@ -119,11 +122,25 @@ export class AppComponent implements OnInit {
       }));
     }
 
+    // Initialize charm quality
     if (this.filter.hideCharms && this.filter.hideCharmsBaseTypeExceptions.length > 0) {
       if (this.filter.hideCharmsQuality === undefined) {
         this.filter.hideCharmsQuality = 0;
       }
     }
+
+    // Add custom cosmetic rules
+    if (this.filter.customCosmeticRules === undefined) {
+      this.filter.customCosmeticRules = [];
+    }
+
+    // Fix item type for custom rules
+    this.filter.customRules.forEach(r => {
+      if ((r as any).class) {
+        r.itemType = (r as any).class;
+        r.itemClass = itemData.find(i => i.itemType === r.itemType)?.itemClass || 'All';
+      }
+    });
 
     this.updateFilter();
   }
