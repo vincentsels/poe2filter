@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
 
-  tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'cosmetic';
+  tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'quickFilters';
 
   itemData = itemData;
 
