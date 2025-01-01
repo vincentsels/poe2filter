@@ -1057,42 +1057,84 @@
                             <button class="btn toggle-btn" [class.off]="!rule.active || !rule.cosmeticOptions!.backgroundColor" (click)="toggleBackgroundColor(rule)"></button>
                           </span>
                           <span class="sep"></span>
-                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.backgroundColor">
-                            Background
+                          <div class="filter-title filter-label color-picker-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.backgroundColor"
+                            style="width: 135px !important">
+
+                            <input type="text" maxlength="9" pattern="#[0-9a-fA-F]*" class="form-control minmax color-picker-dot"
+                              [disabled]="!rule.cosmeticOptions!.backgroundColor"
+                              [(colorPicker)]="rule.cosmeticOptions!.backgroundColor!" [style.background]="rule.cosmeticOptions!.backgroundColor"
+                              cpOutputFormat="rgba" cpAlphaChannel="forced"
+                              (ngModelChanged)="rule.cosmeticOptions!.backgroundColor" (colorPickerSelect)="updateFilter()">
+
+                            <div class="color-picker-label-text">Background</div>
                           </div>
-                          <span class="sep"></span>
-                          <input type="text" placeholder="#rrggbb" maxlength="7" pattern="#[0-9a-fA-F]*" class="form-control minmax" style="width: 55px"
-                            [disabled]="!rule.cosmeticOptions!.backgroundColor"
-                            [(colorPicker)]="rule.cosmeticOptions!.backgroundColor!" [style.background]="rule.cosmeticOptions!.backgroundColor"
-                            cpOutputFormat="hex" cpAlphaChannel="disabled"
-                            [(ngModel)]="rule.cosmeticOptions!.backgroundColor" (change)="updateFilter()">
                           <span class="sep"></span>
                           <span class="input-group-btn">
                             <button class="btn toggle-btn" [class.off]="!rule.active || !rule.cosmeticOptions!.borderColor" (click)="toggleBorderColor(rule)"></button>
                           </span>
                           <span class="sep"></span>
-                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.borderColor">
-                            Border
+                          <div class="filter-title filter-label color-picker-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.borderColor"
+                            style="width: 100px !important">
+
+                            <input type="text" maxlength="9" pattern="#[0-9a-fA-F]*" class="form-control minmax color-picker-dot"
+                              [disabled]="!rule.cosmeticOptions!.borderColor"
+                              [(colorPicker)]="rule.cosmeticOptions!.borderColor!" [style.background]="rule.cosmeticOptions!.borderColor"
+                              cpOutputFormat="rgba" cpAlphaChannel="enabled"
+                              (ngModelChanged)="rule.cosmeticOptions!.borderColor" (colorPickerSelect)="updateFilter()">
+
+                            <div class="color-picker-label-text">Border</div>
                           </div>
-                          <span class="sep"></span>
-                          <input type="text" placeholder="#rrggbb" maxlength="7" pattern="#[0-9a-fA-F]*" class="form-control minmax" style="width: 55px"
-                            [(colorPicker)]="rule.cosmeticOptions!.borderColor!" [style.border]="rule.cosmeticOptions!.borderColor"
-                            cpOutputFormat="hex" cpAlphaChannel="disabled"
-                            [(ngModel)]="rule.cosmeticOptions!.borderColor" (change)="updateFilter()">
                           <span class="sep"></span>
                           <span class="input-group-btn">
                             <button class="btn toggle-btn" [class.off]="!rule.active || !rule.cosmeticOptions!.textColor" (click)="toggleTextColor(rule)"></button>
                           </span>
                           <span class="sep"></span>
-                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.textColor">
-                            Text
+                          <div class="filter-title filter-label color-picker-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.textColor"
+                            style="width: 80px !important">
+
+                            <input type="text" maxlength="9" pattern="#[0-9a-fA-F]*" class="form-control minmax color-picker-dot"
+                              [disabled]="!rule.cosmeticOptions!.textColor"
+                              [(colorPicker)]="rule.cosmeticOptions!.textColor!" [style.background]="rule.cosmeticOptions!.textColor"
+                              cpOutputFormat="rgba" cpAlphaChannel="enabled"
+                              (ngModelChanged)="rule.cosmeticOptions!.textColor" (colorPickerSelect)="updateFilter()">
+
+                            <div class="color-picker-label-text">Text</div>
                           </div>
                           <span class="sep"></span>
-                          <input type="text" placeholder="#rrggbb" maxlength="7" pattern="#[0-9a-fA-F]*" class="form-control minmax" style="width: 55px"
-                            [(colorPicker)]="rule.cosmeticOptions!.textColor!" [style.text]="rule.cosmeticOptions!.textColor"
-                            cpOutputFormat="hex" cpAlphaChannel="disabled"
-                            [(ngModel)]="rule.cosmeticOptions!.textColor" (change)="updateFilter()">
+                          <span class="input-group-btn">
+                            <button class="btn toggle-btn" [class.off]="!rule.active || !rule.cosmeticOptions!.fontSize" (click)="toggleFontSize(rule)"></button>
+                          </span>
                           <span class="sep"></span>
+                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.fontSize">
+                            Size
+                          </div>
+                          <span class="sep"></span>
+                          <div tabindex="-1" class="multiselect filter-select" style="min-width: 100px;">
+                            <div class="multiselect__tags">
+                              <select [(ngModel)]="rule.cosmeticOptions!.fontSize" (change)="updateFilter()" [disabled]="!rule.active || !rule.cosmeticOptions!.fontSize">
+                                <option [value]="LabelSize.Smallest">Smallest</option>
+                                <option [value]="LabelSize.Smaller">Smaller</option>
+                                <option [value]="LabelSize.Small">Small</option>
+                                <option [value]="LabelSize.Normal">Normal</option>
+                                <option [value]="LabelSize.Large">Large</option>
+                                <option [value]="LabelSize.Larger">Larger</option>
+                                <option [value]="LabelSize.Largest">Largest</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+                            [class.disabled]="!rule.active || !rule.cosmeticOptions!.fontSize"
+                            [(ngModel)]="rule.cosmeticOptions!.fontSize!" (change)="updateFilter()"> -->
+                          <span class="sep"></span>
+                          @if(rule.itemClass === 'Stackable Currency') {
+                          <div class="filter-title style-example" [class.disabled]="!rule.active" [style]="getCurrencyStyle(rule.cosmeticOptions!)">
+                            {{ rule.baseTypes.length > 0 && !rule.baseTypes.includes('All') ? rule.baseTypes[0] : 'Divine Orb' }}
+                          </div>
+                          } @else {
+                          <div class="filter-title style-example" [class.disabled]="!rule.active" [style]="getItemStyle(rule.cosmeticOptions!)">
+                            {{ rule.baseTypes.length > 0 && !rule.baseTypes.includes('All') ? rule.baseTypes[0] : 'Crude Bow' }}
+                          </div>
+                          }
                         </span>
                       </div>
                       }

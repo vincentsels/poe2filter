@@ -430,6 +430,32 @@ textarea.custom-rules {
   }
 }
 
+.color-picker-dot {
+  min-width: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  border-radius: 50% !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  margin-right: 8px !important;
+  cursor: pointer;
+}
+
+.color-picker-label {
+  text-align: left !important;
+}
+
+.color-picker-label-text {
+  margin-top: 1px;
+  margin-bottom: -1px;
+}
+
+.style-example {
+  width: unset;
+  text-align: center;
+}
+
 ::ng-deep .color-picker {
   background-color: #1e2124 !important;
 }

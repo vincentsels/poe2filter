@@ -119,6 +119,16 @@ export enum MinimapIconSize {
   Small = 2,
 }
 
+export enum LabelSize {
+  Smallest = 21,
+  Smaller = 25,
+  Small = 29,
+  Normal = 33,
+  Large = 37,
+  Larger = 41,
+  Largest = 45,
+}
+
 export enum MinimapIconShape {
   Circle = 'Circle',
   Diamond = 'Diamond',
