@@ -170,6 +170,7 @@ export class AppComponent implements OnInit {
   addCustomCosmeticRule = () => {
     const cosmeticRule = new CustomRule();
     cosmeticRule.cosmeticOptions = new CosmeticOptions();
+    cosmeticRule.continue = true;
     this.filter.customCosmeticRules.push(cosmeticRule);
     this.updateFilter();
   }
@@ -282,6 +283,8 @@ export class AppComponent implements OnInit {
 
     const customRules = this.buildCustomRules();
 
+    const customCosmeticRules = this.buildCustomCosmeticRules();
+
     this.filterText = filterTemplate
       // Flask and Charm Filters
       .replace('{filterShowLifeFlaskExceptions}', showLifeFlaskExceptionsFilterText)
@@ -344,6 +347,7 @@ export class AppComponent implements OnInit {
     this.filterText = this.filterText.replace('{filterFreeRulesTop}', this.filter.freeRulesTop ? this.filter.freeRulesTop : '')
       .replace('{filterFreeRulesBottom}', this.filter.freeRulesBottom ? this.filter.freeRulesBottom : '')
       .replace('{filterCustomRules}', customRules)
+      .replace('{filterCustomCosmeticRules}', customCosmeticRules)
       // Cleanup
       .replaceAll(/(?:\r?\n){2,}/g, '\n\n');
 
@@ -362,8 +366,17 @@ export class AppComponent implements OnInit {
       .map(r => this.formatRule(r)).join('\n');
   }
 
+  buildCustomCosmeticRules() {
+    return this.filter.customCosmeticRules
+      .filter(r => r.active)
+      .filter(r => !this.isEmptyRule(r))
+      .map(r => this.formatRule(r)).join('\n');
+  }
+
   isEmptyRule(rule: CustomRule) {
-    return rule.itemType === 'All' && rule.itemClass === 'All' && (rule.baseTypes.length === 0 || rule.baseTypes.includes('All'));
+    const emptyType = rule.itemType === 'All' && rule.itemClass === 'All' && (rule.baseTypes.length === 0 || rule.baseTypes.includes('All'));
+    const noEffect = rule.displayType === DisplayType.Show && rule.cosmeticOptions && !rule.cosmeticOptions?.minimapIcon && !rule.cosmeticOptions?.playEffect && !rule.cosmeticOptions?.labelStyle;
+    return emptyType || noEffect;
   }
 
   formatRule(rule: CustomRule): any {
@@ -371,15 +384,35 @@ export class AppComponent implements OnInit {
     const searchName = itemData?.currencySearchName;
     const showHide = rule.displayType === DisplayType.Hide ? 'Hide' : 'Show';
     const itemClass = rule.itemClass === 'All' ? '' : `\n  Class == "${rule.itemClass}"`;
-    const baseTypes = rule.baseTypes.length === 0 || rule.baseTypes.includes('All') ? rule.itemClass === 'Stackable Currency' ? `\n  BaseType "${searchName}"` : '' : `\n  BaseType == ${rule.baseTypes.map(t => `"${t}"`).join(' ')}`;
+    const baseTypes = rule.baseTypes.length === 0 || rule.baseTypes.includes('All') ? rule.itemType === 'Currency' ? '' : rule.itemClass === 'Stackable Currency' ? `\n  BaseType "${searchName}"` : '' : `\n  BaseType == ${rule.baseTypes.map(t => `"${t}"`).join(' ')}`;
     const rarity = this.currencyItemTypes.includes(rule.itemType) ? '' : `\n  Rarity ${rule.rarityComparator} "${rule.rarity}"`;
     const highlight = rule.displayType === DisplayType.Hide || rule.displayType === DisplayType.Show ? ''
       : `
   PlayEffect ${rule.displayType}
   MinimapIcon 2 ${rule.displayType} Pentagon`
 
+    const customBeam = !rule.cosmeticOptions?.playEffect ? ''
+      : `
+  PlayEffect ${rule.cosmeticOptions?.playEffectColor} ${rule.cosmeticOptions?.playEffectTemp ? 'Temp' : ''}`;
+
+    const customMapIcon = !rule.cosmeticOptions?.minimapIcon ? ''
+      : `
+  MinimapIcon ${rule.cosmeticOptions?.minimapIconSize} ${rule.cosmeticOptions?.minimapIconColor} ${rule.cosmeticOptions?.minimapIconShape}`;
+
+    const textColor = rule.cosmeticOptions?.textColor ? '\n  SetTextColor ' + this.formatColor(rule.cosmeticOptions?.textColor) : '';
+    const backgroundColor = rule.cosmeticOptions?.backgroundColor ? '\n  SetBackgroundColor ' + this.formatColor(rule.cosmeticOptions?.backgroundColor) : '';
+    const borderColor = rule.cosmeticOptions?.borderColor ? '\n  SetBorderColor ' + this.formatColor(rule.cosmeticOptions?.borderColor) : '';
+    const fontSize = rule.cosmeticOptions?.fontSize ? '\n  SetFontSize ' + rule.cosmeticOptions?.fontSize : '';
+    const customLabel = !rule.cosmeticOptions?.labelStyle ? '' : textColor + backgroundColor + borderColor + fontSize;
+
     return `
-${showHide}${itemClass}${baseTypes}${rarity}${highlight}` + (rule.continue ? '\n  Continue' : '');
+${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMapIcon}${customLabel}` + (rule.continue ? '\n  Continue' : '');
+  }
+
+  formatColor(rgbaColor: string) {
+    const color = rgbaColor.replace('rgba(', '').replace('rgb(', '').replace(')', '').split(',').map((c, index) => index === 3 ? parseFloat(c) : parseInt(c));
+    const alpha = color.length === 4 ? Math.round(color[3] * 255) : 255;
+    return `${color[0]} ${color[1]} ${color[2]} ${alpha}`;
   }
 
   formatAllWeaponTypes() {
@@ -569,19 +602,19 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}` + (rule.continue ? '\n
 
   toggleBackgroundColor(rule: CustomRule) {
     if (rule.cosmeticOptions!.backgroundColor) rule.cosmeticOptions!.backgroundColor = null;
-    else rule.cosmeticOptions!.backgroundColor = '#000000FF';
+    else rule.cosmeticOptions!.backgroundColor = 'rgba(0,0,0,0.9411)';
     this.updateFilter();
   }
 
   toggleBorderColor(rule: CustomRule) {
     if (rule.cosmeticOptions!.borderColor) rule.cosmeticOptions!.borderColor = null;
-    else rule.cosmeticOptions!.borderColor = '#FFFFFFFF';
+    else rule.cosmeticOptions!.borderColor = 'rgba(200,200,200,1)';
     this.updateFilter();
   }
 
   toggleTextColor(rule: CustomRule) {
     if (rule.cosmeticOptions!.textColor) rule.cosmeticOptions!.textColor = null;
-    else rule.cosmeticOptions!.textColor = '#FFFFFFFF';
+    else rule.cosmeticOptions!.textColor = 'rgba(200,200,200,1)';
     this.updateFilter();
   }
 

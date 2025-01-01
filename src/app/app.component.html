@@ -936,6 +936,10 @@
                           </div>
                         </span>
                         <span class="input-group-btn">
+                          <button class="btn toggle-button" [class.active]="rule.cosmeticOptions!.labelStyle"
+                            (click)="rule.cosmeticOptions!.labelStyle = !rule.cosmeticOptions!.labelStyle; updateFilter();">
+                            Label
+                          </button>
                           <button class="btn toggle-button" [class.active]="rule.cosmeticOptions!.minimapIcon"
                             (click)="rule.cosmeticOptions!.minimapIcon = !rule.cosmeticOptions!.minimapIcon; updateFilter();">
                             Icon
@@ -943,10 +947,6 @@
                           <button class="btn toggle-button" [class.active]="rule.cosmeticOptions!.playEffect"
                             (click)="rule.cosmeticOptions!.playEffect = !rule.cosmeticOptions!.playEffect; updateFilter();">
                             Beam
-                          </button>
-                          <button class="btn toggle-button" [class.active]="rule.cosmeticOptions!.labelStyle"
-                            (click)="rule.cosmeticOptions!.labelStyle = !rule.cosmeticOptions!.labelStyle; updateFilter();">
-                            Label
                           </button>
                         </span>
                         <span class="input-group-btn">

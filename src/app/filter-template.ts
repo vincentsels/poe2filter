@@ -343,6 +343,7 @@ export const filterTemplate =
 #######################################################
 
 {filterFreeRulesTop}
+{filterCustomCosmeticRules}
 {filterCustomRules}
 
 #######################################################
