@@ -1045,14 +1045,14 @@
                             </div>
                           </div>
                           <span class="sep"></span>
-                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.playEffect">
-                            Temp
-                          </div>
-                          <span class="sep"></span>
                           <span class="input-group-btn">
                             <button class="btn toggle-btn" [class.off]="!rule.cosmeticOptions!.playEffectTemp" [class.disabled]="!rule.active || !rule.cosmeticOptions!.playEffect"
                             (click)="rule.cosmeticOptions!.playEffectTemp = !rule.cosmeticOptions!.playEffectTemp; updateFilter();"></button>
                           </span>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.playEffect">
+                            Temp
+                          </div>
                           }
                         </span>
                       </div>
@@ -1426,7 +1426,7 @@
               <h3 class="info-title">Minimalist Style</h3>
 
               <p>
-                Path of Exile has <strong>beautiful graphics and a dark atmosphere</strong>. Its item color theme nostalgically goes back all the way to Diablo 2. We'd hate to spoil that by adding many different out-of-theme colors and fonts. These filters keep all the 'default' drop label styles. We only add highlight beams in self-explanatory colors: white, yellow, orange, brown, and purple for top-tier items. Highlighted items are shown on the minimap too.
+                Path of Exile has <strong>beautiful graphics and a dark atmosphere</strong>. Its item color theme nostalgically goes back all the way to Diablo 2. We'd hate to spoil that by adding many different out-of-theme colors and fonts. This filter keeps all the 'default' label styles. We only add highlight beams in self-explanatory colors: white, yellow, orange, brown, and purple for top-tier items. Highlighted items are shown on the minimap too.
               </p>
             </div>
 
@@ -1434,7 +1434,7 @@
               <h3 class="info-title">Remove Clutter</h3>
 
               <p>
-                Halfway through the campaign, many items start dropping, many of which you won't be interested in for your character: Normal and Magic items, Weapons not usable by your build, and Armour which doesn't have the right defences. <strong>This filter removes them from your screen</strong>, always keeping a clean overview and adding to the game's beautiful atmosphere.
+                Halfway through the campaign, many items start dropping, most of which you won't be interested in for your character: Normal and Magic items, Weapons not usable by your build, and Armour which doesn't have the right defences. <strong>This filter hides them</strong>, always keeping a clean overview and adding to the game's beautiful atmosphere.
               </p>
             </div>
 
@@ -1465,7 +1465,7 @@
               <h3 class="info-title">Market-value Drop Tiers</h3>
 
               <p>
-                Currency, Waystones and Endgame Items can be more or less rare -- that is, they have a <strong>higher or lower market value</strong> -- a simple product of its utility divided by its drop chance. We call these <strong>Drop Tiers</strong>, white through brown (or purple if you're really lucky). All drops are highlighted using an appropriate beam and icon on the minimap. Classifying items into these Drop Tiers is <strong>based on their respective Exalt value on the in-game Currency Exchange</strong>; or, in the case of 'Dynamic Filters' like Maps, their usefulness to you currently.
+                Currency can be more or less rare -- that is, they have a <strong>higher or lower market value</strong> -- a product of their utility divided by their drop chance. We call these <strong>Drop Tiers</strong>, white through brown (or purple if you're really lucky). All drops are highlighted using an appropriate beam and icon on the minimap. Classifying items into these Drop Tiers is <strong>based on their respective Exalt value on the in-game Currency Exchange</strong>; or, in the case of 'Dynamic Filters' like Maps, their usefulness to you currently.
               </p>
             </div>
 
@@ -1473,7 +1473,7 @@
               <h3 class="info-title">Safety first</h3>
 
               <p>
-                Any change to this filter is <strong>tested beforehand</strong>, and gets a test-run. All <strong>item names are always copy-pasted</strong> from a website like https://poe2db.tw, which is actual data-mined from the game client, avoiding typos.
+                Any change to this filter is <strong>tested beforehand</strong>, and gets a test-run. All <strong>item names are always copy-pasted</strong> from https://poe2db.tw, which is actual data-mined from the game client, avoiding typos.
               </p>
 
               <p>
@@ -1519,14 +1519,14 @@
           <h2 class="info-title bigger text-align-center">Feedback & support</h2>
           <p class="text-align-center">
             <strong>Feedback and bugreports</strong> are welcome at the <strong><a href="https://www.pathofexile.com/forum/view-thread/3630063" target="_blank">PoE Forum Thread</a></strong>.
-            You'll also find the the <strong>release notes</strong> there. If you'd prefer to have a chat, come join me <strong><a href="https://discord.gg/JbaMnwngvq" target="_blank">Discord</a></strong>!
+            You'll also find the the <strong>release notes</strong> there. If you'd prefer to have a chat, come join me on <strong><a href="https://discord.gg/JbaMnwngvq" target="_blank">Discord</a></strong>!
           </p>
           <p class="text-align-center">
             You can find the <strong>source code</strong> on <strong><a href="https://github.com/vincentsels/poe2filter" target="_blank">GitHub</a></strong>.
           </p>
           <p class="text-align-center">
             I'm making and updating this website in my spare time. You can <strong>support</strong> me by <strong><a href="https://buymeacoffee.com/poe2filter" target="_blank">buying me a coffee</a></strong>!
-            However, if you like this filter & website, don't forget to <strong>spread the word</strong>!
+            But more importantly, if you like this filter & website, don't forget to <strong>spread the word</strong>!
           </p>
 
         </div>
