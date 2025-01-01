@@ -554,4 +554,22 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}` + (rule.continue ? '\n
     rule.baseTypes = values;
     this.updateFilter();
   }
+
+  toggleBackgroundColor(rule: CustomRule) {
+    if (rule.cosmeticOptions!.backgroundColor) rule.cosmeticOptions!.backgroundColor = null;
+    else rule.cosmeticOptions!.backgroundColor = '#000000';
+    this.updateFilter();
+  }
+
+  toggleBorderColor(rule: CustomRule) {
+    if (rule.cosmeticOptions!.borderColor) rule.cosmeticOptions!.borderColor = null;
+    else rule.cosmeticOptions!.borderColor = '#FFFFFF';
+    this.updateFilter();
+  }
+
+  toggleTextColor(rule: CustomRule) {
+    if (rule.cosmeticOptions!.textColor) rule.cosmeticOptions!.textColor = null;
+    else rule.cosmeticOptions!.textColor = '#FFFFFF';
+    this.updateFilter();
+  }
 }

@@ -866,11 +866,9 @@
                         <span class="input-group-btn">
                           <button class="btn toggle-btn" [class.off]="!filter.cosmeticRemoveAllMinimapIcons" (click)="toggleCosmeticRemoveAllMinimapIcons()"></button>
                         </span>
-                        <span class="filter-body">
-                          <div class="filter-title">
-                            Disable all Minimap Icons
-                           </div>
-                        </span>
+                        <div class="filter-title">
+                          Disable all Minimap Icons
+                          </div>
                       </div>
 
                     </div>
@@ -959,11 +957,9 @@
                       <div class="filter filter-padded">
                         <span class="filter-body">
                           @if(rule.cosmeticOptions!.minimapIcon) {
-                          <span class="filter-body" style="width: 55px">
-                            <div class="filter-title">
-                              Icon
-                            </div>
-                          </span>
+                          <div class="filter-title" style="width: 55px">
+                            Icon
+                          </div>
                           <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select">
                             <div class="multiselect__tags">
@@ -1015,11 +1011,9 @@
                           }
 
                           @if(rule.cosmeticOptions!.playEffect) {
-                          <span class="filter-body" style="width: 55px">
-                            <div class="filter-title">
-                              Beam
-                            </div>
-                          </span>
+                          <div class="filter-title" style="width: 55px">
+                            Beam
+                          </div>
                           <span class="sep"></span>
                           <div tabindex="-1" class="multiselect filter-select">
                             <div class="multiselect__tags">
@@ -1039,11 +1033,9 @@
                             </div>
                           </div>
                           <span class="sep"></span>
-                          <span class="filter-body">
-                            <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.playEffect">
-                              Temp
-                            </div>
-                          </span>
+                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.playEffect">
+                            Temp
+                          </div>
                           <span class="sep"></span>
                           <span class="input-group-btn">
                             <button class="btn toggle-btn" [class.off]="!rule.cosmeticOptions!.playEffectTemp" [class.disabled]="!rule.active || !rule.cosmeticOptions!.playEffect"
@@ -1057,16 +1049,49 @@
                       @if(rule.cosmeticOptions!.labelStyle) {
                       <div class="filter filter-padded">
                         <span class="filter-body">
-                          <span class="filter-body" style="width: 55px">
-                            <div class="filter-title">
-                              Label
-                            </div>
+                          <div class="filter-title" style="width: 55px">
+                            Label
+                          </div>
+                          <span class="sep"></span>
+                          <span class="input-group-btn">
+                            <button class="btn toggle-btn" [class.off]="!rule.active || !rule.cosmeticOptions!.backgroundColor" (click)="toggleBackgroundColor(rule)"></button>
                           </span>
                           <span class="sep"></span>
-                          <input type="text" placeholder="#rrggbb" maxlength="7" pattern="#[0-9a-fA-F]*" class="form-control minmax"
+                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.backgroundColor">
+                            Background
+                          </div>
+                          <span class="sep"></span>
+                          <input type="text" placeholder="#rrggbb" maxlength="7" pattern="#[0-9a-fA-F]*" class="form-control minmax" style="width: 55px"
+                            [disabled]="!rule.cosmeticOptions!.backgroundColor"
                             [(colorPicker)]="rule.cosmeticOptions!.backgroundColor!" [style.background]="rule.cosmeticOptions!.backgroundColor"
                             cpOutputFormat="hex" cpAlphaChannel="disabled"
                             [(ngModel)]="rule.cosmeticOptions!.backgroundColor" (change)="updateFilter()">
+                          <span class="sep"></span>
+                          <span class="input-group-btn">
+                            <button class="btn toggle-btn" [class.off]="!rule.active || !rule.cosmeticOptions!.borderColor" (click)="toggleBorderColor(rule)"></button>
+                          </span>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.borderColor">
+                            Border
+                          </div>
+                          <span class="sep"></span>
+                          <input type="text" placeholder="#rrggbb" maxlength="7" pattern="#[0-9a-fA-F]*" class="form-control minmax" style="width: 55px"
+                            [(colorPicker)]="rule.cosmeticOptions!.borderColor!" [style.border]="rule.cosmeticOptions!.borderColor"
+                            cpOutputFormat="hex" cpAlphaChannel="disabled"
+                            [(ngModel)]="rule.cosmeticOptions!.borderColor" (change)="updateFilter()">
+                          <span class="sep"></span>
+                          <span class="input-group-btn">
+                            <button class="btn toggle-btn" [class.off]="!rule.active || !rule.cosmeticOptions!.textColor" (click)="toggleTextColor(rule)"></button>
+                          </span>
+                          <span class="sep"></span>
+                          <div class="filter-title filter-label" [class.disabled]="!rule.active || !rule.cosmeticOptions!.textColor">
+                            Text
+                          </div>
+                          <span class="sep"></span>
+                          <input type="text" placeholder="#rrggbb" maxlength="7" pattern="#[0-9a-fA-F]*" class="form-control minmax" style="width: 55px"
+                            [(colorPicker)]="rule.cosmeticOptions!.textColor!" [style.text]="rule.cosmeticOptions!.textColor"
+                            cpOutputFormat="hex" cpAlphaChannel="disabled"
+                            [(ngModel)]="rule.cosmeticOptions!.textColor" (change)="updateFilter()">
                           <span class="sep"></span>
                         </span>
                       </div>
