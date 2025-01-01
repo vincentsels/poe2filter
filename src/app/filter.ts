@@ -34,6 +34,7 @@ export class Filter {
 
   highlightUniques = true;
   highlightRareJewellery = true;
+  highlightChanceBases = true;
 
   weaponFilters: WeaponFilter[] = [];
 

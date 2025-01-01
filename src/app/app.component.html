@@ -389,7 +389,7 @@
 
                       <div class="filter filter-property full-span" [class.disabled]="!filter.highlightUniques">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.highlightUniques" (click)="toggleHighLightUniques()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.highlightUniques" (click)="toggleHighlightUniques()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
@@ -398,9 +398,21 @@
                         </span>
                       </div>
 
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.highlightChanceBases">
+                        <span class="input-group-btn">
+                          <button class="btn toggle-btn" [class.off]="!filter.highlightChanceBases" (click)="toggleHighlightChanceBases()"></button>
+                        </span>
+                        <span class="filter-body">
+                          <div class="filter-title">
+                            Highlight Chance Bases
+                            <div class="filter-tip"><p>This always shows or highlights (in brown) Normal items which are good or excellent candidates to use a Chance Orb on, respectively.</p></div>
+                          </div>
+                        </span>
+                      </div>
+
                       <div class="filter filter-property full-span" [class.disabled]="!filter.highlightRareJewellery">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.highlightRareJewellery" (click)="toggleHighLightRareJewellery()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.highlightRareJewellery" (click)="toggleHighlightRareJewellery()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">

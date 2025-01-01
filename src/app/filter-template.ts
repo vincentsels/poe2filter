@@ -5,6 +5,18 @@ export const filterHighlightUniques =
   MinimapIcon 2 Brown Kite
 `;
 
+export const filterHighlightChanceBases =
+`Show
+  BaseType == "Sapphire Ring" "Heavy Belt" "Stellar Amulet"
+  Rarity == Normal
+  PlayEffect Brown
+  MinimapIcon 2 Brown Kite
+
+Show
+  BaseType == "Emerald Ring" "Topaz Ring" "Amethyst Ring" "Pearl Ring" "Amber Amulet" "Jade Amulet" "Solar Amulet" "Gold Amulet"
+  Rarity == Normal
+`;
+
 export const filterHighlightRareJewellery =
 `Show
   Class == "Amulets" "Rings" "Belts"
@@ -358,6 +370,7 @@ export const filterTemplate =
 #######################################################
 
 {filterHighlightUniques}
+{filterHighlightChanceBases}
 {filterHighlightRareJewellery}
 
 #######################################################
