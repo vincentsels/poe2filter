@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, CosmeticOptions, MinimapIconShape, MinimapIconSize, Color } from './filter';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, CosmeticOptions, MinimapIconShape, MinimapIconSize, Color, LabelSize } from './filter';
 import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideCommonShards, filterHideRareGearBelowAdvanced } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
   MinimapIconShape = MinimapIconShape;
   MinimapIconSize = MinimapIconSize;
   Color = Color;
+  LabelSize = LabelSize;
 
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
@@ -76,6 +77,17 @@ export class AppComponent implements OnInit {
     { style: 'tier-white', level: '' },
     { style: 'tier-yellow', level: '' },
   ];
+
+  presetColors = [
+    'rgb(127,127,127)',
+    'rgb(200,200,200)',
+    'rgb(136,136,255)',
+    'rgb(255,255,119)',
+    'rgb(175,96,37)',
+    'rgb(170,158,130)',
+    'rgb(27,162,155)',
+    'rgb(74,230,58)',
+  ]
 
   ngOnInit(): void {
     const filterSet = localStorage.getItem(LOCAL_STORAGE_KEY_FILTER_STORED);
@@ -557,19 +569,49 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}` + (rule.continue ? '\n
 
   toggleBackgroundColor(rule: CustomRule) {
     if (rule.cosmeticOptions!.backgroundColor) rule.cosmeticOptions!.backgroundColor = null;
-    else rule.cosmeticOptions!.backgroundColor = '#000000';
+    else rule.cosmeticOptions!.backgroundColor = '#000000FF';
     this.updateFilter();
   }
 
   toggleBorderColor(rule: CustomRule) {
     if (rule.cosmeticOptions!.borderColor) rule.cosmeticOptions!.borderColor = null;
-    else rule.cosmeticOptions!.borderColor = '#FFFFFF';
+    else rule.cosmeticOptions!.borderColor = '#FFFFFFFF';
     this.updateFilter();
   }
 
   toggleTextColor(rule: CustomRule) {
     if (rule.cosmeticOptions!.textColor) rule.cosmeticOptions!.textColor = null;
-    else rule.cosmeticOptions!.textColor = '#FFFFFF';
+    else rule.cosmeticOptions!.textColor = '#FFFFFFFF';
     this.updateFilter();
+  }
+
+  toggleFontSize(rule: CustomRule) {
+    if (rule.cosmeticOptions!.fontSize) rule.cosmeticOptions!.fontSize = null;
+    else rule.cosmeticOptions!.fontSize = LabelSize.Normal;
+    this.updateFilter();
+  }
+
+  getCurrencyStyle(o: CosmeticOptions) {
+    return {
+      'margin-left': o.borderColor ? '0px' : '1px',
+      'margin-right': o.borderColor ? '0px' : '1px',
+      'padding-top': o.borderColor ? '7px' : '8px',
+      'background': o.backgroundColor || 'inherit',
+      'color': o.textColor || 'rgb(170,158,130) !important',
+      'border': o.borderColor ? '1px solid ' + o.borderColor + ' !important' : 'none !important',
+      'line-height': o.borderColor ? '14px' : '16px',
+    };
+  }
+
+  getItemStyle(o: CosmeticOptions) {
+    return {
+      'margin-left': o.borderColor ? '0px' : '1px',
+      'margin-right': o.borderColor ? '0px' : '1px',
+      'padding-top': o.borderColor ? '7px' : '8px',
+      'background': o.backgroundColor || 'inherit',
+      'color': o.textColor || 'rgb(200,200,200) !important',
+      'border': o.borderColor ? '1px solid ' + o.borderColor + ' !important' : 'none !important',
+      'line-height': o.borderColor ? '14px' : '16px',
+    };
   }
 }
