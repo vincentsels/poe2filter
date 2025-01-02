@@ -209,7 +209,7 @@ export enum WeaponType {
 export enum ArmourType {
   All = "All",
   AllButShields = "AllButShields",
-  BodyArmour = "Body Armours",
+  BodyArmours = "Body Armours",
   Helmet = "Helmets",
   Gloves = "Gloves",
   Boots = "Boots",

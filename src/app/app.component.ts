@@ -439,11 +439,11 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMap
   }
 
   formatAllArmourTypesButShields() {
-    return [ArmourType.BodyArmour, ArmourType.Helmet, ArmourType.Gloves, ArmourType.Boots].map(w => `"${w}"`).join(' ');
+    return [ArmourType.BodyArmours, ArmourType.Helmet, ArmourType.Gloves, ArmourType.Boots].map(w => `"${w}"`).join(' ');
   }
 
   formatAllArmourTypes() {
-    return [ArmourType.BodyArmour, ArmourType.Helmet, ArmourType.Gloves, ArmourType.Boots, ArmourType.Shields].map(w => `"${w}"`).join(' ');
+    return [ArmourType.BodyArmours, ArmourType.Helmet, ArmourType.Gloves, ArmourType.Boots, ArmourType.Shields].map(w => `"${w}"`).join(' ');
   }
 
   buildDynamicWaystoneFilter() {
