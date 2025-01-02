@@ -23,8 +23,6 @@ export class AppComponent implements OnInit {
   filterText = filterTemplate;
   filterTextFull = filterTemplate;
 
-  showTierWarning = true;
-
   filterVersion = FILTER_MAJOR_VERSION;
   importFilterError: string | null = null;
   importFilterSuccess: boolean | null = null;
@@ -52,6 +50,7 @@ export class AppComponent implements OnInit {
 
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
+  showTierWarning = true;
 
   tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'quickFilters';
 
@@ -114,11 +113,11 @@ export class AppComponent implements OnInit {
       this.filterResetWarning = true;
     }
 
-    this.updateFilter(false);
+    this.updateFilter();
   }
 
   migrateFilter() {
-    // to v9
+    // === v9 ===
 
     // Move shields over to armour
     const shieldFilters = JSON.parse(JSON.stringify(this.filter.weaponFilters.filter(w => w.weaponType === WeaponType.Shields)));
@@ -236,7 +235,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  updateFilter(resetWarning = true) {
+  updateFilter() {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
       .replaceAll('{weaponType}', w.weaponType === WeaponType.All ? this.formatAllWeaponTypes() : `"${w.weaponType}"`)
       .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
@@ -393,10 +392,6 @@ export class AppComponent implements OnInit {
 
     localStorage.setItem(LOCAL_STORAGE_KEY, filterConfig);
     localStorage.setItem(LOCAL_STORAGE_KEY_FILTER_STORED, '1');
-
-    if (resetWarning) {
-      this.filterResetWarning = false;
-    }
   }
 
   buildCustomRules() {
@@ -637,8 +632,13 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMap
 
               try {
                 this.filter = JSON.parse(config);
-                this.importFilterSuccess = true;
-                this.updateFilter();
+                try {
+                  this.migrateFilter();
+                  this.importFilterSuccess = true;
+                  this.updateFilter();
+                } catch (error: any) {
+                  this.importFilterError = 'Error migrating filter: ' + error;
+                }
               } catch (error: any) {
                 this.importFilterError = error;
               }

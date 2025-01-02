@@ -40,6 +40,7 @@ select[disabled] {
     top: 8px;
     cursor: pointer;
     opacity: 0.6;
+    font-weight: bold;
 
     &:hover {
       opacity: 1;
