@@ -16,6 +16,7 @@ if (buildNumberMatch) {
   execSync('git add src/buildnumber.ts');
   execSync(`git commit -m "Increment build number to ${newBuildNumber}"`);
   execSync(`git tag build-${newBuildNumber}`);
+  execSync(`git push origin --tags`);
   console.log(`Git commit and tag created for build number ${newBuildNumber}`);
 } else {
   console.error('Build number not found in buildnumber.ts');

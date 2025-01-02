@@ -4,11 +4,15 @@ I built an easy-to-use PoE2 custom loot filter generation website, allowing you 
 
 https://poe2filter.com
 
-- Hides items you're not interested in.
-- Shows weapon and armour types of your choice.
-- Marks important items with a tiered beam and displays them on the minimap.
-- Doesn't change styles. Don't ruin the game's amazing graphics and atmosphere with ugly and inconsistend colors and font sizes.
+- Easy to use, nothing to learn.
+- Hides items you're not interested in, only shows weapon and armour types of your choice.
+- Highlights important items with a tiered beam and displays them on the minimap.
+- Fully economy-tiered items.
+- By default doesn't change label styles, keeping the original game's atmosphere.
+- Offers extensive customization options.
 
-I've been using this filter myself for a few days now, it makes the game so much more enjoyable. Thought I'd share it with everyone. You probably only want to start using this around halfway the campaign.
+You probably only want to start using these filters around halfway the campaign.
 
-Feedback welcome here: https://www.pathofexile.com/forum/view-thread/3630063
+You can keep track of what's on the todo-list on this [Trello](https://trello.com/b/scO9dP72/tasks). You can find release notes and leave feedback in [this official forum thread](https://www.pathofexile.com/forum/view-thread/3630063), or on [Discord](https://discord.gg/JbaMnwngvq).
+
+If you like the filter and feel like showing your appreciation, spread the word, leave a message here, or you can [buy me a coffee](https://buymeacoffee.com/poe2filter) (so I write less bugs! ^^)
