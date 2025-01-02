@@ -23,7 +23,8 @@ export class AppComponent implements OnInit {
   filterText = filterTemplate;
   filterTextFull = filterTemplate;
 
-  filterVersion = FILTER_MAJOR_VERSION;
+  filterVersion = FILTER_MAJOR_VERSION + '.' + buildNumber;
+
   importFilterError: string | null = null;
   importFilterSuccess: boolean | null = null;
   importFilterExportDate: string | null = null;
@@ -411,7 +412,7 @@ export class AppComponent implements OnInit {
     const filterConfigIndented = JSON.stringify(this.filter, null, 2);
 
     this.filterTextFull = filterPrefix + this.filterText + filterSuffix
-      .replace('{version}', FILTER_MAJOR_VERSION + '.' + buildNumber)
+      .replace('{version}', this.filterVersion)
       .replace('{date}', new Date().toISOString())
       .replace('{filterConfig}', filterConfigIndented.replaceAll('\n', '\n# '));
 

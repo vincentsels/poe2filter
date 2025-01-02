@@ -476,3 +476,8 @@ textarea.custom-rules {
 ::ng-deep .color-picker .hex-text {
   display: none !important;
 }
+
+.version {
+  float: right;
+  margin-right: 12px;
+}
