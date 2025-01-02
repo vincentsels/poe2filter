@@ -1009,6 +1009,15 @@ export const itemData = [
     ]
   },
   {
+    "itemType": "Splinters",
+    "itemClass": "Stackable Currency",
+    "currencySearchName": "Splinter",
+    "baseTypes": [
+      "Breach Splinter",
+      "Simulacrum Splinter"
+    ]
+  },
+  {
     "itemType": "Staves",
     "itemClass": "Staves",
     "currencySearchName": "Staff",
