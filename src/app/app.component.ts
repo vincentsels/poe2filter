@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, CosmeticOptions, MinimapIconShape, MinimapIconSize, Color, LabelSize } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideCommonShards, filterHideRareGearBelowAdvanced, filterHighlightChanceBases } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideCommonShards, filterHideRareGearBelowAdvanced, filterHighlightChanceBases, filterPrefix, filterSuffix } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
-const LOCAL_STORAGE_KEY = 'filter-v9';
+const FILTER_MAJOR_VERSION = '9';
+const LOCAL_STORAGE_KEY = 'filter-v' + FILTER_MAJOR_VERSION;
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ const LOCAL_STORAGE_KEY = 'filter-v9';
 export class AppComponent implements OnInit {
   filter = new Filter();
   filterText = filterTemplate;
+  filterTextFull = filterTemplate;
 
   FlaskType = FlaskType;
   RarityToHide = RarityToHide;
@@ -369,6 +371,9 @@ export class AppComponent implements OnInit {
       .replace('{filterCustomCosmeticRules}', customCosmeticRules)
       // Cleanup
       .replaceAll(/(?:\r?\n){2,}/g, '\n\n');
+
+    this.filterTextFull = filterPrefix + this.filterText + filterSuffix
+      .replace('{version}', customRules);
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));
     localStorage.setItem(LOCAL_STORAGE_KEY_FILTER_STORED, '1');
