@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, CosmeticOptions, MinimapIconShape, MinimapIconSize, Color, LabelSize } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterPreferredArmourType, filterRarePlayEffect, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideRareGearBelowAdvanced, filterHighlightChanceBases, filterPrefix, filterSuffix, filterHideCurrency } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterPreferredArmourType, filterRarePlayEffect, filterHighlightGem, filterHideGem, filterCosmeticTopCurrency, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideRareGearBelowAdvanced, filterHighlightChanceBases, filterPrefix, filterSuffix, filterHideCurrency } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
@@ -344,8 +344,15 @@ export class AppComponent implements OnInit {
         .replace('{baseTypes}', this.filter.hideCurrencyTypes.map(t => `"${t}"`).join(' '));
     }
 
-    const customRules = this.buildCustomRules();
+    const cosmeticRules = this.filter.cosmeticTopCurrencyAlertSounds || this.filter.cosmeticTopCurrencyLabels
+      ? filterCosmeticTopCurrency
+        .replaceAll('{fontSizePurple}', this.filter.cosmeticTopCurrencyLabels ? '\n  SetFontSize 45' : '')
+        .replaceAll('{fontSizeBrown}', this.filter.cosmeticTopCurrencyLabels ? '\n  SetFontSize 40' : '')
+        .replaceAll('{alertSoundPurple}', this.filter.cosmeticTopCurrencyAlertSounds ? '\n  PlayAlertSound 6 300' : '')
+        .replaceAll('{alertSoundBrown}', this.filter.cosmeticTopCurrencyAlertSounds ? '\n  PlayAlertSound 2 300' : '')
+      : '';
 
+    const customRules = this.buildCustomRules();
     const customCosmeticRules = this.buildCustomCosmeticRules();
 
     this.filterText = filterTemplate
@@ -394,8 +401,7 @@ export class AppComponent implements OnInit {
       .replace('{filterDynamicSkillGems}', this.filter.dynamicSkillGems ? dynamicSkillGemFilterText : '')
 
       // Cosmetic Filters
-      .replace('{filterCosmeticTopCurrencyLabels}', this.filter.cosmeticTopCurrencyLabels ? filterCosmeticTopCurrencyLabels : '')
-      .replace('{filterCosmeticTopCurrencyAlertSounds}', this.filter.cosmeticTopCurrencyAlertSounds ? filterCosmeticTopCurrencyAlertSounds : '');
+      .replace('{filterCosmeticTopCurrency}', cosmeticRules)
 
     if (this.filter.cosmeticRemoveAllHighlights) {
       this.filterText = this.filterText.replace(/\n\s{2}PlayEffect.*$/gm, '');

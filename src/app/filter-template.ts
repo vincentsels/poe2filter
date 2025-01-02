@@ -272,31 +272,22 @@ export const filterHighlightGem =
   MinimapIcon 2 {color} Circle
 `;
 
-export const filterCosmeticTopCurrencyLabels =
+export const filterPurpleTierCurrency = `"Mirror of Kalandra" "Perfect Jeweller's Orb" "Divine Orb" "Distilled Isolation" "Simulacrum" "Distilled Suffering" "Omen of Whittling" "Omen of Sinistral Erasure" "Omen of Dextral Erasure" "Omen of Sinistral Annulment" "Omen of Dextral Annulment"`;
+export const filterBrownTierCurrency = `"Exalted Orb" "Greater Jeweller's Orb" "Orb of Chance" "Orb of Annulment" "Chaos Orb" "Distilled Fear" "Greater Essence of Torment" "Greater Essence of Haste" "Omen of Amelioration" "Omen of Corruption" "Soul Core of Azcapa" "Soul Core of Zalatl"`;
+
+export const filterCosmeticTopCurrency =
 `Show
   Class == "Stackable Currency"
-  BaseType == "Mirror of Kalandra" "Perfect Jeweller's Orb" "Divine Orb"
-  SetFontSize 45
+  BaseType == ${filterPurpleTierCurrency}{fontSizePurple}{alertSoundPurple}
   Continue
 
 Show
   Class == "Stackable Currency"
-  BaseType == "Exalted Orb" "Greater Jeweller's Orb"
-  SetFontSize 40
-  Continue
-`;
-
-export const filterCosmeticTopCurrencyAlertSounds =
-`Show
-  Class == "Stackable Currency"
-  BaseType == "Mirror of Kalandra" "Perfect Jeweller's Orb" "Divine Orb"
-  PlayAlertSound 6 300
+  BaseType == ${filterBrownTierCurrency}{fontSizeBrown}{alertSoundBrown}
   Continue
 
 Show
-  Class == "Stackable Currency"
-  BaseType == "Exalted Orb" "Greater Jeweller's Orb"
-  PlayAlertSound 2 300
+  Class == "Expedition Logbooks"{fontSizeBrown}{alertSoundBrown}
   Continue
 `;
 
@@ -313,8 +304,7 @@ export const filterTemplate =
 ##### Cosmetic Effects
 #######################################################
 
-{filterCosmeticTopCurrencyLabels}
-{filterCosmeticTopCurrencyAlertSounds}
+{filterCosmeticTopCurrency}
 
 #######################################################
 ##### Highlights
@@ -691,8 +681,8 @@ Show
 
 Show
   Class == "Expedition Logbooks"
-  PlayEffect Orange
-  MinimapIcon 2 Orange Circle
+  PlayEffect Brown
+  MinimapIcon 2 Brown Circle
 
 Show
   Class == "Stackable Currency"
@@ -712,8 +702,8 @@ Show
 
 # Greater Essence of Torment      26
 # Greater Essence of Haste        23
-# Greater Essence of Ruin         15
 #
+# Greater Essence of Ruin         15
 # Greater Essence of Sorcery      10
 # Greater Essence of Electricity  9
 # Greater Essence of Enhancement  8
@@ -740,13 +730,13 @@ Show
 
 Show
   Class == "Stackable Currency"
-  BaseType == "Greater Essence of Torment" "Greater Essence of Haste" "Greater Essence of Ruin"
+  BaseType == "Greater Essence of Torment" "Greater Essence of Haste"
   PlayEffect Brown
   MinimapIcon 1 Brown Circle
 
 Show
   Class == "Stackable Currency"
-  BaseType == "Greater Essence of Sorcery" "Greater Essence of Electricity" "Greater Essence of Enhancement" "Greater Essence of Flames" "Greater Essence of Ice" "Greater Essence of the Mind" "Greater Essence of the Body" "Greater Essence of Battle" "Greater Essence of the Infinite"
+  BaseType ==  "Greater Essence of Ruin" "Greater Essence of Sorcery" "Greater Essence of Electricity" "Greater Essence of Enhancement" "Greater Essence of Flames" "Greater Essence of Ice" "Greater Essence of the Mind" "Greater Essence of the Body" "Greater Essence of Battle" "Greater Essence of the Infinite"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
