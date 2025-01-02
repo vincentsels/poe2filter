@@ -932,6 +932,6 @@ export const filterSuffix = `
 # Export date: {date}
 #######################################################
 # [[Config Start]]
-{filterConfig}
+# {filterConfig}
 # [[Config End]]
 #######################################################`;

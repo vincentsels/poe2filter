@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { buildNumber } from '../buildnumber';
 
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
 const FILTER_MAJOR_VERSION = '9';
@@ -372,10 +373,15 @@ export class AppComponent implements OnInit {
       // Cleanup
       .replaceAll(/(?:\r?\n){2,}/g, '\n\n');
 
-    this.filterTextFull = filterPrefix + this.filterText + filterSuffix
-      .replace('{version}', customRules);
+    const filterConfig = JSON.stringify(this.filter);
+    const filterConfigIndented = JSON.stringify(this.filter, null, 2);
 
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.filter));
+    this.filterTextFull = filterPrefix + this.filterText + filterSuffix
+      .replace('{version}', FILTER_MAJOR_VERSION + '.' + buildNumber)
+      .replace('{date}', new Date().toISOString())
+      .replace('{filterConfig}', filterConfigIndented.replaceAll('\n', '\n# '));
+
+    localStorage.setItem(LOCAL_STORAGE_KEY, filterConfig);
     localStorage.setItem(LOCAL_STORAGE_KEY_FILTER_STORED, '1');
 
     if (resetWarning) {
@@ -569,7 +575,7 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMap
   }
 
   download() {
-    this.downloadTextAsFile(this.filterText, 'poe2filter.filter');
+    this.downloadTextAsFile(this.filterTextFull, 'poe2filter.filter');
   }
 
   downloadTextAsFile(text: string, filename: string) {
@@ -586,7 +592,7 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMap
   }
 
   copyToClipboard() {
-    navigator.clipboard.writeText(this.filterText);
+    navigator.clipboard.writeText(this.filterTextFull);
     this.copyText = 'Copied!';
     setTimeout(() => this.copyText = 'Copy to Clipboard', 1000);
   }
