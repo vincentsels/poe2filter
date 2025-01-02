@@ -227,6 +227,7 @@ export enum DefenceType {
 }
 
 export enum MinimumRarity {
+  Rare = "Rare",
   Magic = "Magic",
   Normal = "Normal",
 }

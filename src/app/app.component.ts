@@ -271,14 +271,14 @@ export class AppComponent implements OnInit {
     const weaponFilterText = this.filter.weaponFilters.filter(w => w.show).map(w => filterPreferredWeaponType
       .replaceAll('{weaponType}', w.weaponType === WeaponType.All ? this.formatAllWeaponTypes() : `"${w.weaponType}"`)
       .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
-      .replaceAll('{rarity}', (w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
+      .replaceAll('{rarity}', (w.rarity === MinimumRarity.Rare ? 'Rare' : w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
       .replace('{rarePlayEffect}', (w.weaponType === WeaponType.All ? '' : '\n' + filterRarePlayEffect))
     ).join('\n');
 
     const armourFilterText = this.filter.armourFilters.filter(w => w.show).map(w => filterPreferredArmourType
       .replaceAll('{armourType}', w.armourType === ArmourType.All ? this.formatAllArmourTypes() : w.armourType === ArmourType.AllButShields ? this.formatAllArmourTypesButShields() : `"${w.armourType}"`)
       .replaceAll('{tierType}', w.baseTypeTier === BaseTypeTier.ExpertOnly ? '\n  BaseType "Expert "' : w.baseTypeTier === BaseTypeTier.AdvancedAndExpert ? '\n  BaseType "Expert " "Advanced "' : '')
-      .replaceAll('{rarity}', (w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
+      .replaceAll('{rarity}', (w.rarity === MinimumRarity.Rare ? 'Rare' : w.rarity === MinimumRarity.Magic ? 'Magic' : 'Normal Magic'))
       .replaceAll('{defenceType}', this.formatDefenceType(w.defenceType))
       .replace('{rarePlayEffect}', (w.armourType === ArmourType.All ? '' : '\n' + filterRarePlayEffect))
     ).join('\n');

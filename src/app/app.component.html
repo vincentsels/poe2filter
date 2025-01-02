@@ -562,6 +562,7 @@
                               <select [(ngModel)]="weapon.rarity" (change)="updateFilter()" [disabled]="!weapon.show">
                                 <option [value]="MinimumRarity.Normal">≥ Normal</option>
                                 <option [value]="MinimumRarity.Magic">≥ Magic</option>
+                                <option [value]="MinimumRarity.Rare">≥ Rare</option>
                               </select>
                             </div>
                           </div>
@@ -648,6 +649,7 @@
                               <select [(ngModel)]="armour.rarity" (change)="updateFilter()" [disabled]="!armour.show">
                                 <option [value]="MinimumRarity.Normal">≥ Normal</option>
                                 <option [value]="MinimumRarity.Magic">≥ Magic</option>
+                                <option [value]="MinimumRarity.Rare">≥ Rare</option>
                               </select>
                             </div>
                           </div>
