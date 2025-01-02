@@ -171,20 +171,25 @@ export class AppComponent implements OnInit {
       if ((r as any).class) {
         r.itemType = (r as any).class;
         r.itemClass = itemData.find(i => i.itemType === r.itemType)?.itemClass || 'All';
+        delete (r as any).class;
       }
     });
 
     // Currency filter
     const hideCommonCurrencyType = (this.filter as any).hideCommonCurrencyType;
-    if (hideCommonCurrencyType === "CommonShardsOnly") {
+    if (hideCommonCurrencyType) {
       this.filter.hideCurrency = true;
-      this.filter.hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard'];
-    } else if (hideCommonCurrencyType === "ShardsOnly") {
-      this.filter.hideCurrency = true;
-      this.filter.hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard', 'Regal Shard', 'Chance Shard'];
-    } else if (hideCommonCurrencyType === "AllCommon") {
-      this.filter.hideCurrency = true;
-      this.filter.hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard', 'Regal Shard', 'Chance Shard', 'Orb of Augmentation', 'Orb of Transmutation'];
+
+      if (hideCommonCurrencyType === "CommonShardsOnly") {
+        this.filter.hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard'];
+      } else if (hideCommonCurrencyType === "ShardsOnly") {
+        this.filter.hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard', 'Regal Shard', 'Chance Shard'];
+      } else if (hideCommonCurrencyType === "AllCommon") {
+        this.filter.hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard', 'Regal Shard', 'Chance Shard', 'Orb of Augmentation', 'Orb of Transmutation'];
+      }
+
+      delete (this.filter as any).hideCommonCurrency;
+      delete (this.filter as any).hideCommonCurrencyType;
     }
 
     this.updateFilter();
