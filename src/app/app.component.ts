@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, CosmeticOptions, MinimapIconShape, MinimapIconSize, Color, LabelSize } from './filter';
-import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterShowCommonCurrency, filterHighlightCommonCurrency, filterPreferredArmourType, filterRarePlayEffect, filterHideShards, filterHideCommonOrbs, filterShowShards, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideCommonShards, filterHideRareGearBelowAdvanced, filterHighlightChanceBases, filterPrefix, filterSuffix } from './filter-template';
+import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterPreferredArmourType, filterRarePlayEffect, filterHighlightGem, filterHideGem, filterCosmeticTopCurrencyLabels, filterCosmeticTopCurrencyAlertSounds, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideRareGearBelowAdvanced, filterHighlightChanceBases, filterPrefix, filterSuffix, filterHideCurrency } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
@@ -63,6 +63,25 @@ export class AppComponent implements OnInit {
   amuletBaseTypes = itemData.filter(i => i.itemType === 'Amulets')[0].baseTypes;
   beltBaseTypes = itemData.filter(i => i.itemType === 'Belts')[0].baseTypes;
   runeBaseTypes = itemData.filter(i => i.itemType === 'Socketable')[0].baseTypes.filter(b => b.includes('Rune'));
+  baseCurrencyTypes = [
+    "Transmutation Shard",
+    "Artificer's Shard",
+    "Regal Shard",
+    "Chance Shard",
+    "Orb of Augmentation",
+    "Orb of Transmutation",
+    "Armourer's Scrap",
+    "Blacksmith's Whetstone",
+    "Arcanist's Etcher",
+    "Artificer's Orb",
+    "Glassblower's Bauble",
+    "Gemcutter's Prism",
+    "Vaal Orb",
+    "Regal Orb",
+    "Orb of Alchemy",
+    "Chaos Orb",
+    "Lesser Jeweller's Orb",
+  ];
 
   currencyItemTypes = itemData.filter(i => i.itemClass === 'Stackable Currency').map(i => i.itemType);
 
@@ -154,6 +173,19 @@ export class AppComponent implements OnInit {
       }
     });
 
+    // Currency filter
+    const hideCommonCurrencyType = (this.filter as any).hideCommonCurrencyType;
+    if (hideCommonCurrencyType === "CommonShardsOnly") {
+      this.filter.hideCurrency = true;
+      this.filter.hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard'];
+    } else if (hideCommonCurrencyType === "ShardsOnly") {
+      this.filter.hideCurrency = true;
+      this.filter.hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard', 'Regal Shard', 'Chance Shard'];
+    } else if (hideCommonCurrencyType === "AllCommon") {
+      this.filter.hideCurrency = true;
+      this.filter.hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard', 'Regal Shard', 'Chance Shard', 'Orb of Augmentation', 'Orb of Transmutation'];
+    }
+
     this.updateFilter();
   }
 
@@ -166,7 +198,7 @@ export class AppComponent implements OnInit {
   toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilter(); }
   toggleHideCommonCharms = () => { this.filter.hideCharms = !this.filter.hideCharms; this.updateFilter(); }
   toggleHideRunes = () => { this.filter.hideRunes = !this.filter.hideRunes; this.updateFilter(); }
-  toggleHideCommonCurrency = () => { this.filter.hideCommonCurrency = !this.filter.hideCommonCurrency; this.updateFilter(); }
+  toggleHideCurrency = () => { this.filter.hideCurrency = !this.filter.hideCurrency; this.updateFilter(); }
 
   toggleHideGold = () => {
     this.filter.hideGold = !this.filter.hideGold;
@@ -254,17 +286,6 @@ export class AppComponent implements OnInit {
     const dynamicWaystoneFilterText = this.buildDynamicWaystoneFilter();
     const dynamicSkillGemFilterText = this.buildDynamicSkillGemFilter();
 
-    let commonCurrency = '';
-    if (this.filter.hideCommonCurrency) {
-      if (this.filter.hideCommonCurrencyType === CurrencyToHide.AllCommon) {
-        commonCurrency = filterShowCommonCurrency;
-      } else {
-        commonCurrency = filterHighlightCommonCurrency.replace('{filterShowShards}', '\n')
-      }
-    } else {
-      commonCurrency = filterHighlightCommonCurrency.replace('{filterShowShards}', '\n' + filterShowShards);
-    }
-
     let showLifeFlaskExceptionsFilterText = '';
     if (this.filter.hideLifeFlasks && this.filter.hideLifeFlasksBaseTypeExceptions.length > 0 && !this.filter.hideLifeFlasksBaseTypeExceptions.includes('None')) {
       showLifeFlaskExceptionsFilterText = filterShowFlaskExceptions
@@ -311,6 +332,12 @@ export class AppComponent implements OnInit {
         .replace('{baseTypes}', this.filter.hideBeltsBaseTypeExceptions.map(t => `"${t}"`).join(' '));
     }
 
+    let hideCurrencyFilterText = '';
+    if (this.filter.hideCurrency && this.filter.hideCurrencyTypes.length > 0 && !this.filter.hideCurrencyTypes.includes('None')) {
+      hideCurrencyFilterText = filterHideCurrency
+        .replace('{baseTypes}', this.filter.hideCurrencyTypes.map(t => `"${t}"`).join(' '));
+    }
+
     const customRules = this.buildCustomRules();
 
     const customCosmeticRules = this.buildCustomCosmeticRules();
@@ -328,9 +355,7 @@ export class AppComponent implements OnInit {
       .replace('{filterHideScrolls}', this.filter.hideScrolls ? filterHideScrolls : '')
       .replace('{filterHighlightGold}', this.filter.hideGold && this.filter.hideGoldLowerThan ? filterHighlightGold.replaceAll('{whiteGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 20).toString()).replaceAll('{yellowGoldLevel}', ((this.filter.hideGoldLowerThan || 1) * 100).toString()) : '')
       .replace('{filterHideGold}', this.filter.hideGold ? filterHideGold.replace('{minGold}', (this.filter.hideGoldLowerThan || 10000).toString()): '')
-      .replace('{filterHideCommonOrbs}', this.filter.hideCommonCurrency && this.filter.hideCommonCurrencyType === CurrencyToHide.AllCommon ? filterHideCommonOrbs : '')
-      .replace('{filterHideShards}', this.filter.hideCommonCurrency ? this.filter.hideCommonCurrencyType === CurrencyToHide.CommonShardsOnly ? filterHideCommonShards : filterHideShards : '')
-      .replace('{filterShowCommonCurrency}', commonCurrency)
+      .replace('{filterHideCurrency}', hideCurrencyFilterText)
       .replace('{filterShowRuneExceptions}', showRuneExceptionsFilterText)
       .replace('{filterHideRunes}', this.filter.hideRunes ? filterHideRunes : '')
 

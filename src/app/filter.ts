@@ -29,8 +29,8 @@ export class Filter {
   hideGoldLowerThan = 50;
   hideRunes = false;
   hideRunesExceptions = ['None'];
-  hideCommonCurrency = true;
-  hideCommonCurrencyType = CurrencyToHide.CommonShardsOnly;
+  hideCurrency = true;
+  hideCurrencyTypes = ['Transmutation Shard', 'Artificer\'s Shard'];
 
   highlightUniques = true;
   highlightRareJewellery = true;

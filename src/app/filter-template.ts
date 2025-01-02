@@ -207,59 +207,10 @@ export const filterHideRunes =
   BaseType "Rune"
 `;
 
-export const filterHideCommonShards =
+export const filterHideCurrency =
 `Hide
   Class == "Stackable Currency"
-  BaseType == "Transmutation Shard" "Regal Shard" "Artificer's Shard"
-`;
-
-export const filterHideShards =
-`Hide
-  Class == "Stackable Currency"
-  BaseType == "Transmutation Shard" "Regal Shard" "Artificer's Shard" "Chance Shard"
-`;
-
-export const filterHideCommonOrbs =
-`Hide
-  Class == "Stackable Currency"
-  BaseType == "Orb of Transmutation" "Orb of Augmentation"
-`;
-
-export const filterShowShards =
-`Show
-  Class == "Stackable Currency"
-  BaseType == "Transmutation Shard" "Regal Shard" "Artificer's Shard" "Chance Shard"
-`;
-
-export const filterHighlightCommonCurrency =
-`Show
-  Class == "Stackable Currency"
-  BaseType == "Orb of Annulment" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
-  PlayEffect Yellow
-  MinimapIcon 2 Yellow Circle
-
-Show
-  Class == "Stackable Currency"
-  BaseType == "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb"
-  PlayEffect White
-  MinimapIcon 2 White Circle
-
-Show
-  Class == "Stackable Currency"
-  BaseType == "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher" "Orb of Transmutation" "Orb of Augmentation"
-{filterShowShards}
-`;
-
-export const filterShowCommonCurrency =
-`Show
-  Class == "Stackable Currency"
-  BaseType == "Orb of Annulment" "Chaos Orb" "Orb of Alchemy" "Gemcutter's Prism" "Orb of Chance"
-  PlayEffect White
-  MinimapIcon 2 White Circle
-
-Show
-  Class == "Stackable Currency"
-  BaseType == "Regal Orb" "Vaal Orb" "Artificer's Orb" "Glassblower's Bauble" "Lesser Jeweller's Orb" "Armourer's Scrap" "Blacksmith's Whetstone" "Arcanist's Etcher"
+  BaseType == {baseTypes}
 `;
 
 export const filterHideWaystone =
@@ -395,11 +346,10 @@ export const filterTemplate =
 {filterHighlightGold}
 {filterHideGold}
 
-{filterHideCommonOrbs}
-{filterHideShards}
-
 {filterShowRuneExceptions}
 {filterHideRunes}
+
+{filterHideCurrency}
 
 #######################################################
 ##### Jewellery Filters
@@ -481,28 +431,28 @@ Show
 #######################################################
 
 # Mirror of Kalandra      ?
-# Perfect Jeweller's Orb  191
+# Perfect Jeweller's Orb  309
 #
-# Divine Orb              50
-# Greater Jeweller's Orb  18
+# Divine Orb              118
+# Greater Jeweller's Orb  37
 #
-# Orb of Annulment        3
-# Orb of Chance           3
-# Chaos Orb               2
-# Gemcutter's Prism       2
-# Exalted Orb             1
+# Orb of Annulment        5
+# Orb of Chance           6
+# Chaos Orb               3
 
+# Gemcutter's Prism       2
+# Glassblower's Bauble    1
+# Exalted Orb             1
 # Orb of Alchemy          0.5
-# Vaal Orb                0.4
-# Glassblower's Bauble    0.4
-# Regal Orb               0.3
+
+# Vaal Orb                0.2
+# Regal Orb               0.2
 # Artificer's Orb         0.2
-# Lesser Jeweller's Orb   0.12
-#
-# Armourer's Scrap        0.25
+# Armourer's Scrap        0.5
+# Blacksmith's Whetstone  0.2
 # Arcanist's Etcher       0.2
-# Blacksmith's Whetstone  0.1
 #
+# Lesser Jeweller's Orb   0.05
 # Orb of Transmutation    0.01
 # Orb of Augmentation     0.001
 # Transmutation Shard     0.001
@@ -523,11 +473,25 @@ Show
 
 Show
   Class == "Stackable Currency"
-  BaseType == "Exalted Orb"
+  BaseType == "Orb of Chance" "Orb of Annulment" "Chaos Orb"
   PlayEffect Orange
   MinimapIcon 2 Orange Circle
 
-{filterShowCommonCurrency}
+Show
+  Class == "Stackable Currency"
+  BaseType == "Exalted Orb" "Orb of Alchemy" "Glassblower's Bauble" "Gemcutter's Prism"
+  PlayEffect Yellow
+  MinimapIcon 2 Yellow Circle
+
+Show
+  Class == "Stackable Currency"
+  BaseType == "Regal Orb" "Vaal Orb" "Artificer's Orb" "Armourer's Scrap"
+  PlayEffect White
+  MinimapIcon 2 White Circle
+
+Show
+  Class == "Stackable Currency"
+  BaseType == "Lesser Jeweller's Orb" "Transmutation Shard" "Regal Shard" "Artificer's Shard" "Blacksmith's Whetstone" "Arcanist's Etcher" "Chance Shard" "Orb of Transmutation" "Orb of Augmentation"
 
 #######################################################
 ##### Trials

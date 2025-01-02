@@ -211,25 +211,22 @@
                         </span>
                       </div>
 
-                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideCommonCurrency">
+                      <div class="filter filter-property full-span" [class.disabled]="!filter.hideCurrency">
                         <span class="input-group-btn">
-                          <button class="btn toggle-btn" [class.off]="!filter.hideCommonCurrency" (click)="toggleHideCommonCurrency()"></button>
+                          <button class="btn toggle-btn" [class.off]="!filter.hideCurrency" (click)="toggleHideCurrency()"></button>
                         </span>
                         <span class="filter-body">
                           <div class="filter-title">
-                            Hide Common Currency
-                            <div class="filter-tip"><p>Common Shards still shows Chance Shards.<br /><br/>Common orbs hides Orbs of Agumentation and Transmutation. In Addition, currency worth less than an Exalted Orb is shown a Drop Tier lower (e.g. white instead of yellow).</p></div>
+                            Hide Currency
                           </div>
                           <span class="sep"></span>
-                          <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
-                            <div class="multiselect__tags">
-                              <select [disabled]="!filter.hideCommonCurrency" [(ngModel)]="filter.hideCommonCurrencyType" (change)="updateFilter()">
-                                <option [value]="CurrencyToHide.CommonShardsOnly">Common Shards Only</option>
-                                <option [value]="CurrencyToHide.ShardsOnly">All Shards</option>
-                                <option [value]="CurrencyToHide.AllCommon">Common Orbs Too</option>
-                              </select>
-                            </div>
-                          </div>
+                          <pf-autocomplete
+                            [allLabel]="'None'"
+                            [options]="baseCurrencyTypes"
+                            [disabled]="!filter.hideCurrency"
+                            [showOptions]="true"
+                            [selectedValues]="filter.hideCurrencyTypes"
+                            (selectedValuesChange)="filter.hideCurrencyTypes = $event; updateFilter();"></pf-autocomplete>
                         </span>
                       </div>
 
@@ -246,7 +243,7 @@
                             Except
                           </div>
                           <span class="sep"></span>
-                          <pf-autocomplete style="width: 271px;"
+                          <pf-autocomplete
                             [allLabel]="'None'"
                             [options]="runeBaseTypes"
                             [disabled]="!filter.hideRunes"
