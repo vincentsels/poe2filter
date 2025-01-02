@@ -7,6 +7,7 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { buildNumber } from '../buildnumber';
 
+const LOCAL_STORAGE_KEY_HIDE_TIER_WARNING = 'poe-hide-tier-warning';
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
 const FILTER_MAJOR_VERSION = '9';
 const LOCAL_STORAGE_KEY = 'filter-v' + FILTER_MAJOR_VERSION;
@@ -21,6 +22,14 @@ export class AppComponent implements OnInit {
   filter = new Filter();
   filterText = filterTemplate;
   filterTextFull = filterTemplate;
+
+  showTierWarning = true;
+
+  filterVersion = FILTER_MAJOR_VERSION;
+  importFilterError: string | null = null;
+  importFilterSuccess: boolean | null = null;
+  importFilterExportDate: string | null = null;
+  importFilterExportVersion: string | null = null;
 
   FlaskType = FlaskType;
   RarityToHide = RarityToHide;
@@ -93,6 +102,7 @@ export class AppComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.showTierWarning = localStorage.getItem(LOCAL_STORAGE_KEY_HIDE_TIER_WARNING) !== '1';
     const filterSet = localStorage.getItem(LOCAL_STORAGE_KEY_FILTER_STORED);
     const filterFromStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (filterFromStorage) {
@@ -609,15 +619,49 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMap
   }
 
   import() {
-    const importedFilter = prompt('Paste the contents of the exported file here:', '');
-    if (importedFilter) {
-      try {
-        this.filter = JSON.parse(importedFilter);
-        this.updateFilter();
-      } catch {
-        alert('Failed to import filter. Please ensure the filter is in the correct format and version: ' + LOCAL_STORAGE_KEY);
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.filter';
+    input.style.display = 'none'; // Hide the input element
+    input.onchange = (event: any) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          try {
+            const content = e.target!.result as string;
+            const versionMatch = content.match(/# Version: (\d+)/);
+            const dateMatch = content.match(/# Export date: (.+)/);
+            const configMatch = content.match(/# \[\[Config Start\]\]\n# (.+)\n# \[\[Config End\]\]/s);
+
+            if (versionMatch && dateMatch && configMatch) {
+              this.importFilterExportVersion = versionMatch[1];
+              this.importFilterExportDate = dateMatch[1];
+              const config = configMatch[1].replace(/^# /gm, '');
+
+              try {
+                this.filter = JSON.parse(config);
+                this.importFilterSuccess = true;
+                this.updateFilter();
+              } catch (error: any) {
+                this.importFilterError = error;
+              }
+            } else {
+              this.importFilterError = 'Missing version, date, or filter configuration in the imported file.';
+            }
+          } catch (error: any) {
+            this.importFilterError = error;
+          } finally {
+            document.body.removeChild(input); // Remove the input element
+          }
+        };
+        reader.readAsText(file);
+      } else {
+        document.body.removeChild(input); // Remove the input element if no file is selected
       }
-    }
+    };
+    document.body.appendChild(input); // Append the input element to the body
+    input.click();
   }
 
   getBaseTypesForItemType = (itemType: string) => {
@@ -676,5 +720,10 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMap
       'border': o.borderColor ? '1px solid ' + o.borderColor + ' !important' : 'none !important',
       'line-height': o.borderColor ? '14px' : '16px',
     };
+  }
+
+  hideTierWarning() {
+    this.showTierWarning = false;
+    localStorage.setItem(LOCAL_STORAGE_KEY_HIDE_TIER_WARNING, '1');
   }
 }

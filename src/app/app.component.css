@@ -33,6 +33,18 @@ select[disabled] {
 
 .info {
   padding: 8px 16px;
+
+  .close-info-btn {
+    position: absolute;
+    right: 16px;
+    top: 8px;
+    cursor: pointer;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .info-title {
