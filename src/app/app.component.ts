@@ -614,10 +614,6 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMap
     };
   }
 
-  export() {
-    this.downloadTextAsFile(JSON.stringify(this.filter, null, 2), LOCAL_STORAGE_KEY + '.json');
-  }
-
   import() {
     const input = document.createElement('input');
     input.type = 'file';
