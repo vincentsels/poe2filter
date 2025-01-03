@@ -1,3 +1,7 @@
+.logo {
+  margin-top: 20px;
+}
+
 .block {
   min-height: unset;
   position: relative;
