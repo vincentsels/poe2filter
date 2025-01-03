@@ -1,1 +1,1 @@
-export const buildNumber = 6;
+export const buildNumber = 7;
