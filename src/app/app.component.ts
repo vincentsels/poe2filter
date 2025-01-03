@@ -6,6 +6,7 @@ import { itemData } from './item-data';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { buildNumber } from '../buildnumber';
+import { QuickFilterTabComponent } from './quick-filter-tab/quick-filter-tab.component';
 
 const LOCAL_STORAGE_KEY_HIDE_TIER_WARNING = 'poe-hide-tier-warning';
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
@@ -15,8 +16,8 @@ const LOCAL_STORAGE_KEY = 'filter-v' + FILTER_MAJOR_VERSION;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [FormsModule, AutocompleteComponent, ColorPickerModule]
+  styleUrls: ['./general.scss', './app.component.scss'],
+  imports: [FormsModule, AutocompleteComponent, ColorPickerModule, QuickFilterTabComponent]
 })
 export class AppComponent implements OnInit {
   filter = new Filter();

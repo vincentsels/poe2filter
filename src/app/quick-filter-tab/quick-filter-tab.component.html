@@ -1,0 +1,749 @@
+<div class="search-advanced-items">
+
+  @if (filterResetWarning) {
+  <div class="row row-total row-justify-content-left">
+    <div class="info" style="position: relative;">
+      <h2 class="info-title">Heads up! <strong>Your previously stored filter was reset!</strong></h2>
+      Due to a breaking change in the structure of the filter, your previously stored filter could not be reloaded.
+      Please revise all settings. You can copy any 'Free Rules' from your current filter file. We apologize for this inconvenience.
+      <div class="close-info-btn" (click)="filterResetWarning = false">✕</div>
+    </div>
+  </div>
+  }
+
+  <div class="search-advanced-pane blue">
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <span class="filter-title">
+              Flask and Charm Filters
+              <div class="filter-tip"><p>Uniques will not be hidden.</p></div>
+          </span>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.hideLifeFlasks">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideLifeFlasks" (click)="toggleHideLifeFlasks()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Life Flasks
+            </div>
+            <span class="sep"></span>
+            <div class="filter-title filter-label">
+              Except
+            </div>
+            <span class="sep"></span>
+            <pf-autocomplete
+              [allLabel]="'None'"
+              [options]="lifeFlaskBaseTypes"
+              [disabled]="!filter.hideLifeFlasks"
+              [showOptions]="true"
+              [selectedValues]="filter.hideLifeFlasksBaseTypeExceptions"
+              (selectedValuesChange)="filter.hideLifeFlasksBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+            <span class="sep"></span>
+            <div class="filter-title filter-label" [class.disabled]="filter.hideLifeFlasks && filter.hideLifeFlasksBaseTypeExceptions.includes('None')">
+              Of Quality
+            </div>
+            <span class="sep"></span>
+            <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+              [disabled]="!filter.hideLifeFlasks || filter.hideLifeFlasksBaseTypeExceptions.includes('None')"
+              [(ngModel)]="filter.hideLifeFlasksQuality" (change)="updateFilter()">
+          </span>
+        </div>
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.hideManaFlasks">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideManaFlasks" (click)="toggleHideManaFlasks()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Mana Flasks
+            </div>
+            <span class="sep"></span>
+            <div class="filter-title filter-label">
+              Except
+            </div>
+            <span class="sep"></span>
+            <pf-autocomplete
+              [allLabel]="'None'"
+              [options]="manaFlaskBaseTypes"
+              [disabled]="!filter.hideManaFlasks"
+              [showOptions]="true"
+              [selectedValues]="filter.hideManaFlasksBaseTypeExceptions"
+              (selectedValuesChange)="filter.hideManaFlasksBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+            <span class="sep"></span>
+            <div class="filter-title filter-label" [class.disabled]="filter.hideLifeFlasks && filter.hideManaFlasksBaseTypeExceptions.includes('None')">
+              Of Quality
+            </div>
+            <span class="sep"></span>
+            <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+              [disabled]="!filter.hideManaFlasks || filter.hideManaFlasksBaseTypeExceptions.includes('None')"
+              [(ngModel)]="filter.hideManaFlasksQuality" (change)="updateFilter()">
+          </span>
+        </div>
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.hideCharms">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideCharms" (click)="toggleHideCommonCharms()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Charms
+            </div>
+            <span class="sep"></span>
+            <div class="filter-title filter-label">
+              Except
+            </div>
+            <span class="sep"></span>
+            <pf-autocomplete
+              [allLabel]="'None'"
+              [options]="charmBaseTypes"
+              [disabled]="!filter.hideCharms"
+              [showOptions]="true"
+              [selectedValues]="filter.hideCharmsBaseTypeExceptions"
+              (selectedValuesChange)="filter.hideCharmsBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+            <span class="sep"></span>
+            <div class="filter-title filter-label" [class.disabled]="filter.hideCharms && filter.hideCharmsBaseTypeExceptions.includes('None')">
+              Of Quality
+            </div>
+            <span class="sep"></span>
+            <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+              [disabled]="!filter.hideCharms || filter.hideCharmsBaseTypeExceptions.includes('None')"
+              [(ngModel)]="filter.hideCharmsQuality" (change)="updateFilter()">
+          </span>
+        </div>
+
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <span class="filter-title">
+              Currency Filters
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.hideScrolls">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideScrolls" (click)="toggleHideScrolls()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Scrolls of Wisdom
+            </div>
+          </span>
+        </div>
+
+        <div class="filter full-span" [class.disabled]="!filter.hideGold">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideGold" (click)="toggleHideGold()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Gold Stacks Lower Than
+              <div class="filter-tip"><p>You will still pick up smaller stacks too. Stacks 20 times higher will be highlighted in white, 100 times higher in yellow.</p></div>
+            </div>
+            <span class="sep"></span>
+            <input type="number" placeholder="min" maxlength="4" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+              [disabled]="!filter.hideGold" [(ngModel)]="filter.hideGoldLowerThan" (change)="updateFilter()">
+          </span>
+        </div>
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.hideCurrency">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideCurrency" (click)="toggleHideCurrency()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Currency
+            </div>
+            <span class="sep"></span>
+            <pf-autocomplete
+              [allLabel]="'None'"
+              [options]="baseCurrencyTypes"
+              [disabled]="!filter.hideCurrency"
+              [showOptions]="true"
+              [selectedValues]="filter.hideCurrencyTypes"
+              (selectedValuesChange)="filter.hideCurrencyTypes = $event; updateFilter();"></pf-autocomplete>
+          </span>
+        </div>
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.hideRunes">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideRunes" (click)="toggleHideRunes()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Runes
+            </div>
+            <span class="sep"></span>
+            <div class="filter-title filter-label">
+              Except
+            </div>
+            <span class="sep"></span>
+            <pf-autocomplete
+              [allLabel]="'None'"
+              [options]="runeBaseTypes"
+              [disabled]="!filter.hideRunes"
+              [showOptions]="true"
+              [selectedValues]="filter.hideRunesExceptions"
+              (selectedValuesChange)="filter.hideRunesExceptions = $event; updateFilter();"></pf-autocomplete>
+          </span>
+        </div>
+
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <span class="filter-title">
+              Jewellery Filters
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        <div class="filter full-span" [class.disabled]="!filter.hideAmulets">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideAmulets" (click)="toggleHideAmulets()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Amulets
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
+              <div class="multiselect__tags">
+                <select [disabled]="!filter.hideAmulets" [(ngModel)]="filter.hideAmuletsOfRarity" (change)="updateFilter()">
+                  <option [value]="RarityToHide.Normal">Normal</option>
+                  <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
+                </select>
+              </div>
+            </div>
+            <span class="sep"></span>
+            <div class="filter-title filter-label">
+              Except
+            </div>
+            <span class="sep"></span>
+            <pf-autocomplete
+              [allLabel]="'None'"
+              [options]="amuletBaseTypes"
+              [disabled]="!filter.hideAmulets"
+              [showOptions]="true"
+              [selectedValues]="filter.hideAmuletsBaseTypeExceptions"
+              (selectedValuesChange)="filter.hideAmuletsBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+          </span>
+        </div>
+
+        <div class="filter full-span" [class.disabled]="!filter.hideRings">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideRings" (click)="toggleHideRings()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Rings
+              <div class="filter-tip"><p>Breach Rings will always be highlighted in Brown.</p></div>
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
+              <div class="multiselect__tags">
+                <select [disabled]="!filter.hideRings" [(ngModel)]="filter.hideRingsOfRarity" (change)="updateFilter()">
+                  <option [value]="RarityToHide.Normal">Normal</option>
+                  <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
+                </select>
+              </div>
+            </div>
+            <span class="sep"></span>
+            <div class="filter-title filter-label">
+              Except
+            </div>
+            <span class="sep"></span>
+            <pf-autocomplete
+              [allLabel]="'None'"
+              [options]="ringBaseTypes"
+              [disabled]="!filter.hideRings"
+              [showOptions]="true"
+              [selectedValues]="filter.hideRingsBaseTypeExceptions"
+              (selectedValuesChange)="filter.hideRingsBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+          </span>
+        </div>
+
+        <div class="filter full-span" [class.disabled]="!filter.hideBelts">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideBelts" (click)="toggleHideBelts()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Belts
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 180px;">
+              <div class="multiselect__tags">
+                <select [disabled]="!filter.hideBelts" [(ngModel)]="filter.hideBeltsOfRarity" (change)="updateFilter()">
+                  <option [value]="RarityToHide.Normal">Normal</option>
+                  <option [value]="RarityToHide.NormalAndMagic">Normal and Magic</option>
+                </select>
+              </div>
+            </div>
+            <span class="sep"></span>
+            <div class="filter-title filter-label">
+              Except
+            </div>
+            <span class="sep"></span>
+            <pf-autocomplete
+              [allLabel]="'None'"
+              [options]="beltBaseTypes"
+              [disabled]="!filter.hideBelts"
+              [showOptions]="true"
+              [selectedValues]="filter.hideBeltsBaseTypeExceptions"
+              (selectedValuesChange)="filter.hideBeltsBaseTypeExceptions = $event; updateFilter();"></pf-autocomplete>
+          </span>
+        </div>
+
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <span class="filter-title">
+              Additional Highlights
+              <div class="filter-tip"><p>All currency is highlighted and shown on the minimap. This allows you to highlight additional items and show them on the minimap, to make them stand out.</p></div>
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.highlightUniques">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.highlightUniques" (click)="toggleHighlightUniques()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Highlight Uniques
+            </div>
+          </span>
+        </div>
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.highlightChanceBases">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.highlightChanceBases" (click)="toggleHighlightChanceBases()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Highlight Chance Bases
+              <div class="filter-tip"><p>This always shows or highlights (in brown) Normal items which are good or excellent candidates to use a Chance Orb on, respectively.</p></div>
+            </div>
+          </span>
+        </div>
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.highlightRareJewellery">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.highlightRareJewellery" (click)="toggleHighlightRareJewellery()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Highlight Rare Jewellery
+              <div class="filter-tip"><p>Rare jewellery (Amulets, Rings, Belts) is always shown, but this will additionally highlight it to make it stand out.</p></div>
+            </div>
+          </span>
+        </div>
+
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+  </div>
+
+  <div class="search-advanced-pane blue">
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <span class="filter-title">
+              Gear Filters
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.hideNormalAndMagicItems">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.hideNormalAndMagicItems" (click)="toggleHideNormalAndMagicItems()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Hide Weapons And Armour
+              <div class="filter-tip"><p>Hides all Normal and/or Magic and/or Rare Weapons and Armour; except for the ones specified in the Weapon and Armour filter below.
+              <br /><br /><strong>Warning!</strong> If you are hiding All Rares, be sure to add custom rules for the Weapon and Armour types you use, below.</p></div>
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+              <div class="multiselect__tags">
+                <select [disabled]="!filter.hideNormalAndMagicItems" [(ngModel)]="filter.hideNormalAndMagicItemsOfRarity" (change)="updateFilter()">
+                  <option [value]="WeaponsAndArmourRarityToHide.Normal">Normal</option>
+                  <option [value]="WeaponsAndArmourRarityToHide.NormalAndMagic">Normal and Magic</option>
+                  <option [value]="WeaponsAndArmourRarityToHide.NormalMagicRareBelowAdvanced">Normal, Magic, Rare &lt; Advanced</option>
+                  <option [value]="WeaponsAndArmourRarityToHide.NormalMagicRareBelowExpert">Normal, Magic, Rare &lt; Expert</option>
+                  <option [value]="WeaponsAndArmourRarityToHide.NormalMagicRare">Normal, Magic, All Rare</option>
+                </select>
+              </div>
+            </div>
+          </span>
+        </div>
+
+        @if(filter.hideNormalAndMagicItems) {
+        <div class="filter filter-property full-span" [class.disabled]="!filter.showSocketedItems">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.showSocketedItems" (click)="toggleShowSocketedItems()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Except Socketed Gear
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+              <div class="multiselect__tags">
+                <select [disabled]="!filter.showSocketedItems" [(ngModel)]="filter.showSocketedItemsType" (change)="updateFilter()">
+                  <option [value]="SocketedItemType.All">All</option>
+                  <option [value]="SocketedItemType.TwoOrMoreSockets">2 Sockets</option>
+                </select>
+              </div>
+            </div>
+          </span>
+        </div>
+
+        <div class="filter filter-property full-span" [class.disabled]="!filter.showQualityItems">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.showQualityItems" (click)="toggleShowQualityItems()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Except Quality Gear
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 271px;">
+              <div class="multiselect__tags">
+                <select [disabled]="!filter.showQualityItems" [(ngModel)]="filter.showQualityItemsType" (change)="updateFilter()">
+                  <option value="All">All</option>
+                  <option value="MinimumTenQuality">> 10 Quality</option>
+                </select>
+              </div>
+            </div>
+          </span>
+        </div>
+        }
+
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <div class="filter-title">
+              Show Weapon Types
+              <div class="filter-tip"><p>If you checked the 'Hide Weapons And Armour' box before,
+                here you can specify which Weapon Base Types you still want to show Normal and/or Magic items of.
+                Specify whether you only want to show the Advanced and/or Expert versions.
+                Note that Rare and Unique Weapons are always shown.<br/><br/>
+                Note that Sceptres, Staves, Wands and Quivers don't have Advanced or Expert base types. These will be hidden
+                if you only show Advanced or Expert weapons.<br/><br/>
+                You will find Shields in the Armour section below, so you can specify the desired defence type.
+                </p></div>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        @for (weapon of filter.weaponFilters; track $index) {
+        <div class="filter full-span">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!weapon.show" (click)="toggleShowWeapon($index)"></button>
+          </span>
+          <span class="filter-body">
+            <div tabindex="-1" class="multiselect filter-select">
+              <div class="multiselect__tags">
+                <select [(ngModel)]="weapon.weaponType" (change)="updateWeaponType(weapon); updateFilter();" [disabled]="!weapon.show">
+                  <option [value]="WeaponType.All">All</option>
+                  <option [value]="WeaponType.Bows">Bows</option>
+                  <option [value]="WeaponType.Crossbows">Crossbows</option>
+                  <option [value]="WeaponType.Foci">Focus</option>
+                  <option [value]="WeaponType.OneHandMaces">One Hand Maces</option>
+                  <option [value]="WeaponType.QuarterStaves">QuarterStaves</option>
+                  <option [value]="WeaponType.Quivers">Quivers</option>
+                  <option [value]="WeaponType.Sceptres">Sceptres</option>
+                  <option [value]="WeaponType.Staves">Staves</option>
+                  <option [value]="WeaponType.TwoHandMaces">Two Hand Maces</option>
+                  <option [value]="WeaponType.Wands">Wands</option>
+                </select>
+              </div>
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 120px;">
+              <div class="multiselect__tags">
+                <select [(ngModel)]="weapon.rarity" (change)="updateFilter()" [disabled]="!weapon.show">
+                  <option [value]="MinimumRarity.Normal">≥ Normal</option>
+                  <option [value]="MinimumRarity.Magic">≥ Magic</option>
+                  <option [value]="MinimumRarity.Rare">≥ Rare</option>
+                </select>
+              </div>
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 140px;">
+              <div class="multiselect__tags">
+                <select [(ngModel)]="weapon.baseTypeTier" (change)="updateFilter()" [disabled]="!weapon.show">
+                  @if (!weaponTypesWithoutAdvancedAndExpert.includes(weapon.weaponType)) {
+                  <option [value]="BaseTypeTier.ExpertOnly">Expert only</option>
+                  <option [value]="BaseTypeTier.AdvancedAndExpert">≥ Advanced</option>
+                  }
+                  <option [value]="BaseTypeTier.All">All</option>
+                </select>
+              </div>
+            </div>
+          </span>
+          <span class="input-group-btn">
+            <button class="btn remove-btn" (click)="removeWeaponType($index)"></button>
+          </span>
+        </div>
+        }
+
+        <div class="filter filter-padded">
+          <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addWeaponType()">
+            Add Weapon Type
+          </button>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <div class="filter-title">
+              Show Armour Types
+              <div class="filter-tip"><p>If you checked the 'Hide Weapons And Armour' box before,
+                here you can specify which Armour Base Types you still want to show Normal and/or Magic items of.
+                Specify whether you only want to show the Advanced and/or Expert versions.
+                Note that Rare and Unique Weapons are always shown.</p></div>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        @for (armour of filter.armourFilters; track $index) {
+        <div class="filter full-span">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!armour.show" (click)="toggleShowArmour($index)"></button>
+          </span>
+          <span class="filter-body">
+            <div tabindex="-1" class="multiselect filter-select">
+              <div class="multiselect__tags">
+                <select [(ngModel)]="armour.armourType" (change)="updateFilter()" [disabled]="!armour.show">
+                  <option [value]="ArmourType.All">All</option>
+                  <option [value]="ArmourType.AllButShields">All But Shields</option>
+                  <option [value]="ArmourType.BodyArmours">Body Armours</option>
+                  <option [value]="ArmourType.Helmet">Helmets</option>
+                  <option [value]="ArmourType.Gloves">Gloves</option>
+                  <option [value]="ArmourType.Boots">Boots</option>
+                  <option [value]="ArmourType.Shields">Shields</option>
+                </select>
+              </div>
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 100px;">
+              <div class="multiselect__tags">
+                <select [(ngModel)]="armour.defenceType" (change)="updateFilter()" [disabled]="!armour.show">
+                  <option [value]="DefenceType.All">All</option>
+                  <option [value]="DefenceType.Armour">Arm</option>
+                  <option [value]="DefenceType.Evasion">Eva</option>
+                  <option [value]="DefenceType.EnergyShield">ES</option>
+                  <option [value]="DefenceType.ArmourEvasion">Arm/Eva</option>
+                  <option [value]="DefenceType.ArmourEnergyShield">Arm/ES</option>
+                  <option [value]="DefenceType.EvasionEnergyShield">Eva/ES</option>
+                </select>
+              </div>
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 120px;">
+              <div class="multiselect__tags">
+                <select [(ngModel)]="armour.rarity" (change)="updateFilter()" [disabled]="!armour.show">
+                  <option [value]="MinimumRarity.Normal">≥ Normal</option>
+                  <option [value]="MinimumRarity.Magic">≥ Magic</option>
+                  <option [value]="MinimumRarity.Rare">≥ Rare</option>
+                </select>
+              </div>
+            </div>
+            <span class="sep"></span>
+            <div tabindex="-1" class="multiselect filter-select" style="width: 140px;">
+              <div class="multiselect__tags">
+                <select [(ngModel)]="armour.baseTypeTier" (change)="updateFilter()" [disabled]="!armour.show">
+                  <option [value]="BaseTypeTier.ExpertOnly">Expert only</option>
+                  <option [value]="BaseTypeTier.AdvancedAndExpert">≥ Advanced</option>
+                  <option [value]="BaseTypeTier.All">All</option>
+                </select>
+              </div>
+            </div>
+          </span>
+          <span class="input-group-btn">
+            <button class="btn remove-btn" (click)="removeArmourType($index)"></button>
+          </span>
+        </div>
+        }
+
+        <div class="filter filter-padded">
+          <button type="button" class="btn clear-btn" style="width: 100%;" (click)="addArmourType()">
+            Add Armour Type
+          </button>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <span class="filter-title">
+              Dynamic Filters
+              <div class="filter-tip"><p>Items will be hidden, shown and/or highlighted in a different color based on where you are currently at. This will require you to update the filter regularly.</p></div>
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        <div class="filter full-span" [class.disabled]="!filter.dynamicWaystones">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.dynamicWaystones" (click)="toggleDynamicWaystones()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Current Waystone Level
+            </div>
+            <span class="sep"></span>
+            <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+              [disabled]="!filter.dynamicWaystones" [(ngModel)]="filter.dynamicWaystonesLevel" (keyup)="updateFilter()">
+          </span>
+        </div>
+
+        @if (filter.dynamicWaystones) {
+        <div class="filter full-span" [class.disabled]="!filter.dynamicWaystones">
+          <span class="filter-body filter-body-no-checkbox">
+            <div class="threshold-set">
+              <div class="threshold tier-hidden" title="Waystones tier {{ dynamicWaystoneThresholds[0].level }} are hidden">
+                {{ dynamicWaystoneThresholds[0].level }}
+              </div>
+              <div class="threshold tier-shown" title="Waystones tier {{ dynamicWaystoneThresholds[1].level }} are shown without highlight">
+                {{ dynamicWaystoneThresholds[1].level }}
+              </div>
+              <div class="threshold tier-white" title="Waystones tier {{ dynamicWaystoneThresholds[2].level }} receive a white highlight">
+                {{ dynamicWaystoneThresholds[2].level }}<span class="dot"></span>
+              </div>
+              <div class="threshold tier-yellow" title="Waystones tier {{ dynamicWaystoneThresholds[3].level }} receive a yellow highlight">
+                {{ dynamicWaystoneThresholds[3].level }}<span class="dot"></span>
+              </div>
+              <div class="threshold tier-orange" title="Waystones tier {{ dynamicWaystoneThresholds[4].level }} receive an orange highlight">
+                {{ dynamicWaystoneThresholds[4].level }}<span class="dot"></span>
+              </div>
+              <div class="threshold tier-brown" title="Waystones tier {{ dynamicWaystoneThresholds[5].level }} receive a brown highlight">
+                {{ dynamicWaystoneThresholds[5].level }}<span class="dot"></span>
+              </div>
+            </div>
+          </span>
+        </div>
+        }
+
+        <div class="filter full-span" [class.disabled]="!filter.dynamicSkillGems">
+          <span class="input-group-btn">
+            <button class="btn toggle-btn" [class.off]="!filter.dynamicSkillGems" (click)="toggleDynamicSkillGems()"></button>
+          </span>
+          <span class="filter-body">
+            <div class="filter-title">
+              Minimum Skill Gem Level
+            </div>
+            <span class="sep"></span>
+            <input type="number" placeholder="min" maxlength="2" pattern="[0-9.,]*" inputmode="numeric" step="any" class="form-control minmax"
+              [disabled]="!filter.dynamicSkillGems" [(ngModel)]="filter.dynamicSkillGemsLevel" (keyup)="updateFilter()">
+          </span>
+        </div>
+
+        @if (filter.dynamicSkillGems) {
+        <div class="filter full-span" [class.disabled]="!filter.dynamicSkillGems">
+          <span class="filter-body filter-body-no-checkbox">
+            <div class="threshold-set">
+              <div class="threshold-label">Skill & Spirit Gems</div>
+              <div class="threshold-values">
+                <div class="threshold tier-hidden" title="Skill gems level {{ dynamicSkillGemThresholds[0].level }} are hidden">
+                  {{ dynamicSkillGemThresholds[0].level }}
+                </div>
+                <div class="threshold tier-white" title="Skill gems level {{ dynamicSkillGemThresholds[1].level }} receive a white highlight">
+                  {{ dynamicSkillGemThresholds[1].level }}<span class="dot"></span>
+                </div>
+                <div class="threshold tier-yellow" title="Skill gems level {{ dynamicSkillGemThresholds[2].level }} receive a yellow highlight">
+                  {{ dynamicSkillGemThresholds[2].level }}<span class="dot"></span>
+                </div>
+              </div>
+            </div>
+          </span>
+        </div>
+
+        @if ((filter.dynamicSkillGemsLevel || 1) < 17) {
+        <div class="filter full-span" [class.disabled]="!filter.dynamicSkillGems">
+          <span class="filter-body filter-body-no-checkbox">
+            <div class="threshold-set">
+              <div class="threshold-label">Support Gems</div>
+              <div class="threshold-values">
+                <div class="threshold tier-hidden" title="Support gems level {{ dynamicSupportGemThresholds[0].level }} are hidden">
+                  {{ dynamicSupportGemThresholds[0].level }}
+                </div>
+                <div class="threshold tier-white" title="Support gems level {{ dynamicSupportGemThresholds[1].level }} receive a white highlight">
+                  {{ dynamicSupportGemThresholds[1].level }}<span class="dot"></span>
+                </div>
+                <div class="threshold tier-yellow" title="Support gems level {{ dynamicSupportGemThresholds[2].level }} receive a yellow highlight">
+                  {{ dynamicSupportGemThresholds[2].level }}<span class="dot"></span>
+                </div>
+              </div>
+            </div>
+          </span>
+        </div>
+        }
+        }
+
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+  </div>
+</div>

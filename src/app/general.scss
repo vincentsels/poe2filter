@@ -1,0 +1,78 @@
+select {
+  background: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding: 4px 7px;
+}
+
+select option {
+  background: rgb(30, 33, 36);
+  border: none;
+}
+
+select[disabled] {
+  opacity: 0.6;
+}
+
+textarea.filter-output, textarea.custom-rules {
+  background-color: #000;
+  padding: 8px;
+  width: 100%;
+  height: 300px;
+  outline: none;
+  border: none;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+textarea.custom-rules {
+  background-color: rgba(45, 49, 54, .3);
+  height: 200px;
+}
+
+.filter-body-no-checkbox {
+  padding-left: 39px;
+  width: 100%;
+}
+
+.toggle-button {
+  height: 30px;
+  border: none !important;
+  background-color: #090a0a !important;
+  margin-right: 4px;
+
+  &.active {
+    background-color: #45494e !important;
+  }
+
+  &:hover {
+    background-color: #2d3136 !important;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.color-picker-dot {
+  min-width: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  border-radius: 50% !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  margin-right: 8px !important;
+  cursor: pointer;
+}
+
+.color-picker-label {
+  text-align: left !important;
+}
+
+.color-picker-label-text {
+  margin-top: 1px;
+  margin-bottom: -1px;
+}

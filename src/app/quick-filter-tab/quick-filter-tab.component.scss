@@ -1,0 +1,83 @@
+.threshold-set {
+  display: flex;
+  gap: 3px;
+  height: 30px;
+  width: 100%;
+  cursor: default;
+}
+
+.threshold-label {
+  flex: 50%;
+  text-align: right;
+  align-content: center;
+  padding-right: 12px;
+  color: #fff8e1;
+}
+
+.threshold-values {
+  flex: 50%;
+  display: flex;
+  gap: 3px;
+  height: 30px;
+  width: 100%;
+  cursor: default;
+}
+
+.threshold {
+  text-align: center;
+  flex: 1;
+  font-size: 13px;
+  line-height: 22px;
+  color: #fff;
+  background: #1e2124;
+  padding: 5px;
+
+  .dot {
+    position: absolute;
+
+    &::after {
+      content: " •";
+      opacity: 0.6;
+      font-size: 300%;
+      vertical-align: baseline;
+      line-height: 18px;
+      margin-left: 8px;
+    }
+  }
+}
+
+.tier-hidden {
+  background-color: #1d1d1d !important;
+  opacity: 0.3 !important;
+}
+
+.tier-shown {
+}
+
+.tier-white {
+  background-color: rgba(255, 255, 255, 0.301);
+  .dot::after {
+    color: white;
+  }
+}
+
+.tier-yellow {
+  background-color: rgba(255, 255, 0, 0.226);
+  .dot::after {
+    color: yellow;
+  }
+}
+
+.tier-orange {
+  background-color: rgba(255, 145, 0, 0.281);
+  .dot::after {
+    color: orangered;
+  }
+}
+
+.tier-brown {
+  background-color: rgba(173, 81, 20, 0.274);
+  .dot::after {
+    color: brown;
+  }
+}

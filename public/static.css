@@ -187,3 +187,8 @@
     display: unset;
   }
 }
+
+.reset-font {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+}
