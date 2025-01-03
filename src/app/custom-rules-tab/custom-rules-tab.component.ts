@@ -1,12 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, CosmeticOptions, MinimapIconShape, MinimapIconSize, Color, LabelSize } from '../filter';
-import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterPreferredArmourType, filterRarePlayEffect, filterHighlightGem, filterHideGem, filterCosmeticTopCurrency, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideRareGearBelowAdvanced, filterHighlightChanceBases, filterPrefix, filterSuffix, filterHideCurrency } from '../filter-template';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, MinimapIconShape, MinimapIconSize, Color, LabelSize } from '../filter';
 import { FormsModule } from '@angular/forms';
 import { itemData } from '../item-data';
 import { AutocompleteComponent } from '../autocomplete/autocomplete.component';
 import { ColorPickerModule } from 'ngx-color-picker';
-import { QuickFilterTabComponent } from '../quick-filter-tab/quick-filter-tab.component';
-import { CosmeticTabComponent } from '../cosmetic-tab/cosmetic-tab.component';
 
 @Component({
   selector: 'app-custom-rules-tab',

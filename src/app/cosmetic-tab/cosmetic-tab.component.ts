@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, CosmeticOptions, MinimapIconShape, MinimapIconSize, Color, LabelSize } from '../filter';
-import { filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGem, filterHideGem } from '../filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from '../item-data';
 import { AutocompleteComponent } from '../autocomplete/autocomplete.component';

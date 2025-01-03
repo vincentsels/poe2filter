@@ -113,19 +113,6 @@
   padding: 0;
 }
 
-.style-example {
-  width: unset;
-  text-align: center;
-}
-
-::ng-deep .color-picker {
-  background-color: #1e2124 !important;
-}
-
-::ng-deep .color-picker .hex-text {
-  display: none !important;
-}
-
 .version {
   position: fixed;
   bottom: 8px;

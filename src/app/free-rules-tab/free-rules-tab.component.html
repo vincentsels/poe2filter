@@ -1,0 +1,59 @@
+<div class="search-advanced-items">
+
+  <div class="row row-total row-justify-content-left">
+    <div class="info reset-font">
+      These rules will be inserted at the top and at the bottom of the filter, respectively. You can use this to make your own modifications, exceptions, highlights,...
+      <br /><strong>Warning!</strong> These rules could hide items unintentionally, and invalid syntax will cause the filter not to load. Use at your own risk!
+      Please read about how filters work on the <a href="https://www.pathofexile.com/item-filter/about" target="_blank">official page</a>.
+    </div>
+  </div>
+
+  <div class="search-advanced-pane blue">
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <span class="filter-title">
+              Insert At Top
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        <div class="filter filter-property full-span">
+          <textarea class="custom-rules" [(ngModel)]="filter.freeRulesTop" (keyup)="updateFilter()"></textarea>
+        </div>
+
+      </div>
+
+      <div class="clear"></div>
+    </div>
+
+  </div>
+
+  <div class="search-advanced-pane blue">
+
+    <div class="filter-group expanded">
+      <div class="filter-group-header">
+        <div class="filter">
+          <span class="filter-body">
+            <span class="filter-title">
+              Insert At Bottom
+            </span>
+          </span>
+        </div>
+      </div>
+      <div class="filter-group-body">
+
+        <div class="filter filter-property full-span">
+          <textarea class="custom-rules" [(ngModel)]="filter.freeRulesBottom" (keyup)="updateFilter()"></textarea>
+        </div>
+
+      </div>
+
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>

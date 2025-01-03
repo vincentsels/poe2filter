@@ -8,6 +8,7 @@ import { buildNumber } from '../buildnumber';
 import { QuickFilterTabComponent } from './quick-filter-tab/quick-filter-tab.component';
 import { CosmeticTabComponent } from './cosmetic-tab/cosmetic-tab.component';
 import { CustomRulesTabComponent } from './custom-rules-tab/custom-rules-tab.component';
+import { FreeRulesTabComponent } from './free-rules-tab/free-rules-tab.component';
 
 const LOCAL_STORAGE_KEY_HIDE_TIER_WARNING = 'poe-hide-tier-warning';
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
@@ -18,7 +19,7 @@ const LOCAL_STORAGE_KEY = 'filter-v' + FILTER_MAJOR_VERSION;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./general.scss', './app.component.scss'],
-  imports: [FormsModule, ColorPickerModule, QuickFilterTabComponent, CosmeticTabComponent, CustomRulesTabComponent]
+  imports: [FormsModule, ColorPickerModule, QuickFilterTabComponent, CosmeticTabComponent, CustomRulesTabComponent, FreeRulesTabComponent]
 })
 export class AppComponent implements OnInit {
   filter = new Filter();
