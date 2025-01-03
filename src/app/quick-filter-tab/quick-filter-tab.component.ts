@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, Comparator, WeaponsAndArmourRarityToHide, MinimapIconShape, MinimapIconSize, Color, LabelSize } from '../filter';
+import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, WeaponsAndArmourRarityToHide } from '../filter';
 import { itemData } from '../item-data';
 import { FormsModule } from '@angular/forms';
 import { ColorPickerModule } from 'ngx-color-picker';
@@ -29,14 +29,6 @@ export class QuickFilterTabComponent {
   ArmourType = ArmourType;
   DefenceType = DefenceType;
   MinimumRarity = MinimumRarity;
-  CurrencyToHide = CurrencyToHide;
-  Rarity = Rarity;
-  Comparator = Comparator;
-  DisplayType = DisplayType;
-  MinimapIconShape = MinimapIconShape;
-  MinimapIconSize = MinimapIconSize;
-  Color = Color;
-  LabelSize = LabelSize;
 
   itemData = itemData;
 
@@ -66,8 +58,6 @@ export class QuickFilterTabComponent {
     "Chaos Orb",
     "Lesser Jeweller's Orb",
   ];
-
-  currencyItemTypes = itemData.filter(i => i.itemClass === 'Stackable Currency').map(i => i.itemType);
 
   weaponTypesWithoutAdvancedAndExpert = [WeaponType.Sceptres, WeaponType.Staves, WeaponType.Wands, WeaponType.Quivers];
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Filter, FlaskType, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, CurrencyToHide, Rarity, DisplayType, CustomRule, Comparator, WeaponsAndArmourRarityToHide, CosmeticOptions, MinimapIconShape, MinimapIconSize, Color, LabelSize } from './filter';
+import { Filter, RarityToHide, QualityItemType, SocketedItemType, WeaponFilter, BaseTypeTier, WeaponType, MinimumRarity, ArmourType, ArmourFilter, DefenceType, DisplayType, CustomRule, WeaponsAndArmourRarityToHide } from './filter';
 import { filterHideFlasks, filterHideNormalAndMagicGear, filterHideScrolls, filterShow2Sockets, filterShowOneSocket, filterHighlightUniques, filterTemplate, filterShowQuality, filterPreferredWeaponType, filterHideGold, filterHighlightRareJewellery, filterHideRunes, filterStaticWaystones, filterHideWaystone, filterHighlightWaystone, filterShowWaystone, filterHighlightGold, filterPreferredArmourType, filterRarePlayEffect, filterHighlightGem, filterHideGem, filterCosmeticTopCurrency, filterHideRareGearBelowExpert, filterHideRings, filterHideAmulets, filterHideBelts, filterHideCharms, filterShowFlaskExceptions, filterShowCharmExceptions, filterShowRuneExceptions, filterShowAmuletExceptions, filterShowBeltExceptions, filterShowRingExceptions, filterHideRareGearBelowAdvanced, filterHighlightChanceBases, filterPrefix, filterSuffix, filterHideCurrency } from './filter-template';
 import { FormsModule } from '@angular/forms';
 import { itemData } from './item-data';
@@ -33,25 +33,6 @@ export class AppComponent implements OnInit {
   importFilterExportDate: string | null = null;
   importFilterExportVersion: string | null = null;
 
-  FlaskType = FlaskType;
-  RarityToHide = RarityToHide;
-  WeaponsAndArmourRarityToHide = WeaponsAndArmourRarityToHide;
-  SocketedItemType = SocketedItemType;
-  QualityItemType = QualityItemType;
-  WeaponType = WeaponType;
-  BaseTypeTier = BaseTypeTier;
-  ArmourType = ArmourType;
-  DefenceType = DefenceType;
-  MinimumRarity = MinimumRarity;
-  CurrencyToHide = CurrencyToHide;
-  Rarity = Rarity;
-  Comparator = Comparator;
-  DisplayType = DisplayType;
-  MinimapIconShape = MinimapIconShape;
-  MinimapIconSize = MinimapIconSize;
-  Color = Color;
-  LabelSize = LabelSize;
-
   copyText = 'Copy to Clipboard';
   filterResetWarning = false;
   showTierWarning = true;
@@ -59,34 +40,6 @@ export class AppComponent implements OnInit {
   tab: 'quickFilters' | 'cosmetic' | 'customRules' | 'freeRules' = 'quickFilters';
 
   itemData = itemData;
-
-  lifeFlaskBaseTypes = itemData.filter(i => i.itemType === 'Life Flasks')[0].baseTypes;
-  manaFlaskBaseTypes = itemData.filter(i => i.itemType === 'Mana Flasks')[0].baseTypes;
-  charmBaseTypes = itemData.filter(i => i.itemType === 'Charms')[0].baseTypes;
-  ringBaseTypes = itemData.filter(i => i.itemType === 'Rings')[0].baseTypes;
-  amuletBaseTypes = itemData.filter(i => i.itemType === 'Amulets')[0].baseTypes;
-  beltBaseTypes = itemData.filter(i => i.itemType === 'Belts')[0].baseTypes;
-  runeBaseTypes = itemData.filter(i => i.itemType === 'Socketable')[0].baseTypes.filter(b => b.includes('Rune'));
-  baseCurrencyTypes = [
-    "Transmutation Shard",
-    "Artificer's Shard",
-    "Regal Shard",
-    "Chance Shard",
-    "Orb of Augmentation",
-    "Orb of Transmutation",
-    "Armourer's Scrap",
-    "Blacksmith's Whetstone",
-    "Arcanist's Etcher",
-    "Artificer's Orb",
-    "Glassblower's Bauble",
-    "Gemcutter's Prism",
-    "Vaal Orb",
-    "Regal Orb",
-    "Orb of Alchemy",
-    "Chaos Orb",
-    "Lesser Jeweller's Orb",
-  ];
-
   currencyItemTypes = itemData.filter(i => i.itemClass === 'Stackable Currency').map(i => i.itemType);
 
   weaponTypesWithoutAdvancedAndExpert = [WeaponType.Sceptres, WeaponType.Staves, WeaponType.Wands, WeaponType.Quivers];
@@ -185,84 +138,6 @@ export class AppComponent implements OnInit {
     }
 
     this.updateFilter();
-  }
-
-  toggleHideLifeFlasks = () => { this.filter.hideLifeFlasks = !this.filter.hideLifeFlasks; this.updateFilter(); }
-  toggleHideManaFlasks = () => { this.filter.hideManaFlasks = !this.filter.hideManaFlasks; this.updateFilter(); }
-  toggleHideScrolls = () => { this.filter.hideScrolls = !this.filter.hideScrolls; this.updateFilter(); }
-  toggleHideAmulets = () => { this.filter.hideAmulets = !this.filter.hideAmulets; this.updateFilter(); }
-  toggleHideRings = () => { this.filter.hideRings = !this.filter.hideRings; this.updateFilter(); }
-  toggleHideBelts = () => { this.filter.hideBelts = !this.filter.hideBelts; this.updateFilter(); }
-  toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilter(); }
-  toggleHideCommonCharms = () => { this.filter.hideCharms = !this.filter.hideCharms; this.updateFilter(); }
-  toggleHideRunes = () => { this.filter.hideRunes = !this.filter.hideRunes; this.updateFilter(); }
-  toggleHideCurrency = () => { this.filter.hideCurrency = !this.filter.hideCurrency; this.updateFilter(); }
-
-  toggleHideGold = () => {
-    this.filter.hideGold = !this.filter.hideGold;
-    if (this.filter.hideGold && !this.filter.hideGoldLowerThan) {
-      this.filter.hideGoldLowerThan = 50;
-    }
-    this.updateFilter();
-  }
-
-  toggleShowSocketedItems = () => { this.filter.showSocketedItems = !this.filter.showSocketedItems; this.updateFilter(); }
-  toggleShowQualityItems = () => { this.filter.showQualityItems = !this.filter.showQualityItems; this.updateFilter(); }
-
-  toggleHighlightUniques = () => { this.filter.highlightUniques = !this.filter.highlightUniques; this.updateFilter(); }
-  toggleHighlightChanceBases = () => { this.filter.highlightChanceBases = !this.filter.highlightChanceBases; this.updateFilter(); }
-  toggleHighlightRareJewellery = () => { this.filter.highlightRareJewellery = !this.filter.highlightRareJewellery; this.updateFilter(); }
-
-  removeWeaponType(index: number) { this.filter.weaponFilters.splice(index, 1); this.updateFilter();  }
-  toggleShowWeapon = (index: number) => { this.filter.weaponFilters[index].show = !this.filter.weaponFilters[index].show; this.updateFilter(); }
-  addWeaponType = () => { this.filter.weaponFilters.push(new WeaponFilter()); this.updateFilter(); }
-
-  removeArmourType(index: number) { this.filter.armourFilters.splice(index, 1); this.updateFilter();  }
-  toggleShowArmour = (index: number) => { this.filter.armourFilters[index].show = !this.filter.armourFilters[index].show; this.updateFilter(); }
-  addArmourType = () => { this.filter.armourFilters.push(new ArmourFilter()); this.updateFilter(); }
-
-  removeCustomRule(index: number) { this.filter.customRules.splice(index, 1); this.updateFilter();  }
-  toggleCustomRuleActive = (index: number) => { this.filter.customRules[index].active = !this.filter.customRules[index].active; this.updateFilter(); }
-  addCustomRule = () => { this.filter.customRules.push(new CustomRule()); this.updateFilter(); }
-
-  removeCustomCosmeticRule(index: number) { this.filter.customCosmeticRules.splice(index, 1); this.updateFilter();  }
-  toggleCustomCosmeticRuleActive = (index: number) => { this.filter.customCosmeticRules[index].active = !this.filter.customCosmeticRules[index].active; this.updateFilter(); }
-  addCustomCosmeticRule = () => {
-    const cosmeticRule = new CustomRule();
-    cosmeticRule.cosmeticOptions = new CosmeticOptions();
-    cosmeticRule.continue = true;
-    this.filter.customCosmeticRules.push(cosmeticRule);
-    this.updateFilter();
-  }
-
-  toggleDynamicWaystones = () => {
-    this.filter.dynamicWaystones = !this.filter.dynamicWaystones;
-    if (this.filter.dynamicWaystones && !this.filter.dynamicWaystonesLevel) {
-      this.filter.dynamicWaystonesLevel = 1;
-    }
-    this.updateFilter();
-  }
-
-  toggleDynamicSkillGems = () => {
-    this.filter.dynamicSkillGems = !this.filter.dynamicSkillGems;
-    if (this.filter.dynamicSkillGems && !this.filter.dynamicSkillGemsLevel) {
-      this.filter.dynamicSkillGemsLevel = 1;
-    }
-    this.updateFilter();
-  }
-
-  toggleCosmeticTopCurrencyLabel = () => { this.filter.cosmeticTopCurrencyLabels = !this.filter.cosmeticTopCurrencyLabels; this.updateFilter(); }
-  toggleCosmeticTopCurrencyAlertSounds = () => { this.filter.cosmeticTopCurrencyAlertSounds = !this.filter.cosmeticTopCurrencyAlertSounds; this.updateFilter(); }
-  toggleCosmeticRemoveAllHighlights = () => { this.filter.cosmeticRemoveAllHighlights = !this.filter.cosmeticRemoveAllHighlights; this.updateFilter(); }
-  toggleCosmeticRemoveAllMinimapIcons = () => { this.filter.cosmeticRemoveAllMinimapIcons = !this.filter.cosmeticRemoveAllMinimapIcons; this.updateFilter(); }
-
-  toggleMinimapIcon = (rule: CustomRule) => { rule.cosmeticOptions!.minimapIcon = !rule.cosmeticOptions!.minimapIcon; this.updateFilter(); }
-  togglePlayEffect = (rule: CustomRule) => { rule.cosmeticOptions!.playEffect = !rule.cosmeticOptions!.playEffect; this.updateFilter(); }
-
-  updateWeaponType(weapon: WeaponFilter) {
-    if (this.weaponTypesWithoutAdvancedAndExpert.includes(weapon.weaponType)) {
-      weapon.baseTypeTier = BaseTypeTier.All;
-    }
   }
 
   updateFilter() {
@@ -597,17 +472,6 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMap
     return '';
   }
 
-  itemTypeChanged(rule: CustomRule) {
-    const itemData = this.itemData.find(i => i.itemType === rule.itemType);
-    if (itemData) {
-      rule.itemClass = itemData.itemClass;
-    } else {
-      rule.itemClass = 'All';
-    }
-    rule.baseTypes = ['All'];
-    this.updateFilter();
-  }
-
   download() {
     this.downloadTextAsFile(this.filterTextFull, 'poe2filter.filter');
   }
@@ -687,64 +551,6 @@ ${showHide}${itemClass}${baseTypes}${rarity}${highlight}${customBeam}${customMap
     };
     document.body.appendChild(input); // Append the input element to the body
     input.click();
-  }
-
-  getBaseTypesForItemType = (itemType: string) => {
-    if (itemType === 'All') return ['All'];
-    return this.itemData.find(i => i.itemType === itemType)!.baseTypes;
-  }
-
-  selectedValuesChanged(rule: CustomRule, values: string[]) {
-    rule.baseTypes = values;
-    this.updateFilter();
-  }
-
-  toggleBackgroundColor(rule: CustomRule) {
-    if (rule.cosmeticOptions!.backgroundColor) rule.cosmeticOptions!.backgroundColor = null;
-    else rule.cosmeticOptions!.backgroundColor = 'rgba(0,0,0,0.9411)';
-    this.updateFilter();
-  }
-
-  toggleBorderColor(rule: CustomRule) {
-    if (rule.cosmeticOptions!.borderColor) rule.cosmeticOptions!.borderColor = null;
-    else rule.cosmeticOptions!.borderColor = 'rgba(200,200,200,1)';
-    this.updateFilter();
-  }
-
-  toggleTextColor(rule: CustomRule) {
-    if (rule.cosmeticOptions!.textColor) rule.cosmeticOptions!.textColor = null;
-    else rule.cosmeticOptions!.textColor = 'rgba(200,200,200,1)';
-    this.updateFilter();
-  }
-
-  toggleFontSize(rule: CustomRule) {
-    if (rule.cosmeticOptions!.fontSize) rule.cosmeticOptions!.fontSize = null;
-    else rule.cosmeticOptions!.fontSize = LabelSize.Normal;
-    this.updateFilter();
-  }
-
-  getCurrencyStyle(o: CosmeticOptions) {
-    return {
-      'margin-left': o.borderColor ? '0px' : '1px',
-      'margin-right': o.borderColor ? '0px' : '1px',
-      'padding-top': o.borderColor ? '7px' : '8px',
-      'background': o.backgroundColor || 'inherit',
-      'color': o.textColor || 'rgb(170,158,130) !important',
-      'border': o.borderColor ? '1px solid ' + o.borderColor + ' !important' : 'none !important',
-      'line-height': o.borderColor ? '14px' : '16px',
-    };
-  }
-
-  getItemStyle(o: CosmeticOptions) {
-    return {
-      'margin-left': o.borderColor ? '0px' : '1px',
-      'margin-right': o.borderColor ? '0px' : '1px',
-      'padding-top': o.borderColor ? '7px' : '8px',
-      'background': o.backgroundColor || 'inherit',
-      'color': o.textColor || 'rgb(200,200,200) !important',
-      'border': o.borderColor ? '1px solid ' + o.borderColor + ' !important' : 'none !important',
-      'line-height': o.borderColor ? '14px' : '16px',
-    };
   }
 
   hideTierWarning() {
