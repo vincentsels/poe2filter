@@ -7,6 +7,7 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { buildNumber } from '../buildnumber';
 import { QuickFilterTabComponent } from './quick-filter-tab/quick-filter-tab.component';
+import { CosmeticTabComponent } from './cosmetic-tab/cosmetic-tab.component';
 
 const LOCAL_STORAGE_KEY_HIDE_TIER_WARNING = 'poe-hide-tier-warning';
 const LOCAL_STORAGE_KEY_FILTER_STORED = 'poe-filter-stored';
@@ -17,7 +18,7 @@ const LOCAL_STORAGE_KEY = 'filter-v' + FILTER_MAJOR_VERSION;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./general.scss', './app.component.scss'],
-  imports: [FormsModule, AutocompleteComponent, ColorPickerModule, QuickFilterTabComponent]
+  imports: [FormsModule, AutocompleteComponent, ColorPickerModule, QuickFilterTabComponent, CosmeticTabComponent]
 })
 export class AppComponent implements OnInit {
   filter = new Filter();
@@ -109,17 +110,6 @@ export class AppComponent implements OnInit {
     { style: 'tier-white', level: '' },
     { style: 'tier-yellow', level: '' },
   ];
-
-  presetColors = [
-    'rgb(127,127,127)',
-    'rgb(200,200,200)',
-    'rgb(136,136,255)',
-    'rgb(255,255,119)',
-    'rgb(175,96,37)',
-    'rgb(170,158,130)',
-    'rgb(27,162,155)',
-    'rgb(74,230,58)',
-  ]
 
   ngOnInit(): void {
     this.showTierWarning = localStorage.getItem(LOCAL_STORAGE_KEY_HIDE_TIER_WARNING) !== '1';

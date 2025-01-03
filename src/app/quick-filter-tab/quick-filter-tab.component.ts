@@ -71,46 +71,46 @@ export class QuickFilterTabComponent {
 
   weaponTypesWithoutAdvancedAndExpert = [WeaponType.Sceptres, WeaponType.Staves, WeaponType.Wands, WeaponType.Quivers];
 
-  toggleHideLifeFlasks = () => { this.filter.hideLifeFlasks = !this.filter.hideLifeFlasks; this.updateFilterEmitter.emit(); }
-  toggleHideManaFlasks = () => { this.filter.hideManaFlasks = !this.filter.hideManaFlasks; this.updateFilterEmitter.emit(); }
-  toggleHideScrolls = () => { this.filter.hideScrolls = !this.filter.hideScrolls; this.updateFilterEmitter.emit(); }
-  toggleHideAmulets = () => { this.filter.hideAmulets = !this.filter.hideAmulets; this.updateFilterEmitter.emit(); }
-  toggleHideRings = () => { this.filter.hideRings = !this.filter.hideRings; this.updateFilterEmitter.emit(); }
-  toggleHideBelts = () => { this.filter.hideBelts = !this.filter.hideBelts; this.updateFilterEmitter.emit(); }
-  toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilterEmitter.emit(); }
-  toggleHideCommonCharms = () => { this.filter.hideCharms = !this.filter.hideCharms; this.updateFilterEmitter.emit(); }
-  toggleHideRunes = () => { this.filter.hideRunes = !this.filter.hideRunes; this.updateFilterEmitter.emit(); }
-  toggleHideCurrency = () => { this.filter.hideCurrency = !this.filter.hideCurrency; this.updateFilterEmitter.emit(); }
+  toggleHideLifeFlasks = () => { this.filter.hideLifeFlasks = !this.filter.hideLifeFlasks; this.updateFilter(); }
+  toggleHideManaFlasks = () => { this.filter.hideManaFlasks = !this.filter.hideManaFlasks; this.updateFilter(); }
+  toggleHideScrolls = () => { this.filter.hideScrolls = !this.filter.hideScrolls; this.updateFilter(); }
+  toggleHideAmulets = () => { this.filter.hideAmulets = !this.filter.hideAmulets; this.updateFilter(); }
+  toggleHideRings = () => { this.filter.hideRings = !this.filter.hideRings; this.updateFilter(); }
+  toggleHideBelts = () => { this.filter.hideBelts = !this.filter.hideBelts; this.updateFilter(); }
+  toggleHideNormalAndMagicItems = () => { this.filter.hideNormalAndMagicItems = !this.filter.hideNormalAndMagicItems; this.updateFilter(); }
+  toggleHideCommonCharms = () => { this.filter.hideCharms = !this.filter.hideCharms; this.updateFilter(); }
+  toggleHideRunes = () => { this.filter.hideRunes = !this.filter.hideRunes; this.updateFilter(); }
+  toggleHideCurrency = () => { this.filter.hideCurrency = !this.filter.hideCurrency; this.updateFilter(); }
 
   toggleHideGold = () => {
     this.filter.hideGold = !this.filter.hideGold;
     if (this.filter.hideGold && !this.filter.hideGoldLowerThan) {
       this.filter.hideGoldLowerThan = 50;
     }
-    this.updateFilterEmitter.emit();
+    this.updateFilter();
   }
 
-  toggleShowSocketedItems = () => { this.filter.showSocketedItems = !this.filter.showSocketedItems; this.updateFilterEmitter.emit(); }
-  toggleShowQualityItems = () => { this.filter.showQualityItems = !this.filter.showQualityItems; this.updateFilterEmitter.emit(); }
+  toggleShowSocketedItems = () => { this.filter.showSocketedItems = !this.filter.showSocketedItems; this.updateFilter(); }
+  toggleShowQualityItems = () => { this.filter.showQualityItems = !this.filter.showQualityItems; this.updateFilter(); }
 
-  toggleHighlightUniques = () => { this.filter.highlightUniques = !this.filter.highlightUniques; this.updateFilterEmitter.emit(); }
-  toggleHighlightChanceBases = () => { this.filter.highlightChanceBases = !this.filter.highlightChanceBases; this.updateFilterEmitter.emit(); }
-  toggleHighlightRareJewellery = () => { this.filter.highlightRareJewellery = !this.filter.highlightRareJewellery; this.updateFilterEmitter.emit(); }
+  toggleHighlightUniques = () => { this.filter.highlightUniques = !this.filter.highlightUniques; this.updateFilter(); }
+  toggleHighlightChanceBases = () => { this.filter.highlightChanceBases = !this.filter.highlightChanceBases; this.updateFilter(); }
+  toggleHighlightRareJewellery = () => { this.filter.highlightRareJewellery = !this.filter.highlightRareJewellery; this.updateFilter(); }
 
-  removeWeaponType(index: number) { this.filter.weaponFilters.splice(index, 1); this.updateFilterEmitter.emit();  }
-  toggleShowWeapon = (index: number) => { this.filter.weaponFilters[index].show = !this.filter.weaponFilters[index].show; this.updateFilterEmitter.emit(); }
-  addWeaponType = () => { this.filter.weaponFilters.push(new WeaponFilter()); this.updateFilterEmitter.emit(); }
+  removeWeaponType(index: number) { this.filter.weaponFilters.splice(index, 1); this.updateFilter();  }
+  toggleShowWeapon = (index: number) => { this.filter.weaponFilters[index].show = !this.filter.weaponFilters[index].show; this.updateFilter(); }
+  addWeaponType = () => { this.filter.weaponFilters.push(new WeaponFilter()); this.updateFilter(); }
 
-  removeArmourType(index: number) { this.filter.armourFilters.splice(index, 1); this.updateFilterEmitter.emit();  }
-  toggleShowArmour = (index: number) => { this.filter.armourFilters[index].show = !this.filter.armourFilters[index].show; this.updateFilterEmitter.emit(); }
-  addArmourType = () => { this.filter.armourFilters.push(new ArmourFilter()); this.updateFilterEmitter.emit(); }
+  removeArmourType(index: number) { this.filter.armourFilters.splice(index, 1); this.updateFilter();  }
+  toggleShowArmour = (index: number) => { this.filter.armourFilters[index].show = !this.filter.armourFilters[index].show; this.updateFilter(); }
+  addArmourType = () => { this.filter.armourFilters.push(new ArmourFilter()); this.updateFilter(); }
 
   toggleDynamicWaystones = () => {
     this.filter.dynamicWaystones = !this.filter.dynamicWaystones;
     if (this.filter.dynamicWaystones && !this.filter.dynamicWaystonesLevel) {
       this.filter.dynamicWaystonesLevel = 1;
     }
-    this.updateFilterEmitter.emit();
+    this.updateFilter();
   }
 
   toggleDynamicSkillGems = () => {
@@ -118,7 +118,7 @@ export class QuickFilterTabComponent {
     if (this.filter.dynamicSkillGems && !this.filter.dynamicSkillGemsLevel) {
       this.filter.dynamicSkillGemsLevel = 1;
     }
-    this.updateFilterEmitter.emit();
+    this.updateFilter();
   }
 
   updateWeaponType(weapon: WeaponFilter) {
