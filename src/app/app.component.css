@@ -16,51 +16,6 @@ select[disabled] {
   opacity: 0.6;
 }
 
-.block {
-  min-height: unset;
-  position: relative;
-  max-width: 1520px;
-  margin: 0 auto 12px;
-}
-
-.row-justify-content-left {
-  justify-content: left !important;
-}
-
-.last-block {
-  margin-bottom: 60px;
-}
-
-.info {
-  padding: 8px 16px;
-
-  .close-info-btn {
-    position: absolute;
-    right: 16px;
-    top: 8px;
-    cursor: pointer;
-    opacity: 0.6;
-    font-weight: bold;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
-
-.info-title {
-  margin-bottom: 6px;
-
-  &.bigger {
-    font-size: 150%;
-    margin-bottom: 12px;
-  }
-}
-
-#trade {
-  margin-bottom: 12px;
-}
-
 .copy-btn {
   color: #e2e2e2;
   background-color: #1e2124;
@@ -91,24 +46,6 @@ textarea.filter-output, textarea.custom-rules {
 textarea.custom-rules {
   background-color: rgba(45, 49, 54, .3);
   height: 200px;
-}
-
-.results .row,.results #trade .search-bar,#trade .results .search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 0;
-  margin: 0;
-  opacity: 1;
-  background-color: rgba(10,10,10,.8);
-  position: relative;
-  transition: opacity .5s
-}
-
-.results .row h2,.results #trade .search-bar h2,#trade .results .search-bar h2,.results .row h3,.results #trade .search-bar h3,#trade .results .search-bar h3 {
-  color: #e2e2e2;
-  font-family: "FontinSmallcaps",sans-serif;
-  font-weight: normal
 }
 
 .filter-body-no-checkbox {
@@ -198,49 +135,6 @@ textarea.custom-rules {
   .dot::after {
     color: brown;
   }
-}
-
-.text-align-center {
-  text-align: center;
-}
-
-.examples, .principles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-
-  flex-direction: column;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-.example, .principle {
-  flex: 1 1 calc(33.333% - 1rem);
-  box-sizing: border-box;
-  padding: 1rem;
-
-  @media (max-width: 767px) {
-    flex: 1 1 100%;
-  }
-}
-
-.example {
-  img {
-    border: 1px solid #bb9e7469;
-    max-width: 100%;
-    height: auto;
-  }
-
-  p {
-    margin-top: 0.5rem;
-  }
-}
-
-.display-block {
-  display: block !important;
 }
 
 .download-btn, .copy-btn  {
@@ -347,83 +241,6 @@ textarea.custom-rules {
   padding: 0;
 }
 
-.praises {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  flex-direction: row;
-
-  @media (min-width: 768px) {
-    justify-content: space-between;
-  }
-}
-
-.praise {
-  flex: 1 1 calc(20% - 1rem);
-  box-sizing: border-box;
-  padding: 1rem;
-
-  .praise-text {
-    position: relative;
-    display: inline-block;
-
-    /* &::before {
-      content: '“';
-      position: absolute;
-      left: -20px;
-      bottom: -50px;
-      opacity: 0.2;
-      font-size: 400%;
-    } */
-  }
-
-  .author {
-    color: #e2e2e2;
-    opacity: 0.8;
-    margin-top: 8px;
-
-    &&::before {
-      content: ' — ';
-      margin-left: 8px;
-    }
-  }
-
-  @media (max-width: 767px) {
-    flex: 1 1 calc(50% - 1rem);
-    text-align: center;
-  }
-}
-
-.full-width {
-  width: 100% !important;
-}
-
-.filter-double-padded-right {
-  padding-right: 85px;
-}
-
-.filter-label {
-  border-left: none !important;
-  text-align: right !important;
-  width: unset !important;
-}
-
-@media (max-width: 767px) {
-  .hide-on-md {
-    display: none;
-  }
-}
-
-.show-on-md {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .show-on-md {
-    display: unset;
-  }
-}
-
 .toggle-button {
   height: 30px;
   border: none !important;
@@ -478,6 +295,8 @@ textarea.custom-rules {
 }
 
 .version {
-  float: right;
-  margin-right: 12px;
+  position: fixed;
+  bottom: 8px;
+  right: 16px;
+  color: #444;
 }

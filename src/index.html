@@ -18,6 +18,7 @@
   <meta property="og:locale" content="en_US">
   <link href="./font.css" media="screen" rel="stylesheet" type="text/css">
   <link href="./trade2.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="./static.css" media="screen" rel="stylesheet" type="text/css">
 
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -28,6 +29,288 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="modern trade en_US">
-  <app-root></app-root>
+  <div class="container-fluid full" id="app">
+    <div class="content">
+      <app-root></app-root>
+
+      <div class="results block">
+        <div class="row row-total row-justify-content-left">
+          <div class="info">
+            <h2 class="info-title text-align-center bigger">Examples</h2>
+
+            <div class="examples">
+              <div class="example text-align-center">
+                <img src="/examples/orb-drops-800.png" />
+                <p>Currency and other items are displayed in their original style, but rare currency is highlighted using tiered beams.</p>
+              </div>
+              <div class="example text-align-center">
+                <img src="/examples/minimap-icons-800.png" />
+                <p>The minimap shows items in these same colors and using 3 icons: currency, maps, items.</p>
+              </div>
+              <div class="example text-align-center">
+                <img src="/examples/map-tiers-800.png" />
+                <p>Using a 'Dynamic Filter', Waystones are highlighted relative to where you are currently at.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="results block">
+        <div class="row row-total row-justify-content-left">
+          <div class="info">
+            <h2 class="info-title bigger text-align-center">Filter Philosophy</h2>
+
+            <div class="principles">
+              <div class="principle">
+                <h3 class="info-title">Minimalist Style</h3>
+
+                <p>
+                  Path of Exile has <strong>beautiful graphics and a dark atmosphere</strong>. Its item color theme nostalgically goes back all the way to Diablo 2. We'd hate to spoil that by adding many different out-of-theme colors and fonts. This filter keeps all the 'default' label styles. We only add highlight beams in self-explanatory colors: white, yellow, orange, brown, and purple for top-tier items. Highlighted items are shown on the minimap too.
+                </p>
+              </div>
+
+              <div class="principle">
+                <h3 class="info-title">Remove Clutter</h3>
+
+                <p>
+                  Halfway through the campaign, many items start dropping, most of which you won't be interested in for your character: Normal and Magic items, Weapons not usable by your build, and Armour which doesn't have the right defences. <strong>This filter hides them</strong>, always keeping a clean overview and adding to the game's beautiful atmosphere.
+                </p>
+              </div>
+
+              <div class="principle">
+                <h3 class="info-title">Enhance Efficiency</h3>
+
+                <p>
+                  Using both the tiered color highlights and the minimap icons, you'll never miss any important item. <strong>The higher the tier, the more likely you will want to pick it up</strong>, even backtracing a bit.
+                </p>
+              </div>
+            </div>
+
+            <div class="principles">
+              <div class="principle">
+                <h3 class="info-title">Easy to use</h3>
+
+                <p>
+                  Going with <strong>the defaults is just fine for most people</strong>, but it's <strong>easy to adapt</strong> it to your preferences or where you're currently at in the game. This means the filter is slightly opinionated, but probably what most players will agree on. You can always add your own custom rules using the 'Custom Rules' tab.
+                </p>
+
+                <h3 class="info-title">Nothing to learn</h3>
+
+                <p>You <strong>don't have to learn</strong> what different <strong>colors or styles mean</strong>: the Drop Tier system is self-exaplanatory. Higher Drop Tier means more valuable.
+
+              </div>
+
+              <div class="principle">
+                <h3 class="info-title">Market-value Drop Tiers</h3>
+
+                <p>
+                  Currency can be more or less rare -- that is, they have a <strong>higher or lower market value</strong> -- a product of their utility divided by their drop chance. We call these <strong>Drop Tiers</strong>, white through brown (or purple if you're really lucky). All drops are highlighted using an appropriate beam and icon on the minimap. Classifying items into these Drop Tiers is <strong>based on their respective Exalt value on the in-game Currency Exchange</strong>; or, in the case of 'Dynamic Filters' like Maps, their usefulness to you currently.
+                </p>
+              </div>
+
+              <div class="principle">
+                <h3 class="info-title">Safety first</h3>
+
+                <p>
+                  Any change to this filter is <strong>tested beforehand</strong>, and gets a test-run. All <strong>item names are always copy-pasted</strong> from https://poe2db.tw, which is actual data-mined from the game client, avoiding typos.
+                </p>
+
+                <p>
+                  Additionally, where possible, the filter uses a '<strong>catch all</strong>' highlight for each of the drop types, should something have been accidently left out. (Let us know if you find anything!)
+                </p>
+
+                <p>
+                  Lastly, this filter only explicitly hides what you tell it to hide. <strong>There's no 'hide all remaining' rule</strong>. Worst case scenario, the drop will still be shown the default way (without a highlight).
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="results block">
+        <div class="row row-total row-justify-content-left">
+          <div class="info">
+            <h2 class="info-title bigger text-align-center">How To Use This Website</h2>
+            <ol>
+              <li>Download the filter file, and move it into the correct folder. For example on Windows this is <strong>%userprofile%\Documents\My Games\Path of Exile 2</strong>.
+                You can open the correct folder from the Game's Settings Menu (under 'Game').</li>
+              <li>Select the filter from the dropdown menu in the Game's Settings Menu (under 'Game'). The game will save it for future use, and load it on startup.</li>
+              <li>If you change your filter, download the file again and move it over the existing file. Make sure the file name is still correct; your browser might have appended (1) to the file name. Then click the 'Reload' button in the Game Menu.</li>
+              <li>Alternatively, copy the filter text using the 'Copy to Clipboard' button, directly in your filter file in the PoE2 directory. You'll still need to click the 'Reload' button in the Game Menu.</li>
+              <li>The game will tell you when the filter was loaded correctly (or if it encountered a parsing error).</li>
+              <li>This website will store your filter in the browser. However, note that upon a new version of the website, the filter might get cleared!</li>
+            </ol>
+
+            <p>
+              For more information and a thorough guide on the Path Of Exile and Path Of Exile 2 Item Filters,
+              check out the <a href="https://www.pathofexile.com/item-filter/about" target="_blank">official page</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="results block">
+        <div class="row row-total row-justify-content-left display-block">
+          <div class="info">
+            <h2 class="info-title bigger text-align-center">Feedback & support</h2>
+            <p class="text-align-center">
+              <strong>Feedback and bugreports</strong> are welcome at the <strong><a href="https://www.pathofexile.com/forum/view-thread/3630063" target="_blank">PoE Forum Thread</a></strong>.
+              You'll also find the the <strong>release notes</strong> there. If you'd prefer to have a chat, come join me on <strong><a href="https://discord.gg/JbaMnwngvq" target="_blank">Discord</a></strong>!
+            </p>
+            <p class="text-align-center">
+              You can find the <strong>source code</strong> on <strong><a href="https://github.com/vincentsels/poe2filter" target="_blank">GitHub</a></strong>.
+            </p>
+            <p class="text-align-center">
+              I'm making and updating this website in my spare time. You can <strong>support</strong> me by <strong><a href="https://buymeacoffee.com/poe2filter" target="_blank">buying me a coffee</a></strong>!
+              But more importantly, if you like this filter & website, don't forget to <strong>spread the word</strong>!
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="results block last-block">
+        <div class="row row-total row-justify-content-left display-block">
+          <div class="info">
+            <h2 class="info-title bigger text-align-center">What People Are Saying</h2>
+            <div class="praises">
+              <div class="praise">
+                <span class="praise-text">
+                  This is awesome! I love the more default/stylized look of the filter, and it was so easy to set up. It really feels like it was developed by GGG. 10/10 keep up the good work and I can't wait to see more updates :)
+                </span>
+                <div class="author">OriginalPhee</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Cool filter, i've rolled with the default output you provided on the website and it's very sweet. Thanks!
+                </span>
+                <div class="author">zelme95</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  I love the filter. It was so simple to customize, it felt like this should be how the in-game loot filter should feel like.
+                </span>
+                <div class="author">Celd</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Heya, thanks for your site/tool! It's been handy to help me start with a clean slate for my characters, then tweak some values as I figure out what loot I want to pay attention to.
+                </span>
+                <div class="author">dreamsequel</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Looks good so far. I'll probably use this until release, at least, when there's more data for an autoscaling filter. Thank you for the effort!
+                </span>
+                <div class="author">UnDeaD_CyBorG</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Hey, this looks amazing. As soon as I have time to play I'm going to try to create a lootfilter. Thanks for your work!
+                </span>
+                <div class="author">Thoriorx</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Dude, this is super cool stuff. With your filter generator i can quickly make ssf filters for my characters.
+                </span>
+                <div class="author">the_longest_cat</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Really good filter and simple to customize, thanks a lot for the awesome tool.
+                </span>
+                <div class="author">Maygriev</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  If it works, as I'm expecting, great job! looking forward to trying it tomorrow.
+                </span>
+                <div class="author">Luigi_4477</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Just got to maps and excited to try this out tomorrow. Thanks!
+                </span>
+                <div class="author">cantonian23</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  This is amazing, thank you! I really wish they let you make the filter in game...
+                </span>
+                <div class="author">DualDier</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Nice filter and editor, I appreciate the clean default look.
+                </span>
+                <div class="author">Kazang</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Fantastic work so far. Thank you!
+                </span>
+                <div class="author">M3tamorph</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  The Dynamic Map Filter works great.
+                </span>
+                <div class="author">arkon9944</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Loving site layout. Looks so good.
+                </span>
+                <div class="author">InvictaVultis</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Thanks so much for this, working great.
+                </span>
+                <div class="author">Mysickduck1</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  This is awesome, many thanks!
+                </span>
+                <div class="author">Quakespeare</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Awesome work OP !
+                </span>
+                <div class="author">Haunting-Gift-8289</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Awesome tool, exactly what i was looking for.
+                </span>
+                <div class="author">medicindisguise</div>
+              </div>
+              <div class="praise">
+                <span class="praise-text">
+                  Hype! Big thanks!
+                </span>
+                <div class="author">PARAS0706</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <span class="copyright">
+          This website is in no way affeliated with GGG.
+        </span>
+        <br>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

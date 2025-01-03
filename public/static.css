@@ -1,0 +1,189 @@
+.block {
+  min-height: unset;
+  position: relative;
+  max-width: 1520px;
+  margin: 0 auto 12px;
+}
+
+.row-justify-content-left {
+  justify-content: left !important;
+}
+
+.last-block {
+  margin-bottom: 60px;
+}
+
+.info {
+  padding: 8px 16px;
+}
+
+.info .close-info-btn {
+  position: absolute;
+  right: 16px;
+  top: 8px;
+  cursor: pointer;
+  opacity: 0.6;
+  font-weight: bold;
+}
+
+.info .close-info-btn:hover {
+  opacity: 1;
+}
+
+.info-title {
+  margin-bottom: 6px;
+}
+
+.info-title.bigger {
+  font-size: 150%;
+  margin-bottom: 12px;
+}
+
+#trade {
+  margin-bottom: 12px;
+}
+
+.results .row,
+.results #trade .search-bar,
+#trade .results .search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  margin: 0;
+  opacity: 1;
+  background-color: rgba(10, 10, 10, 0.8);
+  position: relative;
+  transition: opacity 0.5s;
+}
+
+.results .row h2,
+.results #trade .search-bar h2,
+#trade .results .search-bar h2,
+.results .row h3,
+.results #trade .search-bar h3,
+#trade .results .search-bar h3 {
+  color: #e2e2e2;
+  font-family: "FontinSmallcaps", sans-serif;
+  font-weight: normal;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.examples,
+.principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .examples,
+  .principles {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.example,
+.principle {
+  flex: 1 1 calc(33.333% - 1rem);
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+@media (max-width: 767px) {
+  .example,
+  .principle {
+    flex: 1 1 100%;
+  }
+}
+
+.example img {
+  border: 1px solid #bb9e7469;
+  max-width: 100%;
+  height: auto;
+}
+
+.example p {
+  margin-top: 0.5rem;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.praises {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-direction: row;
+}
+
+@media (min-width: 768px) {
+  .praises {
+    justify-content: space-between;
+  }
+}
+
+.praise {
+  flex: 1 1 calc(20% - 1rem);
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.praise .praise-text {
+  position: relative;
+  display: inline-block;
+}
+
+.praise .author {
+  color: #e2e2e2;
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+.praise .author::before {
+  content: ' — ';
+  margin-left: 8px;
+}
+
+@media (max-width: 767px) {
+  .praise {
+    flex: 1 1 calc(50% - 1rem);
+    text-align: center;
+  }
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.filter-double-padded-right {
+  padding-right: 85px;
+}
+
+.filter-label {
+  border-left: none !important;
+  text-align: right !important;
+  width: unset !important;
+}
+
+@media (max-width: 767px) {
+  .hide-on-md {
+    display: none;
+  }
+}
+
+.show-on-md {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .show-on-md {
+    display: unset;
+  }
+}
