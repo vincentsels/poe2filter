@@ -1,3 +1,7 @@
+.wrapper {
+  position: unset !important;
+}
+
 .logo {
   margin-top: 20px;
 }
