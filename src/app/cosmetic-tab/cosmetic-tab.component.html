@@ -27,7 +27,7 @@
           </span>
           <span class="filter-body">
             <div class="filter-title">
-              Play Top-Tier Currency Alert Sounds
+              Play Alert Sounds
             </div>
           </span>
         </div>
@@ -38,7 +38,7 @@
           </span>
           <span class="filter-body">
             <div class="filter-title">
-              Increased Top-Tier Currency Label Size
+              Increased Label Size
             </div>
           </span>
         </div>
@@ -56,8 +56,8 @@
         <div class="filter">
           <span class="filter-body">
             <span class="filter-title">
-              Bare Bone Mode
-              <div class="filter-tip"><p>These settings allow you to remove all styles completely. You can also use them if you want to style everything from scratch.</p></div>
+              Disable Default Tiered Highlights
+              <div class="filter-tip"><p>These settings allow you to remove all default Tierd Highlight styles (beams and minimap icons) completely.<br /><br />You can also use this if you want to style everything from scratch.</p></div>
             </span>
           </span>
         </div>
@@ -70,7 +70,7 @@
           </span>
           <span class="filter-body">
             <div class="filter-title">
-              Disable all Highlights
+              Disable Tiered Beams
             </div>
           </span>
         </div>
@@ -80,7 +80,7 @@
             <button class="btn toggle-btn" [class.off]="!filter.cosmeticRemoveAllMinimapIcons" (click)="toggleCosmeticRemoveAllMinimapIcons()"></button>
           </span>
           <div class="filter-title">
-            Disable all Minimap Icons
+            Disable Tiered Minimap Icons
             </div>
         </div>
 
@@ -97,6 +97,7 @@
           <span class="filter-body">
             <span class="filter-title">
               Custom Cosmetic Rules
+              <div class="filter-tip"><p>The checkbox at the end of each row determines whether the game will continue processing rules further down; e.g. add a Tiered Beam and Minimap Icon. Disable this only if you add your own beam and icon.</p></div>
             </span>
           </span>
         </div>
@@ -161,6 +162,9 @@
               (click)="rule.cosmeticOptions!.playEffect = !rule.cosmeticOptions!.playEffect; updateFilter();">
               Beam
             </button>
+          </span>
+          <span class="input-group-btn" title="Continue">
+            <button class="btn toggle-btn" [class.off]="!rule.continue" (click)="rule.continue = !rule.continue; updateFilter();"></button>
           </span>
           <span class="input-group-btn">
             <button class="btn remove-btn" (click)="removeCustomCosmeticRule($index)"></button>
