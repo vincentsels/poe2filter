@@ -1038,6 +1038,18 @@ export const itemData = [
     ]
   },
   {
+    "itemType": "Tablets",
+    "itemClass": "Tablet",
+    "currencySearchName": "Tablet",
+    "baseTypes": [
+      "Breach Precursor Tablet",
+      "Expedition Precursor Tablet",
+      "Delirium Precursor Tablet",
+      "Ritual Precursor Tablet",
+      "Precursor Tablet"
+    ]
+  },
+  {
     "itemType": "Two Hand Maces",
     "itemClass": "Two Hand Maces",
     "currencySearchName": "Two Hand Mace",
